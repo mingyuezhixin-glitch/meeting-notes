@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>零基础美股投资学习手册 · 12 周入门计划</title>
+<style>
+  :root {
+    --blue: #1f5fa8;
+    --blue-bg: #eef4fb;
+    --red: #b0442f;
+    --red-bg: #fdf0ee;
+    --green: #2e8b57;
+    --green-bg: #eaf5ef;
+    --gold: #8a6400;
+    --gold-bg: #fff8e6;
+    --ink: #1a1a1a;
+    --text: #444444;
+    --muted: #888888;
+    --line: #e0e0e0;
+    --bg: #f7f8fa;
+    --card: #ffffff;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: -apple-system, "PingFang SC", "Microsoft YaHei", "Segoe UI", sans-serif;
+    background: var(--bg);
+    color: var(--ink);
+    line-height: 1.75;
+  }
+  /* ---- hero ---- */
+  .hero {
+    background: linear-gradient(135deg, #14263f 0%, #1f5fa8 60%, #2e7bb8 100%);
+    color: #fff;
+    padding: 56px 24px 48px;
+    text-align: center;
+  }
+  .hero h1 { font-size: 32px; font-weight: 800; letter-spacing: 1px; }
+  .hero .sub { margin-top: 12px; font-size: 15px; opacity: .85; }
+  .hero .meta { margin-top: 18px; font-size: 12px; opacity: .6; }
+  .hero .principles { margin-top: 20px; display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; }
+  .hero .principles span {
+    background: rgba(255,255,255,.14); border: 1px solid rgba(255,255,255,.25);
+    padding: 4px 14px; border-radius: 999px; font-size: 12.5px;
+  }
+  /* ---- layout ---- */
+  .wrap { max-width: 880px; margin: 0 auto; padding: 32px 20px 80px; }
+  .toc {
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    padding: 20px 24px;
+    margin-bottom: 36px;
+  }
+  .toc h2 { font-size: 15px; color: var(--muted); margin-bottom: 10px; font-weight: 600; }
+  .toc ol { padding-left: 22px; }
+  .toc li { margin: 4px 0; font-size: 14px; }
+  .toc a { color: var(--blue); text-decoration: none; }
+  .toc a:hover { text-decoration: underline; }
+  /* ---- chapter ---- */
+  .chapter { margin-bottom: 48px; }
+  .ch-head {
+    display: flex; align-items: center; gap: 12px;
+    margin-bottom: 20px; padding-bottom: 12px; border-bottom: 2px solid var(--ink);
+  }
+  .ch-num {
+    background: var(--ink); color: #fff; font-size: 13px; font-weight: 700;
+    padding: 4px 10px; border-radius: 6px; white-space: nowrap;
+  }
+  .ch-week { font-size: 12px; color: var(--muted); font-weight: 600; }
+  .ch-title { font-size: 22px; font-weight: 800; }
+  .card {
+    background: var(--card); border: 1px solid var(--line); border-radius: 12px;
+    padding: 22px 24px; margin-bottom: 16px;
+  }
+  .card h3 { font-size: 16px; margin-bottom: 10px; }
+  .card p { font-size: 14px; color: var(--text); margin: 8px 0; }
+  .card ul, .card ol { font-size: 14px; color: var(--text); padding-left: 22px; }
+  .card li { margin: 4px 0; }
+  .goal-box {
+    background: var(--blue-bg); border-left: 4px solid var(--blue);
+    border-radius: 8px; padding: 12px 16px; margin-bottom: 14px; font-size: 14px;
+  }
+  .goal-box b { color: var(--blue); }
+  .how-box {
+    background: #f5f5f5; border-left: 4px solid #aaa;
+    border-radius: 8px; padding: 12px 16px; margin-bottom: 14px;
+  }
+  .how-box .t { font-weight: 700; font-size: 14px; margin-bottom: 6px; }
+  .how-box ol { font-size: 13.5px; color: var(--text); padding-left: 20px; }
+  /* ---- checklist ---- */
+  .checks { list-style: none; padding: 0 !important; }
+  .checks li {
+    position: relative; padding-left: 30px; margin: 6px 0; font-size: 13.5px; color: var(--text);
+  }
+  .checks li::before {
+    content: "☐"; position: absolute; left: 0; top: 0;
+    font-size: 17px; color: var(--blue); line-height: 1.4;
+  }
+  /* ---- table ---- */
+  table { width: 100%; border-collapse: collapse; font-size: 13.5px; margin: 10px 0; }
+  th { background: #f0f3f7; text-align: left; padding: 8px 10px; font-weight: 600; border: 1px solid var(--line); }
+  td { padding: 8px 10px; border: 1px solid var(--line); color: var(--text); vertical-align: top; }
+  tr:nth-child(even) td { background: #fafbfc; }
+  .tag { display: inline-block; font-size: 11px; font-weight: 700; padding: 1px 8px; border-radius: 999px; }
+  .tag.blue { background: var(--blue-bg); color: var(--blue); }
+  /* ---- callout ---- */
+  .callout { border-radius: 10px; padding: 14px 18px; margin: 14px 0; font-size: 14px; }
+  .callout.gold { background: var(--gold-bg); border-left: 4px solid #d9a400; }
+  .callout.gold b { color: var(--gold); }
+  /* ---- plan table (day by day) ---- */
+  .plan td:first-child { font-weight: 700; color: var(--ink); white-space: nowrap; }
+  .plan .dur { text-align: center; font-weight: 600; color: var(--blue); white-space: nowrap; }
+  /* ---- resources ---- */
+  .res-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 14px; }
+  @media (max-width: 640px) { .res-grid { grid-template-columns: 1fr; } }
+  .res-card { background: var(--card); border: 1px solid var(--line); border-radius: 12px; padding: 16px 18px; }
+  .res-card .t { font-size: 14px; font-weight: 700; margin-bottom: 8px; }
+  .res-card ul { font-size: 13px; color: var(--text); padding-left: 18px; }
+  .res-card li { margin: 4px 0; }
+  /* ---- mind cards ---- */
+  .mind-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+  @media (max-width: 640px) { .mind-grid { grid-template-columns: 1fr; } }
+  .mind-card {
+    background: var(--card); border: 1px solid var(--line); border-radius: 12px; padding: 16px 18px;
+  }
+  .mind-card .n {
+    display: inline-flex; align-items: center; justify-content: center;
+    width: 26px; height: 26px; border-radius: 50%;
+    background: var(--ink); color: #fff; font-size: 13px; font-weight: 700; margin-bottom: 8px;
+  }
+  .mind-card p { font-size: 13px; color: var(--text); }
+  /* ---- disclaimer ---- */
+  .disclaimer {
+    margin-top: 48px; background: #fff; border: 1px dashed #ccc; border-radius: 12px;
+    padding: 18px 22px; font-size: 12.5px; color: var(--muted);
+  }
+  .footer { text-align: center; font-size: 12px; color: var(--muted); margin-top: 32px; }
+  @media print {
+    body { background: #fff; }
+    .hero { -webkit-print-color-adjust: exact; }
+  }
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <h1>零基础美股投资学习手册</h1>
+  <div class="sub">12 周从零入门：看懂财联社快讯、理解纳指定投逻辑、独立做买入决策</div>
+  <div class="principles">
+    <span>不背概念，在场景里学</span>
+    <span>不求全，求能用</span>
+    <span>前 10 周纸上谈兵，第 11 周碰真钱</span>
+  </div>
+  <div class="meta">HTML 整理版 · 2026-08-31</div>
+</div>
+
+<div class="wrap">
+
+  <!-- ======================= 目录 ======================= -->
+  <div class="toc">
+    <h2>目录</h2>
+    <ol>
+      <li><a href="#stage1">阶段 1：概念入门（第 1-2 周）</a></li>
+      <li><a href="#stage2">阶段 2：市场机制（第 3-4 周）</a></li>
+      <li><a href="#stage3">阶段 3：宏观基础（第 5-7 周）</a></li>
+      <li><a href="#stage4">阶段 4：读新闻（第 8-10 周）</a></li>
+      <li><a href="#stage5">阶段 5：实战阅读（第 11-12 周）</a></li>
+      <li><a href="#week1">第一周行动清单（具体到天）</a></li>
+      <li><a href="#resources">推荐学习资源</a></li>
+      <li><a href="#mindset">学习心法</a></li>
+    </ol>
+  </div>
+
+  <!-- ======================= 阶段 1 ======================= -->
+  <div class="chapter" id="stage1">
+    <div class="ch-head"><span class="ch-num">01</span><span class="ch-title">概念入门</span><span class="ch-week">第 1-2 周</span></div>
+
+    <div class="goal-box"><b>目标：</b>搞懂 10 个核心名词，看到「纳指 100 ETF QDII 场外基金」这种词不发懵。</div>
+
+    <div class="how-box">
+      <div class="t">怎么学</div>
+      <ol>
+        <li>打开 B 站搜索「美股 ETF 入门」「指数基金是什么」，挑播放量 10 万+、时长 10 分钟以内的看 2-3 个</li>
+        <li>边看边记名词，不懂的词立刻搜一下</li>
+        <li>在富途/老虎 APP 里找一个纳指 100 ETF（如 513100 或 QQQ），看看它的页面长什么样</li>
+      </ol>
+    </div>
+
+    <div class="card">
+      <h3>学会了的标准（自测）</h3>
+      <ul class="checks">
+        <li>能用一句话解释「纳指 100 是什么」</li>
+        <li>知道「场外基金」和「场内基金」的区别</li>
+        <li>知道 QDII 是干嘛的</li>
+        <li>知道「期货」和「现货」的大致区别</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h3>核心名词速查</h3>
+      <table>
+        <tr><th>术语</th><th>人话解释</th></tr>
+        <tr><td><b>股票</b></td><td>一家公司把所有权切成小块卖，你买一块就是股东</td></tr>
+        <tr><td><b>指数</b></td><td>一堆股票打包算个平均分，用来看整体涨跌</td></tr>
+        <tr><td><b>纳指 100 (NASDAQ 100)</b></td><td>美国纳斯达克交易所最大的 100 家非金融公司，以科技为主</td></tr>
+        <tr><td><b>ETF</b></td><td>像股票一样买卖的基金，买一个等于买了一篮子股票</td></tr>
+        <tr><td><b>场内基金</b></td><td>在交易所买卖的基金，需要有股票账户，价格实时变动</td></tr>
+        <tr><td><b>场外基金</b></td><td>在基金公司/支付宝/银行买卖的基金，每天按收盘价算一次</td></tr>
+        <tr><td><b>QDII</b></td><td>合格境内机构投资者，就是国内基金拿你的钱去买海外资产的牌照</td></tr>
+        <tr><td><b>期货</b></td><td>约定未来某个时间以某个价格买卖的合约，用来预判方向</td></tr>
+        <tr><td><b>现货</b></td><td>现在就买卖成交的（股市就是现货）</td></tr>
+        <tr><td><b>净值</b></td><td>基金一份值多少钱</td></tr>
+        <tr><td><b>份额</b></td><td>你持有多少份基金</td></tr>
+        <tr><td><b>定投</b></td><td>定期定额买入，不管涨跌都买固定金额</td></tr>
+      </table>
+    </div>
+  </div>
+
+  <!-- ======================= 阶段 2 ======================= -->
+  <div class="chapter" id="stage2">
+    <div class="ch-head"><span class="ch-num">02</span><span class="ch-title">市场机制</span><span class="ch-week">第 3-4 周</span></div>
+
+    <div class="goal-box"><b>目标：</b>知道美股什么时候开市、什么时候该看行情、纳指 100 里都是些什么公司。</div>
+
+    <div class="how-box">
+      <div class="t">怎么学</div>
+      <ol>
+        <li>在富途/老虎 APP 打开纳指 100 成分股列表，花 30 分钟浏览前 20 大权重股（苹果、微软、英伟达、亚马逊、Meta、谷歌…）</li>
+        <li>每天晚上 9:25 打开 APP 看一次盘前数据，感受一下盘前波动</li>
+        <li>搜索「美股熔断机制」「美股交易时间」科普文章各读一篇</li>
+      </ol>
+    </div>
+
+    <div class="card">
+      <h3>学会了的标准（自测）</h3>
+      <ul class="checks">
+        <li>知道美股交易时间（北京时间夏令时 21:30-次日 4:00，冬令时 22:30-次日 5:00）</li>
+        <li>知道什么是「盘前」和「盘后」交易</li>
+        <li>能说出纳指 100 前 5 大成分股</li>
+        <li>大致知道熔断是什么（跌太多暂停交易）</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h3>纳指 100 核心 10 家（先认识这些就够）</h3>
+      <table>
+        <tr><th>公司</th><th>代码</th><th>干什么的</th><th>权重（约）</th></tr>
+        <tr><td>苹果</td><td>AAPL</td><td>手机+电脑+服务</td><td>~8%</td></tr>
+        <tr><td>微软</td><td>MSFT</td><td>操作系统+云+AI</td><td>~8%</td></tr>
+        <tr><td>英伟达</td><td>NVDA</td><td>AI 芯片（GPU）</td><td>~7%</td></tr>
+        <tr><td>亚马逊</td><td>AMZN</td><td>电商+云计算</td><td>~5%</td></tr>
+        <tr><td>Meta</td><td>META</td><td>Facebook+Instagram</td><td>~4%</td></tr>
+        <tr><td>谷歌</td><td>GOOGL</td><td>搜索+广告+AI</td><td>~4%</td></tr>
+        <tr><td>博通</td><td>AVGO</td><td>半导体+软件</td><td>~4%</td></tr>
+        <tr><td>特斯拉</td><td>TSLA</td><td>电动车</td><td>~3%</td></tr>
+        <tr><td>开市客</td><td>COST</td><td>会员制超市</td><td>~3%</td></tr>
+        <tr><td>奈飞</td><td>NFLX</td><td>流媒体</td><td>~2%</td></tr>
+      </table>
+      <div class="callout gold"><b>记住：</b>这 10 家加起来占纳指 100 约 48%。所以理解了它们，就理解了半个纳指。</div>
+    </div>
+  </div>
+
+  <!-- ======================= 阶段 3 ======================= -->
+  <div class="chapter" id="stage3">
+    <div class="ch-head"><span class="ch-num">03</span><span class="ch-title">宏观基础</span><span class="ch-week">第 5-7 周</span></div>
+
+    <div class="goal-box"><b>目标：</b>看到「美联储降息 25 个基点」这种新闻，能理解它对纳指意味着什么。</div>
+
+    <div class="how-box">
+      <div class="t">怎么学</div>
+      <ol>
+        <li>B 站搜索「美联储降息对股市的影响」「CPI 是什么」各看 1 个视频</li>
+        <li>在华尔街见闻 APP 里找「经济日历」功能，看看本周有哪些数据发布</li>
+        <li>每次重大数据发布后（如非农、CPI），去财联社看一篇解读文章</li>
+      </ol>
+    </div>
+
+    <div class="card">
+      <h3>学会了的标准（自测）</h3>
+      <ul class="checks">
+        <li>知道美联储是什么、主席是谁</li>
+        <li>知道「降息」为什么利好股市（借钱成本低 → 公司利润高 → 股价涨）</li>
+        <li>知道 CPI 是什么，CPI 太高会怎样</li>
+        <li>知道汇率波动怎么影响你的 QDII 基金收益</li>
+        <li>能在经济日历上找到下一次利率决议的时间</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h3>宏观术语速查</h3>
+      <table>
+        <tr><th>术语</th><th>人话解释</th></tr>
+        <tr><td><b>美联储 (Fed)</b></td><td>美国的央行，管印钱和利率</td></tr>
+        <tr><td><b>基点 (bps)</b></td><td>1% = 100 基点。降息 25 基点 = 降 0.25%</td></tr>
+        <tr><td><b>联邦基金利率</b></td><td>美联储定的基准利率，银行之间借钱的利率</td></tr>
+        <tr><td><b>CPI</b></td><td>消费者物价指数，衡量通胀的指标。CPI 涨 = 物价涨</td></tr>
+        <tr><td><b>非农就业数据</b></td><td>每月公布的就业人数变化，反映经济强弱</td></tr>
+        <tr><td><b>量化宽松 (QE)</b></td><td>央行印钱买债券，往市场注水</td></tr>
+        <tr><td><b>缩表 (QT)</b></td><td>QE 的反向操作，收回市场里的钱</td></tr>
+        <tr><td><b>美元指数 (DXY)</b></td><td>美元相对一篮子货币的强弱</td></tr>
+        <tr><td><b>避险情绪</b></td><td>市场恐慌时，资金从股市跑到黄金/国债等安全资产</td></tr>
+        <tr><td><b>鹰派</b></td><td>主张加息控制通胀的立场</td></tr>
+        <tr><td><b>鸽派</b></td><td>主张降息刺激经济的立场</td></tr>
+      </table>
+    </div>
+  </div>
+
+  <!-- ======================= 阶段 4 ======================= -->
+  <div class="chapter" id="stage4">
+    <div class="ch-head"><span class="ch-num">04</span><span class="ch-title">读新闻</span><span class="ch-week">第 8-10 周</span></div>
+
+    <div class="goal-box"><b>目标：</b>打开财联社/华尔街见闻，能看懂 80% 的快讯内容，知道哪些信息重要、哪些是噪音。</div>
+
+    <div class="how-box">
+      <div class="t">怎么学</div>
+      <ol>
+        <li><b>每天花 15 分钟</b>浏览财联社电报，遇到不懂的词就记下来</li>
+        <li><b>每周精读 1 篇</b>雪球上的深度分析文章（推荐陈达美股投资）</li>
+        <li>把不懂的词整理成自己的术语表</li>
+        <li>开始练习「分清事实和观点」：看到一条新闻，问自己「这是数据还是判断？」</li>
+      </ol>
+    </div>
+
+    <div class="card">
+      <h3>学会了的标准（自测）</h3>
+      <ul class="checks">
+        <li>看到一条快讯，能判断它对纳指是利好还是利空（或者无关）</li>
+        <li>能区分「营收」「利润」「指引」三个财报核心概念</li>
+        <li>知道「财报季」是什么，为什么那段时间波动大</li>
+        <li>建立了自己的术语表（至少 30 个词）</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h3>新闻常见术语速查</h3>
+      <table>
+        <tr><th>术语</th><th>人话解释</th></tr>
+        <tr><td><b>利好</b></td><td>消息让股价可能涨</td></tr>
+        <tr><td><b>利空</b></td><td>消息让股价可能跌</td></tr>
+        <tr><td><b>支撑位</b></td><td>价格跌到这里可能有买盘托住</td></tr>
+        <tr><td><b>压力位</b></td><td>价格涨到这里可能有卖盘压住</td></tr>
+        <tr><td><b>缩量</b></td><td>交易量比平时少，说明大家观望</td></tr>
+        <tr><td><b>放量</b></td><td>交易量比平时大，说明有大资金进出</td></tr>
+        <tr><td><b>回调</b></td><td>涨多了之后往下跌一点，正常现象</td></tr>
+        <tr><td><b>反弹</b></td><td>跌多了之后往上涨一点</td></tr>
+        <tr><td><b>财报季</b></td><td>每季度公司集中发业绩报告的几周</td></tr>
+        <tr><td><b>EPS</b></td><td>每股收益，公司利润除以总股数</td></tr>
+        <tr><td><b>指引 (Guidance)</b></td><td>公司对未来业绩的预测，比过去数据更重要</td></tr>
+        <tr><td><b>超预期</b></td><td>实际数据比分析师预测的好</td></tr>
+        <tr><td><b>不及预期</b></td><td>实际数据比分析师预测的差</td></tr>
+        <tr><td><b>市盈率 (PE)</b></td><td>股价 ÷ 每股收益。20 倍 = 你花 20 元买 1 元的利润</td></tr>
+        <tr><td><b>抄底</b></td><td>在低价时买入</td></tr>
+        <tr><td><b>减仓</b></td><td>卖掉一部分持有</td></tr>
+        <tr><td><b>做多</b></td><td>买入等涨赚钱</td></tr>
+        <tr><td><b>做空</b></td><td>借股票先卖掉，跌了再买回来赚差价</td></tr>
+      </table>
+    </div>
+  </div>
+
+  <!-- ======================= 阶段 5 ======================= -->
+  <div class="chapter" id="stage5">
+    <div class="ch-head"><span class="ch-num">05</span><span class="ch-title">实战阅读</span><span class="ch-week">第 11-12 周</span></div>
+
+    <div class="goal-box"><b>目标：</b>搭起自己的信息流，开始小额实盘跑通全流程。</div>
+
+    <div class="how-box">
+      <div class="t">怎么学</div>
+      <ol>
+        <li>下载并设置好 4 个 APP 的推送：富途/老虎（行情）+ 财联社（快讯）+ 华尔街见闻（宏观）+ 雪球（深度内容）</li>
+        <li>用 50 元买一笔纳指 100 场外基金，走完「下单 → 确认 → 到账」全流程</li>
+        <li>每天花 15 分钟扫一遍信息流，练习判断「今天该买哪一档」</li>
+        <li>开始关注 1-2 个国内政策信源，理解中美政策的传导关系</li>
+      </ol>
+    </div>
+
+    <div class="card">
+      <h3>学会了的标准（自测）</h3>
+      <ul class="checks">
+        <li>能独立完成一笔基金买入操作</li>
+        <li>能根据纳指期货涨跌判断「今天买多还是买少」</li>
+        <li>看到一条国内政策新闻，能大致判断对美股有无影响</li>
+        <li>有了自己的信息消费节奏（不是被动刷，而是主动看）</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- ======================= 第一周行动清单 ======================= -->
+  <div class="chapter" id="week1">
+    <div class="ch-head"><span class="ch-num">06</span><span class="ch-title">第一周行动清单</span><span class="ch-week">具体到天</span></div>
+    <div class="card">
+      <table class="plan">
+        <tr><th>天</th><th>做什么</th><th>花多久</th></tr>
+        <tr><td>Day 1</td><td>B 站搜「什么是股票」「什么是指数基金」，各看 1 个 10 分钟视频</td><td class="dur">25 分钟</td></tr>
+        <tr><td>Day 2</td><td>B 站搜「ETF 是什么」「纳指 100 是什么」，各看 1 个</td><td class="dur">25 分钟</td></tr>
+        <tr><td>Day 3</td><td>下载富途或老虎 APP，注册并找到纳指 100 ETF 页面</td><td class="dur">20 分钟</td></tr>
+        <tr><td>Day 4</td><td>搜索「场内基金 vs 场外基金区别」，读 1 篇文章</td><td class="dur">20 分钟</td></tr>
+        <tr><td>Day 5</td><td>搜索「QDII 是什么」，读 1 篇文章</td><td class="dur">15 分钟</td></tr>
+        <tr><td>Day 6</td><td>搜索「期货和现货的区别」，读 1 篇文章</td><td class="dur">15 分钟</td></tr>
+        <tr><td>Day 7</td><td>回顾本周术语表，用自己的话把每个词解释一遍</td><td class="dur">20 分钟</td></tr>
+      </table>
+      <div class="callout gold"><b>节奏提示：</b>第一周每天只花 15-25 分钟，门槛低到不可能坚持不下来——关键是先跑起来。</div>
+    </div>
+  </div>
+
+  <!-- ======================= 推荐资源 ======================= -->
+  <div class="chapter" id="resources">
+    <div class="ch-head"><span class="ch-num">07</span><span class="ch-title">推荐学习资源</span><span class="ch-week">免费为主</span></div>
+    <div class="res-grid">
+      <div class="res-card">
+        <div class="t">📺 视频平台</div>
+        <ul>
+          <li><b>B 站</b>：搜「美股入门」「指数基金」「ETF 教学」，挑播放量高的看</li>
+          <li><b>YouTube</b>：搜「美股投资入门」（中文内容质量也很高）</li>
+        </ul>
+      </div>
+      <div class="res-card">
+        <div class="t">📚 入门书籍（选 1 本就够）</div>
+        <ul>
+          <li>《指数基金投资指南》— 银行螺丝钉 — 最适合中国投资者的入门书</li>
+          <li>《漫步华尔街》— 经典中的经典，理解市场为什么很难预测</li>
+        </ul>
+      </div>
+      <div class="res-card">
+        <div class="t">📰 日常信息源（阶段 4 之后）</div>
+        <ul>
+          <li><b>财联社</b> APP（快讯）</li>
+          <li><b>华尔街见闻</b> APP（宏观深度）</li>
+          <li><b>雪球</b> APP（关注陈达美股投资等博主）</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- ======================= 学习心法 ======================= -->
+  <div class="chapter" id="mindset">
+    <div class="ch-head"><span class="ch-num">08</span><span class="ch-title">学习心法</span></div>
+    <div class="mind-grid">
+      <div class="mind-card"><span class="n">1</span><p><b>别贪多</b>：一次搞懂一个概念，比一次看十个都记不住强。</p></div>
+      <div class="mind-card"><span class="n">2</span><p><b>别怕问</b>：看到不懂的词，搜一下 + 问 AI，5 秒就能解决。</p></div>
+      <div class="mind-card"><span class="n">3</span><p><b>别急着实盘</b>：前 10 周全是「纸上谈兵」，第 11 周才碰真钱。</p></div>
+      <div class="mind-card"><span class="n">4</span><p><b>别信「内部消息」</b>：真有稳赚的消息，没人会免费告诉你。</p></div>
+      <div class="mind-card"><span class="n">5</span><p><b>记录自己的学习</b>：建一个笔记文件，每周记 3 条「这周学到了什么」。</p></div>
+      <div class="mind-card"><span class="n">6</span><p><b>接受模糊</b>：很多概念一开始只能理解 70%，够了。在实战中会越来越清晰。</p></div>
+    </div>
+  </div>
+
+  <!-- ======================= 免责声明 ======================= -->
+  <div class="disclaimer">
+    <b>免责声明：</b>本文档为投资学习资料整理，仅供参考，不构成投资建议。市场有风险，投资需谨慎。任何投资决策应结合个人风险承受能力、资金状况和投资目标独立判断，必要时咨询持牌专业机构。过往表现不预示未来收益。
+  </div>
+  <div class="footer">零基础美股投资学习手册 · HTML 整理版 · 2026-08-31</div>
+
+</div>
+</body>
+</html>
