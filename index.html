@@ -1,0 +1,687 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>美债投资入门手册 · 从概念到实操</title>
+<style>
+  :root {
+    --blue: #1f5fa8;
+    --blue-bg: #eef4fb;
+    --red: #b0442f;
+    --red-bg: #fdf0ee;
+    --purple: #7a5ea8;
+    --green: #2e8b57;
+    --gold: #8a6400;
+    --gold-bg: #fff8e6;
+    --ink: #1a1a1a;
+    --text: #444444;
+    --muted: #888888;
+    --line: #e0e0e0;
+    --bg: #f7f8fa;
+    --card: #ffffff;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: -apple-system, "PingFang SC", "Microsoft YaHei", "Segoe UI", sans-serif;
+    background: var(--bg);
+    color: var(--ink);
+    line-height: 1.75;
+  }
+  /* ---- hero ---- */
+  .hero {
+    background: linear-gradient(135deg, #14263f 0%, #1f5fa8 60%, #2e7bb8 100%);
+    color: #fff;
+    padding: 56px 24px 48px;
+    text-align: center;
+  }
+  .hero h1 { font-size: 32px; font-weight: 800; letter-spacing: 1px; }
+  .hero .sub { margin-top: 12px; font-size: 15px; opacity: .85; }
+  .hero .meta { margin-top: 18px; font-size: 12px; opacity: .6; }
+  /* ---- layout ---- */
+  .wrap { max-width: 880px; margin: 0 auto; padding: 32px 20px 80px; }
+  .toc {
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    padding: 20px 24px;
+    margin-bottom: 36px;
+  }
+  .toc h2 { font-size: 15px; color: var(--muted); margin-bottom: 10px; font-weight: 600; }
+  .toc ol { padding-left: 22px; }
+  .toc li { margin: 4px 0; font-size: 14px; }
+  .toc a { color: var(--blue); text-decoration: none; }
+  .toc a:hover { text-decoration: underline; }
+  /* ---- chapter ---- */
+  .chapter { margin-bottom: 48px; }
+  .ch-head {
+    display: flex; align-items: center; gap: 12px;
+    margin-bottom: 20px; padding-bottom: 12px; border-bottom: 2px solid var(--ink);
+  }
+  .ch-num {
+    background: var(--ink); color: #fff; font-size: 13px; font-weight: 700;
+    padding: 4px 10px; border-radius: 6px; white-space: nowrap;
+  }
+  .ch-title { font-size: 22px; font-weight: 800; }
+  .card {
+    background: var(--card); border: 1px solid var(--line); border-radius: 12px;
+    padding: 22px 24px; margin-bottom: 16px;
+  }
+  .card h3 { font-size: 16px; margin-bottom: 10px; }
+  .card p { font-size: 14px; color: var(--text); margin: 8px 0; }
+  .card ul, .card ol { font-size: 14px; color: var(--text); padding-left: 22px; }
+  .card li { margin: 4px 0; }
+  .card .strong { font-weight: 600; color: var(--ink); }
+  .svg-box { max-width: 720px; margin: 8px auto; }
+  .svg-box svg { width: 100%; height: auto; display: block; }
+  .fig-caption { text-align: center; font-size: 12px; color: var(--muted); margin: 6px 0 14px; }
+  /* ---- table ---- */
+  table { width: 100%; border-collapse: collapse; font-size: 13.5px; margin: 10px 0; }
+  th { background: #f0f3f7; text-align: left; padding: 8px 10px; font-weight: 600; border: 1px solid var(--line); }
+  td { padding: 8px 10px; border: 1px solid var(--line); color: var(--text); vertical-align: top; }
+  tr:nth-child(even) td { background: #fafbfc; }
+  .up { color: var(--red); font-weight: 600; }
+  .down { color: var(--green); font-weight: 600; }
+  /* ---- callout ---- */
+  .callout { border-radius: 10px; padding: 14px 18px; margin: 14px 0; font-size: 14px; }
+  .callout.blue { background: var(--blue-bg); border-left: 4px solid var(--blue); }
+  .callout.red { background: var(--red-bg); border-left: 4px solid var(--red); }
+  .callout.gold { background: var(--gold-bg); border-left: 4px solid #d9a400; }
+  .callout.plain { background: #f5f5f5; border-left: 4px solid #aaa; }
+  .callout b { color: var(--ink); }
+  /* ---- key points ---- */
+  .keys { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+  @media (max-width: 640px) { .keys { grid-template-columns: 1fr; } }
+  .key-card { background: var(--card); border: 1px solid var(--line); border-radius: 12px; padding: 16px 18px; }
+  .key-card .t { font-size: 14px; font-weight: 700; margin-bottom: 6px; }
+  .key-card.blue .t { color: var(--blue); }
+  .key-card.red .t { color: var(--red); }
+  .key-card p { font-size: 13px; color: var(--text); }
+  /* ---- glossary ---- */
+  .glossary dt { font-weight: 700; font-size: 14px; margin-top: 12px; }
+  .glossary dd { font-size: 13.5px; color: var(--text); margin-left: 0; }
+  /* ---- disclaimer ---- */
+  .disclaimer {
+    margin-top: 48px; background: #fff; border: 1px dashed #ccc; border-radius: 12px;
+    padding: 18px 22px; font-size: 12.5px; color: var(--muted);
+  }
+  .footer { text-align: center; font-size: 12px; color: var(--muted); margin-top: 32px; }
+  @media print {
+    body { background: #fff; }
+    .hero { -webkit-print-color-adjust: exact; }
+  }
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <h1>美债投资入门手册</h1>
+  <div class="sub">从「短债长债是什么」到「加息降息怎么影响价格」，一文讲透</div>
+  <div class="meta">整理自与灵枢的系列对话 · 2026 年 8 月 31 日 · 行情数据截至 2026-08-28 收盘</div>
+</div>
+
+<div class="wrap">
+
+  <!-- ======================= 目录 ======================= -->
+  <div class="toc">
+    <h2>目录</h2>
+    <ol>
+      <li><a href="#ch1">美债是什么：短期 vs 长期</a></li>
+      <li><a href="#ch2">政府为什么发债</a></li>
+      <li><a href="#ch3">债券市场怎么定价：做市商与报价</a></li>
+      <li><a href="#ch4">加息与降息：什么时候踩刹车、什么时候踩油门</a></li>
+      <li><a href="#ch5">为什么加息会伤就业</a></li>
+      <li><a href="#ch6">买美债的时机：利率周期与「预期定价」</a></li>
+      <li><a href="#ch7">怎么买美债：四条合规路径</a></li>
+      <li><a href="#ch8">术语速查</a></li>
+    </ol>
+  </div>
+
+  <!-- ======================= 第一章 ======================= -->
+  <div class="chapter" id="ch1">
+    <div class="ch-head"><span class="ch-num">01</span><span class="ch-title">美债是什么：短期 vs 长期</span></div>
+
+    <div class="card">
+      <h3>一句话定义</h3>
+      <p>美债（U.S. Treasury）就是美国政府打的「借条」——你买一张，等于借钱给美国政府，到期还本、按票面利率付息。它被视为全球信用等级最高的资产之一。按期限分三类：</p>
+      <table>
+        <tr><th>品种</th><th>期限</th><th>付息方式</th><th>俗称</th></tr>
+        <tr><td><b>短期（T-Bills 国库券）</b></td><td>4 周 ~ 1 年</td><td>打折发行，不付票息</td><td>短期美债</td></tr>
+        <tr><td><b>中期（T-Notes）</b></td><td>2 ~ 10 年</td><td>每半年付一次利息</td><td>——</td></tr>
+        <tr><td><b>长期（T-Bonds）</b></td><td>20 ~ 30 年</td><td>每半年付一次利息</td><td>长期美债</td></tr>
+      </table>
+      <p>平时说「短期美债」一般指 2 年及以下，「长期美债」指 10 年以上。</p>
+    </div>
+
+    <div class="svg-box">
+      <svg viewBox="0 0 680 460" xmlns="http://www.w3.org/2000/svg">
+        <rect width="680" height="460" fill="#fafafa"/>
+        <text x="24" y="36" font-size="20" font-weight="700" fill="#1a1a1a">发美债 = 美国政府打的"借条"</text>
+        <text x="24" y="58" font-size="12" fill="#888888">短债借条 = 借期 1 年以内；长债借条 = 借期 10~30 年。借条上写死三样东西：借多少、利息多少、什么时候还</text>
+        <g transform="translate(24, 90)">
+          <rect width="300" height="280" rx="12" fill="#ffffff" stroke="#1f5fa8" stroke-width="2"/>
+          <rect width="300" height="46" rx="12" fill="#eef4fb"/>
+          <text x="150" y="29" font-size="15" font-weight="700" fill="#1f5fa8" text-anchor="middle">短期债券（借条 A）</text>
+          <text x="150" y="70" font-size="12" fill="#666666" text-anchor="middle">期限：1 年以内（如 3 个月、6 个月）</text>
+          <line x1="40" y1="86" x2="260" y2="86" stroke="#eeeeee"/>
+          <text x="150" y="112" font-size="12" fill="#444444" text-anchor="middle">借款金额：10,000 美元</text>
+          <text x="150" y="142" font-size="12" fill="#444444" text-anchor="middle">年利率：约 3.9%（写死）</text>
+          <text x="150" y="172" font-size="12" fill="#444444" text-anchor="middle">还钱时间：3 个月后一次性还清</text>
+          <text x="150" y="202" font-size="12" fill="#888888" text-anchor="middle">到期拿回 10,000 + 利息</text>
+          <text x="150" y="242" font-size="12" font-weight="600" fill="#1f5fa8" text-anchor="middle">特点：到期快 → 利率几乎不影响价格</text>
+          <text x="150" y="264" font-size="12" font-weight="600" fill="#1f5fa8" text-anchor="middle">就是"高息现金"</text>
+        </g>
+        <g transform="translate(356, 90)">
+          <rect width="300" height="280" rx="12" fill="#ffffff" stroke="#b0442f" stroke-width="2"/>
+          <rect width="300" height="46" rx="12" fill="#fdf0ee"/>
+          <text x="150" y="29" font-size="15" font-weight="700" fill="#b0442f" text-anchor="middle">长期债券（借条 B）</text>
+          <text x="150" y="70" font-size="12" fill="#666666" text-anchor="middle">期限：10~30 年</text>
+          <line x1="40" y1="86" x2="260" y2="86" stroke="#eeeeee"/>
+          <text x="150" y="112" font-size="12" fill="#444444" text-anchor="middle">借款金额：10,000 美元</text>
+          <text x="150" y="142" font-size="12" fill="#444444" text-anchor="middle">年利率：约 5.2%（写死）</text>
+          <text x="150" y="172" font-size="12" fill="#444444" text-anchor="middle">还钱时间：30 年后还本</text>
+          <text x="150" y="202" font-size="12" fill="#444444" text-anchor="middle">期间每半年付一次利息</text>
+          <text x="150" y="242" font-size="12" font-weight="600" fill="#b0442f" text-anchor="middle">特点：持有期长 → 市场利率一变，</text>
+          <text x="150" y="264" font-size="12" font-weight="600" fill="#b0442f" text-anchor="middle">借条在二手市场的价格大幅波动</text>
+        </g>
+      </svg>
+    </div>
+    <div class="fig-caption">图 1-1　发债 = 政府打借条，长短之分只在「借多久」</div>
+
+    <div class="card">
+      <h3>当前收益率曲线（2026-08-28 收盘）</h3>
+      <div class="svg-box">
+        <svg viewBox="0 0 680 260" xmlns="http://www.w3.org/2000/svg">
+          <rect width="680" height="260" fill="#ffffff"/>
+          <text x="24" y="30" font-size="16" font-weight="700" fill="#1a1a1a">美债收益率曲线</text>
+          <g>
+            <line x1="70" y1="70" x2="650" y2="70" stroke="#e5e5e5" stroke-width="1"/>
+            <line x1="70" y1="110" x2="650" y2="110" stroke="#e5e5e5" stroke-width="1"/>
+            <line x1="70" y1="150" x2="650" y2="150" stroke="#e5e5e5" stroke-width="1"/>
+            <text x="60" y="74" font-size="11" fill="#999999" text-anchor="end">5.5%</text>
+            <text x="60" y="114" font-size="11" fill="#999999" text-anchor="end">5.0%</text>
+            <text x="60" y="154" font-size="11" fill="#999999" text-anchor="end">4.5%</text>
+            <text x="60" y="214" font-size="11" fill="#999999" text-anchor="end">4.0%</text>
+            <line x1="70" y1="150" x2="650" y2="150" stroke="#cccccc" stroke-width="1.5"/>
+            <path d="M 110 113 L 245 86 L 360 77 L 480 62 L 620 39" fill="none" stroke="#c0392b" stroke-width="3" stroke-linecap="round"/>
+            <g font-size="12" fill="#1a1a1a" font-weight="600">
+              <circle cx="110" cy="113" r="5" fill="#c0392b"/>
+              <text x="110" y="135" text-anchor="middle" font-size="11" fill="#666">3个月</text>
+              <text x="110" y="106" text-anchor="middle" fill="#c0392b">3.90%</text>
+              <circle cx="245" cy="86" r="5" fill="#c0392b"/>
+              <text x="245" y="135" text-anchor="middle" font-size="11" fill="#666">2年</text>
+              <text x="245" y="79" text-anchor="middle" fill="#c0392b">4.34%</text>
+              <circle cx="360" cy="77" r="5" fill="#c0392b"/>
+              <text x="360" y="135" text-anchor="middle" font-size="11" fill="#666">5年</text>
+              <text x="360" y="70" text-anchor="middle" fill="#c0392b">4.49%</text>
+              <circle cx="480" cy="62" r="5" fill="#c0392b"/>
+              <text x="480" y="135" text-anchor="middle" font-size="11" fill="#666">10年</text>
+              <text x="480" y="55" text-anchor="middle" fill="#c0392b">4.72%</text>
+              <circle cx="620" cy="39" r="5" fill="#c0392b"/>
+              <text x="620" y="135" text-anchor="middle" font-size="11" fill="#666">30年</text>
+              <text x="620" y="32" text-anchor="middle" fill="#c0392b">5.21%</text>
+            </g>
+          </g>
+        </svg>
+      </div>
+      <p style="font-size:12.5px;color:var(--muted)">来源：StreetStats / SlickCharts / 财联社。曲线向上倾斜 = 期限越长、收益率越高。</p>
+      <div class="callout gold">
+        <b>核心区别不是收益率高低，而是「利率敏感度」：</b>
+        <ul style="margin-top:6px">
+          <li>短债几个月就到期，价格几乎不动 → 相当于美元版的「现金管理」，赚的是当期利息；</li>
+          <li>长债期限 30 年，利率每变动 1%，价格可能波动 15%~20% → 买长债本质是赌「未来利率下行」，利率上行时浮亏可以很深（30 年期收益率 5.2% 为近十五年新高，过去一年买入者账面浮亏超 20%）。</li>
+        </ul>
+      </div>
+      <div class="callout blue">
+        <b>一句话记住：</b>短债赚「当期利息」（现金流），长债赚「价格变动」（资本利得）——赚钱逻辑不同，时机自然相反。
+      </div>
+    </div>
+  </div>
+
+  <!-- ======================= 第二章 ======================= -->
+  <div class="chapter" id="ch2">
+    <div class="ch-head"><span class="ch-num">02</span><span class="ch-title">政府为什么发债</span></div>
+
+    <div class="svg-box">
+      <svg viewBox="0 0 680 500" xmlns="http://www.w3.org/2000/svg">
+        <rect width="680" height="500" fill="#fafafa"/>
+        <text x="24" y="36" font-size="20" font-weight="700" fill="#1a1a1a">政府为啥借钱？—— 花的比收的多</text>
+        <text x="24" y="58" font-size="12" fill="#888888">个人借钱是要花大钱，政府借钱是因为常年"入不敷出"，这不是坏事，是现代国家常态</text>
+        <rect x="30" y="86" width="280" height="150" rx="10" fill="#ffffff" stroke="#2e8b57" stroke-width="1.5"/>
+        <rect x="30" y="86" width="280" height="36" rx="10" fill="#eaf5ef"/>
+        <text x="170" y="110" font-size="14" font-weight="700" fill="#2e8b57" text-anchor="middle">政府收入（少）</text>
+        <g font-size="12" fill="#444444">
+          <text x="50" y="146">· 个人所得税、企业税</text>
+          <text x="50" y="170">· 关税、其他杂项</text>
+          <text x="50" y="202" font-size="11.5" fill="#888888">收入有限——税率不能乱涨，</text>
+          <text x="50" y="220" font-size="11.5" fill="#888888">涨税会打击经济、惹民怨</text>
+        </g>
+        <rect x="370" y="86" width="280" height="150" rx="10" fill="#ffffff" stroke="#b0442f" stroke-width="1.5"/>
+        <rect x="370" y="86" width="280" height="36" rx="10" fill="#fdf0ee"/>
+        <text x="510" y="110" font-size="14" font-weight="700" fill="#b0442f" text-anchor="middle">政府支出（多）</text>
+        <g font-size="12" fill="#444444">
+          <text x="390" y="146">· 国防、医疗、社保</text>
+          <text x="390" y="170">· 基建、教育、科研</text>
+          <text x="390" y="202" font-size="11.5" fill="#888888">支出是刚性的——人民要福利，</text>
+          <text x="390" y="220" font-size="11.5" fill="#888888">国家要国防，砍谁都难</text>
+        </g>
+        <path d="M 310 150 C 330 150 340 160 350 170 C 358 178 362 180 368 180" fill="none" stroke="#1a1a1a" stroke-width="2.5" marker-end="url(#arrow2)"/>
+        <defs><marker id="arrow2" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L7,3 L0,6 Z" fill="#1a1a1a"/></marker></defs>
+        <rect x="30" y="258" width="620" height="66" rx="10" fill="#fff8e6" stroke="#d9a400" stroke-width="1.5"/>
+        <text x="340" y="284" font-size="13" font-weight="700" fill="#8a6400" text-anchor="middle">缺口怎么办？三个选项，政府选了"发债"</text>
+        <text x="340" y="306" font-size="12" fill="#8a6400" text-anchor="middle">印钱 → 通胀爆炸｜加税 → 经济受伤｜发债 → 向社会借钱，大家自愿</text>
+        <text x="340" y="366" font-size="13" font-weight="700" fill="#1a1a1a" text-anchor="middle">那"向我借钱"是什么含义？</text>
+        <g font-size="12" fill="#444444">
+          <text x="50" y="398">· 国债不是政府点名找你借，而是"公开发售，谁都可以买"</text>
+          <text x="50" y="420">· 养老金、银行、基金公司是主力买家，个人也能参与（100 美元起）</text>
+          <text x="50" y="442">· 你买一张美债 = 你成为美国政府的债主，白纸黑字，到期还本付息</text>
+          <text x="50" y="464" font-size="11.5" fill="#888888">所以"国家债务"本质上就是"全民一起借钱给国家，换稳定的利息回报"</text>
+        </g>
+      </svg>
+    </div>
+    <div class="fig-caption">图 2-1　政府「入不敷出」→ 发债是社会化的最优解</div>
+
+    <div class="card">
+      <h3>为什么偏偏选「发债」？</h3>
+      <table>
+        <tr><th>选项</th><th>后果</th><th>为什么不用</th></tr>
+        <tr><td><b>印钱</b></td><td>钱变多、东西没变多 → 物价飞涨（津巴布韦、委内瑞拉就是这么崩的）</td><td>通胀本身就是对所有人的隐形税</td></tr>
+        <tr><td><b>加税</b></td><td>直接抢大家钱包，经济缩水</td><td>收入反而可能更少、惹民怨</td></tr>
+        <tr><td><b>发债</b></td><td>你拿闲钱买国债换利息，政府拿到钱办正事</td><td class="down">✅ 自愿参与、你情我愿 —— 三害相权取其轻</td></tr>
+      </table>
+      <p><b>再往前想一步：</b>正因为政府承诺「到期一定还」，国债才成了全球资产的「定海神针」——银行拿它当抵押品、养老金靠它保本、各国央行储备它。这也是为什么 30 年期收益率 5.2% 这么高的今天，全世界还在抢着买——<b>不是它收益高，是别的东西比它更不安全。</b></p>
+    </div>
+  </div>
+
+  <!-- ======================= 第三章 ======================= -->
+  <div class="chapter" id="ch3">
+    <div class="ch-head"><span class="ch-num">03</span><span class="ch-title">债券市场怎么定价：做市商与报价</span></div>
+
+    <div class="card">
+      <h3>为什么你看不到「人喊价」？—— 因为有人替你喊好了</h3>
+      <p>债券市场是<b>场外交易（OTC）</b>，不像股票在交易所里几百万人竞价撮合（债券单笔金额巨大，不适合公开叫价）。专职的<b>做市商（Market Maker，大投行/券商）</b>同时挂两个价：</p>
+      <div class="keys">
+        <div class="key-card blue">
+          <div class="t">买价 Bid（你卖给他）</div>
+          <p>做市商愿意出多少钱收你的债。你要卖，按这个价成交。</p>
+        </div>
+        <div class="key-card red">
+          <div class="t">卖价 Ask（你向他买）</div>
+          <p>做市商愿意多少钱卖给你。你要买，按这个价成交。</p>
+        </div>
+      </div>
+      <div class="callout gold">两者之差（比如 99.50 / 99.55 差 0.05）就是做市商的利润。你平台界面上看到的价格，是系统把多家做市商报价聚合后显示的最优价——<b>本质上就是「别人喊的价」，只是经过平台电子化转述。</b>像去典当行，掌柜收东西的价永远低于他卖东西的价。</div>
+    </div>
+
+    <div class="svg-box">
+      <svg viewBox="0 0 680 440" xmlns="http://www.w3.org/2000/svg">
+        <rect width="680" height="440" fill="#fafafa"/>
+        <text x="24" y="36" font-size="20" font-weight="700" fill="#1a1a1a">债券价格是怎么变的？</text>
+        <text x="24" y="58" font-size="12" fill="#888888">票面利率写死不变，但市场利率天天变 → 借条价格跟着变</text>
+        <rect x="40" y="86" width="280" height="66" rx="8" fill="#ffffff" stroke="#e0e0e0"/>
+        <text x="56" y="110" font-size="12" fill="#444444">票面 5% 的债 + 市场利率涨到 6%</text>
+        <text x="56" y="132" font-size="12" font-weight="600" fill="#b0442f">→ 老借条没人要，价格打折（99→95）</text>
+        <rect x="360" y="86" width="280" height="66" rx="8" fill="#ffffff" stroke="#e0e0e0"/>
+        <text x="376" y="110" font-size="12" fill="#444444">票面 5% 的债 + 市场利率降到 4%</text>
+        <text x="376" y="132" font-size="12" font-weight="600" fill="#1f5fa8">→ 老借条抢手，价格升水（100→108）</text>
+        <rect x="40" y="180" width="290" height="72" rx="8" fill="#eef4fb"/>
+        <text x="56" y="206" font-size="13" font-weight="700" fill="#1f5fa8">买价 Bid（你卖给他）</text>
+        <text x="56" y="228" font-size="12" fill="#444444">做市商愿意出多少钱收你的债</text>
+        <text x="56" y="246" font-size="12" font-weight="600" fill="#1f5fa8">例：99.50</text>
+        <rect x="350" y="180" width="290" height="72" rx="8" fill="#fdf0ee"/>
+        <text x="366" y="206" font-size="13" font-weight="700" fill="#b0442f">卖价 Ask（你向他买）</text>
+        <text x="366" y="228" font-size="12" fill="#444444">做市商愿意卖给你的价格</text>
+        <text x="366" y="246" font-size="12" font-weight="600" fill="#b0442f">例：99.55</text>
+        <text x="40" y="288" font-size="12" fill="#888888">债券交易量大、单笔金额高 → 场外市场（OTC），做市商一对一报价，</text>
+        <text x="40" y="306" font-size="12" fill="#888888">平台把多个做市商的报价聚合给你——你看不到人喊价，是因为有人替你喊好了。</text>
+        <rect x="40" y="330" width="600" height="70" rx="10" fill="#fff8e6" stroke="#d9a400" stroke-width="1.5"/>
+        <text x="340" y="356" font-size="13" font-weight="700" fill="#8a6400" text-anchor="middle">价格波动的本质：市场用价格「补偿」票面利率和市场利率之间的差</text>
+        <text x="340" y="380" font-size="12" fill="#8a6400" text-anchor="middle">利率涨 → 老债吸引力下降 → 打折卖；利率跌 → 老债变稀缺 → 溢价卖</text>
+      </svg>
+    </div>
+    <div class="fig-caption">图 3-1　债券定价机制：票面写死、市价浮动、做市商报价</div>
+  </div>
+
+  <!-- ======================= 第四章 ======================= -->
+  <div class="chapter" id="ch4">
+    <div class="ch-head"><span class="ch-num">04</span><span class="ch-title">加息与降息：什么时候踩刹车、什么时候踩油门</span></div>
+
+    <div class="card">
+      <h3>美联储盯着两个目标：通胀 &amp; 就业</h3>
+      <table>
+        <tr><th>情形</th><th>动作</th><th>逻辑</th></tr>
+        <tr><td class="up">通胀太高（&gt; 2% 目标）</td><td class="up">加息</td><td>借钱变贵 → 少花钱 → 需求降温 → 物价回落（踩刹车）</td></tr>
+        <tr><td class="down">经济差 / 失业高</td><td class="down">降息</td><td>借钱变便宜 → 鼓励消费投资 → 托起经济（踩油门）</td></tr>
+      </table>
+      <div class="callout blue"><b>2026 年 8 月现状：</b>通胀 3.4% 仍偏高 → 美联储主席沃什放鹰派信号，市场押注 9 月 16 日加息（概率近 60%），年内加息概率超 90%（来源：CME FedWatch、财联社）。</div>
+    </div>
+
+    <div class="svg-box">
+      <svg viewBox="0 0 680 420" xmlns="http://www.w3.org/2000/svg">
+        <rect width="680" height="420" fill="#fafafa"/>
+        <text x="24" y="36" font-size="20" font-weight="700" fill="#1a1a1a">加息怎么传导到你身上？</text>
+        <rect x="180" y="60" width="320" height="54" rx="10" fill="#1a1a1a"/>
+        <text x="340" y="82" font-size="13" font-weight="700" fill="#ffffff" text-anchor="middle">美联储加息（基准利率 ↑）</text>
+        <text x="340" y="102" font-size="11" fill="#cccccc" text-anchor="middle">直接定的是"银行间拆借利率"——银行之间借钱的价</text>
+        <line x1="340" y1="114" x2="340" y2="132" stroke="#1a1a1a" stroke-width="2"/>
+        <line x1="200" y1="132" x2="480" y2="132" stroke="#1a1a1a" stroke-width="1.5"/>
+        <line x1="200" y1="132" x2="200" y2="150" stroke="#1a1a1a" stroke-width="1.5"/>
+        <line x1="340" y1="132" x2="340" y2="150" stroke="#1a1a1a" stroke-width="1.5"/>
+        <line x1="480" y1="132" x2="480" y2="150" stroke="#1a1a1a" stroke-width="1.5"/>
+        <rect x="60" y="150" width="175" height="110" rx="8" fill="#ffffff" stroke="#e0e0e0"/>
+        <text x="147" y="174" font-size="12.5" font-weight="700" fill="#b0442f" text-anchor="middle">借钱变贵（同步）</text>
+        <text x="147" y="196" font-size="11.5" fill="#444444" text-anchor="middle">房贷 / 车贷 / 信用卡</text>
+        <text x="147" y="214" font-size="11.5" fill="#444444" text-anchor="middle">企业贷款利率 ↑</text>
+        <text x="147" y="240" font-size="11" fill="#888888" text-anchor="middle">✅ 基本立刻跟涨</text>
+        <rect x="252" y="150" width="175" height="110" rx="8" fill="#ffffff" stroke="#e0e0e0"/>
+        <text x="340" y="174" font-size="12.5" font-weight="700" fill="#1f5fa8" text-anchor="middle">存钱变贵（慢半拍）</text>
+        <text x="340" y="196" font-size="11.5" fill="#444444" text-anchor="middle">存款利率 ↑ 但幅度较小</text>
+        <text x="340" y="214" font-size="11.5" fill="#444444" text-anchor="middle">银行要赚息差</text>
+        <text x="340" y="240" font-size="11" fill="#888888" text-anchor="middle">⚠️ 涨得慢、涨得少</text>
+        <rect x="445" y="150" width="175" height="110" rx="8" fill="#ffffff" stroke="#e0e0e0"/>
+        <text x="532" y="174" font-size="12.5" font-weight="700" fill="#7a5ea8" text-anchor="middle">美债收益率（分长短）</text>
+        <text x="532" y="196" font-size="11.5" fill="#444444" text-anchor="middle">短债：紧跟央行利率</text>
+        <text x="532" y="214" font-size="11.5" fill="#444444" text-anchor="middle">长债：看通胀+经济预期</text>
+        <text x="532" y="240" font-size="11" fill="#888888" text-anchor="middle">加息→新短债利息更高</text>
+        <rect x="40" y="280" width="600" height="100" rx="8" fill="#f5f5f5"/>
+        <text x="340" y="308" font-size="12.5" fill="#1a1a1a" text-anchor="middle">两个重要修正：</text>
+        <text x="340" y="332" font-size="12" fill="#444444" text-anchor="middle">① 美联储定的是「基准」，不是直接定你的利率——先影响银行间拆借，再传导到存贷</text>
+        <text x="340" y="356" font-size="12" fill="#444444" text-anchor="middle">② 「向美国借钱」准确讲是「向银行借钱变贵」；存款利率跟涨但慢，银行赚中间的息差</text>
+      </svg>
+    </div>
+    <div class="fig-caption">图 4-1　利率传导链：基准利率 → 银行间 → 存贷利率 → 你的钱包</div>
+
+    <div class="card">
+      <h3>鹰派 vs 鸽派：美联储里的「鹰」和「鸽」</h3>
+      <p>这是媒体报道美联储的常用黑话，来自鹰（凶猛、盯猎物不松口）与鸽（温顺、求和平）的比喻，形容央行官员的政策性格：</p>
+      <div class="keys">
+        <div class="key-card red">
+          <div class="t">🦅 鹰派 Hawk</div>
+          <p>最怕通胀。认为防通胀是第一要务，倾向加息、收紧货币，宁可牺牲一点增长。口头禅：「我们还有工作要做」。例：美联储主席沃什——通胀 3.4% 降不下来，主张继续加息，市场称其「偏鹰」。</p>
+        </div>
+        <div class="key-card blue">
+          <div class="t">🕊️ 鸽派 Dove</div>
+          <p>最怕失业。认为就业/增长更重要，倾向降息、宽松货币，愿意容忍稍高的物价。例：若通胀回落到 2% 附近而就业转弱，鸽派官员就会主张降息放水托经济。</p>
+        </div>
+      </div>
+      <ul style="margin-top:10px">
+        <li><b>分歧本质是「两害相权」：</b>压通胀要加息（伤就业），保就业要降息（助长通胀）——两个目标经常打架。</li>
+        <li><b>鹰/鸽不是终身标签：</b>同一官员会随数据变化而摇摆。真正让市场炸锅的是「比预想更鹰/更鸽」，也就是「超预期」。</li>
+        <li><b>和你的关系：</b>鹰派占上风 → 美债收益率上行、价格承压（长债利空）；鸽派占上风 → 收益率下行、价格上行（长债利好）。</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- ======================= 第五章 ======================= -->
+  <div class="chapter" id="ch5">
+    <div class="ch-head"><span class="ch-num">05</span><span class="ch-title">为什么加息会伤就业</span></div>
+
+    <div class="svg-box">
+      <svg viewBox="0 0 680 620" xmlns="http://www.w3.org/2000/svg">
+        <rect width="680" height="620" fill="#fafafa"/>
+        <text x="24" y="36" font-size="20" font-weight="700" fill="#1a1a1a">加息为什么伤就业？一条连锁反应</text>
+        <text x="24" y="58" font-size="12" fill="#888888">加息的目的：让钱变贵 → 少花钱 → 物价降温。但"少花钱"的另一面就是"少招人、少生产"</text>
+        <rect x="190" y="80" width="300" height="48" rx="10" fill="#1a1a1a"/>
+        <text x="340" y="110" font-size="14" font-weight="700" fill="#ffffff" text-anchor="middle">美联储加息：借钱变贵</text>
+        <line x1="340" y1="128" x2="340" y2="146" stroke="#1a1a1a" stroke-width="2"/>
+        <line x1="180" y1="146" x2="500" y2="146" stroke="#1a1a1a" stroke-width="1.5"/>
+        <line x1="180" y1="146" x2="180" y2="164" stroke="#1a1a1a" stroke-width="1.5"/>
+        <line x1="500" y1="146" x2="500" y2="164" stroke="#1a1a1a" stroke-width="1.5"/>
+        <rect x="40" y="164" width="280" height="130" rx="10" fill="#ffffff" stroke="#1f5fa8" stroke-width="1.5"/>
+        <text x="180" y="190" font-size="13" font-weight="700" fill="#1f5fa8" text-anchor="middle">① 个人：月供变贵</text>
+        <g font-size="11.5" fill="#444444">
+          <text x="60" y="214">房贷、车贷、信用卡利息 ↑</text>
+          <text x="60" y="236">→ 每月可支配收入变少</text>
+          <text x="60" y="258">→ 买房、买车、旅游、消费 ↓</text>
+          <text x="60" y="280" font-size="11" fill="#1f5fa8">→ 全社会需求降温</text>
+        </g>
+        <rect x="360" y="164" width="280" height="130" rx="10" fill="#ffffff" stroke="#b0442f" stroke-width="1.5"/>
+        <text x="500" y="190" font-size="13" font-weight="700" fill="#b0442f" text-anchor="middle">② 企业：扩张变贵</text>
+        <g font-size="11.5" fill="#444444">
+          <text x="380" y="214">贷款利息、融资成本 ↑</text>
+          <text x="380" y="236">→ 不敢投资、不敢扩产</text>
+          <text x="380" y="258">→ 招聘冻结、岗位减少</text>
+          <text x="380" y="280" font-size="11" fill="#b0442f">→ 就业机会变少</text>
+        </g>
+        <line x1="180" y1="294" x2="180" y2="312" stroke="#1a1a1a" stroke-width="1.5"/>
+        <line x1="500" y1="294" x2="500" y2="312" stroke="#1a1a1a" stroke-width="1.5"/>
+        <line x1="180" y1="312" x2="500" y2="312" stroke="#1a1a1a" stroke-width="1.5"/>
+        <line x1="340" y1="312" x2="340" y2="330" stroke="#1a1a1a" stroke-width="2"/>
+        <rect x="120" y="330" width="440" height="52" rx="10" fill="#fdf0ee" stroke="#b0442f" stroke-width="1.5"/>
+        <text x="340" y="354" font-size="13" font-weight="700" fill="#b0442f" text-anchor="middle">需求少了 + 融资贵了 → 企业订单减少、收入下降</text>
+        <text x="340" y="374" font-size="11.5" fill="#b0442f" text-anchor="middle">→ 撑不住就开始裁员</text>
+        <rect x="120" y="400" width="440" height="70" rx="10" fill="#ffffff" stroke="#b0442f" stroke-width="1.5"/>
+        <text x="340" y="424" font-size="13" font-weight="700" fill="#b0442f" text-anchor="middle">裁员 → 失业的人没钱消费</text>
+        <text x="340" y="446" font-size="12" fill="#444444" text-anchor="middle">→ 更多人没了收入 → 消费再降 → 更多企业裁员</text>
+        <text x="340" y="464" font-size="11.5" fill="#888888">恶性螺旋，若失控就变成经济衰退</text>
+        <rect x="24" y="492" width="632" height="110" rx="10" fill="#fff8e6" stroke="#d9a400" stroke-width="1.5"/>
+        <text x="340" y="518" font-size="13" font-weight="700" fill="#8a6400" text-anchor="middle">那为什么还要加息？——两害相权取其轻</text>
+        <text x="340" y="542" font-size="12" fill="#8a6400" text-anchor="middle">通胀失控更可怕：1970 年代教训——物价一年涨 10%+，全民存款缩水、工资跑不赢物价，</text>
+        <text x="340" y="562" font-size="12" fill="#8a6400" text-anchor="middle">比暂时的失业痛苦更深远。所以美联储宁可"短期伤就业"，也要把通胀压回 2%。</text>
+        <text x="340" y="586" font-size="11.5" fill="#8a6400" text-anchor="middle">理想结局叫"软着陆"：加息恰到好处，物价降温但不裁员；加过头就叫"硬着陆"（衰退）</text>
+      </svg>
+    </div>
+    <div class="fig-caption">图 5-1　加息 → 掐需求 → 掐就业的连锁反应</div>
+
+    <div class="card">
+      <h3>两个关键结论</h3>
+      <div class="callout red"><b>加息确实是「就业的敌人」：</b>就业岗位来自「企业觉得有人买我的东西才招人生产」。加息让全社会少买东西 → 订单减少 → 不招人 → 裁员 → 失业者更没钱消费 → 螺旋。这就是鸽派反对加息的根本理由。</div>
+      <div class="callout gold"><b>软着陆 vs 硬着陆：</b>市场对 9 月加息最紧张的就是这个问题——沃什这一脚刹车是「软着陆」（物价降温但不裁员）还是「硬着陆」（衰退）？<b>美债价格，本质就是市场对「这套刹车系统最终会伤到多深」的投票。</b></div>
+    </div>
+  </div>
+
+  <!-- ======================= 第六章 ======================= -->
+  <div class="chapter" id="ch6">
+    <div class="ch-head"><span class="ch-num">06</span><span class="ch-title">买美债的时机：利率周期与「预期定价」</span></div>
+
+    <div class="card">
+      <h3>核心口诀：短债看「平台期」，长债看「降息前」</h3>
+      <div class="keys">
+        <div class="key-card blue">
+          <div class="t">短债 = 「高息活期存款」</div>
+          <p>赚当期利息，本金几乎不动。高利率平台期买，利息拿满；降息后到期滚存，利息缩水。类比：趁银行利率高的时候存定存，而不是等它降了再存。</p>
+        </div>
+        <div class="key-card red">
+          <div class="t">长债 = 「锁定 30 年利率的存单」</div>
+          <p>你在 5% 时买入，市场降到 3% 后，这张「还是 5%」的老债被抢购、价格上涨——赚价差。涨幅最大的一段发生在「预期降息」阶段，等降息落地再买，肉已被吃掉大半。</p>
+        </div>
+      </div>
+      <div class="callout blue"><b>一句话：短债的敌人是降息（利息变少），长债的朋友也是降息（价格变贵）——但朋友得在降息「来之前」就交好。</b></div>
+    </div>
+
+    <div class="svg-box">
+      <svg viewBox="0 0 680 460" xmlns="http://www.w3.org/2000/svg">
+        <rect width="680" height="460" fill="#fafafa"/>
+        <text x="24" y="36" font-size="20" font-weight="700" fill="#1a1a1a">利率周期与买债时机</text>
+        <line x1="70" y1="230" x2="650" y2="230" stroke="#cccccc" stroke-width="1.5"/>
+        <text x="60" y="234" font-size="11" fill="#999999" text-anchor="end">利率 0%</text>
+        <text x="60" y="114" font-size="11" fill="#999999" text-anchor="end">利率 5%+</text>
+        <line x1="70" y1="110" x2="650" y2="110" stroke="#eeeeee" stroke-width="1"/>
+        <text x="70" y="252" font-size="11" fill="#999999">2020</text>
+        <text x="200" y="252" font-size="11" fill="#999999">2022</text>
+        <text x="330" y="252" font-size="11" fill="#999999">2024</text>
+        <text x="470" y="252" font-size="11" fill="#999999">2026-08</text>
+        <text x="605" y="252" font-size="11" fill="#999999">2027→</text>
+        <rect x="70" y="110" width="260" height="120" fill="#f0f0f0"/>
+        <rect x="330" y="110" width="290" height="120" fill="#e8f1fb"/>
+        <text x="200" y="140" font-size="11" fill="#666666" text-anchor="middle">加息期（2022–2023）</text>
+        <text x="200" y="158" font-size="10" fill="#999999" text-anchor="middle">长债价格一路跌</text>
+        <text x="475" y="140" font-size="11" fill="#1f5fa8" text-anchor="middle">高位平台期（2023至今，3.5%~5.2%）</text>
+        <text x="475" y="158" font-size="10" fill="#1f5fa8" text-anchor="middle">短债黄金期；长债观察/小额左侧</text>
+        <path d="M 80 220 C 130 218 160 190 200 165 C 250 135 300 118 340 118 L 460 122 C 500 123 540 128 580 132" fill="none" stroke="#1a1a1a" stroke-width="3" stroke-linecap="round"/>
+        <path d="M 580 132 C 600 134 620 138 645 145" fill="none" stroke="#1a1a1a" stroke-width="2" stroke-dasharray="5 4"/>
+        <text x="620" y="128" font-size="10" fill="#666666">降息?</text>
+        <line x1="520" y1="100" x2="520" y2="232" stroke="#c0392b" stroke-width="2" stroke-dasharray="4 3"/>
+        <text x="520" y="96" font-size="12" font-weight="700" fill="#c0392b" text-anchor="middle">现在</text>
+        <rect x="530" y="82" width="112" height="30" rx="6" fill="#c0392b"/>
+        <text x="586" y="101" font-size="10.5" fill="#ffffff" text-anchor="middle">9月或加息，年内&gt;90%</text>
+        <rect x="24" y="280" width="306" height="150" rx="10" fill="#ffffff" stroke="#e0e0e0"/>
+        <rect x="24" y="280" width="306" height="34" rx="10" fill="#eef4fb"/>
+        <text x="177" y="303" font-size="13.5" font-weight="700" fill="#1f5fa8" text-anchor="middle">短债：高利率平台期就能买</text>
+        <g font-size="11.5" fill="#444444">
+          <text x="44" y="334">· 收益≈现金利息，几乎不亏本金</text>
+          <text x="44" y="354">· 现在 3.8%~4.3%，已相当可观</text>
+          <text x="44" y="374">· 不用等完美时点，随时可上</text>
+          <text x="44" y="402" font-size="10.5" fill="#888888">参考：国内货基年化仅 1.5%~2%</text>
+          <text x="44" y="420" font-size="10.5" fill="#888888">留意美元汇率风险</text>
+        </g>
+        <rect x="350" y="280" width="306" height="150" rx="10" fill="#ffffff" stroke="#e0e0e0"/>
+        <rect x="350" y="280" width="306" height="34" rx="10" fill="#fdf0ee"/>
+        <text x="503" y="303" font-size="13.5" font-weight="700" fill="#b0442f" text-anchor="middle">长债：等「降息信号」再重仓</text>
+        <g font-size="11.5" fill="#444444">
+          <text x="370" y="334">· 赚钱靠收益率下行 + 资本利得</text>
+          <text x="370" y="354">· 最佳买点：加息停止、降息前夕</text>
+          <text x="370" y="374">· 信号：停加息 + 通胀回落 + 就业走弱</text>
+          <text x="370" y="402" font-size="10.5" fill="#888888">现在收益率已高，但加息悬念未消</text>
+          <text x="370" y="420" font-size="10.5" fill="#888888">可小额左侧试探，确认转鸽再加仓</text>
+        </g>
+      </svg>
+    </div>
+    <div class="fig-caption">图 6-1　短债买在平台期，长债买在降息前</div>
+
+    <div class="card">
+      <h3>当前状态（2026-08-31 数据速览）</h3>
+      <table>
+        <tr><th>指标</th><th>当前值</th><th>含义</th></tr>
+        <tr><td>联邦基金利率</td><td>3.50%~3.75%（连续 5 次按兵不动）</td><td>2025 年 12 月降过一次后就停住了</td></tr>
+        <tr><td>通胀</td><td>CPI 3.4%，核心约 3%</td><td>离 2% 目标还远，鹰派的底气</td></tr>
+        <tr><td>加息预期</td><td>9 月加息概率 46%~60%，年内 &gt;90%</td><td>法兴甚至预测到 2027 年 3 月加三次</td></tr>
+        <tr><td>就业</td><td>BLS 大幅下修去年就业（-7.9 万 vs 预期 +18.3 万）</td><td>经济可能没看起来强——未来降息的伏笔</td></tr>
+        <tr><td>收益率</td><td>2Y 4.34% / 10Y 4.72% / 30Y 5.21%</td><td>十五年新高</td></tr>
+      </table>
+      <div class="callout gold"><b>一句话概括：</b>利率还在高位平台、甚至可能再往上走一格（沃什偏鹰），但就业数据已经开始漏气——正是历史上债券市场最纠结的阶段。</div>
+    </div>
+
+    <div class="card">
+      <h3>「市场预判 9 月加息，现在买长债不是亏本么？」—— 预期定价的答案</h3>
+      <p><b>你的直觉没错</b>：如果 9 月真加息，长债短期会跌。但关键在这——<b>这个利空已经被「预支」了</b>。债券价格看的是「未来利率预期」而不是「今天利率」：市场听说 9 月要加息，今天就把价格压下来了。你现在看到的 4.72% / 5.21%，已经是把加息预期计入后的价格。</p>
+      <table>
+        <tr><th>9/16 FOMC 结果</th><th>长债表现</th></tr>
+        <tr><td>符合预期（加 25bp）</td><td>价格几乎不动甚至反弹——「利空出尽」，没有新信息</td></tr>
+        <tr><td>超预期鹰派（加更多）</td><td class="up">真跌——预期只算了 25bp，折现率要再上调</td></tr>
+        <tr><td>意外鸽派（不加息）</td><td class="down">大涨——预期落空，折现率下调</td></tr>
+      </table>
+      <div class="callout blue"><b>反直觉的历史规律：</b>2023 年 10 月，市场还在担心加息，10Y 收益率冲到 5%，人人喊别买长债——结果那正是周期顶，之后一年收益率跌到 4% 以下，抄底者大赚。市场对「还要加多少」的恐惧是压制债券价格的最大力量，一旦靴子落地、央行暗示快结束，价格就掉头向上。<b>所以「加息落地」对长债往往不是终点，而是起点。</b></div>
+      <div class="callout plain"><b>三个比喻帮助理解「预期已计入价格」：</b>① 考试——老师宣布下周三考试，全班提前复习，考试当天题目意料之中，没人欢呼；超纲题才改变结果。② 天气预报——预报明天降温，你今天已翻出羽绒服，真降温不会惊讶；报降温却升温才措手不及。③ 数学本质——债券价格 = 未来利息按「预期利率」折现，预期形成的一瞬间价格就调整完毕。<b>价格不是跟着事实走，而是跟着「预期与事实的差距」走。</b></div>
+    </div>
+
+    <div class="card">
+      <h3>落到操作上</h3>
+      <table>
+        <tr><th>你的情况</th><th>建议</th></tr>
+        <tr><td>求稳、不想赌</td><td>短债随时买，加息对你反而是好事（利息更高）</td></tr>
+        <tr><td>想参与长债</td><td>等 9/16 FOMC 结果落地再评估，比现在冲进去聪明</td></tr>
+        <tr><td>手痒小额试探</td><td>可以，但把它当「彩票」——亏了不心疼的钱才行</td></tr>
+      </table>
+    </div>
+  </div>
+
+  <!-- ======================= 第七章 ======================= -->
+  <div class="chapter" id="ch7">
+    <div class="ch-head"><span class="ch-num">07</span><span class="ch-title">怎么买美债：四条合规路径</span></div>
+
+    <div class="svg-box">
+      <svg viewBox="0 0 680 500" xmlns="http://www.w3.org/2000/svg">
+        <rect width="680" height="500" fill="#fafafa"/>
+        <text x="24" y="36" font-size="20" font-weight="700" fill="#1a1a1a">内地居民买美债：四条合规路径</text>
+        <text x="24" y="58" font-size="12" fill="#888888">按门槛从低到高排列。注意：富途/老虎等互联网券商已被认定为非法跨境展业，不可用</text>
+        <rect x="24" y="76" width="632" height="82" rx="10" fill="#ffffff" stroke="#1f5fa8" stroke-width="1.5"/>
+        <rect x="24" y="76" width="120" height="82" rx="10" fill="#eef4fb"/>
+        <text x="84" y="112" font-size="14" font-weight="700" fill="#1f5fa8" text-anchor="middle">路径①</text>
+        <text x="84" y="132" font-size="12" fill="#1f5fa8" text-anchor="middle">QDII 基金</text>
+        <g font-size="11.5" fill="#444444">
+          <text x="160" y="100">支付宝/天天基金搜「美元债基金」，人民币直接申购，门槛 10 元起</text>
+          <text x="160" y="120">✓ 不占 5 万美元换汇额度　✗ 管理费+托管费约 0.85%/年，额度紧张时暂停申购</text>
+          <text x="160" y="140" font-size="11" fill="#888888">适合：大多数人。注意看持仓是「短债」还是「长债」，波动差异巨大</text>
+        </g>
+        <rect x="24" y="170" width="632" height="82" rx="10" fill="#ffffff" stroke="#7a5ea8" stroke-width="1.5"/>
+        <rect x="24" y="170" width="120" height="82" rx="10" fill="#f3eefb"/>
+        <text x="84" y="206" font-size="14" font-weight="700" fill="#7a5ea8" text-anchor="middle">路径②</text>
+        <text x="84" y="226" font-size="12" fill="#7a5ea8" text-anchor="middle">香港互认基金</text>
+        <g font-size="11.5" fill="#444444">
+          <text x="160" y="194">持牌平台申购，人民币交易，不占外汇额度</text>
+          <text x="160" y="214">✓ 部分产品可选汇率对冲份额　✗ 费率更高，分红扣 20% 个税</text>
+          <text x="160" y="234" font-size="11" fill="#888888">适合：想要「对冲汇率版」美债基金的人</text>
+        </g>
+        <rect x="24" y="264" width="632" height="82" rx="10" fill="#ffffff" stroke="#2e8b57" stroke-width="1.5"/>
+        <rect x="24" y="264" width="120" height="82" rx="10" fill="#eaf5ef"/>
+        <text x="84" y="300" font-size="14" font-weight="700" fill="#2e8b57" text-anchor="middle">路径③</text>
+        <text x="84" y="320" font-size="12" fill="#2e8b57" text-anchor="middle">跨境理财通</text>
+        <g font-size="11.5" fill="#444444">
+          <text x="160" y="288">仅限粤港澳大湾区居民，通过区内银行直接买美债及基金</text>
+          <text x="160" y="308">✓ 额度 300 万、不占换汇额度，可直接持有美债　✗ 门槛高（约 50 万起）</text>
+          <text x="160" y="328" font-size="11" fill="#888888">适合：大湾区且有较多资金的投资者</text>
+        </g>
+        <rect x="24" y="358" width="632" height="82" rx="10" fill="#ffffff" stroke="#b0442f" stroke-width="1.5"/>
+        <rect x="24" y="358" width="120" height="82" rx="10" fill="#fdf0ee"/>
+        <text x="84" y="394" font-size="14" font-weight="700" fill="#b0442f" text-anchor="middle">路径④</text>
+        <text x="84" y="414" font-size="12" fill="#b0442f" text-anchor="middle">境外账户直购</text>
+        <g font-size="11.5" fill="#444444">
+          <text x="160" y="382">本人赴香港银行/券商开户，或已有合规境外账户（如盈透）</text>
+          <text x="160" y="402">✓ 直接买国债/ETF，最便宜最灵活　✗ 受 5 万美元/年换汇额度约束</text>
+          <text x="160" y="422" font-size="11" fill="#888888">注意：网上「帮你远程开户」的中介多为违规展业，资金无保障</text>
+        </g>
+        <text x="24" y="472" font-size="12" fill="#999999">汇率提醒：美元资产收益 = 票息 ± 汇率变动。人民币若升值超利差，换回来反而亏</text>
+      </svg>
+    </div>
+    <div class="fig-caption">图 7-1　四条合规路径，按门槛从低到高</div>
+
+    <div class="card">
+      <h3>实操第一步：QDII 美元债基金（今天就能操作）</h3>
+      <ol>
+        <li>打开支付宝 → 理财 → 搜索「美元债」或「美债」；</li>
+        <li>看两个关键信息：<b>持仓久期</b>（「中短债/短债」≈ 短期美债，波动小；「长债/国债」≈ 长期美债，波动大）和<b>是否对冲汇率</b>（有「人民币对冲份额」的，汇率风险小一些）；</li>
+        <li>人民币直接买，10 元起，不占每年 5 万美元换汇额度。</li>
+      </ol>
+      <div class="callout red"><b>缺点：</b>全市场只有十几只这类基金（规模约 216 亿），管理费+托管费约 0.85%/年，热门时会暂停申购——现在美债收益率高，买之前看一眼申购状态。</div>
+    </div>
+
+    <div class="card">
+      <h3>三个必须知道的风险</h3>
+      <ul>
+        <li><b>汇率：</b>2025 年初有人 7.25 换汇买 3.5% 的美元理财，2026 年 4 月人民币升破 6.82，倒亏 6600 多元——利差跑不赢汇率是常态风险；</li>
+        <li><b>利率：</b>现在是长债熊市（30 年期收益率 5.2%、十五年新高），买长债基金要有浮亏 10%+ 的心理准备；</li>
+        <li><b>骗局：</b>凡是「高收益美债理财、保本保息、远程帮你开户」的，一律是坑。外汇局 2026 年 7 月刚罚过一个走虚假通道换汇的个人，112 万元。</li>
+      </ul>
+      <div class="callout blue"><b>倾向性建议：</b>先从短债型 QDII 小额试水（比如一个月工资以内的金额），搞懂净值波动和汇率影响之后，再考虑要不要加仓或开海外账户。盈透开户链接里的 referrerCode 是别人拿推荐返佣用的，开不开取决于你是否真需要海外账户。</div>
+    </div>
+  </div>
+
+  <!-- ======================= 第八章 ======================= -->
+  <div class="chapter" id="ch8">
+    <div class="ch-head"><span class="ch-num">08</span><span class="ch-title">术语速查</span></div>
+    <div class="card">
+      <dl class="glossary">
+        <dt>ETF</dt>
+        <dd>交易型开放式指数基金——把一篮子股票/债券打包成一只基金，像股票一样在交易所里随时买卖。买 ETF = 赌一个板块/指数，而不是赌一家公司。</dd>
+        <dt>久期（Duration）</dt>
+        <dd>衡量债券价格对利率敏感度的指标。久期越长，利率每变动 1% 引发的价格波动越大。短债久期≈0，长债（30 年）久期可达 15~20。</dd>
+        <dt>收益率（Yield）</dt>
+        <dd>你持有债券实际获得的年化回报。债券价格下跌 → 收益率上升；价格上涨 → 收益率下降（两者反向）。</dd>
+        <dt>做市商（Market Maker）</dt>
+        <dd>专职买卖债券赚差价的投行/券商，同时报买价（Bid）和卖价（Ask）。平台显示的价格就是他们的报价。</dd>
+        <dt>鹰派 / 鸽派</dt>
+        <dd>鹰派：防通胀、主张加息；鸽派：保就业、主张降息。比喻来自鹰（凶猛）与鸽（温顺）。</dd>
+        <dt>Price In（预期定价）</dt>
+        <dd>「预期已经写进价格」——市场听到消息的瞬间就完成了定价。所以只有「超出预期」的部分才会让价格继续动。</dd>
+        <dt>软着陆 / 硬着陆</dt>
+        <dd>加息恰到好处、物价降温但不衰退 = 软着陆；加过头导致经济衰退 = 硬着陆。</dd>
+        <dt>QDII</dt>
+        <dd>合格境内机构投资者——国内基金公司发行的、可投资海外市场的基金。人民币直接申购，不占个人换汇额度。</dd>
+        <dt>联邦基金利率</dt>
+        <dd>美联储直接调控的「银行间拆借利率」，是全社会利率的基准。美联储通过它间接影响你的存贷利率。</dd>
+        <dt>收益率曲线</dt>
+        <dd>把不同期限（3 个月~30 年）的收益率连成的曲线。向上倾斜是常态；「倒挂」（短期高于长期）常被视为衰退预警。</dd>
+      </dl>
+    </div>
+  </div>
+
+  <!-- ======================= 免责声明 ======================= -->
+  <div class="disclaimer">
+    <b>免责声明：</b>本文档内容基于公开数据和概念科普整理，仅供参考，不构成投资建议。市场有风险，投资需谨慎。任何投资决策应结合个人风险承受能力、资金状况和投资目标独立判断，必要时咨询持牌专业机构。跨境投资还需遵守外汇管理相关规定。过往表现不预示未来收益。文中数据截至 2026 年 8 月 28 日收盘，来源包括腾讯自选股、财联社、CME FedWatch、StreetStats 等，具体费率与规则以基金公告及监管文件为准。
+  </div>
+  <div class="footer">美债投资入门手册 · 整理于 2026-08-31 · 与灵枢的系列对话总结</div>
+
+</div>
+</body>
+</html>
