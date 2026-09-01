@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>面试大纲 · 命理研究员 · 候选人张晋</title>
+<style>
+  :root {
+    --primary: #1a365d;
+    --accent: #2b6cb0;
+    --danger: #c53030;
+    --warn: #b7791f;
+    --ok: #276749;
+    --bg: #f7fafc;
+    --card: #ffffff;
+    --border: #e2e8f0;
+    --text: #2d3748;
+    --muted: #718096;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: "Microsoft YaHei", "PingFang SC", "Noto Sans CJK SC", sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.65;
+    padding: 32px 16px;
+  }
+  .page { max-width: 980px; margin: 0 auto; }
+  .header {
+    background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+    color: #fff;
+    border-radius: 14px;
+    padding: 36px 40px;
+    margin-bottom: 28px;
+    box-shadow: 0 8px 24px rgba(26,54,93,.18);
+  }
+  .header h1 { font-size: 26px; letter-spacing: 1px; margin-bottom: 6px; }
+  .header .sub { font-size: 14px; opacity: .92; margin-bottom: 16px; }
+  .meta-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 10px;
+    font-size: 13px;
+    background: rgba(255,255,255,.12);
+    border-radius: 10px;
+    padding: 14px 18px;
+  }
+  .meta-grid div b { display: block; font-size: 11px; opacity: .8; font-weight: 400; }
+  .badge {
+    display: inline-block;
+    padding: 2px 10px;
+    border-radius: 999px;
+    font-size: 12px;
+    margin-right: 6px;
+    vertical-align: middle;
+  }
+  .b-key { background: #fefcbf; color: #744210; }
+  .b-verify { background: #c6f6d5; color: #22543d; }
+  .b-open { background: #bee3f8; color: #2a4365; }
+  .b-follow { background: #e9d8fd; color: #44337a; }
+  .b-trap { background: #fed7d7; color: #742a2a; }
+  .b-red { background: #fc8181; color: #fff; }
+  .b-green { background: #68d391; color: #fff; }
+
+  .section {
+    background: var(--card);
+    border-radius: 12px;
+    padding: 28px 32px;
+    margin-bottom: 24px;
+    box-shadow: 0 2px 10px rgba(0,0,0,.05);
+    border: 1px solid var(--border);
+  }
+  .section h2 {
+    font-size: 19px;
+    color: var(--primary);
+    padding-bottom: 10px;
+    margin-bottom: 18px;
+    border-bottom: 2px solid var(--accent);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  .section h2 .tag { font-size: 12px; font-weight: 400; color: var(--muted); }
+  .section h3 {
+    font-size: 15px;
+    color: var(--accent);
+    margin: 20px 0 10px;
+  }
+  p { margin-bottom: 10px; font-size: 14px; }
+
+  table { width: 100%; border-collapse: collapse; font-size: 13px; margin: 12px 0 18px; }
+  th {
+    background: var(--accent);
+    color: #fff;
+    padding: 9px 12px;
+    text-align: left;
+    font-weight: 500;
+  }
+  td { padding: 8px 12px; border-bottom: 1px solid var(--border); vertical-align: top; }
+  tr:nth-child(even) td { background: #f7fafc; }
+  .w { text-align: center; white-space: nowrap; }
+
+  .risk-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+  @media (max-width: 720px) { .risk-grid { grid-template-columns: 1fr; } }
+  .risk-card { border-radius: 10px; padding: 14px 16px; font-size: 13px; }
+  .risk-red { background: #fff5f5; border: 1px solid #feb2b2; }
+  .risk-green { background: #f0fff4; border: 1px solid #9ae6b4; }
+  .risk-card h4 { font-size: 13px; margin-bottom: 8px; }
+  .risk-red h4 { color: var(--danger); }
+  .risk-green h4 { color: var(--ok); }
+  .risk-card ul { padding-left: 18px; }
+  .risk-card li { margin-bottom: 5px; }
+  .risk-card li b { color: inherit; }
+
+  .q-card {
+    border: 1px solid var(--border);
+    border-left: 4px solid var(--accent);
+    border-radius: 8px;
+    padding: 14px 18px;
+    margin-bottom: 12px;
+    background: #fff;
+  }
+  .q-card .q-title { font-size: 14px; font-weight: 600; margin-bottom: 6px; }
+  .q-card .q-title .num { color: var(--accent); margin-right: 6px; }
+  .q-card .follow { font-size: 13px; color: var(--muted); }
+  .q-card .follow b { color: var(--text); font-weight: 600; }
+  .q-card .purpose {
+    margin-top: 8px;
+    font-size: 12px;
+    background: var(--bg);
+    border-radius: 6px;
+    padding: 6px 10px;
+    color: var(--muted);
+  }
+  .q-card .purpose b { color: var(--primary); }
+
+  .anchor {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 12px;
+    margin-top: 8px;
+  }
+  .anchor-item {
+    border-radius: 10px;
+    padding: 12px 14px;
+    font-size: 13px;
+    background: var(--bg);
+    border: 1px solid var(--border);
+  }
+  .anchor-item h5 { color: var(--accent); font-size: 13px; margin-bottom: 6px; }
+  .anchor-item p { font-size: 12px; color: var(--muted); margin: 0; }
+
+  .score-table td:first-child { font-weight: 600; }
+  .note {
+    background: #fffff0;
+    border: 1px solid #f6e05e;
+    border-radius: 8px;
+    padding: 12px 16px;
+    font-size: 13px;
+    color: #744210;
+    margin: 12px 0;
+  }
+  .check-list { columns: 2; column-gap: 28px; font-size: 13px; }
+  .check-list li { margin-bottom: 6px; list-style: none; counter-increment: none; }
+  .check-list li::before { content: "☐ "; color: var(--accent); }
+  .footer { text-align: center; color: var(--muted); font-size: 12px; margin: 30px 0 10px; }
+  .phase-flow {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 8px;
+    margin: 14px 0 4px;
+  }
+  @media (max-width: 720px) { .phase-flow { grid-template-columns: repeat(2, 1fr); } }
+  .phase-flow .p {
+    text-align: center;
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 10px 6px;
+    font-size: 12px;
+  }
+  .phase-flow .p b { display: block; font-size: 13px; color: var(--primary); margin-bottom: 2px; }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <div class="header">
+    <h1>面试大纲 · 命理研究员（广州 8-10K）</h1>
+    <div class="sub">候选人：张晋（简历署名：雷挽侨）｜ 面试官版 ｜ 建议时长约 60 分钟</div>
+    <div class="meta-grid">
+      <div><b>候选人</b>张晋（雷挽侨）· 1994.04.09 · 湖北恩施，现居武汉</div>
+      <div><b>学历</b>全日制硕士（长江大学 2020-2023）</div>
+      <div><b>求职意向</b>周易讲师 / 产品研发 / AI伴聊</div>
+      <div><b>从业年限</b>易学 10-12 年 · 占星/塔罗 3-4 年 · 妙测产品研发组长 2 年+</div>
+      <div><b>面试形式</b>现场 1 对 1 · 自备纸笔与万年历</div>
+      <div><b>权重分布</b>经历与产品 30% / 命理深度 25% / 算法梳理 10% / 报告撰写 15% / AI 能力 15% / 动机 5%</div>
+    </div>
+  </div>
+
+  <!-- 候选人风险画像 -->
+  <div class="section">
+    <h2>一、候选人画像与风险清单 <span class="tag">面试前必读 · 定调依据</span></h2>
+    <div class="risk-grid">
+      <div class="risk-card risk-green">
+        <h4>📌 亮点（为什么值得面）</h4>
+        <ul>
+          <li><b>产品重叠度高：</b>八字运势/合婚/姓名学/占星/塔罗/紫微，与本公司报告产品高度重合</li>
+          <li><b>双体系融合：</b>东方八字周期 + 西方星象心理，具备差异化内容能力</li>
+          <li><b>合规能力强：</b>熟稔线上内容审核规则与免责文案体系，是线上分发的刚需能力</li>
+          <li><b>竞品认知：</b>拆解过测测/万象有灵，懂行业头部产品模式</li>
+          <li><b>术数广度：</b>八字/六爻/奇门/大六壬/紫微/梅花/测字 + 占星/塔罗</li>
+        </ul>
+      </div>
+      <div class="risk-card risk-red">
+        <h4>🚨 风险点（需要验证）</h4>
+        <ul>
+          <li><b>身份疑点：</b>姓名前后不一（张晋 vs 雷挽侨），必须核实</li>
+          <li><b>深度存疑：</b>涉猎极广 → 可能广度而非深度，需现场验证盲派八字/六爻/大六壬</li>
+          <li><b>AI 空白：</b>求职意向提 AI 伴聊，但简历无任何 AI 工具/工作流痕迹</li>
+          <li><b>组长含金量：</b>自称"组长"但无带团队/管理描述，需还原实际规模</li>
+          <li><b>动机不清：</b>32 岁硕士 + 组长经验，为何应聘 8-10K？为何三个求职方向？</li>
+        </ul>
+      </div>
+    </div>
+
+    <h3>⚠ 必查的硬疑点（开场定调，第一题即测诚实度）</h3>
+    <table>
+      <tbody><tr><th style="width:90px">疑点</th><th>现象</th><th>验证要点</th></tr>
+      <tr><td><b>① 入职时间</b></td><td>简历 2024.05 入职妙测，但「武汉妙测」工商注册日为 2025.09.28（注册资本 100 万，员工 34 人，法人陈旷）</td><td>入职时公司主体是什么？母公司（武汉妙闻）业务线？还是先组队后注册？</td></tr>
+      <tr><td><b>② 毕业时间</b></td><td>文件名「17 年毕业」，简历硕士 2020-2023.09</td><td>2017 本科毕业？中间 2017-2020 在做什么？学信网链条是否完整？</td></tr>
+      <tr><td><b>③ 离职节奏</b></td><td>2026.08.26 离职 → 09.01 面试，仅隔一周</td><td>主动还是被动？为何如此急迫？</td></tr>
+    </tbody></table>
+  </div>
+
+  <!-- 流程总览 -->
+  <div class="section">
+    <h2>二、面试流程总览 <span class="tag">总时长约 60 分钟</span></h2>
+    <div class="phase-flow">
+      <div class="p"><b>P1 经历+产品</b>30% · 18min</div>
+      <div class="p"><b>P2 命理深度</b>25% · 15min</div>
+      <div class="p"><b>P3 算法梳理</b>10% · 6min</div>
+      <div class="p"><b>P4 报告撰写</b>15% · 9min</div>
+      <div class="p"><b>P5 AI 能力</b>15% · 9min</div>
+      <div class="p"><b>P6 动机收尾</b>5% · 3min</div>
+    </div>
+    <table>
+      <tbody><tr><th>阶段</th><th>核心验证</th><th class="w">权重</th><th class="w">时长</th><th>关键考察点</th></tr>
+      <tr><td><b>P1 身份与经历核实</b></td><td>简历真实性、时间线自洽、产品研发与合规能力</td><td class="w">30%</td><td class="w">18 min</td><td>硬疑点、干支产品、双体系、团队规模、合规</td></tr>
+      <tr><td><b>P2 命理知识深度</b></td><td>"精通"还是"了解"</td><td class="w">25%</td><td class="w">15 min</td><td>盲派八字、现场排盘、十神、六爻</td></tr>
+      <tr><td><b>P3 算法逻辑梳理</b></td><td>命理知识 → 结构化规则的转化能力</td><td class="w">10%</td><td class="w">6 min</td><td>变量枚举、交叉规则、边界处理</td></tr>
+      <tr><td><b>P4 测算报告撰写与优化</b></td><td>核心产出能力 + 质控意识</td><td class="w">15%</td><td class="w">9 min</td><td>现场口述报告、找茬</td></tr>
+      <tr><td><b>P5 AI 应用能力</b></td><td>AI 工具熟练度与工作流思维</td><td class="w">15%</td><td class="w">9 min</td><td>工具摸底、Prompt 设计、节点链路</td></tr>
+      <tr><td><b>P6 动机与期望</b></td><td>岗位匹配与稳定性</td><td class="w">5%</td><td class="w">3 min</td><td>薪资预期、3 个月规划、短板</td></tr>
+    </tbody></table>
+  </div>
+
+  <!-- P1 -->
+  <div class="section">
+    <h2>Phase 1 · 身份与经历核实 <span class="tag">权重 30% ｜ 约 18 分钟 ｜ 开场定调</span></h2>
+    <div class="q-card">
+      <div class="q-title"><span class="num">Q1</span>简历写硕士 2020-2023 年毕业，但文件标注「17 年毕业」——2017 年是什么节点？中间这几年在做什么？ <span class="badge b-verify">验证</span></div>
+      <div class="follow"><b>追问：</b>本科院校专业？毕业后到读硕之间是否工作过？学历有无学信网可查的完整链条（本科→硕士）？</div>
+      <div class="purpose"><b>考察：</b>时间线真实性，填补 2017-2020 空档</div>
+    </div>
+    <div class="q-card">
+      <div class="q-title"><span class="num">Q2</span>妙测 2025 年 9 月才注册成立，你简历写 2024 年 5 月入职——入职时的公司全称是什么？当时谁在组织团队？ <span class="badge b-key">关键</span></div>
+      <div class="follow"><b>追问：</b>是母公司（武汉妙闻）主体下的业务线？还是老板先组队后注册？团队当时几个人？——核实"2 年研发组长"的真实起点。</div>
+      <div class="purpose"><b>考察：</b>公司主体与工作起点的真实性</div>
+    </div>
+    <div class="q-card">
+      <div class="q-title"><span class="num">Q3</span>你 8 月 26 日离职，一周后就出现在我们面前——为什么离开妙测？又为什么这么急？ <span class="badge b-key">关键</span></div>
+      <div class="follow"><b>追问：</b>离职是主动还是被动？妙测业务现状？团队还在吗？离职前有没有谈过留任/调岗？</div>
+      <div class="purpose"><b>考察：</b>离职动机与入职稳定性风险</div>
+    </div>
+    <div class="q-card">
+      <div class="q-title"><span class="num">Q4</span>求职意向写了三个方向：周易讲师、产品研发、AI 伴聊。能分别说说这三个方向你各自的积累吗？ <span class="badge b-open">开场</span></div>
+      <div class="follow"><b>追问：</b>哪个是主选？来我们这里应聘的是哪个方向？对「命理研究员」这个岗位的理解是什么？——判断他是否认真看过 JD。</div>
+      <div class="purpose"><b>考察：</b>求职动机与岗位理解</div>
+    </div>
+    <div class="q-card">
+      <div class="q-title"><span class="num">Q5</span>干支人格周期产品——从需求到上线，完整讲一遍这个产品怎么从 0 做出来的？ <span class="badge b-verify">验证</span></div>
+      <div class="follow"><b>追问：</b>内容框架怎么定的？"先天性格 + 阶段性成长课题"的内容库有多少条？怎么保证覆盖全年龄段？上线数据如何？</div>
+      <div class="purpose"><b>考察：</b>产品落地能力，与"2 年研发组长"的起点互相印证</div>
+    </div>
+    <div class="q-card">
+      <div class="q-title"><span class="num">Q6</span>「双体系融合」——八字写周期、紫微/占星写心理，两套体系你怎么保证不打架？ <span class="badge b-follow">追问</span></div>
+      <div class="follow"><b>追问：</b>深耕东方传统易学体系 10-12 年——请结合具体案例说明这套融合逻辑能否现场演示一次，能否沉淀成文档/方法论。</div>
+      <div class="purpose"><b>考察：</b>多体系冲突的处理规则，是否能规则化、可复用</div>
+    </div>
+    <div class="q-card">
+      <div class="q-title"><span class="num">Q7</span>「产品研发组组长」——你这个组一共几个人？你管谁？向谁汇报？ <span class="badge b-key">关键</span></div>
+      <div class="follow"><b>追问：</b>组员分工？产品/研发/运营分别在谁手里？KPI 谁定？"组长"是职级还是头衔？</div>
+      <div class="purpose"><b>考察：</b>还原"组长"真实含金量与团队规模</div>
+    </div>
+    <div class="q-card">
+      <div class="q-title"><span class="num">Q8</span>你提到「规避封建迷信违规表述、制定全套免责文案规范」——具体是怎么做的？ <span class="badge b-verify">验证</span></div>
+      <div class="follow"><b>追问：</b>哪些词是禁用词？"预测/吉凶/应期"这类词怎么替换？如果合规要求不能出现"破财""血光"等词，你怎么表达同样的意思？出过审核被拒的案例吗？怎么补救？——这是线上命理产品的核心能力。</div>
+      <div class="purpose"><b>考察：</b>合规表述能力，线上命理产品的命门</div>
+    </div>
+  </div>
+
+  <!-- P2 -->
+  <div class="section">
+    <h2>Phase 2 · 命理知识深度 <span class="tag">权重 25% ｜ 约 15 分钟 ｜ 核心技术验证</span></h2>
+    <p style="font-size:13px;color:var(--muted)">方法：递进式追问法——基础层 → 依据层 → 特殊格局 → 天花板探测。命盘案例提前准备，避免现场排盘占用过多时间。</p>
+    <div class="q-card">
+      <div class="q-title"><span class="num">Q9</span>你说主学「南北两派盲派八字」——南北两派的核心差异是什么？你日常论命用的是哪一套框架？ <span class="badge b-key">关键</span></div>
+      <div class="follow"><b>追问：</b>盲派讲"做功"、传统派讲"格局旺衰"——你偏哪个？能不能用一句话说清你排盘后第一步做什么？</div>
+      <div class="purpose"><b>考察：</b>体系自洽性，背书党在此露馅的第一道关</div>
+    </div>
+    <div class="q-card">
+      <div class="q-title"><span class="num">Q10</span>现场考一道：1994 年 4 月 9 日（公历）出生，排出四柱，然后断这个人的格局和喜用神。 <span class="badge b-key">关键</span><span class="badge b-trap">必考</span></div>
+      <div class="follow"><b>追问：</b>现场观察分析顺序：日干→月令→旺衰→格局→用神。注意需判断是否过了清明（4 月 5 日左右），验证节气处理基本功。参考盘：甲戌 戊辰 丙申 戊子（以实际排盘为准）。<b>再追问：</b>身强还是身弱？判断依据是月令、通根还是透干？这个盘有没有可能是特殊格局（从格/化气格）？成立条件是什么？</div>
+      <div class="purpose"><b>考察：</b>排盘基本功 + 推理链条完整性 + 特殊格局意识</div>
+    </div>
+    <div class="q-card">
+      <div class="q-title"><span class="num">Q11</span>十神里「比肩、劫财、食神、伤官」——用大白话解释这四个分别代表什么？ <span class="badge b-verify">验证</span></div>
+      <div class="follow"><b>追问：</b>这个看似简单——能讲清楚说明底层扎实；只会背名词的会卡壳。进一步问：食神和伤官在性格上的差异？</div>
+      <div class="purpose"><b>考察：</b>底层扎实度，区分真懂与背名词</div>
+    </div>
+    <div class="q-card">
+      <div class="q-title"><span class="num">Q12</span>六爻「一卦一段」和「一卦多断」——多断的取用神逻辑是什么？核心区别在哪？ <span class="badge b-verify">验证</span></div>
+      <div class="follow"><b>追问：</b>一卦多断按什么断应期？六亲转换怎么处理？能不能用"问事业"的案例现场演示一遍装卦→取用→断事？</div>
+      <div class="purpose"><b>考察：</b>六爻实战链条能否完整走通</div>
+    </div>
+    <div class="q-card">
+      <div class="q-title"><span class="num">Q13</span>大六壬（邵子）——六壬排课的"天地盘 + 四课三传"流程，讲一遍核心逻辑。 <span class="badge b-key">关键</span></div>
+      <div class="follow"><b>追问：</b>大六壬冷门且难，能讲清九宗门起课的人不多。九宗门是哪些？邵子大六壬和一般大六壬差在哪？讲不清 = 简历注水。</div>
+      <div class="purpose"><b>考察：</b>冷门术数深度，简历注水的强检测点</div>
+    </div>
+    <div class="q-card">
+      <div class="q-title"><span class="num">Q14</span>你遇到过的最大的命理难题是什么？最后怎么解决的？ <span class="badge b-open">天花板</span></div>
+      <div class="follow"><b>追问：</b>是理论难题还是实战难题？查了哪些资料/请教了谁？最终结论是什么？——测知识上限与学习路径。</div>
+      <div class="purpose"><b>考察：</b>学习深度与独立解决问题的能力</div>
+    </div>
+  </div>
+
+  <!-- P3 -->
+  <div class="section">
+    <h2>Phase 3 · 算法逻辑梳理 <span class="tag">权重 10% ｜ 约 6 分钟 ｜ 命理 → 产品化规则</span></h2>
+    <p style="font-size:13px;color:var(--muted)">方法：场景模拟法——让候选人现场口述规则，评估变量枚举、条件定义、交叉规则、边界处理四层能力。</p>
+    <div class="q-card">
+      <div class="q-title"><span class="num">Q15</span>场景模拟：假设我们要做一个《八字命书》的命理测算报告，按照你的过往经验，从产品到结果页报告内容的撰写，你会怎么设计？ <span class="badge b-key">关键</span><span class="badge b-verify">核心题</span></div>
+      <div class="follow"><b>追问：</b>① 判断流年事业运需要考虑哪些命理要素？请列出你能想到的所有变量（预期 8+ 个）；② 每个变量怎么分档？"有利/中性/不利"每档的判断条件是什么？③ 当多个变量同时出现时怎么处理？比如流年地支冲日支，同时流年天干是七杀——怎么定义结果？④ 边界处理：子时出生的日柱归属怎么处理？五行缺一行时流年补入怎么判吉凶？</div>
+      <div class="purpose"><b>考察：</b>命理知识 → 结构化规则的核心转化能力，是本岗位的关键技能</div>
+    </div>
+  </div>
+
+  <!-- P4 -->
+  <div class="section">
+    <h2>Phase 4 · 测算报告撰写与优化 <span class="tag">权重 15% ｜ 约 9 分钟 ｜ 核心产出能力</span></h2>
+    <div class="q-card">
+      <div class="q-title"><span class="num">Q16</span>现场口述：用你最容易上手的体系，一个 28 岁未婚女性问感情——你会怎么从命理 + 心理两个角度给她输出一份"自我觉察"内容？ <span class="badge b-key">关键</span><span class="badge b-verify">场景模拟</span></div>
+      <div class="follow"><b>追问：</b>听完后从 5 个维度评估：术语是否准确 / 非专业用户能否听懂 / 表述是否客观中立（有无绝对化、恐吓式表述）/ 是否有正面引导（对不利信息的处理方式）/ 结构是否清晰（有无结论先行、分层展开）。<b>再追问：</b>如果用户反馈"太专业了看不懂"，你会怎么改？</div>
+      <div class="purpose"><b>考察：</b>命理认知 → 内容生产的转化能力，正是本岗位核心动作；看他讲的是命理干货还是鸡汤空话</div>
+    </div>
+    <div class="q-card">
+      <div class="q-title"><span class="num">Q17</span>给案例找茬：这里有一段命理报告，请你找出所有问题并说明怎么改。 <span class="badge b-trap">陷阱题</span><span class="badge b-verify">质控</span></div>
+      <div class="follow"><b>追问：</b>准备一段含 6 处问题的报告（术语错误、逻辑矛盾、表述不当、结构缺失、算法遗漏、合规风险，如"今年必遭破财之灾""命中注定克夫"）。① 你找到了哪些问题？② 每个问题你会怎么改？③ 如果要定一个「测算报告质量标准」，应该包含哪些检查项？</div>
+      <div class="purpose"><b>考察：</b>质控意识与优化能力，高分者能主动提出通用质检标准</div>
+    </div>
+  </div>
+
+  <!-- P5 -->
+  <div class="section">
+    <h2>Phase 5 · AI 应用能力 <span class="tag">权重 15% ｜ 约 9 分钟 ｜ 短板探测</span></h2>
+    <div class="q-card">
+      <div class="q-title"><span class="num">Q18</span>你求职意向里写了「AI 伴聊（玄学类）」——你的过往经历里没有 AI 相关的工作经历，你实际用过哪些 AI 工具？做过什么具体的东西？ <span class="badge b-key">关键</span></div>
+      <div class="follow"><b>追问：</b>ChatGPT/DeepSeek/文心？有没有搭过工作流（Dify/Coze）？有没有调过 API？有没有用 AI 生成过命理内容？简历里没写，现在是验证的时候。<b>水平定位：</b>L0 不用 → L1 当搜索用 → L2 能写简单 Prompt → L3 会用 Prompt 模板调优 → L4 搭建过工作流 → L5 多节点 + JSON 结构化输出。</div>
+      <div class="purpose"><b>考察：</b>AI 真实水平，防"意向 ≠ 能力"</div>
+    </div>
+    <div class="q-card">
+      <div class="q-title"><span class="num">Q19</span>实操口述：如果让你用 AI 自动生成「感情运势」段落，你会怎么设计 Prompt？ <span class="badge b-key">关键</span></div>
+      <div class="follow"><b>追问：</b>① 输入变量有哪些？② 输出格式怎么定义？用 JSON 吗？③ 怎么防止 AI 生成错误的术语？④ 整个工作流的节点链路是什么样的？</div>
+      <div class="purpose"><b>考察：</b>Prompt 结构能力与工作流思维；高分者能口述完整结构并定义 JSON 输出</div>
+    </div>
+    <div class="q-card">
+      <div class="q-title"><span class="num">Q20</span>我们公司用「八字排盘 API + Dify 工作流 + 大模型」批量生产命理报告。你觉得这种模式下，你的价值发挥在哪？ <span class="badge b-open">开场</span></div>
+      <div class="follow"><b>追问：</b>看他怎么定义自己——内容架构？算法规则？还是文案润色？如果对 AI 生产持抵触态度（"命理必须人算"），与本公司方向冲突。妙测的内容文案是纯人工还是有 AI 辅助？一个人一天能产多少字？</div>
+      <div class="purpose"><b>考察：</b>AI 时代下的自我定位，与岗位模式的契合度</div>
+    </div>
+  </div>
+
+  <!-- P6 -->
+  <div class="section">
+    <h2>Phase 6 · 动机与期望 <span class="tag">权重 5% ｜ 约 3 分钟 ｜ 收尾</span></h2>
+    <div class="q-card">
+      <div class="q-title"><span class="num">Q21</span>全日制硕士 + 产品研发组长，你应聘 8-10K 的岗位——薪资预期能接受吗？为什么？ <span class="badge b-trap">陷阱</span></div>
+      <div class="follow"><b>追问：</b>期望薪资？武汉到广州的搬迁成本？如果是"真爱命理"——那正好验证动机；如果支支吾吾——入职后稳定性存疑。</div>
+      <div class="purpose"><b>考察：</b>求职动机的真实性与稳定性风险</div>
+    </div>
+    <div class="q-card">
+      <div class="q-title"><span class="num">Q22</span>如果入职，前 3 个月你打算怎么开展工作？你觉得自己最大的短板是什么？ <span class="badge b-open">开场</span></div>
+      <div class="follow"><b>追问：</b>有规划 = 认真考虑过；没规划 = 海投。承认短板 = 靠谱；全是优点 = 警惕。</div>
+      <div class="purpose"><b>考察：</b>入职意愿与自我认知</div>
+    </div>
+  </div>
+
+  <!-- 交叉验证锚点 -->
+  <div class="section">
+    <h2>交叉验证锚点 <span class="tag">面试中实时对照，出现矛盾即追问</span></h2>
+    <div class="anchor">
+      <div class="anchor-item">
+        <h5>① 时间线锚</h5>
+        <p>妙测入职时间（Q2）× 公司成立时间 × 产品上线时间（Q5） × 离职时间（Q3）——四者必须自洽，任何一个对不上就追问。</p>
+      </div>
+      <div class="anchor-item">
+        <h5>② 命理锚</h5>
+        <p>盲派体系认知（Q9）× 现场排盘（Q10）× 十神讲解（Q11）——真学过的人三处细节一致，背书党会在排盘环节露馅。</p>
+      </div>
+      <div class="anchor-item">
+        <h5>③ 产品锚</h5>
+        <p>团队规模（Q7）× 干支产品细节（Q5）× 双体系融合（Q6） × 产品可访问性——虚构经历在细节追问下会互相矛盾。</p>
+      </div>
+      <div class="anchor-item">
+        <h5>④ 合规锚</h5>
+        <p>合规规范（Q8）× 竞品拆解 × 场景模拟（Q16）——合规能力是线上命理产品的命门，讲得出具体规则 = 真做过。</p>
+      </div>
+      <div class="anchor-item">
+        <h5>⑤ 算法锚</h5>
+        <p>场景规则设计（Q15）× 产品从 0 到 1（Q5）× 融合方法沉淀（Q6）——能写规则、能讲变量、能处理交叉与边界 = 可产品化。</p>
+      </div>
+      <div class="anchor-item">
+        <h5>⑥ AI 锚</h5>
+        <p>工具摸底（Q18）× Prompt 口述（Q19）× 价值定位（Q20）——三者一致且达到 L3+ 才算达标。</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- 评分表 -->
+  
+
+  
+</div>
+
+
+</body></html>
