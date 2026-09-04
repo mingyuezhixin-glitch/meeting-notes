@@ -625,6 +625,14 @@
   .mc-chip:active{background:var(--gold-soft);color:var(--gold-deep);border-color:var(--gold)}
 
   @media(min-width:900px){ .stage{box-shadow:0 30px 80px rgba(60,40,12,.18);border-radius:0} }
+
+  /* ===== 档案 + 出生排盘 融合（同一模块连续呈现，无卡中卡） ===== */
+  .arch-head{display:flex;align-items:center;gap:9px;margin:22px 0 14px;padding-top:14px;border-top:1px solid var(--line);position:relative;z-index:1}
+  .arch-head .bar{display:none}
+  .arch-head .t{font-size:13px;font-weight:700;color:var(--gold-deep);letter-spacing:.06em;white-space:nowrap}
+  .arch-head .sec-ai-btn{margin-left:auto}
+  .arch-inner{position:relative;z-index:1}
+  .arch-inner .birth-top{margin-bottom:12px}
 </style>
 </head>
 <body>
@@ -691,14 +699,10 @@
         <span>庚金日主</span><span>甲申大运 · 25–34 岁</span><span>财富 300–800 万</span><span>打工 : 创业 ≈ 7:3</span>
       </div>
       <div class="hero-summary">一句话总纲：你不是靠运气冲刺的人，而是骨架强、越长大越能靠判断力与执行力赢位置的人——命盘重点不在快，而在稳、准、越走越有分量。</div>
-    </div>
-  </div>
 
-  <!-- 出生与排盘 -->
-  <div class="body">
-    <div class="sec" id="sec-birth">
-      <div class="sec-head"><span class="bar"></span><h2>出生与排盘</h2><button class="sec-ai-btn" data-ai-open data-ai-q="我的出生时间是怎么排出这个盘的？请帮我解读排盘依据与四柱信息。">AI 深度解读</button></div>
-      <div class="card">
+      <!-- 下部 · 出生与排盘（已融合进档案卡，档案与排盘同卡呈现） -->
+      <div class="arch-head"><span class="bar"></span><span class="t">出生与排盘</span><button class="sec-ai-btn" data-ai-open data-ai-q="我的出生时间是怎么排出这个盘的？请帮我解读排盘依据与四柱信息。">AI 深度解读</button></div>
+      <div class="arch-inner">
         <div class="birth-top">
           <div class="birth-avatar">庚</div>
           <div class="birth-main">
@@ -748,17 +752,17 @@
         </a>
       </div>
     </div>
+  </div>
 
+  <!-- 解读正文 -->
+  <div class="body">
     <!-- 章节目录 -->
     <div class="chapnav">
       <div class="chips" id="chips">
-        <a href="#sec-birth" class="on">排盘</a>
         <a href="#sec-summary">看懂命盘</a>
-        <a href="#sec-pattern">格局评分</a>
         <a href="#sec-wealth">财富</a>
         <a href="#sec-career">事业</a>
         <a href="#sec-love">感情</a>
-        <a href="#sec-map">命运地图</a>
       </div>
     </div>
 
@@ -1459,7 +1463,8 @@
 
   // ---------- 章节目录 高亮 ----------
   var chipLinks = $$('#chips a');
-  var secIds = chipLinks.map(function(a){ return a.getAttribute('href'); });
+  var chipSecIds = {};
+  chipLinks.forEach(function(a){ chipSecIds[a.getAttribute('href').slice(1)] = 1; });
   var secIo = new IntersectionObserver(function(entries){
     entries.forEach(function(e){
       if(e.isIntersecting){
@@ -1468,7 +1473,7 @@
       }
     });
   }, {rootMargin:'-35% 0px -55% 0px'});
-  $$('.sec').forEach(function(s){ secIo.observe(s); });
+  $$('.sec').forEach(function(s){ if(chipSecIds[s.id]) secIo.observe(s); });
 
   // ---------- 命运地图 tabs ----------
   var maptabs = $('#maptabs');
