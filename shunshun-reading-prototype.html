@@ -1,0 +1,1706 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>顺顺 · 生辰解读报告（改版交互原型）</title>
+<style>
+  /* ================================================================
+     顺顺视觉风格系统 — 对齐现有 App 设计语言
+     ================================================================ */
+  :root{
+    /* 背景层 —— 对齐 App 截图：更白更干净 */
+    --bg:#FFF8F5;
+    --screen:#FFFFFF;
+    --screen-2:#FFFCF8;
+
+    /* 卡片 —— 截图中卡片为纯白/极浅暖白 */
+    --card:#FFFFFF;
+    --card-2:#FFF8F0;
+    --card-3:#FFF0E0;
+
+    /* 文字 —— 截图中为暖调深棕/中灰 */
+    --ink:#333333;
+    --ink-2:#555555;
+    --muted:#999999;
+
+    /* 金色系 — 明亮温暖 */
+    --gold:#e8a838;
+    --gold-light:#f5c86b;
+    --gold-deep:#C8822A;
+    --gold-soft:#FFF0D9;
+    --gold-grad:linear-gradient(135deg,var(--gold-light),var(--gold) 55%,var(--gold-deep-2));
+    --gold-grad-2:linear-gradient(135deg,#FFD88A,var(--gold));
+
+    /* 全站仅保留两族：暖金(唯一强调) + 暖米/墨棕(中性)。以下 token 统一并入 */
+    --coral:#C8822A;    --coral-soft:#FFF0D9;
+    --pink:#E8A838;     --pink-grad:linear-gradient(90deg,#E8A838,#D4932A);
+    --green:#C8822A;    --green-soft:#FFF3DD;
+    --red:#C8822A;      --red-soft:#FFF0D9;
+
+    /* 分割线 & 装饰 — 更淡更柔和 */
+    --line:#F0E8E0;
+    --line-2:#EAD8C8;
+
+    /* 阴影 — 柔和、暖调、更轻 */
+    --shadow:0 8px 32px rgba(60,40,12,.06);
+    --shadow-sm:0 4px 16px rgba(60,40,12,.04);
+    --shadow-card:0 4px 20px rgba(60,40,12,.05);
+
+    --radius:22px;
+    --radius-xl:26px;
+    --radius-pill:999px;
+
+    /* ================================================================
+       设计规范 V3 · 全站 token 收敛
+       ① 字体   —— 正文黑体系统栈 var(--font-sans)，仅 body 引用；
+                   标题/正文均不加衬线；font-weight 用 500/600/700/800/900
+       ② 字号   —— 全站整像素、无小数；最小 10px（图表底线）。
+                   层级锚点（手机适老）：
+                   大数字 62/32/22/20 · 章节标题 19 · 卡片标题 16-17
+                   正文 15-16 · 次级说明 14 · 标签 13 · 辅助 12 · 迷你 11
+       ③ 用色   —— 五行/图表/描边/文字收敛到下方 token，不再另写近似色；
+                   近 6 个浅金描边收敛为 --line-gold / --line-gold-2 两档
+       ================================================================ */
+    --font-sans:-apple-system,BlinkMacSystemFont,"PingFang SC","HarmonyOS Sans SC","Microsoft YaHei","Noto Sans CJK SC","Segoe UI",sans-serif;
+    --ink-strong:#45403a;                 /* 正文最深深色（适老对比） */
+    --gold-deep-2:#d4932a;                /* 金色渐变深端 */
+    /* 次级语义色统一并入金/棕两族，不再出现蓝绿红紫 */
+    --blue:#9A8161;   --blue-deep:#7A6048;
+    --tan:#c89050;    --tan-deep:#8a6030;
+    --green-deep:#C8822A;  --green-dark:#B87620;
+    --red-deep:#B87620;
+    --coral-deep:#B87620;
+    --pink-mid:#C8822A;  --pink-deep:#A8711E;
+    /* 图表柱 3 档金（大运/流年/十神统一） */
+    --bar-gold:linear-gradient(180deg,#ffe8b8,#f5d89a);
+    --bar-gold-hi:linear-gradient(180deg,#ffd88a,#e8a838);
+    --bar-gold-lo:linear-gradient(180deg,#f5e0c0,#e8d0a0);
+    --bar-gold-strong:linear-gradient(180deg,#e8a838,#d4932a);
+    /* Hero 横幅主渐变 */
+    --hero-grad:linear-gradient(145deg,#ffd88a 0%,#e8a838 35%,#d4932a 70%,#b87620 100%);
+    /* 浅金描边 2 档（收敛原近 6 个近似色） */
+    --line-gold:#f0dcc2;   /* 标签 / 卡片描边 / 轨道 */
+    --line-gold-2:#e8cda0; /* 虚线锁定框 / 把手 */
+    /* 五行能量卡浅底 —— 统一暖米渐变（不再按木水火土分色） */
+    --tint-wood:linear-gradient(150deg,#FFFCF7,#FFF3E3);
+    --tint-water:linear-gradient(150deg,#FFFCF7,#FFF3E3);
+    --tint-fire:linear-gradient(150deg,#FFFCF7,#FFF3E3);
+    --tint-earth:linear-gradient(150deg,#FFFCF7,#FFF3E3);
+  }
+
+  *{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:var(--font-sans);
+    -webkit-font-smoothing:antialiased;
+    -moz-osx-font-smoothing:grayscale;
+    -webkit-text-size-adjust:100%;
+    text-size-adjust:100%;
+    background:var(--bg);min-height:100vh;color:var(--ink);
+    display:flex;justify-content:center;
+    background-image:
+      radial-gradient(1000px 500px at 15% -5%, var(--card-2) 0%, transparent 70%),
+      radial-gradient(800px 400px at 105% 10%, #FFF0E0 0%, transparent 60%);
+  }
+  .stage{position:relative;width:100%;max-width:430px;min-height:100vh;background:var(--screen);box-shadow:var(--shadow)}
+
+  /* ===== 顶部导航（小程序式：返回胶囊 / 页面标题 / 右上系统胶囊位） ===== */
+  .topbar{position:sticky;top:0;z-index:40;background:rgba(255,253,250,.94);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);
+    display:grid;grid-template-columns:40px 1fr auto;align-items:center;gap:10px;padding:8px 12px;border-bottom:1px solid var(--line)}
+  .topbar .brand{font-size:16px;font-weight:800;letter-spacing:.04em;color:var(--ink);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .topbar .brand em{font-style:normal;color:var(--gold-deep)}
+  /* 左 · 返回胶囊 */
+  .mp-back{width:30px;height:30px;border-radius:11px;border:none;display:flex;align-items:center;justify-content:center;
+    color:var(--ink);background:rgba(60,40,12,.06);cursor:pointer;transition:.15s;-webkit-tap-highlight-color:transparent}
+  .mp-back:active{transform:scale(.9);background:rgba(60,40,12,.12)}
+  /* 右 · 模拟微信胶囊（主页 + ⋮ 菜单，视觉占位） */
+  .mp-capsule{height:30px;padding:0 3px;border-radius:11px;display:flex;align-items:center;background:rgba(60,40,12,.06)}
+  .mp-capsule .cs-btn{width:25px;height:25px;display:flex;align-items:center;justify-content:center;color:var(--ink-2)}
+  .mp-capsule .cs-dots{width:23px;height:25px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2.5px}
+  .mp-capsule .cs-dots i{width:3px;height:3px;border-radius:50%;background:var(--ink-2)}
+
+  /* ===== Hero 价值锚（毛玻璃·山水版） ===== */
+  .hero{padding:20px 16px 16px}
+  .hero-card{position:relative;overflow:hidden;border-radius:var(--radius-xl);padding:24px 20px 20px;color:var(--ink);
+    background:rgba(255,255,255,.78);
+    backdrop-filter:blur(20px);
+    -webkit-backdrop-filter:blur(20px);
+    box-shadow:0 8px 32px rgba(60,40,12,.08)}
+  /* 山水画背景层 */
+  .hero-scape{position:absolute;inset:0;pointer-events:none;z-index:0;opacity:.55}
+  .hero-scape svg{position:absolute;bottom:0;left:0;width:100%;height:100%}
+  .hero-card>*:not(.hero-scape){position:relative;z-index:1}
+  /* 主结论区（原分数/评级删除，保留主打评语） */
+  .hero-verdict{font-size:18px;line-height:1.6;font-weight:800;color:var(--ink);margin-top:16px;position:relative;padding:0 6px}
+  .hero-verdict .quote-mark{font-size:28px;font-weight:900;color:var(--gold-deep);line-height:1;vertical-align:text-top;opacity:.35;margin:0 2px}
+  /* 个人信息档案栏 */
+  .hero-profile{display:flex;align-items:center;gap:10px;margin-top:6px;position:relative}
+  .hero-profile-tag{font-size:12px;color:var(--gold-deep);background:var(--gold-soft);border-radius:var(--radius-pill);padding:5px 11px;font-weight:800;flex-shrink:0}
+  .hero-profile-name{font-size:23px;font-weight:900;color:var(--ink);margin:0;line-height:1.25;flex:1}
+  .hero-source-btn{margin-left:auto;font-size:12px;font-weight:700;color:var(--gold-deep);background:transparent;border:1.5px solid var(--gold-soft);border-radius:var(--radius-pill);padding:5px 12px;cursor:pointer;transition:background .2s}
+  .hero-source-btn:active{background:var(--gold-soft)}
+  .hero-source-btn .src-arrow{display:inline-block;font-size:11px;line-height:1;margin-left:2px;animation:srcBounce 1.6s ease-in-out infinite}
+  @keyframes srcBounce{0%,100%{transform:translateY(0)}50%{transform:translateY(2px)}}
+
+  /* 属性标签 */
+  .hero-tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
+  .hero-tags span{font-size:12px;background:var(--card-2);padding:5px 12px;border-radius:var(--radius-pill);font-weight:600;white-space:nowrap;color:var(--ink-2)}
+  /* 总纲 */
+  .hero-summary{margin-top:12px;font-size:15px;line-height:1.85;color:var(--ink-2);background:#F7F2EA;border-radius:14px;padding:14px 16px}
+
+  /* ===== 章节通用 ===== */
+  /* ===== 页面 Tab 切换 ===== */
+  .page-tabs{display:flex;gap:8px;padding:14px 16px 6px;background:var(--screen)}
+  .page-tabs button{flex:1;padding:12px 0;border:none;border-radius:var(--radius-pill);font-size:15px;font-weight:700;cursor:pointer;transition:.2s;background:var(--card-2);color:var(--ink-2)}
+  .page-tabs button.on{color:#fff;background:var(--gold-grad);border-color:transparent;box-shadow:0 6px 18px rgba(232,168,56,.28)}
+  .page-tabs button:active{transform:scale(.97)}
+  .tab-panel{display:none}
+  .tab-panel.on{display:block;animation:fadein .35s ease}
+
+  /* ===== 生辰历 排盘表格 ===== */
+  .bazi-table{width:100%;border-collapse:separate;border-spacing:0;background:var(--card);border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow-card);margin-bottom:14px}
+  .bazi-table th,.bazi-table td{text-align:center;padding:10px 4px;font-size:13px;border-bottom:1px solid var(--line)}
+  .bazi-table th{background:linear-gradient(180deg,var(--screen-2),var(--card-2));font-size:11px;color:var(--muted);font-weight:700;letter-spacing:.08em;padding:12px 4px}
+  .bazi-table td{font-size:13px;color:var(--ink);font-weight:700}
+  .bazi-table .row-label{text-align:left;padding-left:14px;font-size:11px;color:var(--muted);font-weight:700;background:var(--screen-2);width:60px}
+  .bazi-table .gs,.bazi-table .qs{color:var(--ink)}
+  .bazi-table .zg{color:var(--ink)}
+  .bazi-table .gz,.bazi-table .dz-red,.bazi-table .dz-brown,.bazi-table .dz-blue,.bazi-table .dz-green{color:var(--ink)}
+  .bazi-table .cg{font-size:11px;color:var(--ink-2);font-weight:500;line-height:1.6;padding:6px 2px}
+  .bazi-table .cg span{display:block}
+  .bazi-table .zs{font-size:11px;color:var(--ink-2);font-weight:500;line-height:1.6;padding:6px 2px}
+  .bazi-table .zs span{display:inline-block;margin:1px 3px}
+  .bazi-table tr:last-child td{border-bottom:none}
+  .bazi-table tr:last-child .row-label{border-bottom-left-radius:var(--radius)}
+  .bazi-table tr:last-child td:last-child{border-bottom-right-radius:var(--radius)}
+
+  /* ===== 四柱排盘 · 展开/收起 ===== */
+  .bazi-collapse{max-height:260px;overflow:hidden;position:relative;transition:max-height .5s cubic-bezier(.25,.8,.25,1)}
+  .bazi-collapse.open{max-height:2000px}
+  .bazi-collapse .bazi-fade{position:absolute;inset:0;top:auto;height:60px;background:linear-gradient(to bottom,transparent,var(--card));pointer-events:none;transition:opacity .3s}
+  .bazi-collapse.open .bazi-fade{opacity:0}
+  .bazi-toggle{display:flex;align-items:center;justify-content:center;gap:6px;width:100%;padding:12px 0;border:none;background:transparent;color:var(--gold-deep);font-size:13px;font-weight:700;cursor:pointer;transition:.2s}
+  .bazi-toggle:active{transform:scale(.97)}
+  .bazi-toggle .tg-ico{display:inline-block;width:18px;height:18px;border-radius:50%;background:var(--gold-soft);color:var(--gold-deep);font-size:11px;line-height:18px;text-align:center;transition:transform .3s}
+  .bazi-collapse.open + .bazi-toggle .tg-ico{transform:rotate(180deg)}
+
+  .shensha-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:14px}
+  .ss-cell{background:linear-gradient(180deg,var(--screen-2),var(--card));border-radius:16px;padding:12px 8px;text-align:center;box-shadow:0 2px 8px rgba(60,40,12,.04)}
+  .ss-cell .ss-t{font-size:10px;color:var(--muted);letter-spacing:.08em;margin-bottom:6px}
+  .ss-cell .ss-v{font-size:13px;font-weight:800;color:var(--ink);line-height:1.5}
+  .ss-cell .ss-v small{display:block;font-size:11px;color:var(--muted);font-weight:500;margin-top:3px}
+
+  .body{padding:4px 16px 120px}
+  .sec{margin-top:28px}
+  .sec-head{display:flex;align-items:center;gap:10px;margin:0 2px 14px}
+  .sec-head .bar{width:4px;height:18px;border-radius:4px;background:var(--gold-grad)}
+  .sec-head h2{font-size:17px;font-weight:800}
+  .sec-head .sub{margin-left:auto;font-size:11px;color:var(--muted);letter-spacing:.05em}
+  /* 模块标题右侧 · AI 深度解读按钮 */
+  .sec-ai-btn{margin-left:auto;flex-shrink:0;display:inline-flex;align-items:center;gap:5px;font-size:12px;font-weight:800;color:#fff;background:var(--gold-grad);border:none;border-radius:var(--radius-pill);padding:7px 14px;cursor:pointer;box-shadow:0 4px 12px rgba(232,168,56,.32);transition:transform .15s,box-shadow .2s;white-space:nowrap}
+  .sec-ai-btn:active{transform:scale(.95);box-shadow:none}
+
+  .card{background:var(--card);border-radius:var(--radius);padding:20px;margin-bottom:16px;box-shadow:var(--shadow-card)}
+  .card.no-pad{padding:0;overflow:hidden}
+
+  .b-t{display:flex;align-items:center;gap:8px;font-size:15px;font-weight:800;color:var(--gold-deep);margin-bottom:14px}
+  .b-t .ico{width:24px;height:24px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:12px;background:var(--gold-soft);flex-shrink:0}
+  .b-t small{margin-left:auto;font-size:10px;color:var(--muted);font-weight:500}
+  .b-p{font-size:14px;line-height:1.95;color:var(--ink-2)}
+  .b-p + .b-p{margin-top:8px}
+  .b-p b,.b-p .hl{color:var(--gold-deep);font-weight:700}
+  .b-p .mark{background:linear-gradient(transparent 62%,rgba(245,200,107,.45) 62%)}
+
+  /* ===== 出生/排盘 ===== */
+  .birth-top{display:flex;align-items:center;gap:12px;margin-bottom:14px}
+  .birth-avatar{width:48px;height:48px;flex-shrink:0;border-radius:16px;display:flex;align-items:center;justify-content:center;font-size:20px;background:var(--gold-grad-2);box-shadow:0 4px 12px rgba(232,168,56,.25);color:#fff;font-weight:800}
+  .birth-main{flex:1;min-width:0}
+  .birth-main .nm{font-size:16px;font-weight:800}
+  .birth-main .meta{font-size:12px;color:var(--muted);margin-top:2px;line-height:1.5}
+  .birth-badge{flex-shrink:0;font-size:11px;color:var(--gold-deep);background:var(--gold-soft);border-radius:12px;padding:5px 10px;text-align:center;font-weight:700;line-height:1.4}
+  /* 生辰历入口 */
+  .birth-link{display:flex;align-items:center;gap:8px;margin:14px 0 4px;padding:10px 14px;border-radius:14px;background:linear-gradient(135deg,var(--screen-2),var(--card));border:1px solid var(--line-gold);color:var(--gold-deep);font-size:13px;font-weight:600;text-decoration:none;transition:all .2s}
+  .birth-link:active{transform:scale(.98);background:var(--card-2)}
+  .birth-link-icon{display:flex;align-items:center;justify-content:center;width:28px;height:28px;border-radius:10px;background:var(--gold-grad-2);color:#fff;flex-shrink:0}
+  .birth-link-text{flex:1}
+  .birth-link-arrow{font-size:18px;color:var(--gold);font-weight:300}
+
+  /* 四柱八字 — 竖排简化版 */
+  .pillars{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+  .pillar{position:relative;border-radius:18px;padding:16px 4px 14px;text-align:center;background:linear-gradient(180deg,var(--screen-2),var(--card));display:flex;flex-direction:column;align-items:center;gap:6px}
+  .pillar .master-tag{display:inline-block;font-size:10px;color:#fff;background:var(--gold-deep);border-radius:var(--radius-pill);padding:2px 10px;font-weight:700}
+  .pillar .pl-t{font-size:11px;color:var(--muted);letter-spacing:.08em}
+  .pillar .gz{font-size:22px;font-weight:900;letter-spacing:.06em;color:var(--ink);line-height:1.2}
+  .pillar .wuxing{display:none}
+
+  /* 命盘关键词 — 标签组 */
+  .kw-line{display:flex;flex-wrap:wrap;align-items:center;gap:8px 10px;margin-top:14px;padding-top:14px;border-top:1px solid var(--line)}
+  .kw-line .k{font-size:12px;color:var(--gold-deep);font-weight:700;flex-shrink:0;margin-right:2px}
+  .kw-line .kw{display:inline-block;font-size:13px;color:var(--ink-2);background:var(--screen-2);border-radius:var(--radius-pill);padding:6px 14px;font-weight:600}
+
+  .stage-bar{display:flex;align-items:center;gap:8px;margin-top:12px;padding:10px 14px;background:var(--gold-soft);border-radius:14px}
+  .stage-bar .k{font-size:11px;color:var(--muted);flex-shrink:0}
+  .stage-bar .v{font-size:13px;font-weight:800;color:var(--gold-deep)}
+  .stage-bar .now{font-size:10px;background:var(--coral);color:#fff;border-radius:var(--radius-pill);padding:2px 7px;margin-left:2px;font-weight:700}
+  .stage-bar .meta{font-size:11px;color:var(--muted);margin-left:auto}
+
+  /* ===== 章节目录胶囊 ===== */
+  .chapnav{position:sticky;top:52px;z-index:30;background:rgba(255,251,247,.94);backdrop-filter:blur(12px);padding:9px 12px 11px;border-bottom:1px solid var(--line)}
+  .chapnav .chips{display:flex;gap:7px;overflow-x:auto;scrollbar-width:none}
+  .chapnav .chips::-webkit-scrollbar{display:none}
+  .chapnav a{flex-shrink:0;font-size:12px;color:var(--ink-2);text-decoration:none;background:var(--card-2);border-radius:var(--radius-pill);padding:7px 15px;transition:.18s;font-weight:600}
+  .chapnav a.on{color:#fff;background:var(--gold-grad);border-color:transparent;box-shadow:0 4px 12px rgba(232,168,56,.25)}
+
+  /* ===== 一句话小结 ===== */
+  .leadline{background:var(--card-2);border-radius:18px;padding:16px 18px;font-size:14px;line-height:1.9;color:var(--ink-2);font-weight:600}
+
+  /* ===== 观点/优劣 双栏 ===== */
+  .trio{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+  .fact-card{border-radius:18px;padding:16px;font-size:13px;line-height:1.85;color:var(--ink-2)}
+  .fact-card.good{background:var(--gold-soft)}
+  .fact-card.good .ft{color:var(--gold-deep)}
+  .fact-card.warn{background:#F1EBE0}
+  .fact-card.warn .ft{color:#8A7A64}
+  .fact-card .ft{font-size:13px;font-weight:800;margin-bottom:8px;display:flex;align-items:center;gap:6px}
+  .fact-card .ft i{width:7px;height:7px;border-radius:50%;display:inline-block}
+  .fact-card.good .ft i{background:var(--gold-deep)}
+  .fact-card.warn .ft i{background:#C2B5A2}
+  .fact-list{display:flex;flex-direction:column;gap:10px}
+  .fact-list .li{display:flex;gap:10px;font-size:14px;line-height:1.85;color:var(--ink-2)}
+  .fact-list .li::before{content:"";width:5px;height:5px;border-radius:50%;background:var(--gold);margin-top:9px;flex-shrink:0}
+
+  /* ===== 人生脉络 timeline ===== */
+  .life-strip{display:flex;gap:0;margin-top:14px;overflow-x:auto;padding-bottom:8px;scrollbar-width:none}
+  .life-strip::-webkit-scrollbar{display:none}
+  .life-node{position:relative;flex:0 0 108px;padding:0 5px}
+  .life-node .ln-line{height:5px;border-radius:4px;background:linear-gradient(90deg,var(--line-gold),var(--gold));margin-bottom:11px;position:relative}
+  .life-node .ln-line::before{content:"";position:absolute;left:0;top:-3px;width:12px;height:12px;border-radius:50%;background:#fff;border:3px solid var(--gold-deep);box-shadow:0 2px 6px rgba(232,168,56,.25)}
+  .life-node.on .ln-line{background:linear-gradient(90deg,#A8711E,var(--gold-deep-2));height:6px}
+  .life-node.on .ln-line::before{border-color:#8A5A15;width:13px;height:13px;top:-3.5px}
+  .life-node .ln-age{font-size:12px;font-weight:800;color:var(--ink)}
+  .life-node .ln-age small{color:var(--gold-deep);margin-left:2px}
+  .life-node .ln-txt{font-size:11px;color:var(--muted);line-height:1.55;margin-top:4px}
+
+  /* ===== 评分 ===== */
+  .score-panel{display:flex;align-items:center;gap:18px;padding:6px 2px}
+  .ring{position:relative;width:112px;height:112px;flex-shrink:0}
+  .ring svg{transform:rotate(-90deg)}
+  .ring .center{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center}
+  .ring .num{font-size:32px;font-weight:900;line-height:1;background:var(--gold-grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+  .ring .lbl{font-size:10px;color:var(--muted);margin-top:3px;font-weight:600}
+  .score-notes{flex:1}
+  .score-notes .big-lbl{font-size:17px;font-weight:900}
+  .score-notes .big-lbl em{font-style:normal;color:var(--gold-deep)}
+  .score-notes .desc{font-size:13px;color:var(--muted);line-height:1.7;margin-top:7px}
+  .score-tags{display:flex;gap:8px;margin-top:12px;flex-wrap:wrap}
+  .st{font-size:12px;color:var(--ink-2);background:var(--card-2);border-radius:var(--radius-pill);padding:5px 12px;font-weight:600}
+
+  /* ===== 数据 / 区间 / 比例 ===== */
+  .stat2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+  .stat2 .cell{background:var(--card-2);border-radius:18px;padding:16px 10px;text-align:center}
+  .stat2 .k{font-size:12px;color:var(--gold-deep);font-weight:600}
+  .stat2 .v{font-size:18px;font-weight:900;margin-top:6px;color:var(--ink)}
+  .stat2 .v small{font-size:11px;font-weight:600;color:var(--muted)}
+
+  .rangebar{margin-top:14px}
+  .rangebar .rb-head{display:flex;justify-content:space-between;font-size:11px;color:var(--muted);margin-bottom:8px}
+  .rangebar .rb-head b{color:var(--gold-deep)}
+  .rangebar .track{position:relative;height:14px;border-radius:var(--radius-pill);background:linear-gradient(90deg,var(--card-2),#F8E8D8 55%,var(--card-2));overflow:visible}
+  .rangebar .track .fill{position:absolute;left:18%;width:36%;top:0;height:100%;border-radius:var(--radius-pill);background:var(--gold-grad)}
+  .rangebar .low,.rangebar .high{position:absolute;top:-5px;width:10px;height:22px;background:#fff;border:2.5px solid var(--gold-deep);border-radius:5px;transform:translateX(-50%);box-shadow:0 2px 6px rgba(232,168,56,.2)}
+  .rangebar .high{left:53%}
+  .rangebar .annotate{display:flex;justify-content:space-between;font-size:11px;color:var(--muted);margin-top:7px}
+  .rangebar .annotate b{color:var(--ink);font-weight:700}
+
+  .ratio{margin-top:14px}
+  .ratio .rt-head{display:flex;justify-content:space-between;font-size:13px;font-weight:700;margin-bottom:8px}
+  .ratio .rt-head .a{color:var(--gold-deep)}
+  .ratio .rt-head .b{color:#8A6A2F}
+  .ratio .track{display:flex;height:16px;border-radius:var(--radius-pill);overflow:hidden}
+  .ratio .track .seg{display:flex;align-items:center;justify-content:center;font-size:10px;color:#fff;font-weight:700}
+  .ratio .track .seg.work{flex:7;background:var(--gold-grad)}
+  .ratio .track .seg.found{flex:3;background:linear-gradient(90deg,#E8C887,#D4A85F);color:#6B4A12}
+
+  /* ===== 时间轴条目 ===== */
+  .tl{display:flex;flex-direction:column}
+  .tl-item{display:flex;gap:14px;position:relative;padding-bottom:18px}
+  .tl-item::before{content:"";position:absolute;left:36px;top:24px;bottom:0;width:2px;background:var(--line)}
+  .tl-item:last-child::before{display:none}
+  .tl-item .tag{flex-shrink:0;font-size:12px;font-weight:700;color:var(--ink-2);background:var(--card-2);border-radius:10px;padding:6px 11px;height:fit-content}
+  .tl-item .txt{font-size:14px;line-height:1.85;color:var(--ink-2)}
+  .tl-item .txt b{color:var(--gold-deep)}
+
+  /* ===== 折叠阅读 ===== */
+  details.more{overflow:hidden}
+  details.more summary{list-style:none;display:flex;align-items:center;gap:6px;cursor:pointer;font-size:12px;color:var(--gold-deep);font-weight:700;padding:9px 0;user-select:none}
+  details.more summary::after{content:"展开 ▾";margin-left:auto;font-size:11px;color:var(--muted)}
+  details.more[open] summary::after{content:"收起 ▴"}
+  .collapse-body{border-left:2px solid var(--gold-soft);padding-left:13px;margin-top:3px}
+
+  /* ===== 命运地图 ===== */
+  .maptabs{display:flex;gap:7px;margin-bottom:14px}
+  .maptabs button{flex:1;padding:10px 0;background:var(--card-2);border-radius:14px;font-size:13px;font-weight:700;color:var(--ink-2);cursor:pointer;transition:.18s}
+  .maptabs button.on{color:#fff;background:var(--gold-grad);border-color:transparent;box-shadow:0 6px 16px rgba(232,168,56,.28)}
+  .maptab{display:none}
+  .maptab.on{display:block;animation:fadein .3s ease}
+  @keyframes fadein{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+
+  /* ---- 大运柱状图 ---- */
+  .dy-chart{display:flex;align-items:flex-end;gap:10px;padding:16px 4px 6px;height:260px;position:relative}
+  .dy-chart::before{content:"";position:absolute;left:0;right:0;bottom:42px;height:1px;background:var(--line)}
+  .dy-col{flex:1;display:flex;flex-direction:column;align-items:center;gap:8px;position:relative;height:100%}
+  .dy-col .dy-score{font-size:14px;font-weight:900;color:var(--gold-deep);line-height:1}
+  .dy-col .dy-bar{position:relative;width:100%;max-width:36px;border-radius:10px 10px 4px 4px;background:var(--bar-gold);transition:height .8s cubic-bezier(.2,.9,.25,1)}
+  .dy-col .dy-bar::after{content:"";position:absolute;bottom:0;left:0;right:0;height:40%;border-radius:0 0 4px 4px;background:linear-gradient(180deg,transparent,rgba(255,255,255,.25))}
+  .dy-col .dy-bar.hi{background:var(--bar-gold-hi)}
+  .dy-col .dy-bar.lo{background:var(--bar-gold-lo)}
+  .dy-col .dy-age{font-size:11px;color:var(--muted);text-align:center;line-height:1.5}
+  .dy-col .dy-age b{display:block;font-size:12px;font-weight:800;color:var(--ink-2)}
+  .dy-col .dy-tip{font-size:10px;color:var(--gold-deep);background:var(--gold-soft);border-radius:6px;padding:2px 5px;white-space:nowrap;position:absolute;top:-22px;left:50%;transform:translateX(-50%);opacity:0;transition:.3s}
+  .dy-col:hover .dy-tip{opacity:1}
+
+  /* ---- 流年折线图 ---- */
+  .ln-chart{position:relative;height:200px;padding:10px 4px 36px;margin:10px 0}
+  .ln-grid{position:absolute;left:0;right:0;top:0;bottom:36px}
+  .ln-grid::before,.ln-grid::after{content:"";position:absolute;left:0;right:0;height:1px;background:var(--line)}
+  .ln-grid::before{top:0}.ln-grid::after{bottom:0}
+  .ln-grid .mid{position:absolute;left:0;right:0;top:50%;height:1px;background:var(--line)}
+  .ln-line{position:absolute;left:0;right:0;top:0;bottom:36px;overflow:visible}
+  .ln-line svg{position:absolute;left:0;top:0;width:100%;height:100%}
+  .ln-line .area{fill:url(#lnGrad);opacity:.35}
+  .ln-line .path{fill:none;stroke:var(--gold);stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round}
+  .ln-line .dot{fill:#fff;stroke:var(--gold);stroke-width:2.5}
+  .ln-line .lbl{fill:var(--gold-deep);font-size:11px;font-weight:800}
+  .ln-x{position:absolute;left:0;right:0;bottom:0;display:flex;justify-content:space-between;padding:0 2px}
+  .ln-x span{font-size:10px;color:var(--muted);text-align:center;line-height:1.4}
+  .ln-x span b{display:block;font-size:11px;font-weight:800;color:var(--ink-2)}
+
+  /* ---- 命运地图 · 信息卡片（图标化） ---- */
+  .info-grid{display:flex;flex-direction:column;gap:10px;margin-top:14px}
+  .info-row{display:flex;align-items:flex-start;gap:12px;background:var(--card-2);border-radius:var(--radius);padding:14px 14px 13px}
+  .info-row .info-ico{width:36px;height:36px;border-radius:12px;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:17px;background:var(--gold-soft)}
+  .info-row .info-body{flex:1;min-width:0}
+  .info-row .info-body .info-t{font-size:13px;font-weight:800;color:var(--ink);line-height:1.4}
+  .info-row .info-body .info-d{font-size:13px;color:var(--ink-2);line-height:1.75;margin-top:4px}
+
+  /* ---- 十神占比柱状图 ---- */
+  .ss-chart{display:flex;align-items:flex-end;gap:6px;padding:14px 2px 6px;height:180px;position:relative}
+  .ss-chart::before{content:"";position:absolute;left:0;right:0;bottom:56px;height:1px;background:var(--line)}
+  .ss-col{flex:1;display:flex;flex-direction:column;align-items:center;gap:5px;position:relative}
+  .ss-col .ss-bar{position:relative;width:100%;max-width:22px;border-radius:6px 6px 3px 3px;background:linear-gradient(180deg,#F1CE85,var(--gold-deep));transition:height .8s cubic-bezier(.2,.9,.25,1)}
+  .ss-col .ss-bar::after{content:"";position:absolute;bottom:0;left:0;right:0;height:40%;border-radius:0 0 3px 3px;background:linear-gradient(180deg,transparent,rgba(255,255,255,.25))}
+  .ss-col .ss-icon{font-size:14px;line-height:1;margin-top:2px}
+  .ss-col .ss-name{font-size:10px;color:var(--muted);text-align:center;line-height:1.3;white-space:nowrap}
+  .ss-col .ss-pct{font-size:10px;font-weight:800;color:var(--gold-deep);text-align:center}
+
+  /* ---- 旧组件兼容保留（已废弃，但防止意外引用） ---- */
+  .subchips{display:none}
+  .quad{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+  .quad .q{border-radius:18px;padding:16px;background:var(--card-2);box-shadow:0 2px 8px rgba(60,40,12,.04)}
+  .quad .q .qt{display:flex;align-items:center;gap:8px;font-size:14px;font-weight:800;margin-bottom:8px}
+  .quad .q .qt i{width:20px;height:20px;border-radius:7px;display:inline-flex;align-items:center;justify-content:center;font-size:10px;color:#fff;font-weight:700}
+  .quad .q .qd{font-size:13px;line-height:1.8;color:var(--ink-2)}
+  .qt.cai i,.qt.shi i,.qt.qing i,.qt.tip i{background:var(--gold-grad)}
+
+  /* ===== 解锁占位 ===== */
+  .locked{position:relative;overflow:hidden;border-radius:var(--radius);border:1.5px dashed var(--line-gold-2);background:repeating-linear-gradient(45deg,var(--screen-2),var(--screen-2) 10px,#FFF5E8 10px,#FFF5E8 20px);padding:18px;margin-bottom:14px;text-align:center;transition:.4s}
+  .locked .lock-ico{width:48px;height:48px;margin:0 auto 9px;border-radius:50%;background:#fff;border:1.5px solid var(--line-gold-2);display:flex;align-items:center;justify-content:center;font-size:22px;box-shadow:0 6px 18px rgba(232,168,56,.14)}
+  .locked .lt1{font-size:15px;font-weight:800;color:var(--tan-deep)}
+  .locked .lt2{font-size:12px;color:var(--muted);margin-top:6px;line-height:1.6;max-width:260px;margin-left:auto;margin-right:auto}
+  .locked .lt-tip{display:inline-flex;align-items:center;gap:5px;margin-top:11px;font-size:11px;color:var(--gold-deep);font-weight:700;background:#fff;border:1px solid var(--line-gold-2);border-radius:var(--radius-pill);padding:5px 12px}
+  .locked .unlock-bar{margin-top:13px}
+  .locked .unlock-bar .ub{height:7px;border-radius:var(--radius-pill);background:var(--line-gold);overflow:hidden}
+  .locked .unlock-bar .ub i{display:block;height:100%;width:46%;border-radius:var(--radius-pill);background:var(--gold-grad)}
+  .locked .unlock-bar .ubt{font-size:10px;color:var(--muted);margin-top:5px}
+
+  .unlock-btn{display:flex;align-items:center;justify-content:center;gap:7px;width:100%;border:none;border-radius:var(--radius-pill);padding:14px;font-size:16px;font-weight:800;color:#fff;cursor:pointer;background:var(--gold-grad);box-shadow:0 10px 28px rgba(232,168,56,.32);transition:.2s}
+  .unlock-btn:active{transform:scale(.97)}
+  .ghost-btn{display:flex;align-items:center;justify-content:center;gap:6px;width:100%;border:1.5px solid var(--gold-deep);background:#fff;color:var(--gold-deep);border-radius:var(--radius-pill);padding:13px;font-size:14px;font-weight:800;cursor:pointer;transition:.2s}
+  .ghost-btn:active{transform:scale(.97)}
+
+  /* 解锁后内容 */
+  .unlocked{display:none;animation:fadein .5s ease}
+  .unlocked .boom{display:flex;align-items:center;gap:8px;background:var(--green-soft);border-radius:14px;padding:10px 14px;font-size:12px;color:var(--green-dark);font-weight:700;margin-bottom:13px}
+  body.all-unlocked .locked{display:none}
+  body.all-unlocked .unlocked{display:block}
+
+  /* ===== 免费/会员对比 ===== */
+  .compare{margin-top:8px}
+  .cmp-c{display:flex;gap:10px}
+  .cmp-col{flex:1;border-radius:18px;padding:15px 14px}
+  .cmp-col.free{background:var(--screen)}
+  .cmp-col.vip{background:linear-gradient(170deg,var(--screen-2),var(--card-2));position:relative;overflow:hidden;box-shadow:0 6px 20px rgba(232,168,56,.16)}
+  .cmp-col.vip::after{content:"推荐";position:absolute;top:9px;right:-24px;transform:rotate(38deg);background:var(--coral);color:#fff;font-size:10px;font-weight:800;padding:2px 24px}
+  .cmp-col h4{font-size:14px;font-weight:800;display:flex;align-items:center;gap:5px}
+  .cmp-col.free h4{color:var(--ink)}
+  .cmp-col.vip h4{color:var(--gold-deep)}
+  .cmp-col ul{list-style:none;margin-top:10px}
+  .cmp-col li{font-size:12px;color:var(--ink-2);line-height:1.6;padding:4.5px 0 4.5px 22px;position:relative}
+  .cmp-col li.ok::before{content:"✓";position:absolute;left:0;color:var(--green);font-weight:900}
+  .cmp-col li.no::before{content:"✕";position:absolute;left:0;color:var(--muted);font-weight:900}
+  .cmp-col .price{margin-top:11px;font-size:20px;font-weight:900;color:var(--ink)}
+  .cmp-col .price small{font-size:11px;color:var(--muted);font-weight:500}
+
+  /* ===== sticky 转化条：AI 对话主入口 ===== */
+  .dock{position:fixed;bottom:0;left:50%;transform:translateX(-50%);width:100%;max-width:430px;z-index:50;padding:10px 14px calc(10px + env(safe-area-inset-bottom));background:#FFF8F3;backdrop-filter:blur(16px);border-top:1px solid var(--line);display:flex;align-items:center;gap:10px}
+  .dock-ai-av{position:relative;flex-shrink:0;width:44px;height:44px}
+  .dock-ai-ico{width:44px;height:44px;border-radius:50%;background:var(--gold-grad);display:flex;align-items:center;justify-content:center;font-size:20px;box-shadow:0 3px 10px rgba(232,168,56,.25)}
+  .dock-ai-badge{position:absolute;left:-3px;bottom:-3px;background:#fff;border-radius:999px;padding:1px 5px 1px 3px;font-size:10px;font-weight:800;color:#22C55E;display:flex;align-items:center;gap:3px;box-shadow:0 1px 4px rgba(0,0,0,.08);border:1px solid rgba(34,197,94,.15)}
+  .dock-ai-badge i{width:6px;height:6px;border-radius:50%;background:#22C55E;display:inline-block}
+  .dock-ai-tx{flex:1;min-width:0;display:flex;flex-direction:column;justify-content:center;gap:2px}
+  .dock-ai-title{font-size:14px;font-weight:800;color:var(--ink);line-height:1.4;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;transition:opacity .2s}
+  .dock-ai-sub{font-size:12px;color:var(--muted);line-height:1.4;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;transition:opacity .2s}
+  .dock-ai-sub b{color:#E85A4A;font-weight:700}
+  .dock-ai-btn{flex-shrink:0;border:none;border-radius:var(--radius-pill);padding:0 16px;font-size:14px;font-weight:800;color:#fff;cursor:pointer;background:linear-gradient(135deg,#C44D3A,#A63B2A);box-shadow:0 4px 14px rgba(166,59,42,.28);white-space:nowrap;display:inline-flex;align-items:center;gap:5px;height:40px;transition:.15s}
+  .dock-ai-btn:active{transform:scale(.96)}
+  .dock-ai-btn svg{opacity:.9;flex-shrink:0}
+
+  /* ===== 弹层 ===== */
+  .sheet-mask{position:fixed;inset:0;background:rgba(35,24,8,.5);z-index:80;opacity:0;pointer-events:none;transition:.3s}
+  .sheet-mask.show{opacity:1;pointer-events:auto}
+  .sheet{position:fixed;left:50%;transform:translate(-50%,105%);bottom:0;width:100%;max-width:430px;background:var(--screen-2);z-index:90;border-radius:28px 28px 0 0;padding:10px 20px calc(20px + env(safe-area-inset-bottom));transition:transform .34s cubic-bezier(.2,.9,.25,1)}
+  .sheet.show{transform:translate(-50%,0)}
+  .sheet .grab{width:40px;height:5px;border-radius:3px;background:var(--line-gold-2);margin:7px auto 14px}
+  .sheet h3{font-size:18px;font-weight:900;text-align:center}
+  .sheet .sub{font-size:13px;color:var(--muted);text-align:center;margin-top:6px}
+  .sheet .gold-line{text-align:center;font-size:13px;color:var(--gold-deep);font-weight:700;margin:14px 0 5px}
+  .sheet .btns{display:flex;flex-direction:column;gap:10px;margin-top:8px}
+  .sheet .mini-note{font-size:11px;color:var(--muted);text-align:center;margin-top:13px;line-height:1.6}
+
+  /* toast */
+  .toast{position:fixed;top:75px;left:50%;transform:translate(-50%,-20px);z-index:100;background:rgba(52,36,10,.92);color:#fff;font-size:13px;font-weight:700;padding:12px 22px;border-radius:var(--radius-pill);opacity:0;pointer-events:none;transition:.35s;white-space:nowrap;box-shadow:0 10px 28px rgba(0,0,0,.25)}
+  .toast.show{opacity:1;transform:translate(-50%,0)}
+
+  /* 底部 logo 水印 */
+  .watermark{text-align:center;font-size:11px;color:#D8C8A8;padding:20px 30px 10px;letter-spacing:.12em}
+
+  /* 滚动渐入（仅开启 JS 时生效，避免无 JS 内容隐藏） */
+  html.js .sec{opacity:0;transform:translateY(14px);transition:opacity .6s ease,transform .6s ease}
+  html.js .sec.rv-in{opacity:1;transform:none}
+
+  /* ================================================================
+     改版 V2 · 适老化阅读增强 + 三大指标组件
+     （完读率：阅读进度 · 好评率：评价卡 · AI 转化：追问/AI对话）
+     ================================================================ */
+  /* ---- 适老化：色彩对比加深 ---- */
+  :root{
+    --muted:#8E7D6B;
+    --ink-2:#4A4438;
+    --line:#EFDDC6;
+    --line-2:#EAD4B8;
+  }
+  /* ---- 适老化：全文阅读字号上浮 ---- */
+  .b-p{font-size:16px;line-height:1.95;color:var(--ink-2)}
+  .b-t{font-size:16px}
+  .sec-head h2{font-size:19px;letter-spacing:.01em}
+  .sec-head .sub{font-size:12px;color:var(--gold-deep);font-weight:700}
+  .leadline{font-size:16px;line-height:1.9;padding:18px 20px}
+  .fact-card{font-size:14px;line-height:1.9;padding:18px}
+  .fact-card .ft{font-size:15px;margin-bottom:8px}
+  .fact-list .li{font-size:14px;line-height:1.9}
+  .tl-item .txt{font-size:15px;line-height:1.9}
+  .quad .q .qd{font-size:14px;line-height:1.9}
+  .quad .q .qt{font-size:15px}
+  .card{padding:22px 20px}
+  .kw{font-size:13px;padding:6px 14px;border-radius:var(--radius-pill);font-weight:600}
+  .hero-card .hero-summary{font-size:16px;line-height:2}
+  .hero-card .hero-verdict{font-size:16px;line-height:1.65}
+  .bazi-table th,.bazi-table td{font-size:14px;padding:11px 3px}
+  .bazi-table .cg,.bazi-table .zs{font-size:13px}
+  .bazi-table .row-label{font-size:12px;width:66px}
+  details.more summary{font-size:14px;padding:11px 0}
+  .birth-main .meta{font-size:13px}
+  .pillar .gz{font-size:22px}
+  .dock{gap:10px;padding:10px 12px calc(10px + env(safe-area-inset-bottom))}
+  .dock-ai-btn{padding:0 14px;font-size:13px}
+  /* 章节目录触控加大 */
+  .chapnav a{font-size:13px;padding:9px 17px}
+  .chapnav{top:52px}
+  .score-notes .desc{font-size:14px;line-height:1.8}
+  .st{font-size:12px;padding:6px 12px}
+  .cmp-col li{font-size:13px}
+  .cmp-col h4{font-size:15px}
+
+  /* ---- 顶部实时阅读进度条（完读激励） ---- */
+  .read-wrap{position:absolute;left:0;right:0;bottom:-1px;height:3px;background:transparent;overflow:hidden;pointer-events:none}
+  .read-wrap i{display:block;height:100%;width:0;background:var(--gold-grad);border-radius:0 4px 4px 0;transition:width .3s ease}
+
+  /* ---- 章节内 AI 追问条（看完即问 · 强转化） ---- */
+  .ai-mini{display:flex;align-items:center;gap:12px;background:linear-gradient(135deg,#FFF9F0,#FFF3E0);border-radius:var(--radius-xl);padding:14px 15px;margin:2px 0 18px;box-shadow:0 4px 16px rgba(232,168,56,.10);border:1px solid rgba(232,168,56,.18);position:relative;overflow:hidden}
+  .ai-mini::before{content:"";position:absolute;left:0;top:0;bottom:0;width:4px;background:var(--gold-grad);border-radius:var(--radius-xl) 0 0 var(--radius-xl)}
+  .ai-mini .ai-ic{width:42px;height:42px;border-radius:50%;flex-shrink:0;background:var(--gold-grad);color:#fff;display:flex;align-items:center;justify-content:center;font-size:15px;font-weight:900;box-shadow:0 3px 10px rgba(232,168,56,.35);border:2px solid #fff}
+  .ai-mini .ai-tx{flex:1;min-width:0}
+  .ai-mini .ai-tx b{display:block;font-size:15px;color:#B06800;line-height:1.45;font-weight:900}
+  .ai-mini .ai-tx span{display:block;font-size:13px;color:var(--ink-2);line-height:1.55;margin-top:3px}
+  .ai-mini .ai-go{flex-shrink:0;border:none;border-radius:var(--radius-pill);background:var(--gold-grad);color:#fff;font-size:14px;font-weight:900;padding:11px 18px;cursor:pointer;box-shadow:0 6px 18px rgba(232,168,56,.35);display:inline-flex;align-items:center;gap:4px;white-space:nowrap;transition:.15s}
+  .ai-mini .ai-go:active{transform:scale(.96)}
+
+  /* ---- 章节内 AI 预置问题卡片列表（参考截图风格） ---- */
+  .ai-ask{display:flex;flex-direction:column;gap:10px;margin:2px 0 18px}
+  .ai-q-card{display:flex;align-items:center;gap:10px;background:#fff;border:1.5px solid #F5D7A8;border-radius:999px;padding:12px 16px;cursor:pointer;transition:.15s;box-shadow:0 2px 8px rgba(232,168,56,.08)}
+  .ai-q-card:hover{border-color:var(--gold);box-shadow:0 4px 14px rgba(232,168,56,.15)}
+  .ai-q-card:active{transform:scale(.98)}
+  .ai-q-badge{width:28px;height:28px;border-radius:50%;background:var(--gold-grad);color:#fff;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:900;flex-shrink:0}
+  .ai-q-txt{font-size:14px;color:var(--ink);font-weight:600;line-height:1.45;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .ai-q-btn{width:100%;border:none;border-radius:var(--radius-pill);background:var(--gold-grad);color:#fff;font-size:15px;font-weight:800;padding:13px 20px;cursor:pointer;box-shadow:0 6px 20px rgba(232,168,56,.35);display:inline-flex;align-items:center;justify-content:center;gap:6px;margin-top:4px;transition:.15s}
+  .ai-q-btn:active{transform:scale(.96)}
+
+  /* ---- 文末 AI 深度对话大卡（与普通卡片同语言） ---- */
+  .ai-cta{margin:4px 0 14px;border-radius:var(--radius-xl);padding:18px 16px;background:linear-gradient(180deg,var(--card-2),var(--card));box-shadow:var(--shadow-card)}
+  .ai-cta .ai-cta-head{display:flex;gap:11px;align-items:center}
+  .ai-cta .ai-badge{width:42px;height:42px;border-radius:14px;flex-shrink:0;background:var(--gold-grad);color:#fff;display:flex;align-items:center;justify-content:center;font-size:15px;font-weight:900}
+  .ai-cta .ai-cta-t1{font-size:16px;font-weight:900;color:var(--ink);line-height:1.4}
+  .ai-cta .ai-cta-t2{font-size:13px;color:var(--muted);line-height:1.7;margin-top:3px}
+  .ai-q-wrap{display:flex;flex-direction:column;gap:9px;margin-top:14px}
+  .ai-q{display:flex;align-items:center;gap:9px;text-align:left;background:var(--screen);border:1px solid var(--line-2);border-radius:14px;padding:11px 13px;font-size:14px;color:var(--ink-2);font-weight:600;line-height:1.6;cursor:pointer;transition:.15s}
+  .ai-q::before{content:"问";flex-shrink:0;width:22px;height:22px;border-radius:50%;background:var(--gold-soft);color:var(--gold-deep);font-size:11px;font-weight:800;display:flex;align-items:center;justify-content:center}
+  .ai-q:active{transform:scale(.98);background:var(--card)}
+  .ai-big{margin-top:14px;display:flex;align-items:center;justify-content:center;gap:8px;width:100%;border:none;border-radius:var(--radius-pill);background:var(--gold-grad);color:#fff;font-size:16px;font-weight:900;padding:14px;cursor:pointer;box-shadow:0 8px 22px rgba(232,168,56,.32);transition:.2s}
+  .ai-big:active{transform:scale(.97)}
+  .ai-cta .ai-note{text-align:center;font-size:11px;color:var(--muted);padding:8px 4px 0;line-height:1.6}
+
+  /* ---- 文末评价卡（好评闭环 · 卡片同语言） ---- */
+  .rate-card{background:var(--card-2);border-radius:var(--radius-xl);padding:22px 18px 20px;text-align:center;margin-bottom:14px;box-shadow:var(--shadow-card)}
+  .rate-card .rt-ico{font-size:36px;line-height:1}
+  .rate-card h3{font-size:17px;font-weight:900;color:var(--ink);margin-top:8px}
+  .rate-card .rt-sub{font-size:13px;color:var(--muted);margin:7px auto 16px;max-width:280px;line-height:1.7}
+  .rate-opts{display:grid;grid-template-columns:repeat(2,1fr);gap:9px}
+  .rate-opt{border:1px solid var(--line-2);background:var(--screen);border-radius:16px;padding:12px 6px 11px;cursor:pointer;transition:.15s;user-select:none;display:flex;flex-direction:column;align-items:center}
+  .rate-opt .ro-emo{font-size:24px;line-height:1.2}
+  .rate-opt .ro-txt{font-size:13px;font-weight:700;color:var(--ink-2);margin-top:6px}
+  .rate-opt:active{transform:scale(.96)}
+  .rate-opt.on{border-color:transparent;background:var(--gold-grad)}
+  .rate-opt.on .ro-txt{color:#fff}
+  .rate-thanks{display:none;margin-top:14px;background:var(--gold-soft);border-radius:14px;padding:12px 14px;font-size:14px;color:var(--gold-deep);font-weight:700;line-height:1.7}
+  .rate-thanks.show{display:block;animation:fadein .4s ease}
+
+  /* ---- dock 内 AI 悬浮入口（金色描边次级按钮，避免与主按钮冲突） ---- */
+  .dock .ai-fab{flex-shrink:0;width:46px;height:46px;border-radius:50%;background:var(--screen);border:1.5px solid var(--gold);color:var(--gold-deep);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1px;cursor:pointer}
+  .dock .ai-fab em{font-style:normal;font-size:14px;font-weight:900;line-height:1}
+  .dock .ai-fab small{font-size:10px;font-weight:700;letter-spacing:.02em}
+  .dock .ai-fab:active{transform:scale(.93)}
+
+  /* ---- AI 对话弹层（与页面暖色体系一致） ---- */
+  .ai-mask{position:fixed;inset:0;background:rgba(35,24,8,.5);z-index:120;opacity:0;pointer-events:none;transition:.3s}
+  .ai-mask.show{opacity:1;pointer-events:auto}
+  .ai-sheet{position:fixed;left:50%;transform:translate(-50%,105%);bottom:0;width:100%;max-width:430px;height:min(74vh,660px);background:var(--screen);z-index:121;border-radius:28px 28px 0 0;display:flex;flex-direction:column;transition:transform .34s cubic-bezier(.2,.9,.25,1);overflow:hidden;box-shadow:0 -12px 44px rgba(60,40,12,.2)}
+  .ai-sheet.show{transform:translate(-50%,0)}
+  .ai-head{display:flex;align-items:center;gap:11px;padding:14px 16px 12px;background:var(--screen-2);border-bottom:1px solid var(--line);flex-shrink:0}
+  .ai-head .st{width:40px;height:40px;border-radius:50%;background:var(--gold-grad);color:#fff;display:flex;align-items:center;justify-content:center;font-size:15px;font-weight:900;flex-shrink:0}
+  .ai-head .tt{font-size:15px;font-weight:900;color:var(--ink);line-height:1.3}
+  .ai-head .tt small{display:block;font-size:11px;font-weight:600;color:var(--gold-deep);margin-top:1px}
+  .ai-close{margin-left:auto;border:none;background:var(--gold-soft);color:var(--gold-deep);width:30px;height:30px;border-radius:50%;font-size:14px;cursor:pointer;flex-shrink:0}
+  .ai-msgs{flex:1;overflow-y:auto;padding:16px 15px 8px;background:var(--screen)}
+  .msg{display:flex;gap:9px;margin-bottom:13px;animation:fadein .3s ease}
+  .msg .av{width:32px;height:32px;border-radius:50%;background:var(--gold-grad);color:#fff;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:900;flex-shrink:0;margin-top:2px}
+  .msg.user{flex-direction:row-reverse}
+  .msg.user .av{background:var(--gold-soft);color:var(--gold-deep)}
+  .msg .bb{max-width:82%;padding:11px 14px;border-radius:18px;font-size:15px;line-height:1.8;color:var(--ink-2);background:#fff;border:1px solid var(--line);border-top-left-radius:6px;box-shadow:0 2px 8px rgba(60,40,12,.05);word-break:break-word}
+  .msg.user .bb{background:var(--gold-soft);border-color:transparent;border-top-left-radius:18px;border-top-right-radius:6px}
+  .bb.typing i{display:inline-block;width:6px;height:6px;border-radius:50%;background:var(--gold-light);margin:0 2px;animation:blink 1.2s infinite}
+  .bb.typing i:nth-child(2){animation-delay:.2s}.bb.typing i:nth-child(3){animation-delay:.4s}
+  @keyframes blink{0%,80%,100%{opacity:.25}40%{opacity:1}}
+  .ai-chips{display:flex;gap:8px;padding:10px 14px;overflow-x:auto;scrollbar-width:none;border-top:1px solid var(--line);background:var(--screen);flex-shrink:0}
+  .ai-chips::-webkit-scrollbar{display:none}
+  .ai-chips button{flex-shrink:0;border:1px solid var(--line-2);background:#fff;color:var(--ink-2);font-size:13px;border-radius:var(--radius-pill);padding:9px 14px;font-weight:700;cursor:pointer;transition:.15s}
+  .ai-chips button:active{background:var(--card);transform:scale(.96)}
+  .ai-input{display:flex;gap:9px;padding:10px 14px calc(14px + env(safe-area-inset-bottom));background:var(--screen-2);border-top:1px solid var(--line);flex-shrink:0}
+  .ai-input input{flex:1;min-width:0;border:1.5px solid var(--line-2);background:#fff;border-radius:var(--radius-pill);padding:12px 16px;font-size:15px;outline:none;color:var(--ink-2)}
+  .ai-input input:focus{border-color:var(--gold)}
+  .ai-input button{border:none;border-radius:var(--radius-pill);background:var(--gold-grad);color:#fff;font-size:15px;font-weight:900;padding:0 20px;cursor:pointer;box-shadow:0 4px 12px rgba(232,168,56,.3)}
+
+  /* ---- 对话内会员引导卡（上下文已收集 → 后段付费转化钩子） ---- */
+  .mc-card{background:linear-gradient(180deg,#FFF9EE,#FFF0D9);border:1px solid #F0DFB8;border-radius:16px;padding:14px;margin-top:10px}
+  .mc-card b{display:block;font-size:14px;color:var(--gold-deep);line-height:1.5;margin-bottom:6px}
+  .mc-card p{font-size:12px;color:var(--ink-2);line-height:1.75;margin:0 0 12px}
+  .mc-go{width:100%;border:none;border-radius:var(--radius-pill);background:var(--gold-grad);color:#fff;font-size:14px;font-weight:900;padding:12px;cursor:pointer;box-shadow:0 6px 16px rgba(232,168,56,.3)}
+  /* 会员卡以整行呈现（不套聊天气泡） */
+  #ai-msgs .mc-row{align-items:stretch}
+  #ai-msgs .mc-row .av{display:none}
+  #ai-msgs .mc-row .bb{max-width:100%;background:transparent;border:none;box-shadow:none;padding:0}
+  .mc-go:active{transform:scale(.97)}
+  .mc-later{width:100%;margin-top:6px;border:none;background:transparent;color:var(--muted);font-size:12px;font-weight:700;padding:6px;cursor:pointer}
+  .mc-chip{display:inline-block;border:1px solid var(--line-2);background:#fff;color:var(--ink-2);font-size:12px;font-weight:700;border-radius:var(--radius-pill);padding:8px 13px;margin:8px 6px 2px 0;cursor:pointer;transition:.15s}
+  .mc-chip:active{background:var(--gold-soft);color:var(--gold-deep);border-color:var(--gold)}
+
+  @media(min-width:900px){ .stage{box-shadow:0 30px 80px rgba(60,40,12,.18);border-radius:0} }
+</style>
+</head>
+<body>
+
+<div class="stage">
+
+  <!-- 顶部 · 小程序式导航（返回胶囊 / 页面标题 / 右上系统胶囊位） -->
+  <div class="topbar">
+    <button class="mp-back" aria-label="返回" onclick="history.back()">
+      <svg viewBox="0 0 24 24" width="15" height="15"><path d="M15 4.5 7.5 12 15 19.5" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </button>
+    <div class="brand">生辰解读</div>
+    <div class="mp-capsule" aria-hidden="true">
+      <span class="cs-btn"><svg viewBox="0 0 24 24" width="15" height="15"><path d="M12 3 2.5 12h3v7.5h5V14h3v5.5h5V12h3L12 3z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg></span>
+      <span class="cs-dots"><i></i><i></i><i></i></span>
+    </div>
+    <div class="read-wrap"><i id="read-bar"></i></div>
+  </div>
+
+  <!-- 页面 Tab 切换 -->
+  <div class="page-tabs" id="page-tabs">
+    <button class="on" data-tab="panel-read">生辰解读</button>
+    <button data-tab="panel-calendar">生辰历</button>
+  </div>
+
+  <!-- ===== 生辰解读面板 ===== -->
+  <div class="tab-panel on" id="panel-read">
+
+  <!-- ===== Hero 3秒价值锚 ===== -->
+  <div class="hero">
+    <div class="hero-card">
+      <div class="hero-scape">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 260" preserveAspectRatio="xMidYMax slice">
+          <defs>
+            <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stop-color="#F0E6D8" stop-opacity=".25"/>
+              <stop offset="60%" stop-color="#F0E6D8" stop-opacity="0"/>
+            </linearGradient>
+          </defs>
+          <!-- 天空淡云 -->
+          <rect width="400" height="260" fill="url(#sky)"/>
+          <ellipse cx="120" cy="45" rx="90" ry="28" fill="#E5DAC6" opacity=".18"/>
+          <ellipse cx="300" cy="35" rx="70" ry="22" fill="#E5DAC6" opacity=".14"/>
+          <!-- 远山 -->
+          <path d="M-20,170 Q60,115 140,155 T280,125 T420,145 V270 H-20Z" fill="#CDBFAA" opacity=".12"/>
+          <!-- 中山 -->
+          <path d="M-20,210 Q80,160 180,190 T420,170 V270 H-20Z" fill="#B9A98F" opacity=".15"/>
+          <!-- 近山 -->
+          <path d="M-20,245 Q100,205 200,225 T420,215 V270 H-20Z" fill="#A08F75" opacity=".18"/>
+          <!-- 水波线 -->
+          <path d="M0,255 Q50,250 100,255 T200,255 T300,255 T400,255" stroke="#B9A98F" stroke-width=".8" fill="none" opacity=".2"/>
+          <path d="M0,262 Q60,257 120,262 T240,262 T400,262" stroke="#B9A98F" stroke-width=".6" fill="none" opacity=".15"/>
+        </svg>
+      </div>
+      <!-- 个人信息档案栏（专属感） -->
+      <div class="hero-profile">
+        <span class="hero-profile-tag">我自己</span>
+        <h1 class="hero-profile-name">玄珩的档案</h1>
+        <button class="hero-source-btn" onclick="document.getElementById('sec-pattern').scrollIntoView({behavior:'smooth'})">解读依据 <span class="src-arrow">↓</span></button>
+      </div>
+
+      <div class="hero-verdict"><span class="quote-mark">"</span>后劲型成长 · 适合「关键节点型」位置，越成熟越有分量<span class="quote-mark">"</span></div>
+      <div class="hero-tags">
+        <span>庚金日主</span><span>甲申大运 · 25–34 岁</span><span>财富 300–800 万</span><span>打工 : 创业 ≈ 7:3</span>
+      </div>
+      <div class="hero-summary">一句话总纲：你不是靠运气冲刺的人，而是骨架强、越长大越能靠判断力与执行力赢位置的人——命盘重点不在快，而在稳、准、越走越有分量。</div>
+    </div>
+  </div>
+
+  <!-- 出生与排盘 -->
+  <div class="body">
+    <div class="sec" id="sec-birth">
+      <div class="sec-head"><span class="bar"></span><h2>出生与排盘</h2><button class="sec-ai-btn" data-ai-open data-ai-q="我的出生时间是怎么排出这个盘的？请帮我解读排盘依据与四柱信息。">AI 深度解读</button></div>
+      <div class="card">
+        <div class="birth-top">
+          <div class="birth-avatar">庚</div>
+          <div class="birth-main">
+            <div class="nm">个人命盘</div>
+            <div class="meta">2000 年 11 月 18 日 18:00 · 女 · 北京</div>
+          </div>
+          <div class="birth-badge">日主<br><b>庚金</b></div>
+        </div>
+        <div class="pillars">
+          <div class="pillar">
+            <div class="pl-t">年柱</div>
+            <div class="gz">庚辰</div>
+          </div>
+          <div class="pillar">
+            <div class="pl-t">月柱</div>
+            <div class="gz">丁亥</div>
+          </div>
+          <div class="pillar">
+            <div class="pl-t">日柱</div>
+            <div class="gz">庚辰</div>
+          </div>
+          <div class="pillar">
+            <div class="pl-t">时柱</div>
+            <div class="gz">乙酉</div>
+          </div>
+        </div>
+        <div class="kw-line">
+          <span class="k">命盘关键词</span>
+          <span class="kw">骨架强</span>
+          <span class="kw">边界感强</span>
+          <span class="kw">责任心重</span>
+          <span class="kw">越成熟越稳定</span>
+          <span class="kw">先克制后发力</span>
+        </div>
+        <div class="stage-bar">
+          <span class="k">当前阶段</span>
+          <span class="v">甲申大运</span>
+          <span class="now">NOW</span>
+          <span class="meta">截至 2026-08-25 · 25–34 岁</span>
+        </div>
+        <a href="#panel-calendar" class="birth-link" onclick="$('#page-tabs button[data-tab=panel-calendar]').click();return false;">
+          <span class="birth-link-icon">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+          </span>
+          <span class="birth-link-text">查看生辰历</span>
+          <span class="birth-link-arrow">›</span>
+        </a>
+      </div>
+    </div>
+
+    <!-- 章节目录 -->
+    <div class="chapnav">
+      <div class="chips" id="chips">
+        <a href="#sec-birth" class="on">排盘</a>
+        <a href="#sec-summary">看懂命盘</a>
+        <a href="#sec-pattern">格局评分</a>
+        <a href="#sec-wealth">财富</a>
+        <a href="#sec-career">事业</a>
+        <a href="#sec-love">感情</a>
+        <a href="#sec-map">命运地图</a>
+      </div>
+    </div>
+
+    <!-- 静态解读 入口卡 -->
+    <div class="sec" id="sec-summary">
+      <div class="card">
+        <div class="b-t"><span class="ico">解</span>看懂你的命盘<button class="sec-ai-btn" data-ai-open data-ai-q="结合我的盘帮我深度解读：我最大的优势和成长课题是什么？">AI 深度解读</button></div>
+        <div class="leadline">你不是靠运气冲刺的人，而是骨架很强、越长大越能靠判断力和执行力赢位置的人。命盘重点不在「快」，而在「稳、准、越走越有分量」。</div>
+        <div class="trio" style="margin-top:12px">
+          <div class="fact-card good"><div class="ft"><i></i>天生优势</div>有骨架、有判断、抗压不差，不容易被短期情绪带着走；方向对了后劲很强。</div>
+          <div class="fact-card warn"><div class="ft"><i></i>成长课题</div>不爱示弱、标准偏高、容易自己消化压力；学会让合适的人和资源进来更重要。</div>
+        </div>
+        <details class="more"><summary>展开性格底色详解</summary>
+          <div class="collapse-body">
+            <p class="b-p">庚金日主的人，身上通常有一种很明显的「硬度」——不一定是外表强势，而是一种内在的标准感：做事不喜欢太糊，不喜欢没有边界、不清不楚的人和环境。命盘里两见辰土、一见酉金，底层稳定性不差，越在压力里，越容易逼出你的执行力和判断力。</p>
+            <p class="b-p" style="margin-top:8px">但你又不是一味强硬到底。亥月带来感受力和内在敏感，月干丁火又让你对「秩序、责任、体面、是否被尊重」特别在意。你身上常同时出现两面：表面理性、冷静、有分寸，实际心里对很多事都很认真，也容易因失望或不被理解而往后退。</p>
+          </div>
+        </details>
+      </div>
+      <div class="card">
+        <div class="b-t"><span class="ico">历</span>你的命书脉络<small>人生阶段</small></div>
+        <div class="life-strip">
+          <div class="life-node"><div class="ln-line"></div><div class="ln-age">0–14<small>岁</small></div><div class="ln-txt">较早懂事 · 守规则<br>在意评价</div></div>
+          <div class="life-node"><div class="ln-line"></div><div class="ln-age">15–24<small>岁</small></div><div class="ln-txt">自我塑形<br>审美与边界增强</div></div>
+          <div class="life-node on"><div class="ln-line"></div><div class="ln-age">25–34<small>岁</small></div><div class="ln-txt">起势期 · 当前<br>事业财富同步提升</div></div>
+          <div class="life-node"><div class="ln-line"></div><div class="ln-age">35+<small>岁</small></div><div class="ln-txt">稳定经营<br>资产与家庭积累</div></div>
+        </div>
+        <details class="more"><summary>展开阶段详述</summary>
+          <div class="collapse-body">
+            <p class="b-p">0 至 14 岁较早形成懂事、守规则和在意评价的性格；15 至 24 岁进入自我塑形阶段，审美、标准、边界感和自我要求不断增强，也容易把压力和情绪藏在心里；25 至 34 岁是人生重要的起势期，你会逐渐从「证明自己」转向「选择更适合自己的平台和位置」；35 岁以后，人生重点从竞争和扩张转向稳定经营，更重视资产积累、家庭关系与长期生活质量，整体运势逐渐进入收成和沉淀阶段。</p>
+          </div>
+        </details>
+      </div>
+    </div>
+
+    <!-- 格局评分 -->
+    <div class="sec" id="sec-pattern">
+      <div class="sec-head"><span class="bar"></span><h2>格局评分</h2><button class="sec-ai-btn" data-ai-open data-ai-q="为什么我的命格被评为「中上格局」？哪些地方需要重点打磨？">AI 深度解读</button></div>
+      <div class="card">
+        <div class="score-panel">
+          <div class="ring">
+            <svg width="112" height="112" viewBox="0 0 112 112">
+              <circle cx="56" cy="56" r="48" fill="none" style="stroke:var(--line);stroke-width:10"/>
+              <circle id="ringArc" cx="56" cy="56" r="48" fill="none" stroke="url(#goldGrad)" stroke-width="10" stroke-linecap="round"
+                stroke-dasharray="301.6" stroke-dashoffset="301.6"/>
+              <defs><linearGradient id="goldGrad" x1="0" y1="0" x2="1" y2="1"><stop offset="0" style="stop-color:var(--gold-light)"/><stop offset=".5" style="stop-color:var(--gold)"/><stop offset="1" style="stop-color:var(--gold-deep-2)"/></linearGradient></defs>
+            </svg>
+            <div class="center"><span class="num">78</span><span class="lbl">命格评级</span></div>
+          </div>
+          <div class="score-notes">
+            <div class="big-lbl">中上格局 · <em>自带骨架、需要打磨</em></div>
+            <div class="desc">只要环境给你舞台，你会越来越有分量。越过 25 岁后，往「更清楚自己要什么、更敢为结果负责」的方向走。</div>
+            <div class="score-tags"><span class="st">年日双庚辰</span><span class="st">丁官乙财透干</span><span class="st">后劲型</span></div>
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="b-t"><span class="ico">成</span>成格点 / 破格点</div>
+        <div class="trio">
+          <div class="fact-card good"><div class="ft"><i></i>成格 · 你的底气</div>
+            <div class="fact-list">
+              <div class="li">庚金日主有根，年日双庚稳骨架，时支酉金帮身</div>
+              <div class="li">丁火正官与乙木正财透干，规则感、现实感、结果导向都在</div>
+            </div>
+          </div>
+          <div class="fact-card warn"><div class="ft"><i></i>破格 · 需留意</div>
+            <div class="fact-list">
+              <div class="li">辰辰自刑，容易内耗、自我拉扯</div>
+              <div class="li">丁火官星在亥月根不算厚，压力常先落到自己身上</div>
+              <div class="li">财星更依赖平台与位置，不适合空手硬冲</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 财富 -->
+    <div class="sec" id="sec-wealth">
+      <div class="sec-head"><span class="bar"></span><h2>财富格局</h2><button class="sec-ai-btn" data-ai-open data-ai-q="帮我深度解读财富格局：我的财运会怎么走？今年几月最该守财？">AI 深度解读</button></div>
+      <div class="card">
+        <div class="b-t"><span class="ico">财</span>财富高度预估</div>
+        <div class="stat2">
+          <div class="cell"><div class="k">可承担资产上限</div><div class="v">约 800<small> 万</small></div></div>
+          <div class="cell"><div class="k">最低保障资金</div><div class="v">约 150<small> 万</small></div></div>
+        </div>
+        <div class="rangebar">
+          <div class="rb-head"><span>预期区间</span><b>约 300 万 – 800 万</b></div>
+          <div class="track"><div class="fill" style="left:0;width:100%;background:var(--gold-grad)"></div><span class="low"></span><span class="high"></span></div>
+          <div class="annotate"><span><b>150</b> 保底线</span><span><b>300</b> 起步</span><span><b>800</b> 上限</span></div>
+        </div>
+        <p class="b-p" style="margin-top:13px"><span class="mark">上限</span>是七杀权威加持下、善用资源的最大化潜能；<span class="mark">下限</span>由正印生身与比劫帮扶托底，提供基础财富维持。</p>
+        <details class="more"><summary>展开判断依据</summary>
+          <div class="collapse-body"><p class="b-p">七杀透出显强攻型赚钱能力，正财印辅助带来稳定收益，大运辛未至庚午间业绩起伏明显但有突破空间。</p></div>
+        </details>
+      </div>
+      <div class="card">
+        <div class="b-t"><span class="ico">源</span>适合你的财源</div>
+        <div style="display:flex;gap:9px">
+          <div style="flex:1;text-align:center;background:linear-gradient(150deg,var(--screen-2),var(--card-2));border-radius:16px;padding:12px"><div style="font-size:20px;font-weight:900;color:var(--gold-deep)">正财 <span style="font-size:12px;color:var(--muted)">强</span></div><div class="bar-mini"><i style="width:82%;background:var(--gold-grad)"></i></div></div>
+          <div style="flex:1;text-align:center;background:linear-gradient(150deg,var(--screen-2),var(--card-2));border-radius:16px;padding:12px"><div style="font-size:20px;font-weight:900;color:var(--ink-2)">偏财 <span style="font-size:12px;color:var(--muted)">弱</span></div><div class="bar-mini"><i style="width:30%;background:linear-gradient(90deg,#EBD9B8,#D9BE8F)"></i></div></div>
+        </div>
+        <style>.bar-mini{height:8px;border-radius:var(--radius-pill);background:var(--line-gold);margin:8px 16px 0;overflow:hidden}.bar-mini i{display:block;height:100%;border-radius:var(--radius-pill)}</style>
+        <p class="b-p" style="margin-top:12px">正财明显强于偏财，最适合靠<span class="mark">稳定平台、专业能力、长期合作、管理结果</span>聚财；不适合高波动、纯运气、全凭冲劲的偏财模式。</p>
+      </div>
+      <div class="card">
+        <div class="b-t"><span class="ico">时</span>财运爆发时机</div>
+        <div class="tl">
+          <div class="tl-item"><span class="tag">第一波</span><div class="txt"><b>甲申大运 2024–2033</b> · 尤其 2026–2029，更容易拿到位置、议价权或资源入口。</div></div>
+          <div class="tl-item"><span class="tag">第二波</span><div class="txt"><b>癸未大运 2034–2043</b> · 进入稳定收成期。</div></div>
+        </div>
+      </div>
+      <!-- 财富章 AI 追问 -->
+      <div class="ai-ask">
+        <div class="ai-q-card" data-ai-open data-ai-q="我的财运什么时候最好？今年适合投资吗？">
+          <span class="ai-q-badge">问</span>
+          <span class="ai-q-txt">我的财运什么时候最好？今年适合投资吗？</span>
+        </div>
+        <div class="ai-q-card" data-ai-open data-ai-q="哪个月该守财？什么时候该大胆出手？">
+          <span class="ai-q-badge">问</span>
+          <span class="ai-q-txt">哪个月该守财？什么时候该大胆出手？</span>
+        </div>
+        <div class="ai-q-card" data-ai-open data-ai-q="命中有没有偏财运？靠什么副业能赚钱？">
+          <span class="ai-q-badge">问</span>
+          <span class="ai-q-txt">命中有没有偏财运？靠什么副业能赚钱？</span>
+        </div>
+        <button class="ai-q-btn" data-ai-open>有其他疑问？直接咨询老师</button>
+      </div>
+    </div>
+
+    <!-- 事业 -->
+    <div class="sec" id="sec-career">
+      <div class="sec-head"><span class="bar"></span><h2>事业格局</h2><button class="sec-ai-btn" data-ai-open data-ai-q="我的事业格局适合往哪个方向走？今年适合跳槽换平台吗？">AI 深度解读</button></div>
+      <div class="card">
+        <div class="b-t"><span class="ico">职</span>事业定位</div>
+        <p class="b-p">事业是这张盘非常值得经营的主线。最适合的不是最热闹的岗位，而是<span class="mark">「关键节点型」岗位</span>——只要位置对，你很容易从执行者长成不可替代的人。</p>
+        <div class="ratio">
+          <div class="rt-head"><span class="a">先在平台积累 · 7</span><span class="b">再主导资源 · 3</span></div>
+          <div class="track"><div class="seg work">70% 打工/平台</div><div class="seg found">30% 创业</div></div>
+        </div>
+        <p class="b-p" style="margin-top:11px">现阶段更适合<span class="mark">「先平台、后资源型创业」</span>——先在成熟平台里积累位置、人脉、方法与资源，再考虑自己主导。</p>
+      </div>
+      <div class="card">
+        <div class="b-t"><span class="ico">贵</span>你的事业贵人</div>
+        <div class="trio">
+          <div class="fact-card good"><div class="ft"><i></i>规则型贵人</div>重流程、重标准、能给你位置的上级或前辈。</div>
+          <div class="fact-card good"><div class="ft"><i></i>资源型贵人</div>能把你介绍进更高密度平台、项目或圈层的人。</div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="b-t"><span class="ico">城</span>适合发展事业的城市</div>
+        <div style="display:flex;gap:8px;flex-wrap:wrap">
+          <span class="kw" style="font-size:12px;padding:7px 16px">北京</span><span class="kw" style="font-size:12px;padding:7px 16px">上海</span><span class="kw" style="font-size:12px;padding:7px 16px">深圳</span><span class="kw" style="font-size:12px;padding:7px 16px">杭州</span>
+        </div>
+        <p class="b-p" style="margin-top:10px">更适合资源密度高、产业成熟、看结果且有成长路径的城市。</p>
+      </div>
+      <!-- 事业章 AI 追问 -->
+      <div class="ai-ask">
+        <div class="ai-q-card" data-ai-open data-ai-q="我2027年适合换工作吗？适合往哪个方向走？">
+          <span class="ai-q-badge">问</span>
+          <span class="ai-q-txt">我 2027 年适合换工作吗？适合往哪个方向走？</span>
+        </div>
+        <div class="ai-q-card" data-ai-open data-ai-q="我的事业贵人会在哪里出现？怎么识别？">
+          <span class="ai-q-badge">问</span>
+          <span class="ai-q-txt">我的事业贵人会在哪里出现？怎么识别？</span>
+        </div>
+        <div class="ai-q-card" data-ai-open data-ai-q="先平台后创业，具体什么时候该迈出第一步？">
+          <span class="ai-q-badge">问</span>
+          <span class="ai-q-txt">先平台后创业，具体什么时候该迈出第一步？</span>
+        </div>
+        <button class="ai-q-btn" data-ai-open>有其他疑问？直接咨询老师</button>
+      </div>
+    </div>
+
+    <!-- 感情 -->
+    <div class="sec" id="sec-love">
+      <div class="sec-head"><span class="bar"></span><h2>先天感情运势</h2><button class="sec-ai-btn" data-ai-open data-ai-q="帮我深度解读感情运势：我什么时候能遇到合适的人？相处要注意什么？">AI 深度解读</button></div>
+      <div class="card">
+        <div class="b-t"><span class="ico">情</span>你的感情画像</div>
+        <div class="leadline">不是烂桃花很多的盘，而是标准高、慢热、宁缺毋滥。</div>
+        <div class="quad" style="margin-top:12px">
+          <div class="q"><div class="qt qing"><i>吸</i>个人魅力</div><div class="qd">克制、干净、有分寸、有能力，让人感到可靠、有质感。</div></div>
+          <div class="q"><div class="qt qing"><i>婚</i>婚姻倾向</div><div class="qd">偏晚定型，<b>一婚概率高于多婚</b>；若早进入关系，25–29 岁易经历一次大磨合。</div></div>
+          <div class="q"><div class="qt qing"><i>伴</i>重要伴侣</div><div class="qd">成熟、稳、讲信用、愿意扛责任，有现实能力而非只有情绪表达。</div></div>
+          <div class="q"><div class="qt qing"><i>桃</i>桃花贵人</div><div class="qd">多出现在工作、学习、合作、专业圈层——先欣赏，再靠近。</div></div>
+        </div>
+      </div>
+      <!-- 感情章 AI 追问 -->
+      <div class="ai-ask">
+        <div class="ai-q-card" data-ai-open data-ai-q="我什么时候能遇到合适的人？该注意什么？">
+          <span class="ai-q-badge">问</span>
+          <span class="ai-q-txt">我什么时候能遇到合适的人？该注意什么？</span>
+        </div>
+        <div class="ai-q-card" data-ai-open data-ai-q="命中伴侣大概是什么性格？会在哪里遇到？">
+          <span class="ai-q-badge">问</span>
+          <span class="ai-q-txt">命中伴侣大概是什么性格？会在哪里遇到？</span>
+        </div>
+        <div class="ai-q-card" data-ai-open data-ai-q="25-29岁的感情磨合期怎么度过？">
+          <span class="ai-q-badge">问</span>
+          <span class="ai-q-txt">25-29 岁的感情磨合期怎么度过？</span>
+        </div>
+        <button class="ai-q-btn" data-ai-open>有其他疑问？直接咨询老师</button>
+      </div>
+    </div>
+
+    <!-- 命运地图 -->
+    <div class="sec" id="sec-map">
+      <div class="sec-head"><span class="bar"></span><h2>命运地图 · 动态解读</h2><button class="sec-ai-btn" data-ai-open data-ai-q="帮我解读命运地图：大运流年怎么走？未来十年有哪些关键节点？">AI 深度解读</button></div>
+      <div class="card no-pad" style="padding:18px">
+        <div class="maptabs" id="maptabs">
+          <button class="on" data-map="pane-dayun">大运</button>
+          <button data-map="pane-liunian">流年 · 2027</button>
+        </div>
+
+        <!-- ===== 大运 · 柱状图 ===== -->
+        <div class="maptab on" id="pane-dayun">
+          <div class="dy-chart" id="dy-chart">
+            <div class="dy-col"><div class="dy-tip">财来财去</div><div class="dy-score">53</div><div class="dy-bar lo" style="height:40%"></div><div class="dy-age"><b>26–35</b>甲寅</div></div>
+            <div class="dy-col"><div class="dy-tip">文思泉涌</div><div class="dy-score">81</div><div class="dy-bar hi" style="height:80%"></div><div class="dy-age"><b>36–45</b>癸丑</div></div>
+            <div class="dy-col"><div class="dy-tip">境随心转</div><div class="dy-score">74</div><div class="dy-bar" style="height:68%"></div><div class="dy-age"><b>46–55</b>壬子</div></div>
+            <div class="dy-col"><div class="dy-tip">敛锋藏智</div><div class="dy-score">73</div><div class="dy-bar" style="height:65%"></div><div class="dy-age"><b>56–65</b>辛亥</div></div>
+            <div class="dy-col"><div class="dy-tip">潇洒自如</div><div class="dy-score">98</div><div class="dy-bar hi" style="height:100%"></div><div class="dy-age"><b>66–75</b>庚戌</div></div>
+            <div class="dy-col"><div class="dy-tip">颐养天年</div><div class="dy-score">93</div><div class="dy-bar hi" style="height:92%"></div><div class="dy-age"><b>76–85</b>己酉</div></div>
+          </div>
+          <div class="info-grid">
+            <div class="info-row">
+              <div class="info-ico">🎨</div>
+              <div class="info-body">
+                <div class="info-t">喜用颜色</div>
+                <div class="info-d">金色、白色、银色 · 增强金气，提升判断力与气场稳定度</div>
+              </div>
+            </div>
+            <div class="info-row">
+              <div class="info-ico">🏢</div>
+              <div class="info-body">
+                <div class="info-t">适合行业</div>
+                <div class="info-d">公检法型等监管类工作；依靠专业能力获得名望地位的工作；自由职业</div>
+              </div>
+            </div>
+            <div class="info-row">
+              <div class="info-ico">💕</div>
+              <div class="info-body">
+                <div class="info-t">契合伴侣</div>
+                <div class="info-d">配偶星属木（日主为木 / 五行能量最高为木）</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ===== 流年 · 折线图 ===== -->
+        <div class="maptab" id="pane-liunian">
+          <div class="ln-chart" id="ln-chart">
+            <div class="ln-grid"><div class="mid"></div></div>
+            <div class="ln-line">
+              <svg viewBox="0 0 400 160" preserveAspectRatio="none">
+                <defs><linearGradient id="lnGrad" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" style="stop-color:var(--gold)" stop-opacity=".6"/><stop offset="100%" style="stop-color:var(--gold)" stop-opacity="0"/></linearGradient></defs>
+                <path class="area" d="M0,120 L40,108 L80,96 L120,84 L160,78 L200,72 L240,60 L280,54 L320,66 L360,60 L400,48 L400,160 L0,160 Z"/>
+                <path class="path" d="M0,120 L40,108 L80,96 L120,84 L160,78 L200,72 L240,60 L280,54 L320,66 L360,60 L400,48"/>
+                <circle class="dot" cx="0" cy="120" r="3.5"/><circle class="dot" cx="40" cy="108" r="3.5"/><circle class="dot" cx="80" cy="96" r="3.5"/><circle class="dot" cx="120" cy="84" r="3.5"/><circle class="dot" cx="160" cy="78" r="3.5"/><circle class="dot" cx="200" cy="72" r="3.5"/><circle class="dot" cx="240" cy="60" r="3.5"/><circle class="dot" cx="280" cy="54" r="3.5"/><circle class="dot" cx="320" cy="66" r="3.5"/><circle class="dot" cx="360" cy="60" r="3.5"/><circle class="dot" cx="400" cy="48" r="3.5"/>
+                <text class="lbl" x="240" y="48" text-anchor="middle">82</text>
+                <text class="lbl" x="400" y="36" text-anchor="middle">89</text>
+              </svg>
+            </div>
+            <div class="ln-x">
+              <span><b>2026</b>34岁</span><span><b>2027</b>35岁</span><span><b>2028</b>36岁</span><span><b>2029</b>37岁</span><span><b>2030</b>38岁</span><span><b>2031</b>39岁</span><span><b>2032</b>40岁</span><span><b>2033</b>41岁</span><span><b>2034</b>42岁</span><span><b>2035</b>43岁</span>
+            </div>
+          </div>
+          <div class="info-grid">
+            <div class="info-row">
+              <div class="info-ico">📈</div>
+              <div class="info-body">
+                <div class="info-t">2027 流年趋势</div>
+                <div class="info-d">稳中有升，责任与压力同步增加。丁火正官年，职位与身份易有变化，适合稳住位置、提升专业。</div>
+              </div>
+            </div>
+            <div class="info-row">
+              <div class="info-ico">💰</div>
+              <div class="info-body">
+                <div class="info-t">2027 财富提示</div>
+                <div class="info-d">收入稳定、适合积累。主财源来自稳定工作与专业变现，宜做预算、增储蓄，不宜追高波动。</div>
+              </div>
+            </div>
+            <div class="info-row">
+              <div class="info-ico">💕</div>
+              <div class="info-body">
+                <div class="info-t">2027 感情提示</div>
+                <div class="info-d">关系推进与定性之年。单身者有机会在专业圈层遇到稳定对象；交往中人有进一步明确的可能。</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 免费解锁进度 + 锁定区 -->
+      <div class="card" style="background:linear-gradient(150deg,var(--screen-2),var(--card-2));border:1px solid var(--line-gold)">
+        <div style="display:flex;align-items:center;gap:12px">
+          <div style="width:44px;height:44px;border-radius:50%;background:#fff;display:flex;align-items:center;justify-content:center;font-size:20px;box-shadow:0 4px 12px rgba(232,168,56,.18)">🔓</div>
+          <div style="flex:1">
+            <div style="font-size:14px;font-weight:800;color:var(--tan-deep)">免费报告已为你解锁到这里</div>
+            <div style="font-size:12px;color:var(--muted);margin-top:4px">上方为精简解读 · 下方大运后半程、逐年流年详批与伴侣画像为完整版内容</div>
+          </div>
+          <div style="font-size:24px;font-weight:900;color:var(--gold-deep)">60%</div>
+        </div>
+      </div>
+
+      <!-- 锁定：进阶大运 -->
+      <div class="locked" id="lock-dayun">
+        <div class="lock-ico">🔒</div>
+        <div class="lt1">进阶大运 · 甲申后半程 + 未来两步大运</div>
+        <div class="lt2">含 2028–2033 甲申细解、癸未收成大运逐年拆解与财富关键年提示。</div>
+        <div class="unlock-bar"><div class="ub"><i></i></div><div class="ubt">已包含在完整报告中 · 解锁后逐条展开</div></div>
+      </div>
+
+      <!-- 解锁后：进阶大运 内容 -->
+      <div class="unlocked" id="unlock-dayun">
+        <div class="boom">🎉 已解锁 · 进阶大运（示意内容，正式版为实时排盘输出）</div>
+        <div class="card">
+          <div class="b-t"><span class="ico">运</span>大运后半程细解</div>
+          <div class="tl">
+            <div class="tl-item"><span class="tag">2028–29</span><div class="txt"><b>竞争与结果主题</b> · 位置与评价敏感，用结果说话的一年段。</div></div>
+            <div class="tl-item"><span class="tag">2030–33</span><div class="txt"><b>甲申余势</b> · 议价权与资源入口陆续落地，适合把平台资源转成个人资产。</div></div>
+            <div class="tl-item"><span class="tag">2034–43</span><div class="txt"><b>癸未大运 · 收成</b> · 进入稳定收成期，重资产积累、家庭与长期结构。</div></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 锁定：进阶流年 -->
+      <div class="locked" id="lock-liunian">
+        <div class="lock-ico">🔒</div>
+        <div class="lt1">进阶流年 · 2027–2029 逐年详批</div>
+        <div class="lt2">每年财富 / 事业 / 感情 / 关键提醒 4 维度逐项解读，把握节点年份。</div>
+        <div class="unlock-bar"><div class="ub"><i></i></div><div class="ubt">已包含在完整报告中 · 解锁后逐年展开</div></div>
+      </div>
+
+      <!-- 解锁后：进阶流年 -->
+      <div class="unlocked" id="unlock-liunian">
+        <div class="boom">🎉 已解锁 · 2027–2029 逐年详批（示意内容，正式版为实时排盘输出）</div>
+        <div class="card">
+          <div class="b-t"><span class="ico">年</span>2028 · 戊申年运速览</div>
+          <div class="quad">
+            <div class="q"><div class="qt cai"><i>财</i>财富</div><div class="qd">竞争加剧但议价机会出现，谈薪资/合作宜在年中前落地。</div></div>
+            <div class="q"><div class="qt shi"><i>事</i>事业</div><div class="qd">考核、身份与位置主题明显，用关键交付证明自己。</div></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 会员对比 -->
+      <div class="compare">
+        <div class="cmp-c">
+          <div class="cmp-col free">
+            <h4>精简版 · 免费</h4>
+            <ul>
+              <li class="ok">排盘与日主关键词</li>
+              <li class="ok">命格评级 78 分概览</li>
+              <li class="ok">财富 / 事业 / 感情概览</li>
+              <li class="no">大运后半程细解</li>
+              <li class="no">2027–2029 逐年详批</li>
+            </ul>
+          </div>
+          <div class="cmp-col vip">
+            <h4>完整命书 · 会员</h4>
+            <ul>
+              <li class="ok">全部免费内容</li>
+              <li class="ok">逐年 4 维度详批</li>
+              <li class="ok">伴侣画像 · 深度版</li>
+              <li class="ok">节点年份行动提醒</li>
+              <li class="ok">按月更新大运进度</li>
+            </ul>
+            <div class="price">即刻解锁<small> · 连续包月可随时取消</small></div>
+          </div>
+        </div>
+      </div>
+
+      <button class="unlock-btn" data-open-unlock style="margin-top:16px"><span>🔓</span> 解锁完整生辰报告</button>
+    </div>
+
+    <!-- ===== 文末 · AI 深度对话转化 ===== -->
+    <div class="ai-cta">
+      <div class="ai-cta-head">
+        <div class="ai-badge">AI</div>
+        <div>
+          <div class="ai-cta-t1">解读看完了，心里还有更具体的问题？</div>
+          <div class="ai-cta-t2">像「明年要不要换工作」「什么时候遇到对的人」——顺顺 AI 结合你的盘，一对一回答你。</div>
+        </div>
+      </div>
+      <div class="ai-q-wrap">
+        <button class="ai-q" data-q="我2027年适合换工作吗？适合往哪个方向走？">我 2027 年适合换工作吗？适合往哪个方向走？</button>
+        <button class="ai-q" data-q="我什么时候能遇到合适的人？该注意什么？">我什么时候能遇到合适的人？该注意什么？</button>
+        <button class="ai-q" data-q="我的财运什么时候最好？今年适合投资吗？">我的财运什么时候最好？今年适合投资吗？</button>
+        <button class="ai-q" data-q="今年压力大的时候，我该怎么调节？">今年压力大的时候，我该怎么调节？</button>
+      </div>
+      <button class="ai-big" data-ai-open><span>💬</span> 开始与顺顺 AI 对话</button>
+      <div class="ai-note">会结合你刚刚的生辰解读 · 逐条回答 · 不构成确定性预言</div>
+    </div>
+
+    <!-- ===== 文末 · 评价反馈（好评闭环） ===== -->
+    <div class="rate-card">
+      <div class="rt-ico">🤗</div>
+      <h3>这份解读，对你有帮助吗？</h3>
+      <div class="rt-sub">你的真实感受，会帮顺顺把解读做得更懂你</div>
+      <div class="rate-opts" id="rate-opts">
+        <button class="rate-opt" data-v="非常准"><span class="ro-emo">😍</span><span class="ro-txt">非常准 · 很受用</span></button>
+        <button class="rate-opt" data-v="有帮助"><span class="ro-emo">🙂</span><span class="ro-txt">有帮助 · 有启发</span></button>
+        <button class="rate-opt" data-v="一般"><span class="ro-emo">😐</span><span class="ro-txt">一般般</span></button>
+        <button class="rate-opt" data-v="不太准"><span class="ro-emo">😕</span><span class="ro-txt">不太符合我</span></button>
+      </div>
+      <div class="rate-thanks" id="rate-thanks"></div>
+    </div>
+
+    <div class="watermark">顺顺 · 生辰解读 · 仅供决策参考与心理慰藉</div>
+  </div>
+  </div><!-- /panel-read -->
+
+  <!-- ===== 生辰历面板 ===== -->
+  <div class="tab-panel" id="panel-calendar">
+    <div class="body">
+      <div class="sec" style="margin-top:14px">
+        <div class="sec-head"><span class="bar"></span><h2>生辰历 · 四柱排盘</h2><span class="sub">癸酉 · 丁巳 · 辛丑 · 丙申</span></div>
+
+        <!-- 四柱排盘主表 -->
+        <div class="card" style="padding:0;overflow:hidden">
+          <div class="bazi-collapse" id="baziCollapse">
+          <table class="bazi-table">
+            <thead>
+              <tr>
+                <th></th>
+                <th>年柱</th>
+                <th>月柱</th>
+                <th>日柱</th>
+                <th>时柱</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="row-label">干神</td>
+                <td class="gs">食神</td>
+                <td class="qs">七杀</td>
+                <td class="zg">男主</td>
+                <td class="zg">正官</td>
+              </tr>
+              <tr>
+                <td class="row-label">天干</td>
+                <td class="dz-blue">癸</td>
+                <td class="dz-red">丁</td>
+                <td class="gz">辛</td>
+                <td class="dz-red">丙</td>
+              </tr>
+              <tr>
+                <td class="row-label">地支</td>
+                <td class="gz">酉</td>
+                <td class="dz-red">巳</td>
+                <td class="dz-brown">丑</td>
+                <td class="gz">申</td>
+              </tr>
+              <tr>
+                <td class="row-label">藏干</td>
+                <td class="cg"><span class="gz">辛·金</span></td>
+                <td class="cg"><span class="dz-red">丙·火</span><span class="dz-brown">戊·土</span><span class="gz">庚·金</span></td>
+                <td class="cg"><span class="dz-brown">己·土</span><span class="dz-blue">癸·水</span><span class="gz">辛·金</span></td>
+                <td class="cg"><span class="gz">庚·金</span><span class="dz-blue">壬·水</span><span class="dz-brown">戊·土</span></td>
+              </tr>
+              <tr>
+                <td class="row-label">支神</td>
+                <td class="zs"><span>比肩</span></td>
+                <td class="zs"><span class="zg">正官</span><span class="dz-red">劫财</span><span class="dz-brown">正印</span></td>
+                <td class="zs"><span class="dz-blue">偏印</span><span class="gs">食神</span><span class="gz">比肩</span></td>
+                <td class="zs"><span class="qs">七杀</span><span class="dz-blue">偏印</span></td>
+              </tr>
+              <tr>
+                <td class="row-label">纳音</td>
+                <td>剑锋金</td>
+                <td>沙中土</td>
+                <td>壁上土</td>
+                <td>沙中金</td>
+              </tr>
+              <tr>
+                <td class="row-label">空亡</td>
+                <td>戊亥</td>
+                <td>子丑</td>
+                <td>辰巳</td>
+                <td>辰巳</td>
+              </tr>
+              <tr>
+                <td class="row-label">星运</td>
+                <td>临官</td>
+                <td>死</td>
+                <td>养</td>
+                <td>病</td>
+              </tr>
+              <tr>
+                <td class="row-label">自坐</td>
+                <td>病</td>
+                <td>帝旺</td>
+                <td>养</td>
+                <td>死</td>
+              </tr>
+              <tr>
+                <td class="row-label">禄神</td>
+                <td>将星</td>
+                <td>天乙贵人</td>
+                <td>天乙贵人</td>
+                <td>天乙贵人</td>
+              </tr>
+              <tr>
+                <td class="row-label">神煞</td>
+                <td class="zs"><span class="dz-red">红艳煞</span></td>
+                <td class="zs"><span class="dz-blue">太极贵人</span><span class="dz-brown">福星贵人</span><span class="gz">国印贵人</span><span>学堂</span></td>
+                <td class="zs"><span class="dz-brown">天德贵人</span><span class="dz-blue">德秀贵人</span><span class="gz">华盖</span></td>
+                <td class="zs"><span class="dz-red">红鸾</span><span class="dz-red">桃花</span><span class="dz-brown">进神</span><span>童子煞</span></td>
+              </tr>
+            </tbody>
+          </table>
+          <div class="bazi-fade"></div>
+          </div><!-- /baziCollapse -->
+          <button class="bazi-toggle" id="baziToggle" onclick="document.getElementById('baziCollapse').classList.toggle('open');this.querySelector('span').textContent=document.getElementById('baziCollapse').classList.contains('open')?'收起':'展开全部'"><span class="tg-ico">▼</span><span>展开全部</span></button>
+        </div>
+
+        <!-- 五行分布速览 -->
+        <div class="card">
+          <div class="b-t"><span class="ico">五</span>五行分布</div>
+          <div style="display:flex;gap:8px;flex-wrap:wrap">
+            <div style="flex:1;min-width:70px;text-align:center;background:var(--tint-wood);border-radius:16px;padding:14px 8px">
+              <div style="font-size:22px;font-weight:900;color:var(--ink)">金</div>
+              <div style="font-size:11px;color:var(--muted);margin-top:4px">辛·庚·酉·申</div>
+              <div style="font-size:10px;color:var(--ink-2);font-weight:700;margin-top:6px">3 个</div>
+            </div>
+            <div style="flex:1;min-width:70px;text-align:center;background:var(--tint-wood);border-radius:16px;padding:14px 8px">
+              <div style="font-size:22px;font-weight:900;color:var(--ink)">木</div>
+              <div style="font-size:11px;color:var(--muted);margin-top:4px">—</div>
+              <div style="font-size:10px;color:var(--muted);font-weight:700;margin-top:6px">0 个</div>
+            </div>
+            <div style="flex:1;min-width:70px;text-align:center;background:var(--tint-wood);border-radius:16px;padding:14px 8px">
+              <div style="font-size:22px;font-weight:900;color:var(--ink)">水</div>
+              <div style="font-size:11px;color:var(--muted);margin-top:4px">癸·壬</div>
+              <div style="font-size:10px;color:var(--ink-2);font-weight:700;margin-top:6px">2 个</div>
+            </div>
+            <div style="flex:1;min-width:70px;text-align:center;background:var(--tint-wood);border-radius:16px;padding:14px 8px">
+              <div style="font-size:22px;font-weight:900;color:var(--ink)">火</div>
+              <div style="font-size:11px;color:var(--muted);margin-top:4px">丁·丙·巳</div>
+              <div style="font-size:10px;color:var(--ink-2);font-weight:700;margin-top:6px">3 个</div>
+            </div>
+            <div style="flex:1;min-width:70px;text-align:center;background:var(--tint-wood);border-radius:16px;padding:14px 8px">
+              <div style="font-size:22px;font-weight:900;color:var(--ink)">土</div>
+              <div style="font-size:11px;color:var(--muted);margin-top:4px">己·戊·丑</div>
+              <div style="font-size:10px;color:var(--ink-2);font-weight:700;margin-top:6px">3 个</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 十神占比柱状图 -->
+        <div class="card">
+          <div class="b-t"><span class="ico">神</span>十神占比</div>
+          <div class="ss-chart" id="ss-chart">
+            <div class="ss-col"><div class="ss-bar" style="height:100%"></div><div class="ss-icon">👥</div><div class="ss-name">比肩</div><div class="ss-pct">15%</div></div>
+            <div class="ss-col"><div class="ss-bar" style="height:100%"></div><div class="ss-icon">🌳</div><div class="ss-name">劫财</div><div class="ss-pct">15%</div></div>
+            <div class="ss-col"><div class="ss-bar" style="height:100%"></div><div class="ss-icon">🍰</div><div class="ss-name">食神</div><div class="ss-pct">15%</div></div>
+            <div class="ss-col"><div class="ss-bar" style="height:47%"></div><div class="ss-icon">☀️</div><div class="ss-name">伤官</div><div class="ss-pct">7%</div></div>
+            <div class="ss-col"><div class="ss-bar" style="height:0%"></div><div class="ss-icon">💰</div><div class="ss-name">正财</div><div class="ss-pct">0%</div></div>
+            <div class="ss-col"><div class="ss-bar" style="height:0%"></div><div class="ss-icon">💎</div><div class="ss-name">偏财</div><div class="ss-pct">0%</div></div>
+            <div class="ss-col"><div class="ss-bar" style="height:100%"></div><div class="ss-icon">🏛️</div><div class="ss-name">正官</div><div class="ss-pct">15%</div></div>
+            <div class="ss-col"><div class="ss-bar" style="height:47%"></div><div class="ss-icon">⚔️</div><div class="ss-name">七杀</div><div class="ss-pct">7%</div></div>
+            <div class="ss-col"><div class="ss-bar" style="height:100%"></div><div class="ss-icon">📜</div><div class="ss-name">正印</div><div class="ss-pct">15%</div></div>
+            <div class="ss-col"><div class="ss-bar" style="height:47%"></div><div class="ss-icon">🔮</div><div class="ss-name">偏印</div><div class="ss-pct">7%</div></div>
+          </div>
+          <div class="info-row" style="margin-top:12px">
+            <div class="info-ico">💬</div>
+            <div class="info-body">
+              <div class="info-t">十神分别代表什么？对我有什么影响？</div>
+              <div class="info-d">十神反映你与周围人事物的关系模式。比肩劫财主自我与竞争，食伤主才华与表达，财官主事业与财富，印主学识与贵人。</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 十神简析 -->
+        <div class="card">
+          <div class="b-t"><span class="ico">析</span>十神速查</div>
+          <div class="trio">
+            <div class="fact-card good"><div class="ft"><i></i>日主 · 辛金</div>阴金之象，精致、敏锐、有审美力，重细节与标准，不喜欢粗糙和模糊。</div>
+            <div class="fact-card warn"><div class="ft"><i></i>格局 · 七杀格</div>丁火七杀透月干，压力与动力并存，适合在竞争环境中成长，需学会借力。</div>
+          </div>
+        </div>
+
+        <!-- 神煞卡片 -->
+        <div class="card">
+          <div class="b-t"><span class="ico">煞</span>神煞一览</div>
+          <div class="shensha-grid">
+            <div class="ss-cell"><div class="ss-t">年柱神煞</div><div class="ss-v">将星<small>红艳煞</small></div></div>
+            <div class="ss-cell"><div class="ss-t">月柱神煞</div><div class="ss-v">天乙贵人<small>太极 · 福星 · 国印 · 学堂</small></div></div>
+            <div class="ss-cell"><div class="ss-t">日柱神煞</div><div class="ss-v">天乙贵人<small>天德 · 德秀 · 华盖</small></div></div>
+            <div class="ss-cell"><div class="ss-t">时柱神煞</div><div class="ss-v">天乙贵人<small>红鸾 · 桃花 · 进神 · 童子</small></div></div>
+          </div>
+        </div>
+
+        <!-- 排盘说明 -->
+        <div class="card">
+          <div class="b-t"><span class="ico">注</span>排盘说明</div>
+          <p class="b-p">本排盘基于农历生辰八字推算，包含四柱（年/月/日/时）、天干地支、藏干、十神、纳音、空亡、十二长生、神煞等核心命理要素。数据仅供决策参考与心理慰藉，不构成任何确定性预言。</p>
+        </div>
+      </div>
+
+      <div class="watermark">顺顺 · 生辰历 · 仅供决策参考与心理慰藉</div>
+    </div>
+  </div><!-- /panel-calendar -->
+
+  <!-- sticky 转化条：AI 对话主入口（轮博滚动） -->
+  <div class="dock" id="dock">
+    <div class="dock-ai-av">
+      <div class="dock-ai-ico">🪐</div>
+      <span class="dock-ai-badge"><i></i>在线</span>
+    </div>
+    <div class="dock-ai-tx" id="dock-ai-tx">
+      <b class="dock-ai-title" id="dock-ai-title">报告看不懂？咨询顺顺老师</b>
+      <span class="dock-ai-sub" id="dock-ai-sub">老师正在解答中，可在<b>20秒</b>内回复</span>
+    </div>
+    <button class="dock-ai-btn" data-ai-open>
+      <span>免费提问</span>
+      <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+    </button>
+  </div>
+
+  <!-- 弹层 -->
+  <div class="sheet-mask" id="sheet-mask"></div>
+  <div class="sheet" id="sheet">
+    <div class="grab"></div>
+    <h3>开通会员 · AI 深度 + 全量报告</h3>
+    <div class="sub">解锁后：顺顺 AI 结合你的盘与实情逐月深讲 · 大运后段 / 伴侣画像全量开放</div>
+    <div class="gold-line">两种方式，任选其一</div>
+    <div class="btns">
+      <button class="unlock-btn" id="btn-share" style="background:linear-gradient(135deg,#F6E7C2,#EAD093);color:#7A571A">分享给好友 · 免费解锁</button>
+      <button class="unlock-btn" id="btn-vip">开通会员 · AI 深度全解锁</button>
+      <button class="ghost-btn" id="btn-cancel">先和顺顺 AI 聊聊，更懂再决定</button>
+    </div>
+    <div class="mini-note">* 价格为交互演示示意，正式定价请以线上配置为准 · 示意内容不构成真实命理结论</div>
+  </div>
+
+  <div class="toast" id="toast"></div>
+
+  <!-- AI 对话窗（演示） -->
+  <div class="ai-mask" id="ai-mask"></div>
+  <div class="ai-sheet" id="ai-sheet">
+    <div class="ai-head">
+      <div class="st">AI</div>
+      <div class="tt">顺顺 AI 命理顾问<small>结合你的盘 · 一对一实时回答</small></div>
+      <button class="ai-close" id="ai-close" aria-label="关闭">✕</button>
+    </div>
+    <div class="ai-msgs" id="ai-msgs"></div>
+    <div class="ai-chips">
+      <button data-ai-q="我2027年适合换工作吗？适合往哪走？">换工作怎么选</button>
+      <button data-ai-q="我什么时候能遇到合适的人？">何时遇到对的人</button>
+      <button data-ai-q="我今年适合投资理财吗？">今年能投资吗</button>
+      <button data-ai-q="我压力大时该怎么调节？">压力怎么调节</button>
+    </div>
+    <div class="ai-input">
+      <input id="ai-input" placeholder="输入你的问题，例如：明年该不该跳槽？" aria-label="输入问题">
+      <button id="ai-send">发送</button>
+    </div>
+  </div>
+</div>
+
+<script>
+(function(){
+  // ---------- 工具（必须先定义，后续代码依赖） ----------
+  var $ = function(s,c){return (c||document).querySelector(s)};
+  var $$ = function(s,c){return Array.prototype.slice.call((c||document).querySelectorAll(s))};
+
+  // ---------- 页面 Tab 切换 ----------
+  var pageTabs = $('#page-tabs');
+  if(pageTabs){
+    pageTabs.addEventListener('click', function(ev){
+      var b = ev.target.closest('button'); if(!b) return;
+      $$('button',pageTabs).forEach(function(x){x.classList.remove('on')});
+      $$('.tab-panel').forEach(function(p){p.classList.remove('on')});
+      b.classList.add('on');
+      $('#' + b.dataset.tab).classList.add('on');
+      window.scrollTo({top:0,behavior:'smooth'});
+    });
+  }
+  var toastEl = $('#toast'), toastTimer;
+  function toast(msg){
+    toastEl.textContent = msg; toastEl.classList.add('show');
+    clearTimeout(toastTimer); toastTimer = setTimeout(function(){toastEl.classList.remove('show')},2400);
+  }
+
+  // ---------- 评分环 ----------
+  var ringArc = $('#ringArc');
+  function fillRing(){
+    var dash = 301.6, need = dash - dash*0.78;
+    ringArc.style.transition = 'stroke-dashoffset 1.4s cubic-bezier(.3,.8,.3,1)';
+    requestAnimationFrame(function(){ setTimeout(function(){ ringArc.style.strokeDashoffset = need; }, 120); });
+  }
+
+  // ---------- 滚动渐入 ----------
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(e.isIntersecting){ e.target.classList.add('rv-in'); io.unobserve(e.target); }
+    });
+  }, {threshold:.12});
+  $$('.sec,.hero-card').forEach(function(el){ io.observe(el); });
+
+  // ---------- 章节目录 高亮 ----------
+  var chipLinks = $$('#chips a');
+  var secIds = chipLinks.map(function(a){ return a.getAttribute('href'); });
+  var secIo = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(e.isIntersecting){
+        var id = '#' + e.target.id;
+        chipLinks.forEach(function(a){ a.classList.toggle('on', a.getAttribute('href') === id); });
+      }
+    });
+  }, {rootMargin:'-35% 0px -55% 0px'});
+  $$('.sec').forEach(function(s){ secIo.observe(s); });
+
+  // ---------- 命运地图 tabs ----------
+  var maptabs = $('#maptabs');
+  maptabs.addEventListener('click', function(ev){
+    var b = ev.target.closest('button'); if(!b) return;
+    $$('button',maptabs).forEach(function(x){x.classList.remove('on')});
+    $$('.maptab').forEach(function(p){p.classList.remove('on')});
+    b.classList.add('on');
+    $('#' + b.dataset.map).classList.add('on');
+  });
+  // 2027 子维度过滤
+  $('#subchips').addEventListener('click', function(ev){
+    var b = ev.target.closest('button'); if(!b) return;
+    $$('button',this).forEach(function(x){x.classList.remove('on')});
+    b.classList.add('on');
+    var cats = ['财富','事业','感情','提醒']; var idx = $$('button',this).indexOf(b);
+    $$('#liunian-quad .q').forEach(function(q){
+      q.style.display = (idx === 0) ? 'block' : (q.dataset.cat === cats[idx] ? 'block' : 'none');
+    });
+  });
+
+  // ---------- 平滑锚点（sticky 兼容） ----------
+  chipLinks.forEach(function(a){
+    a.addEventListener('click', function(ev){
+      ev.preventDefault();
+      var target = $(a.getAttribute('href'));
+      if(target){ var y = target.getBoundingClientRect().top + window.scrollY - 118; window.scrollTo({top:y, behavior:'smooth'}); }
+    });
+  });
+
+  // ---------- 弹层 ----------
+  var mask = $('#sheet-mask'), sheet = $('#sheet');
+  function openSheet(){ mask.classList.add('show'); sheet.classList.add('show'); document.body.style.overflow='hidden'; }
+  function closeSheet(){ mask.classList.remove('show'); sheet.classList.remove('show'); document.body.style.overflow=''; }
+  $$('[data-open-unlock]').forEach(function(b){ b.addEventListener('click', openSheet); });
+  mask.addEventListener('click', closeSheet);
+  $('#btn-cancel').addEventListener('click', function(){ closeSheet(); setTimeout(aiOpen, 300); });
+
+  // ---------- dock AI 入口轮博 ----------
+  var rotIdx = 0;
+  var rotList = [
+    {title:'报告看不懂？咨询顺顺老师', sub:'老师正在解答中，可在20秒内回复'},
+    {title:'2027年运势如何？', sub:'点我问顺顺，结合你的盘详细说'},
+    {title:'感情、事业、财运有困惑？', sub:'1对1解读，准到让你惊讶'},
+    {title:'想知道命中贵人在哪？', sub:'顺顺AI 已经看过你的盘了'}
+  ];
+  function rotateDockTxt(){
+    rotIdx = (rotIdx + 1) % rotList.length;
+    var t = rotList[rotIdx];
+    var ti = $('#dock-ai-title'), su = $('#dock-ai-sub');
+    ti.style.opacity = 0; su.style.opacity = 0;
+    setTimeout(function(){
+      ti.textContent = t.title; su.textContent = t.sub;
+      ti.style.opacity = 1; su.style.opacity = 1;
+    }, 200);
+  }
+  setInterval(rotateDockTxt, 3500);
+
+  // ---------- 解锁逻辑 ----------
+  var unlockedFlag = false;
+  function doUnlock(msg){
+    if(unlockedFlag) { scrollTopOfUnlocked(); return; }
+    unlockedFlag = true;
+    document.body.classList.add('all-unlocked');
+    closeSheet();
+    setTimeout(function(){ toast(msg || '🎉 完整报告已解锁'); }, 260);
+    setTimeout(scrollTopOfUnlocked, 900);
+  }
+  function scrollTopOfUnlocked(){
+    var y = ($('#lock-dayun').getBoundingClientRect().top + window.scrollY - 140);
+    window.scrollTo({top:y, behavior:'smooth'});
+  }
+  $('#btn-share').addEventListener('click', function(){
+    var self = this; self.textContent = '模拟分享中…'; self.disabled = true;
+    setTimeout(function(){ self.textContent = '分享给好友 · 免费解锁'; self.disabled = false; doUnlock('✅ 分享成功 · 完整报告已解锁'); }, 900);
+  });
+  $('#btn-vip').addEventListener('click', function(){
+    var self = this; self.textContent = '模拟支付中…'; self.disabled = true;
+    setTimeout(function(){ self.textContent = '开通会员 · AI 深度全解锁'; self.disabled = false; doUnlock('✅ 支付成功 · 欢迎加入会员'); }, 1100);
+  });
+  // 已解锁后点主按钮 → 回看解锁区
+  function onOpenBtn(){
+    if(unlockedFlag){ scrollTopOfUnlocked(); }
+    else { openSheet(); }
+  }
+  $$('[data-open-unlock]').forEach(function(b){
+    b.removeEventListener('click', openSheet);
+    b.addEventListener('click', onOpenBtn);
+  });
+
+  // ---------- 顶部阅读进度（完读激励） ----------
+  var readBar = $('#read-bar');
+  function updRead(){
+    if(!readBar) return;
+    var doc = document.documentElement;
+    var max = doc.scrollHeight - window.innerHeight;
+    readBar.style.width = (max>0 ? Math.min(100, window.scrollY/max*100) : 0) + '%';
+  }
+  window.addEventListener('scroll', updRead, {passive:true});
+  window.addEventListener('resize', updRead);
+  updRead();
+
+  // ---------- AI 对话（演示 · AI 对话转化闭环） ----------
+  var aiMask = $('#ai-mask'), aiSheetEl = $('#ai-sheet'), aiMsgs = $('#ai-msgs');
+  var aiInput = $('#ai-input'), aiSend = $('#ai-send'), aiReady = false;
+  function aiOpen(){
+    aiMask.classList.add('show'); aiSheetEl.classList.add('show'); document.body.style.overflow = 'hidden';
+    if(!aiReady){
+      aiReady = true;
+      aiAdd('ai', '你好，我是顺顺 AI 命理顾问 🪐 你的盘我已经仔细看过了。想聊得更贴你的真实情况，先告诉我你现在的处境——工作想变动？感情没着落？想多赚点钱？还是压力大到快撑不住？可以直接打字，也可以点下方问题。');
+    }
+    setTimeout(function(){ aiMsgs.scrollTop = aiMsgs.scrollHeight; if(aiInput) aiInput.focus({preventScroll:true}); }, 260);
+  }
+  function aiClose(){ aiMask.classList.remove('show'); aiSheetEl.classList.remove('show'); document.body.style.overflow = ''; }
+  // 统一打开入口：dock AI 按钮 / 各章追问条 / 文末大按钮
+  document.addEventListener('click', function(ev){
+    var t = ev.target.closest('[data-ai-open]'); if(!t) return;
+    ev.preventDefault();
+    var q = t.getAttribute('data-ai-q');
+    aiOpen();
+    if(q) setTimeout(function(){ aiAsk(q); }, 420);
+  });
+  // 文末预置问题卡（带问题进对话）
+  $$('.ai-q').forEach(function(q){
+    q.addEventListener('click', function(){ aiOpen(); setTimeout(function(){ aiAsk(q.getAttribute('data-q')); }, 320); });
+  });
+  // 对话窗内推荐问题 chips
+  $$('.ai-chips [data-ai-q]').forEach(function(c){
+    c.addEventListener('click', function(){ aiAsk(c.getAttribute('data-ai-q')); });
+  });
+  // 简易意图回复库（演示）
+  var aiReplies = [
+    {re:/跳槽|换工作|离职|辞职|方向|事业|职业|往哪走/,
+     a:'结合你的盘，你走的是「先平台、后资源」的路线。2027 走正官流年，更适合在现有岗位上把专业做深、被关键人物看见；若真想动，先拿到明确职位或授权再谈，机会成本更可控。想再帮你拆一拆「哪类岗位更旺你」吗？'},
+    {re:/感情|桃花|对象|伴侣|结婚|姻缘|遇到合适|对的人|恋爱/,
+     a:'你属于「慢热但靠谱」的类型，越成熟越稳。2027 有机会在专业圈层遇到有责任感的对象——先让对方看见你的可靠，比刻意介绍更适合你。需要看看「对方大概是什么性格、在哪里遇到」吗？'},
+    {re:/财|投资|理财|赚钱|收入|攒钱|存款/,
+     a:'你正财强、偏财弱，最适合稳定平台 + 专业变现。2027 建议以稳收入和储蓄为主；真要投资，选看得懂、现金流稳定的方向，避开追高与高波动。要不要结合流月，看看今年哪几个月最该守财？'},
+    {re:/压力|焦虑|累|调节|健康|情绪|心态|睡眠|睡不|失眠/,
+     a:'你的盘显示你习惯自己消化压力——其实你已经很能扛了。2027 建议给情绪留出口：规律睡眠、把一部分责任分出去、每周留半天只给自己。越放松，你的判断反而越准。还有想聊的，我都在。'},
+    {re:/贵人|人脉|合作|同事|领导|老板|平台/,
+     a:'你的事业贵人集中在「规则型」与「资源型」两类：重流程、能给你位置的上级，以及能把你带进更高平台的人。2027 主动维护这两个圈层，机会会明显变多。想知道贵人更可能出现的月份吗？'}
+  ];
+  function aiAnswer(q){
+    for(var i=0;i<aiReplies.length;i++){ if(aiReplies[i].re.test(q)) return aiReplies[i].a; }
+    return '收到～结合你的盘，我的建议是：2027 稳中求进，把「判断力 + 执行力」用在关键节点上，比到处出击更容易出结果。想再细化哪一块，随时问我。';
+  }
+  // 对话上下文采集 + 会员后段引导（演示：AI 对话 = 核心转化 + 上下文胜负手）
+  var aiCnt = 0, ctxLogged = false, mcShown = false;
+  var ctxRe = /跳槽|换工作|离职|辞职|方向|事业|职业|往哪走|相亲|单身|恋爱|分手|结婚|伴侣|对象|催婚|压力|焦虑|加班|失眠|投资|理财|赚钱|收入|创业|裁员|买房|城市|家人/;
+  function aiMaybeMc(){
+    if(unlockedFlag || mcShown || aiCnt < 3) return;
+    mcShown = true;
+    var row = document.createElement('div'); row.className = 'msg ai mc-row';
+    row.innerHTML = '<div class="av">AI</div><div class="bb"></div>';
+    var card = document.createElement('div'); card.className = 'mc-card';
+    card.innerHTML = '<b>聊到这，AI 已经比报告更懂你</b>'
+      + '<p>你刚说的实际情况 + 你的盘，足够拼出一张「你的年度决策地图」。开通会员后，顺顺 AI 会结合两者为你逐月拆解事业 / 感情 / 财运，并解锁大运后段细解与完整伴侣画像。</p>'
+      + '<button class="mc-go">开通会员 · 让 AI 继续深讲</button>'
+      + '<button class="mc-later">先不升级，我再问两个</button>';
+    row.querySelector('.bb').appendChild(card);
+    aiMsgs.appendChild(row); aiMsgs.scrollTop = aiMsgs.scrollHeight;
+    card.querySelector('.mc-go').addEventListener('click', function(){ aiClose(); setTimeout(openSheet, 280); });
+    card.querySelector('.mc-later').addEventListener('click', function(){ row.remove(); toast('好的，想升级时点右下角按钮即可'); });
+  }
+  function aiAsk(q){
+    aiAdd('user', q); aiCnt++;
+    var willLog = !ctxLogged && ctxRe.test(q);
+    aiTyping(620, function(){
+      if(willLog){
+        ctxLogged = true;
+        aiAdd('ai', '收到，我先把你说的情况记进档案。接下来的分析，都会结合「你的盘 + 你的实际处境」一起看，会更贴你。');
+        setTimeout(function(){ aiAdd('ai', aiAnswer(q)); aiMaybeMc(); }, 720);
+      } else {
+        aiAdd('ai', aiAnswer(q)); aiMaybeMc();
+      }
+    });
+  }
+  function aiAdd(who, txt){
+    var row = document.createElement('div'); row.className = 'msg ' + who;
+    var av = document.createElement('div'); av.className = 'av'; av.textContent = (who === 'user' ? '我' : 'AI');
+    var bb = document.createElement('div'); bb.className = 'bb';
+    bb.textContent = txt;
+    row.appendChild(av); row.appendChild(bb);
+    aiMsgs.appendChild(row);
+    aiMsgs.scrollTop = aiMsgs.scrollHeight;
+  }
+  function aiTyping(ms, done){
+    var row = document.createElement('div'); row.className = 'msg ai';
+    row.innerHTML = '<div class="av">AI</div><div class="bb typing"><i></i><i></i><i></i></div>';
+    aiMsgs.appendChild(row); aiMsgs.scrollTop = aiMsgs.scrollHeight;
+    setTimeout(function(){ row.remove(); done(); }, ms);
+  }
+  aiSend.addEventListener('click', function(){
+    var v = aiInput.value.trim();
+    if(!v){ toast('可以先点下方问题，或直接输入你想问的'); return; }
+    aiInput.value = ''; aiAsk(v);
+  });
+  aiInput.addEventListener('keydown', function(ev){ if(ev.key === 'Enter'){ ev.preventDefault(); aiSend.click(); } });
+  aiMask.addEventListener('click', aiClose);
+  $('#ai-close').addEventListener('click', aiClose);
+
+  // ---------- 文末评价（好评闭环 · 演示） ----------
+  var rated = false;
+  $('#rate-opts').addEventListener('click', function(ev){
+    var o = ev.target.closest('.rate-opt'); if(!o || rated) return;
+    rated = true;
+    $$('#rate-opts .rate-opt').forEach(function(x){ x.classList.remove('on'); });
+    o.classList.add('on');
+    var th = $('#rate-thanks');
+    var v = o.getAttribute('data-v');
+    if(v === '非常准' || v === '有帮助'){
+      th.innerHTML = '💛 已记录你的好评，谢谢！解读会越来越懂你。愿你今年把长板稳稳发挥出来。';
+    } else {
+      th.innerHTML = '收到你的反馈 🙏 想看看哪一部分不太准？点右下角「AI」，让顺顺 AI 结合你的盘再细看一下。';
+    }
+    th.classList.add('show');
+    setTimeout(function(){ toast('✅ 已记录你的反馈，感谢支持顺顺'); }, 300);
+  });
+
+  // ---------- 演示引导：圆环动画 ----------
+  document.documentElement.classList.add('js');
+  var patSeen = false;
+  var animIo = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(!e.isIntersecting) return;
+      if(e.target.id === 'sec-pattern' && !patSeen){ patSeen = true; fillRing(); }
+    });
+  }, {threshold:.3});
+  animIo.observe($('#sec-pattern'));
+
+})();
+</script>
+</body>
+</html>
