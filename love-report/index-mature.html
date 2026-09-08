@@ -1,0 +1,307 @@
+<!-- 感情格局深度报告 · 雅致沉稳版（钩子优化） -->
+<!DOCTYPE html>
+<html lang="zh-CN"><head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>感情格局深度报告</title>
+<style>
+:root{
+  --ink:#3a2c1c;          /* 主文字：暖黑 */
+  --sub:#6f5d45;          /* 次要文字：暖褐 */
+  --paper:#f4eedd;        /* 纸张底色 */
+  --card:#fffdf6;         /* 卡片底色 */
+  --line:#e0d2b2;         /* 浅边框 */
+  --line-strong:#c8b789;  /* 深边框 */
+  --red:#8c2f24;          /* 朱砂红 */
+  --red-deep:#6d221a;
+  --gold:#a37c2e;         /* 鎏金 */
+  --gold-soft:#b9974e;
+  --serif:"Kaiti SC","STKaiti","KaiTi","Noto Serif CJK SC","Songti SC","SimSun",serif;
+  --body:"Noto Serif CJK SC","Songti SC","SimSun","Source Han Serif SC","PingFang SC","Microsoft YaHei",serif;
+}
+*{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
+html{-webkit-text-size-adjust:100%}
+body{
+  font-family:var(--body);
+  color:var(--ink);
+  background:var(--paper);
+  font-size:17px;
+  line-height:1.9;
+  letter-spacing:.01em;
+  -webkit-font-smoothing:antialiased;
+}
+body::before{
+  content:"";
+  position:fixed;inset:0;pointer-events:none;z-index:0;
+  background:
+    radial-gradient(1100px 520px at 50% -12%,rgba(163,124,46,.12),transparent 62%),
+    radial-gradient(820px 420px at 108% 34%,rgba(140,47,36,.05),transparent 58%);
+}
+.stage{position:relative;z-index:1;max-width:700px;margin:0 auto;padding:40px 24px 56px}
+
+/* ===== 顶部装饰 ===== */
+.ornament-top{text-align:center;color:var(--gold);font-family:var(--serif);font-size:15px;letter-spacing:.5em;margin-bottom:28px}
+
+/* ===== 报告头部（钩子开场） ===== */
+.report-head{
+  text-align:center;
+  background:var(--card);
+  border:1px solid var(--line-strong);
+  box-shadow:0 0 0 4px var(--card),0 0 0 5px var(--line),0 18px 40px rgba(58,44,28,.08);
+  border-radius:6px;
+  padding:40px 34px 34px;
+  margin-bottom:22px;
+  position:relative;
+}
+.seal{
+  width:52px;height:52px;margin:0 auto 18px;
+  background:var(--red);color:#f7e9dc;
+  font-family:var(--serif);font-size:30px;line-height:1;
+  display:flex;align-items:center;justify-content:center;
+  border-radius:5px;
+  box-shadow:inset 0 0 0 2px rgba(255,255,255,.25),0 3px 8px rgba(140,47,36,.3);
+}
+.report-head .eyebrow{
+  font-size:13px;letter-spacing:.4em;color:var(--gold);
+  font-family:var(--serif);margin-bottom:12px;
+}
+.report-head h1{
+  font-family:var(--serif);font-size:28px;line-height:1.5;
+  color:var(--ink);font-weight:700;margin:0 0 12px;
+}
+.report-head h1 em{font-style:normal;color:var(--red);border-bottom:2px solid var(--red-soft,var(--red))}
+.report-head .intro{font-size:16px;color:var(--sub);line-height:1.9;max-width:520px;margin:0 auto}
+.report-head .intro strong{color:var(--red);font-weight:700}
+.divider{display:flex;align-items:center;justify-content:center;gap:14px;margin:22px auto 0;color:var(--gold);max-width:320px}
+.divider::before,.divider::after{content:"";flex:1;height:1px;background:linear-gradient(to right,transparent,var(--line-strong))}
+.divider::after{background:linear-gradient(to left,transparent,var(--line-strong))}
+.divider i{font-style:normal;font-size:13px}
+.tags{display:flex;flex-wrap:wrap;justify-content:center;gap:12px;margin-top:24px}
+.tag{font-size:15px;color:var(--red-deep);border:1px solid var(--red);background:#fbf3ec;padding:5px 18px;border-radius:3px;font-family:var(--serif);letter-spacing:.06em}
+
+/* ===== 社会认同条 ===== */
+.social{
+  display:flex;align-items:center;justify-content:center;flex-wrap:wrap;gap:8px 18px;
+  background:linear-gradient(150deg,#f7efdb,#f2e7ca);
+  border:1px solid var(--line);border-radius:6px;
+  padding:13px 20px;margin-bottom:26px;text-align:center;
+}
+.social .num{font-family:var(--serif);font-size:20px;font-weight:700;color:var(--red);line-height:1}
+.social .lbl{font-size:14px;color:var(--sub)}
+.social .dot{color:var(--gold-soft);font-size:10px}
+
+/* ===== 内容模块 ===== */
+.mod{
+  background:var(--card);
+  border:1px solid var(--line);
+  border-radius:6px;
+  box-shadow:0 10px 30px rgba(58,44,28,.06);
+  padding:30px 30px 32px;
+  margin-bottom:26px;
+}
+.mod-head{display:flex;align-items:baseline;gap:14px;margin-bottom:6px}
+.mod-head .num{font-family:var(--serif);font-size:24px;color:var(--red);font-weight:700;line-height:1}
+.mod-head h2{font-family:var(--serif);font-size:25px;line-height:1.4;color:var(--ink);font-weight:700;letter-spacing:.02em}
+.mod-head .rule{flex:1;height:1px;align-self:center;background:linear-gradient(to right,var(--line-strong),transparent);margin-left:4px}
+.mod-head .head-text{flex:1}
+
+/* 钩子句 */
+.hook{
+  position:relative;
+  font-family:var(--serif);
+  font-size:20px;font-weight:700;line-height:1.6;
+  color:var(--red-deep);
+  background:#fbf3ec;
+  border-left:4px solid var(--red);
+  border-radius:0 6px 6px 0;
+  padding:14px 20px;margin:16px 0 20px;
+}
+.hook .q{color:var(--gold);font-weight:700;margin-right:2px}
+
+/* 小标题 */
+.cap{display:flex;align-items:center;gap:9px;font-family:var(--serif);font-size:18px;font-weight:700;color:var(--gold);margin:26px 0 10px;letter-spacing:.04em}
+.cap:first-of-type{margin-top:14px}
+.cap::before{content:"◆";font-size:11px;color:var(--gold-soft)}
+.desc{font-size:17px;color:#4a3a26;line-height:1.95;margin:0}
+.desc strong{color:var(--red);font-weight:700}
+
+/* 优势 / 短板标签 */
+.trait-line{display:flex;flex-wrap:wrap;gap:12px}
+.trait{font-size:16px;color:var(--red-deep);border:1px solid var(--line-strong);background:#fffdf7;padding:6px 20px;border-radius:3px;line-height:1.5;font-family:var(--serif)}
+.trait.dim{color:var(--sub);border-color:var(--line);background:#faf6ec}
+
+/* 真爱特征卡片 */
+.tag-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:8px}
+.tag-card{border:1px solid var(--line);border-radius:6px;padding:20px 20px 18px;background:#fdfaf1;display:flex;flex-direction:column;gap:9px}
+.tag-key{font-size:13px;font-weight:700;color:var(--gold);letter-spacing:.18em;font-family:var(--serif);align-self:flex-start;padding-bottom:4px;border-bottom:1px solid var(--line-strong)}
+.tag-card b{font-size:18px;line-height:1.5;color:var(--ink);font-weight:700}
+.tag-card p{font-size:15px;color:var(--sub);line-height:1.75;margin:0}
+
+/* 小结 */
+.note{border-left:4px solid var(--gold);background:#faf4e3;border-radius:0 6px 6px 0;padding:16px 20px;margin-top:22px;font-size:16px;color:#4a3a26;line-height:1.9}
+.note b{color:var(--gold)}
+
+/* ===== 时间轴 ===== */
+.timeline{position:relative;padding-left:26px;margin-top:8px}
+.timeline::before{content:"";position:absolute;left:6px;top:10px;bottom:10px;width:2px;background:linear-gradient(var(--gold),var(--line-strong))}
+.tl-item{position:relative;padding:0 0 30px}
+.tl-item:last-child{padding-bottom:0}
+.tl-dot{position:absolute;left:-26px;top:9px;width:14px;height:14px;border-radius:50%;background:var(--gold);box-shadow:0 0 0 4px #f2e7cd}
+.tl-item.hot .tl-dot{background:var(--red);box-shadow:0 0 0 4px #f4dcd2}
+.tl-item.warn .tl-dot{background:#b08a5a;box-shadow:0 0 0 4px #ede3cf}
+.tl-time{font-size:19px;font-weight:700;color:var(--ink);font-family:var(--serif)}
+.tl-item.hot .tl-time{color:var(--red)}
+.tl-item.warn .tl-time{color:#8a6d3a}
+.tl-badge{display:inline-block;font-size:12px;font-weight:700;color:#fff;background:var(--red);border-radius:3px;padding:1px 9px;margin-left:8px;vertical-align:2px;letter-spacing:.08em}
+.tl-badge.warn{background:#b08a5a}
+.tl-body p{font-size:16px;color:#4a3a26;line-height:1.85;margin:6px 0 0}
+
+/* ===== 结尾 CTA 钩子 ===== */
+.cta{
+  text-align:center;
+  background:linear-gradient(150deg,#3a2b1d,#2a1e12);
+  color:#f0e3cb;border-radius:6px;
+  padding:32px 28px;margin-top:4px;
+  box-shadow:0 18px 40px rgba(58,44,28,.18);
+}
+.cta .cta-title{font-family:var(--serif);font-size:23px;font-weight:700;line-height:1.5;color:#fdf6e9}
+.cta p{font-size:15px;color:#d5c4a2;line-height:1.8;margin:10px auto 20px;max-width:480px}
+.cta .cta-btn{
+  display:inline-block;font-family:var(--serif);font-size:17px;font-weight:700;
+  color:#fff;background:var(--red);border:1px solid rgba(255,255,255,.2);
+  padding:11px 34px;border-radius:4px;letter-spacing:.08em;
+  text-decoration:none;box-shadow:0 6px 18px rgba(140,47,36,.4);
+}
+.cta .cta-btn small{display:block;font-size:12px;font-weight:400;opacity:.85;margin-top:2px}
+.cta .cta-hint{font-size:12px;color:#b6a37c;margin-top:14px}
+
+/* 提示 */
+.disclaimer{font-size:13px;color:#9b8b6f;text-align:center;line-height:1.9;padding:8px 24px;margin-top:18px}
+
+@media(max-width:520px){
+  .stage{padding:28px 16px 44px}
+  .report-head{padding:32px 20px 26px}
+  .report-head h1{font-size:24px}
+  .hook{font-size:18px}
+  .mod{padding:24px 20px 26px}
+  .tag-grid{grid-template-columns:1fr}
+  body{font-size:16px}
+}
+</style>
+</head>
+<body>
+<div class="stage">
+
+  
+
+  
+
+  
+
+  <!-- 模块一 你的感情画像 -->
+  <section class="mod">
+    <div class="mod-head">
+      
+      <div class="head-text"><h2>你的感情画像</h2></div>
+      <span class="rule"></span>
+    </div>
+
+    <div class="hook">你感情里的「慢」，其实是一道筛选机制。它在替你挡掉谁？</div>
+
+    <h3 class="cap">恋爱观</h3>
+    <p class="desc">重质量不重数量，宁缺毋滥；先立业后成家，感情慢热，但一旦认定便很稳定。</p>
+
+    <h3 class="cap">桃花与异性缘</h3>
+    <p class="desc">桃花清正、数量不多但质量高；异性缘偏淡，正缘出现后感情稳定度高，易长久。</p>
+
+    <h3 class="cap">感情优势</h3>
+    <div class="trait-line">
+      <span class="trait">专一</span><span class="trait">体贴</span><span class="trait">顾家</span>
+    </div>
+
+    <h3 class="cap">感情短板</h3>
+    <div class="trait-line">
+      <span class="trait dim">慢热</span><span class="trait dim">犹豫</span><span class="trait dim">被动</span>
+    </div>
+  </section>
+
+  <!-- 模块二 你的真爱特征 -->
+  <section class="mod">
+    <div class="mod-head">
+      
+      <div class="head-text"><h2>你的真爱特征</h2></div>
+      <span class="rule"></span>
+    </div>
+
+    <div class="hook">能陪你走到最后的人，往往不是让你最心动的那一个。你该认出谁？</div>
+
+    <div class="tag-grid">
+      <div class="tag-card">
+        <span class="tag-key">外貌</span>
+        <b>五官端正、面相温和</b>
+        <p>气质偏沉稳，给人亲切可靠感。</p>
+      </div>
+      <div class="tag-card">
+        <span class="tag-key">性格</span>
+        <b>稳重务实、情绪稳定</b>
+        <p>偏理性，遇事冷静能扛。</p>
+      </div>
+      <div class="tag-card">
+        <span class="tag-key">条件</span>
+        <b>专业背景、事业稳定</b>
+        <p>家庭观念重，有责任心。</p>
+      </div>
+      <div class="tag-card">
+        <span class="tag-key">相识场景</span>
+        <b>工作 / 学习场合</b>
+        <p>或经朋友、长辈介绍相识。</p>
+      </div>
+    </div>
+
+    <div class="note"><b>画像小结：</b>真爱多带「官星 / 印星」特征，是能在事业与生活上给你兜底和背书的人；靠得住比心动更重要。</div>
+  </section>
+
+  <!-- 模块三 你的关键情感线 -->
+  <section class="mod">
+    <div class="mod-head">
+      
+      <div class="head-text"><h2>你的关键情感线</h2></div>
+      <span class="rule"></span>
+    </div>
+
+    <div class="hook">你命盘里最该记住的一年，不是 2028，而是中间那个「关键年」。</div>
+
+    <div class="timeline">
+      <div class="tl-item">
+        <span class="tl-dot"></span>
+        <div class="tl-body">
+          <b class="tl-time">2028 年 · 桃花动</b>
+          <p>正缘星引动，异性缘明显转旺，是结识正缘的关键年，宜多社交、别宅着。</p>
+        </div>
+      </div>
+      <div class="tl-item hot">
+        <span class="tl-dot"></span>
+        <div class="tl-body">
+          <b class="tl-time">2031 年 · 适合结婚<span class="tl-badge">关键年</span></b>
+          <p>感情稳定、水到渠成，是适婚成家的好时机，宜果断把握。</p>
+        </div>
+      </div>
+      <div class="tl-item warn">
+        <span class="tl-dot"></span>
+        <div class="tl-body">
+          <b class="tl-time">2034 年 · 需留意的波动<span class="tl-badge warn">留意</span></b>
+          <p>此年情感易生波动，宜提前沟通经营、避免外力干扰，把矛盾化解在早期。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 结尾 CTA 钩子 -->
+  
+
+  
+
+</div>
+
+
+</body></html>
