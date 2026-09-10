@@ -1,0 +1,1422 @@
+<!-- 顺顺 · 生辰深度解读 · 感情 / 事业 / 财运 合稿 -->
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>你的生辰深度解读</title>
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Helvetica Neue", sans-serif;
+    background-color: #F5F0E8;
+    color: #2C2C2C;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+}
+
+.page {
+    max-width: 414px;
+    margin: 0 auto;
+    min-height: 100vh;
+    background-color: #F5F0E8;
+    padding: 12px 16px 40px;
+}
+
+/* ===== Card ===== */
+.card {
+    background: #FFFFFF;
+    border-radius: 16px;
+    padding: 20px 18px;
+    margin-bottom: 14px;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.05);
+}
+
+/* ===== Card Header ===== */
+.card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 18px;
+}
+
+.card-title {
+    font-size: 18px;
+    font-weight: 700;
+    color: #1A1A1A;
+    letter-spacing: 0.5px;
+}
+
+.ai-badge {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 12px;
+    color: #B8860B;
+    font-weight: 500;
+}
+
+.ai-icon {
+    width: 16px;
+    height: 16px;
+    background: linear-gradient(135deg, #D4A437, #B8860B);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    font-size: 9px;
+    font-weight: 700;
+}
+
+/* ===== Highlight Quote (with left border) ===== */
+.highlight-quote {
+    background: linear-gradient(135deg, #FFF8E7, #FDF0D9);
+    border-left: 4px solid #D4A437;
+    border-radius: 0 12px 12px 0;
+    padding: 14px 16px;
+    margin-bottom: 16px;
+}
+
+.quote-text {
+    font-size: 15px;
+    color: #5A4A2A;
+    font-weight: 600;
+    line-height: 1.8;
+}
+
+/* ===== Bullet List ===== */
+.bullet-list {
+    list-style: none;
+    margin-bottom: 16px;
+}
+
+.bullet-list li {
+    font-size: 13.5px;
+    color: #4A4A4A;
+    line-height: 1.9;
+    padding-left: 18px;
+    position: relative;
+    margin-bottom: 8px;
+}
+
+.bullet-list li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 10px;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: #D4A437;
+}
+
+.bullet-list li:last-child {
+    margin-bottom: 0;
+}
+
+/* ===== Action Bar ===== */
+.action-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #FAF6EF;
+    border-radius: 12px;
+    padding: 12px 14px;
+    gap: 8px;
+}
+
+.action-left {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex: 1;
+    min-width: 0;
+}
+
+.bulb-icon {
+    width: 20px;
+    height: 20px;
+    flex-shrink: 0;
+    color: #D4A437;
+}
+
+.action-question {
+    font-size: 12.5px;
+    color: #6B6B6B;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.ask-btn {
+    display: flex;
+    align-items: center;
+    gap: 2px;
+    background: linear-gradient(135deg, #D4A437, #B8860B);
+    color: #fff;
+    border: none;
+    border-radius: 20px;
+    padding: 7px 14px;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    white-space: nowrap;
+    flex-shrink: 0;
+}
+
+.ask-arrow {
+    font-size: 12px;
+    margin-left: 1px;
+}
+
+/* ===== Body Text ===== */
+.body-text {
+    font-size: 13.5px;
+    color: #4A4A4A;
+    line-height: 1.9;
+    margin-bottom: 16px;
+}
+
+/* ===== Analysis Block (天赋/领域) ===== */
+.analysis-label {
+    font-size: 13px;
+    color: #8B6914;
+    font-weight: 600;
+    margin-bottom: 6px;
+}
+
+.analysis-text {
+    font-size: 13.5px;
+    color: #4A4A4A;
+    line-height: 1.9;
+    margin-bottom: 16px;
+}
+
+.analysis-text:last-child {
+    margin-bottom: 0;
+}
+
+/* ===== 2x2 Grid (贵人特质) ===== */
+.traits-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin-bottom: 16px;
+}
+
+.trait-card {
+    background: #FAF6EF;
+    border-radius: 14px;
+    padding: 16px 14px 14px;
+    display: flex;
+    flex-direction: column;
+    min-height: 120px;
+}
+
+.trait-icon {
+    width: 32px;
+    height: 32px;
+    margin-bottom: 10px;
+    color: #D4A437;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.trait-icon svg {
+    width: 28px;
+    height: 28px;
+}
+
+.trait-label {
+    font-size: 13px;
+    color: #1A1A1A;
+    font-weight: 600;
+    margin-bottom: 6px;
+}
+
+.trait-desc {
+    font-size: 12px;
+    color: #6B6B6B;
+    line-height: 1.7;
+}
+
+/* ===== Progress Comparison ===== */
+.progress-section {
+    margin-bottom: 18px;
+}
+
+.progress-row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 10px;
+}
+
+.progress-row:last-child {
+    margin-bottom: 0;
+}
+
+.progress-label {
+    font-size: 13px;
+    color: #4A4A4A;
+    font-weight: 600;
+    width: 70px;
+    flex-shrink: 0;
+}
+
+.progress-track {
+    flex: 1;
+    height: 10px;
+    background: #E8E0D0;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.progress-fill {
+    height: 100%;
+    border-radius: 5px;
+    background: linear-gradient(90deg, #D4A437, #B8860B);
+}
+
+.progress-percent {
+    font-size: 13px;
+    color: #8B6914;
+    font-weight: 700;
+    width: 36px;
+    text-align: right;
+    flex-shrink: 0;
+}
+
+/* ===== Dual-color Split Bar (打工/创业) ===== */
+.split-section {
+    margin-bottom: 18px;
+}
+
+.split-bar {
+    display: flex;
+    height: 36px;
+    border-radius: 8px;
+    overflow: hidden;
+    background: #E8E0D0;
+}
+
+.split-seg {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12.5px;
+    font-weight: 600;
+    color: #fff;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.split-work {
+    background: linear-gradient(90deg, #D4A437, #B8860B);
+}
+
+.split-entre {
+    background: #C0C0C0;
+    font-size: 11.5px;
+}
+
+.split-note {
+    font-size: 13.5px;
+    color: #4A4A4A;
+    line-height: 1.9;
+    margin-top: 14px;
+}
+
+.tip-box {
+    margin-top: 12px;
+    background: #FAF6EF;
+    border-radius: 12px;
+    padding: 14px;
+    font-size: 12.5px;
+    color: #4A4A4A;
+    line-height: 1.85;
+}
+
+/* ===== City Pills ===== */
+.city-pills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 16px;
+}
+
+.city-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    background: linear-gradient(135deg, #FFF8E7, #FDF0D9);
+    border: 1px solid #F0D9A8;
+    border-radius: 24px;
+    padding: 8px 18px;
+    font-size: 14px;
+    color: #8B6914;
+    font-weight: 600;
+}
+
+/* ===== Bottom Note ===== */
+.bottom-note {
+    text-align: center;
+    font-size: 11px;
+    color: #B0B0B0;
+    padding: 8px 0 4px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Helvetica Neue", sans-serif;
+    background-color: #F5F0E8;
+    color: #2C2C2C;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+}
+
+.page {
+    max-width: 414px;
+    margin: 0 auto;
+    min-height: 100vh;
+    background-color: #F5F0E8;
+    padding: 12px 16px 40px;
+}
+
+/* Card */
+.card {
+    background: #FFFFFF;
+    border-radius: 16px;
+    padding: 20px 18px;
+    margin-bottom: 14px;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.05);
+}
+
+/* Card Header */
+.card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 16px;
+}
+
+.card-title {
+    font-size: 18px;
+    font-weight: 700;
+    color: #1A1A1A;
+    letter-spacing: 0.5px;
+}
+
+.ai-badge {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 12px;
+    color: #B8860B;
+    font-weight: 500;
+}
+
+.ai-icon {
+    width: 16px;
+    height: 16px;
+    background: linear-gradient(135deg, #D4A437, #B8860B);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    font-size: 10px;
+    font-weight: 700;
+}
+
+/* Section 1: Wealth Level */
+.highlight-banner {
+    background: linear-gradient(135deg, #FFF8E7, #FDF0D9);
+    border: 1px solid #F0D9A8;
+    border-radius: 12px;
+    padding: 14px 16px;
+    margin-bottom: 14px;
+}
+
+.highlight-banner-text {
+    font-size: 15px;
+    color: #8B6914;
+    font-weight: 600;
+    line-height: 1.7;
+}
+
+.body-text {
+    font-size: 13.5px;
+    color: #4A4A4A;
+    line-height: 1.85;
+    margin-bottom: 16px;
+}
+
+/* Action Bar */
+.action-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #FAF6EF;
+    border-radius: 12px;
+    padding: 12px 14px;
+    gap: 8px;
+}
+
+.action-left {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex: 1;
+    min-width: 0;
+}
+
+.bulb-icon {
+    width: 20px;
+    height: 20px;
+    flex-shrink: 0;
+    color: #D4A437;
+}
+
+.action-question {
+    font-size: 12.5px;
+    color: #6B6B6B;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.ask-btn {
+    display: flex;
+    align-items: center;
+    gap: 2px;
+    background: linear-gradient(135deg, #D4A437, #B8860B);
+    color: #fff;
+    border: none;
+    border-radius: 20px;
+    padding: 7px 14px;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    white-space: nowrap;
+    flex-shrink: 0;
+}
+
+.ask-arrow {
+    font-size: 12px;
+    margin-left: 1px;
+}
+
+/* Section 2: Wealth Magnitude */
+.range-label {
+    font-size: 13px;
+    color: #8B6914;
+    font-weight: 500;
+    margin-bottom: 6px;
+}
+
+.range-value {
+    font-size: 32px;
+    font-weight: 800;
+    color: #D4A437;
+    margin-bottom: 16px;
+    letter-spacing: 1px;
+}
+
+.characteristic-label {
+    font-size: 13px;
+    color: #8B6914;
+    font-weight: 500;
+    margin-bottom: 6px;
+}
+
+.characteristic-text {
+    font-size: 13.5px;
+    color: #4A4A4A;
+    line-height: 1.85;
+    margin-bottom: 16px;
+}
+
+/* Section 3: Best Wealth Method */
+.comparison-container {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 14px;
+}
+
+.compare-card {
+    flex: 1;
+    background: #FAF6EF;
+    border-radius: 12px;
+    padding: 16px 14px;
+    text-align: center;
+}
+
+.compare-label {
+    font-size: 14px;
+    color: #4A4A4A;
+    font-weight: 600;
+    margin-bottom: 8px;
+}
+
+.compare-strength {
+    font-size: 13px;
+    font-weight: 700;
+    margin-bottom: 12px;
+}
+
+.strength-strong {
+    color: #D4A437;
+}
+
+.strength-weak {
+    color: #B0B0B0;
+}
+
+.progress-bar {
+    width: 100%;
+    height: 8px;
+    background: #E8E0D0;
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.progress-fill {
+    height: 100%;
+    border-radius: 4px;
+}
+
+.fill-strong {
+    width: 85%;
+    background: linear-gradient(90deg, #D4A437, #B8860B);
+}
+
+.fill-weak {
+    width: 25%;
+    background: linear-gradient(90deg, #C0C0C0, #A0A0A0);
+}
+
+.strategy-text {
+    font-size: 13.5px;
+    color: #4A4A4A;
+    line-height: 1.85;
+    margin-bottom: 16px;
+}
+
+/* Bottom spacing */
+.bottom-note {
+    text-align: center;
+    font-size: 11px;
+    color: #B0B0B0;
+    padding: 8px 0 4px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Helvetica Neue", sans-serif;
+    background-color: #F5F0E8;
+    color: #2C2C2C;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+}
+
+.page {
+    max-width: 414px;
+    margin: 0 auto;
+    min-height: 100vh;
+    background-color: #F5F0E8;
+    padding: 12px 16px 40px;
+}
+
+/* ===== Card ===== */
+.card {
+    background: #FFFFFF;
+    border-radius: 16px;
+    padding: 20px 18px;
+    margin-bottom: 14px;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.05);
+}
+
+/* ===== Card Header ===== */
+.card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 18px;
+}
+
+.card-title {
+    font-size: 18px;
+    font-weight: 700;
+    color: #1A1A1A;
+    letter-spacing: 0.5px;
+}
+
+.ai-badge {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 12px;
+    color: #B8860B;
+    font-weight: 500;
+}
+
+.ai-icon {
+    width: 16px;
+    height: 16px;
+    background: linear-gradient(135deg, #D4A437, #B8860B);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 0;
+}
+
+/* ===== Section 1: 感情画像 Grid ===== */
+.traits-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin-bottom: 18px;
+}
+
+.trait-card {
+    background: #FAF6EF;
+    border-radius: 14px;
+    padding: 16px 14px 14px;
+    display: flex;
+    flex-direction: column;
+    min-height: 120px;
+}
+
+.trait-icon {
+    width: 32px;
+    height: 32px;
+    margin-bottom: 10px;
+    color: #D4A437;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.trait-icon svg {
+    width: 28px;
+    height: 28px;
+}
+
+.trait-label {
+    font-size: 13px;
+    color: #1A1A1A;
+    font-weight: 600;
+    margin-bottom: 6px;
+}
+
+.trait-desc {
+    font-size: 12px;
+    color: #6B6B6B;
+    line-height: 1.7;
+}
+
+/* ===== Body Text ===== */
+.body-text {
+    font-size: 13.5px;
+    color: #4A4A4A;
+    line-height: 1.9;
+    margin-bottom: 16px;
+}
+
+/* ===== Action Bar ===== */
+.action-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #FAF6EF;
+    border-radius: 12px;
+    padding: 12px 14px;
+    gap: 8px;
+}
+
+.action-left {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex: 1;
+    min-width: 0;
+}
+
+.bulb-icon {
+    width: 20px;
+    height: 20px;
+    flex-shrink: 0;
+    color: #D4A437;
+}
+
+.action-question {
+    font-size: 12.5px;
+    color: #6B6B6B;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.ask-btn {
+    display: flex;
+    align-items: center;
+    gap: 2px;
+    background: linear-gradient(135deg, #D4A437, #B8860B);
+    color: #fff;
+    border: none;
+    border-radius: 20px;
+    padding: 7px 14px;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    white-space: nowrap;
+    flex-shrink: 0;
+}
+
+.ask-arrow {
+    font-size: 12px;
+    margin-left: 1px;
+}
+
+/* ===== Highlight Quote ===== */
+.highlight-quote {
+    background: linear-gradient(135deg, #FFF8E7, #FDF0D9);
+    border-left: 4px solid #D4A437;
+    border-radius: 0 12px 12px 0;
+    padding: 14px 16px;
+    margin-bottom: 16px;
+}
+
+.quote-text {
+    font-size: 15px;
+    color: #5A4A2A;
+    font-weight: 700;
+    line-height: 1.8;
+}
+
+/* ===== Section 2: 真爱特征 Table ===== */
+.trait-table-wrap {
+    border-radius: 12px;
+    overflow: hidden;
+    border: 1px solid #F0E8D8;
+    margin-bottom: 16px;
+}
+
+.trait-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: #FFFCF6;
+}
+
+.trait-table th {
+    background: linear-gradient(135deg, #FFF8E7, #FDF0D9);
+    color: #8B6914;
+    font-size: 13px;
+    font-weight: 600;
+    padding: 12px 14px;
+    text-align: left;
+    border-bottom: 1px solid #F0D9A8;
+}
+
+.trait-table th:not(:last-child) {
+    border-right: 1px solid #F0D9A8;
+}
+
+.trait-table td {
+    font-size: 13px;
+    color: #4A4A4A;
+    padding: 14px;
+    line-height: 1.7;
+    border-bottom: 1px solid #F5EFE2;
+    vertical-align: top;
+}
+
+.trait-table tr:last-child td {
+    border-bottom: none;
+}
+
+.trait-table td:first-child {
+    font-weight: 600;
+    color: #5A4A2A;
+    background: #FAF6EF;
+    width: 35%;
+    border-right: 1px solid #F0E8D8;
+}
+
+/* ===== Section 3: 关键感情线 Timeline ===== */
+.timeline {
+    position: relative;
+    padding-left: 24px;
+    margin-bottom: 18px;
+}
+
+.timeline::before {
+    content: '';
+    position: absolute;
+    left: 7px;
+    top: 8px;
+    bottom: 8px;
+    width: 2px;
+    background: linear-gradient(180deg, #D4A437, #E8D9B8);
+    border-radius: 1px;
+}
+
+.timeline-item {
+    position: relative;
+    padding-bottom: 20px;
+}
+
+.timeline-item:last-child {
+    padding-bottom: 0;
+}
+
+.timeline-dot {
+    position: absolute;
+    left: -22px;
+    top: 4px;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background: #FFFFFF;
+    border: 3px solid #D4A437;
+    box-shadow: 0 1px 4px rgba(212, 164, 55, 0.3);
+    z-index: 1;
+}
+
+.timeline-age {
+    font-size: 16px;
+    font-weight: 800;
+    color: #D4A437;
+    margin-bottom: 2px;
+}
+
+.timeline-tag {
+    display: inline-block;
+    font-size: 12px;
+    color: #8B6914;
+    font-weight: 600;
+    background: #FFF8E7;
+    border: 1px solid #F0D9A8;
+    border-radius: 6px;
+    padding: 2px 8px;
+    margin-bottom: 6px;
+}
+
+.timeline-desc {
+    font-size: 13px;
+    color: #4A4A4A;
+    line-height: 1.8;
+}
+
+/* ===== Bottom Note ===== */
+.bottom-note {
+    text-align: center;
+    font-size: 11px;
+    color: #B0B0B0;
+    padding: 8px 0 4px;
+}
+
+/* ===== 合稿：封面与分节 ===== */
+.report-hero {
+    text-align: center;
+    padding: 22px 16px 26px;
+    margin-bottom: 18px;
+    background: #FFFFFF;
+    border-radius: 16px;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.05);
+}
+.report-hero .rh-seal {
+    width: 44px; height: 44px; margin: 0 auto 12px;
+    border-radius: 12px;
+    background: linear-gradient(135deg, #D4A437, #B8860B);
+    color: #fff; font-size: 22px; font-weight: 700;
+    display: flex; align-items: center; justify-content: center;
+    box-shadow: inset 0 0 0 2px rgba(255, 255, 255, 0.3);
+}
+.report-hero .rh-title {
+    font-size: 22px; font-weight: 700; color: #1A1A1A; letter-spacing: 1px;
+}
+.report-hero .rh-sub {
+    font-size: 13px; color: #8B6914; margin-top: 8px; letter-spacing: .5px;
+}
+.sec-divider {
+    display: flex; align-items: center; gap: 10px;
+    margin: 30px 0 14px;
+}
+.sec-divider .sec-num {
+    flex: 0 0 auto; width: 28px; height: 28px; border-radius: 9px;
+    background: linear-gradient(135deg, #D4A437, #B8860B);
+    color: #fff; font-size: 14px; font-weight: 700;
+    display: flex; align-items: center; justify-content: center;
+}
+.sec-divider h2 {
+    font-size: 17px; font-weight: 700; color: #1A1A1A; letter-spacing: .5px;
+}
+.sec-divider .sec-line {
+    flex: 1; height: 1px;
+    background: linear-gradient(90deg, #E8D9B8, rgba(232, 217, 184, 0));
+}
+</style>
+</head>
+<body>
+<div class="page">
+
+    <div class="report-hero">
+        <div class="rh-seal">顺</div>
+        <div class="rh-title">你的生辰深度解读</div>
+        <div class="rh-sub">感情 · 事业 · 财运 三盘合参</div>
+    </div>
+
+        <div class="sec-divider">
+            <span class="sec-num">一</span>
+            <h2>感情画像</h2>
+            <span class="sec-line"></span>
+        </div>
+<!-- ===== Card 1: 你的感情画像 ===== -->
+    <div class="card">
+        <div class="card-header">
+            <div class="card-title">你的感情画像</div>
+            <div class="ai-badge">
+                <div class="ai-icon">AI</div>
+                <span>问顺顺老师</span>
+            </div>
+        </div>
+
+        <div class="traits-grid">
+            <!-- 恋爱观 -->
+            <div class="trait-card">
+                <div class="trait-label">恋爱观</div>
+                <div class="trait-desc">你属于先观察、后投入的类型。看重人品和稳定，不图一时热闹；一旦确定关系，很少变心。</div>
+            </div>
+
+            <!-- 桃花与异性缘 -->
+            <div class="trait-card">
+                <div class="trait-label">桃花与异性缘</div>
+                <div class="trait-desc">追求你的人不算多，但质量不差。你挑得慢，也正因如此，挑中之后关系往往能长久。</div>
+            </div>
+
+            <!-- 感情优势 -->
+            <div class="trait-card">
+                <div class="trait-label">感情优势</div>
+                <div class="trait-desc">你能顾及对方的情绪，遇事肯担责任，是能踏实过日子的人，这在长期关系里很占优势。</div>
+            </div>
+
+            <!-- 感情短板 -->
+            <div class="trait-card">
+                <div class="trait-label">感情短板</div>
+                <div class="trait-desc">心里有事习惯自己扛，不爱主动开口。对方不清楚你的想法，容易误会成你不在乎。</div>
+            </div>
+        </div>
+
+        <div class="body-text">
+            你日支坐印，感情内敛，重长久不图新鲜；伤官透出，择偶有标准，宁缺毋滥。正缘多从熟人介绍或工作往来中来，来得不早，来了就稳。夫妻宫偏静，婚后日子平顺，最忌心事闷着不说。往后两三年是感情窗口，遇人宜主动。<strong>这些年在感情里，是不是总你先退让？退让没错，错在没让对方看见，哪些该让、哪些不能退，值得顺顺老师单独跟你说。</strong>
+        </div>
+
+        <div class="action-bar">
+            <div class="action-left">
+                <svg class="bulb-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M12 2C8.13 2 5 5.13 5 9c0 2.38 1.19 4.47 3 5.74V17c0 .55.45 1 1 1h6c.55 0 1-.45 1-1v-2.26c1.81-1.27 3-3.36 3-5.74 0-3.87-3.13-7-7-7zM9 21c0 .55.45 1 1 1h4c.55 0 1-.45 1-1v-1H9v1z" fill="currentColor"/>
+                </svg>
+                <span class="action-question">为什么感情里总是我先退让？</span>
+            </div>
+            <button class="ask-btn">
+                问问<span class="ask-arrow">›</span>
+            </button>
+        </div>
+    </div>
+
+    <!-- ===== Card 2: 你的真爱特征 ===== -->
+    <div class="card">
+        <div class="card-header">
+            <div class="card-title">你的真爱特征</div>
+            <div class="ai-badge">
+                <div class="ai-icon">AI</div>
+                <span>问顺顺老师</span>
+            </div>
+        </div>
+
+        <div class="highlight-quote">
+            <div class="quote-text">你的另一半，命里早就定了大概模样</div>
+        </div>
+
+        <div class="trait-table-wrap">
+            <table class="trait-table">
+                <thead>
+                    <tr>
+                        <th>特征</th>
+                        <th>解读</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>外貌</td>
+                        <td>配偶星清秀得地，面相温和端正，气质沉稳，给人可靠感</td>
+                    </tr>
+                    <tr>
+                        <td>性格</td>
+                        <td>夫妻宫安静，对方情绪稳、不较劲，遇事能扛，不轻易翻脸</td>
+                    </tr>
+                    <tr>
+                        <td>条件</td>
+                        <td>配偶星有根，事业稳定、专业扎实，顾家又有担当</td>
+                    </tr>
+                    <tr>
+                        <td>相识场景</td>
+                        <td>正缘引动之时，多经工作往来或熟人介绍而来，越熟越容易成</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="action-bar">
+            <div class="action-left">
+                <svg class="bulb-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M12 2C8.13 2 5 5.13 5 9c0 2.38 1.19 4.47 3 5.74V17c0 .55.45 1 1 1h6c.55 0 1-.45 1-1v-2.26c1.81-1.27 3-3.36 3-5.74 0-3.87-3.13-7-7-7zM9 21c0 .55.45 1 1 1h4c.55 0 1-.45 1-1v-1H9v1z" fill="currentColor"/>
+                </svg>
+                <span class="action-question">我的另一半，到底是怎样的人？</span>
+            </div>
+            <button class="ask-btn">
+                问问<span class="ask-arrow">›</span>
+            </button>
+        </div>
+    </div>
+
+    <!-- ===== Card 3: 你的关键感情线 ===== -->
+    <div class="card">
+        <div class="card-header">
+            <div class="card-title">你的关键感情线</div>
+            <div class="ai-badge">
+                <div class="ai-icon">AI</div>
+                <span>问顺顺老师</span>
+            </div>
+        </div>
+
+        <div class="timeline">
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-age">32岁前后</div>
+                <div class="timeline-tag">印象最深</div>
+                <div class="timeline-desc">命里第一次正缘引动，那年遇到的人，你到现在还记得</div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-age">36—40岁</div>
+                <div class="timeline-tag">最顺一段</div>
+                <div class="timeline-desc">夫妻宫得地，感情推进最快，适合把关系定下来</div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-age">43—46岁</div>
+                <div class="timeline-tag">最需防</div>
+                <div class="timeline-desc">夫妻宫逢冲，关系最容易生变，忌冷战、忌外人插手</div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-age">50岁以后</div>
+                <div class="timeline-tag">转稳</div>
+                <div class="timeline-desc">气数回稳，感情转顺，晚景安宁</div>
+            </div>
+        </div>
+
+        <div class="body-text">
+            这条线里真正决定你后半生的，只有两处：36 到 40 岁该不该定下来，43 到 46 岁能不能守得住。前一处错过，缘分要往后拖好几年；后一处失守，多半就散了。<strong>这两处都不是死局，尤其 43 到 46 岁这一段，命里留了提前化开的口子，只是有讲究，太早太晚都不行，得挑对那一年。</strong>
+        </div>
+
+        <div class="action-bar">
+            <div class="action-left">
+                <svg class="bulb-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M12 2C8.13 2 5 5.13 5 9c0 2.38 1.19 4.47 3 5.74V17c0 .55.45 1 1 1h6c.55 0 1-.45 1-1v-2.26c1.81-1.27 3-3.36 3-5.74 0-3.87-3.13-7-7-7zM9 21c0 .55.45 1 1 1h4c.55 0 1-.45 1-1v-1H9v1z" fill="currentColor"/>
+                </svg>
+                <span class="action-question">43 到 46 岁那道坎怎么化开？</span>
+            </div>
+            <button class="ask-btn">
+                问问<span class="ask-arrow">›</span>
+            </button>
+        </div>
+    </div>
+
+        <div class="sec-divider">
+            <span class="sec-num">二</span>
+            <h2>事业格局</h2>
+            <span class="sec-line"></span>
+        </div>
+<!-- ===== Card 1: 你的事业格局 ===== -->
+    <div class="card">
+        <div class="card-header">
+            <div class="card-title">你的事业格局</div>
+            <div class="ai-badge">
+                <div class="ai-icon">AI</div>
+                <span>问顺顺老师</span>
+            </div>
+        </div>
+
+        <div class="highlight-quote">
+            <div class="quote-text">你真正的契机，不在执行得多快，而在能否站到关键位置</div>
+        </div>
+
+        <div class="analysis-label">你的事业天赋</div>
+        <div class="analysis-text">官印相生、身强任事，天生是"能扛事、理得清局"的料。你的长处是分析、执行和统筹，短板是点子和应酬，扬长避短即可。这份格局，注定你是靠本事慢慢往上爬的人。</div>
+
+        <div class="analysis-label">适合你的领域</div>
+        <div class="analysis-text">你的机会集中在两类：靠本事的，技术、手艺、驾驶、餐饮、教育、医护都算；靠经营的，门店、批发、电商、销售都行。官印相生的命，挑最趁手的那类做深做久，平台和名声自然把你托上去。<strong>至于哪一类最合你，结合你的命格还能再细一层。</strong></div>
+
+        <div class="action-bar">
+            <div class="action-left">
+                <svg class="bulb-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M12 2C8.13 2 5 5.13 5 9c0 2.38 1.19 4.47 3 5.74V17c0 .55.45 1 1 1h6c.55 0 1-.45 1-1v-2.26c1.81-1.27 3-3.36 3-5.74 0-3.87-3.13-7-7-7zM9 21c0 .55.45 1 1 1h4c.55 0 1-.45 1-1v-1H9v1z" fill="currentColor"></path>
+                </svg>
+                <span class="action-question">为什么我越往上走，越有人扶？</span>
+            </div>
+            <button class="ask-btn">
+                问问<span class="ask-arrow">›</span>
+            </button>
+        </div>
+    </div>
+
+    <!-- ===== Card 2: 你的事业贵人 ===== -->
+    <div class="card">
+        <div class="card-header">
+            <div class="card-title">你的事业贵人</div>
+            <div class="ai-badge">
+                <div class="ai-icon">AI</div>
+                <span>问顺顺老师</span>
+            </div>
+        </div>
+
+        <div class="highlight-quote">
+            <div class="quote-text">贵人运偏强：印星得力，关键时刻有上级、前辈、行业权威提携</div>
+        </div>
+
+        <div class="traits-grid">
+            <div class="trait-card">
+                <div class="trait-label">贵人特征</div>
+                <div class="trait-desc">年长你几岁到十几岁，面相方正、气场沉稳，给人靠谱感</div>
+            </div>
+            <div class="trait-card">
+                <div class="trait-label">贵人生肖</div>
+                <div class="trait-desc">与你属相相合（三合、六合）的人，最容易在关键处拉你一把</div>
+            </div>
+            <div class="trait-card">
+                <div class="trait-label">出现时机</div>
+                <div class="trait-desc">升迁、转岗、接关键项目的节点，贵人往往这时候现身</div>
+            </div>
+            <div class="trait-card">
+                <div class="trait-label">相处方式</div>
+                <div class="trait-desc">主动靠近、让对方看见你的价值，别埋头单干</div>
+            </div>
+        </div>
+
+<div class="action-bar">
+            <div class="action-left">
+                <svg class="bulb-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M12 2C8.13 2 5 5.13 5 9c0 2.38 1.19 4.47 3 5.74V17c0 .55.45 1 1 1h6c.55 0 1-.45 1-1v-2.26c1.81-1.27 3-3.36 3-5.74 0-3.87-3.13-7-7-7zM9 21c0 .55.45 1 1 1h4c.55 0 1-.45 1-1v-1H9v1z" fill="currentColor"></path>
+                </svg>
+                <span class="action-question">我的贵人长什么样，怎么认出来？</span>
+            </div>
+            <button class="ask-btn">
+                问问<span class="ask-arrow">›</span>
+            </button>
+        </div>
+    </div>
+
+    <!-- ===== Card 3: 你适合打工还是创业 ===== -->
+    <div class="card">
+        <div class="card-header">
+            <div class="card-title">你适合打工还是创业</div>
+            <div class="ai-badge">
+                <div class="ai-icon">AI</div>
+                <span>问顺顺老师</span>
+            </div>
+        </div>
+
+        <div class="split-section">
+            <div class="split-bar">
+                <div class="split-seg split-work" style="width: 70%;">打工 70%</div>
+                <div class="split-seg split-entre" style="width: 30%;">创业 30%</div>
+            </div>
+            <div class="split-note">你更适合在平台里往上走，而不是自己出来闯。命里官印相生、印星给你撑腰，说白了就是越往上走，越有人愿意拉你一把。四十五岁之前别急，把本事练厚、把人脉攒住，这时候出去单干多半是硬扛。四十五往上到五十五岁，才是你真正往上走的十年，要主动去争带人、管事的位子。等过了五十五，位置和资源都稳了，那时候再想自己的事，才叫水到渠成。创业你不缺能力，缺的是机遇。</div>
+            <div class="tip-box">三条实在建议：把专业做深，别频繁换方向；主动靠近能提携你的人，别一个人硬扛；留三成精力试水小项目，别一把全押。<strong>至于哪一年该动、哪一年该守，光看这一层说不全，还得看你的流年才准。</strong></div>
+        </div>
+
+        <div class="action-bar">
+            <div class="action-left">
+                <svg class="bulb-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M12 2C8.13 2 5 5.13 5 9c0 2.38 1.19 4.47 3 5.74V17c0 .55.45 1 1 1h6c.55 0 1-.45 1-1v-2.26c1.81-1.27 3-3.36 3-5.74 0-3.87-3.13-7-7-7zM9 21c0 .55.45 1 1 1h4c.55 0 1-.45 1-1v-1H9v1z" fill="currentColor"></path>
+                </svg>
+                <span class="action-question">我到底该打工，还是出来单干？</span>
+            </div>
+            <button class="ask-btn">
+                问问<span class="ask-arrow">›</span>
+            </button>
+        </div>
+    </div>
+
+    <!-- ===== Card 4: 适合发展事业的城市 ===== -->
+    <div class="card">
+        <div class="card-header">
+            <div class="card-title">最旺你事业的城市</div>
+            <div class="ai-badge">
+                <div class="ai-icon">AI</div>
+                <span>问顺顺老师</span>
+            </div>
+        </div>
+
+        <div class="city-pills">
+            <span class="city-pill">北京</span>
+            <span class="city-pill">上海</span>
+            <span class="city-pill">深圳</span>
+            <span class="city-pill">杭州</span>
+        </div>
+
+        <div class="body-text">
+            城市对你的影响，不只在遇到谁，还在你落在哪个方位。你官印相生、印星得力，命里吃平台和贵人这口饭，也受地缘磁场牵动。往东、往北，水土之气聚人聚势，正合你的命局：北京属印星之地，利组织路线；上海、杭州属官星之地，利专业上位；深圳势头猛但耗神，宜短搏不宜久留。层级越高、人才越密，你的价值被放大得越快。<strong>至于先往哪座城落，你命盘里还有个更细的说法。</strong>
+        </div>
+
+        <div class="action-bar">
+            <div class="action-left">
+                <svg class="bulb-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M12 2C8.13 2 5 5.13 5 9c0 2.38 1.19 4.47 3 5.74V17c0 .55.45 1 1 1h6c.55 0 1-.45 1-1v-2.26c1.81-1.27 3-3.36 3-5.74 0-3.87-3.13-7-7-7zM9 21c0 .55.45 1 1 1h4c.55 0 1-.45 1-1v-1H9v1z" fill="currentColor"></path>
+                </svg>
+                <span class="action-question">这四座城，哪一座最旺我？</span>
+            </div>
+            <button class="ask-btn">
+                问问<span class="ask-arrow">›</span>
+            </button>
+        </div>
+    </div>
+
+        <div class="sec-divider">
+            <span class="sec-num">三</span>
+            <h2>财富层次</h2>
+            <span class="sec-line"></span>
+        </div>
+<!-- Card 1: 你的财富层次 -->
+    <div class="card">
+        <div class="card-header">
+            <div class="card-title">你的财富层次</div>
+            <div class="ai-badge">
+                <div class="ai-icon">AI</div>
+                <span>问顺顺老师</span>
+            </div>
+        </div>
+
+        <div class="highlight-banner">
+            <div class="highlight-banner-text">你的财富起运在人生下半场，越积累越值钱</div>
+        </div>
+
+        <div class="body-text">
+            你的财富格局是中富命格，而且是"越往后越旺"的命。别人四十岁开始走下坡，你反而从四十岁开始发力。早年金弱财星不显，是让你先把本事练厚、把人脉攒实；过了四十五岁，正财透出，越后越吃香。你一生财运有三个节点：四十五岁后"守"，稳住别乱动；五十二岁后"攻"，看准了才下手；六十三后岁"收"，坐等开花结果。后半生的日子，比前半生还红火。<strong>不过……你命里有个特别的地方，直接关系到这后劲能旺多久。就这一处，值得你多问一句。点「问问」，顺顺老师接着给你讲。</strong>
+        </div>
+
+        <div class="action-bar">
+            <div class="action-left">
+                <svg class="bulb-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M12 2C8.13 2 5 5.13 5 9c0 2.38 1.19 4.47 3 5.74V17c0 .55.45 1 1 1h6c.55 0 1-.45 1-1v-2.26c1.81-1.27 3-3.36 3-5.74 0-3.87-3.13-7-7-7zM9 21c0 .55.45 1 1 1h4c.55 0 1-.45 1-1v-1H9v1z" fill="currentColor"></path>
+                </svg>
+                <span class="action-question">我该怎么避免一年后的困难?</span>
+            </div>
+            <button class="ask-btn">
+                问问<span class="ask-arrow">›</span>
+            </button>
+        </div>
+    </div>
+
+    <!-- Card 2: 你的财富量级 -->
+    <div class="card">
+        <div class="card-header">
+            <div class="card-title">你的财富量级</div>
+            <div class="ai-badge">
+                <div class="ai-icon">AI</div>
+                <span>问顺顺老师</span>
+            </div>
+        </div>
+
+        <div class="range-label">财富区间</div>
+        <div class="range-value">100—500万</div>
+
+        <div class="characteristic-label">承财特点</div>
+        <div class="characteristic-text">
+            你的财库不算最大，但胜在稳定持久。命中财星不弱但有节，适合靠时间和专业能力慢慢堆高，到中年积累到百万量级是基于命局推断，上不封顶，就看你多早起步、肯不肯下功夫经营。</div>
+
+        <div class="action-bar">
+            <div class="action-left">
+                <svg class="bulb-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M12 2C8.13 2 5 5.13 5 9c0 2.38 1.19 4.47 3 5.74V17c0 .55.45 1 1 1h6c.55 0 1-.45 1-1v-2.26c1.81-1.27 3-3.36 3-5.74 0-3.87-3.13-7-7-7zM9 21c0 .55.45 1 1 1h4c.55 0 1-.45 1-1v-1H9v1z" fill="currentColor"></path>
+                </svg>
+                <span class="action-question">我该怎么避免一年后的困难?</span>
+            </div>
+            <button class="ask-btn">
+                问问<span class="ask-arrow">›</span>
+            </button>
+        </div>
+    </div>
+
+    <!-- Card 3: 你的最佳求财方式 -->
+    <div class="card">
+        <div class="card-header">
+            <div class="card-title">你的最佳求财方式</div>
+            <div class="ai-badge">
+                <div class="ai-icon">AI</div>
+                <span>问顺顺老师</span>
+            </div>
+        </div>
+
+        <div class="comparison-container">
+            <div class="compare-card">
+                <div class="compare-label">正财</div>
+                <div class="compare-strength strength-strong">强</div>
+                <div class="progress-bar">
+                    <div class="progress-fill fill-strong"></div>
+                </div>
+            </div>
+            <div class="compare-card">
+                <div class="compare-label">偏财</div>
+                <div class="compare-strength strength-weak">弱</div>
+                <div class="progress-bar">
+                    <div class="progress-fill fill-weak"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="strategy-text"><span style="color: rgb(23, 23, 23); font-family: &quot;Segoe UI Variable&quot;, &quot;Segoe UI&quot;, &quot;Microsoft YaHei UI&quot;, sans-serif; font-size: 14px;">你命格正财强于偏财，财星藏而不透，注定靠不得投机。正财是你的主战场：稳定岗位，靠身强能任财、扛得住；项目与咨询，靠财藏专业、越深越贵；内容与方案，靠伤官透出，能把本事变产品。靠积累滚雪球。偏财只可小范围试水。<strong>不过这三条路不是平起平坐的，有一条尤其旺你，选对了，家底能比别人厚上一截。</strong></span></div>
+
+        <div class="action-bar">
+            <div class="action-left">
+                <svg class="bulb-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M12 2C8.13 2 5 5.13 5 9c0 2.38 1.19 4.47 3 5.74V17c0 .55.45 1 1 1h6c.55 0 1-.45 1-1v-2.26c1.81-1.27 3-3.36 3-5.74 0-3.87-3.13-7-7-7zM9 21c0 .55.45 1 1 1h4c.55 0 1-.45 1-1v-1H9v1z" fill="currentColor"></path>
+                </svg>
+                <span class="action-question">我是不是一直在用最不旺自己的方式赚钱？</span>
+            </div>
+            <button class="ask-btn">
+                问问<span class="ask-arrow">›</span>
+            </button>
+        </div>
+    </div>
+
+    <div class="bottom-note">— 以上为AI生成内容，仅供参考 —</div>
+
+</div>
+</body>
+</html>
