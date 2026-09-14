@@ -2,1006 +2,540 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>沪深300指数增强基金筛选报告</title>
-
-  <style>
-    @font-face {
-      font-family: 'WorkSans';
-      src: url('./_shared/fonts/WorkSans-Regular.ttf') format('truetype');
-      font-weight: 400;
-      font-display: swap;
-    }
-    @font-face {
-      font-family: 'WorkSans';
-      src: url('./_shared/fonts/WorkSans-Bold.ttf') format('truetype');
-      font-weight: 700;
-      font-display: swap;
-    }
-    @font-face {
-      font-family: 'JetBrainsMono';
-      src: url('./_shared/fonts/JetBrainsMono-Regular.ttf') format('truetype');
-      font-weight: 400;
-      font-display: swap;
-    }
-  </style>
-
-  <style>
-    /* === Business Blue palette === */
-    :root {
-      /* Page / report tokens */
-      --page-bg: #FFFFFF;
-      --page-surface: #F6F8FA;
-      --page-surface-muted: #EAEEF2;
-      --page-text: #1F2328;
-      --page-text-secondary: #3D444D;
-      --page-text-muted: #636C76;
-      --page-text-disabled: #8C959F;
-      --page-border: #D0D7DE;
-      --page-brand: #0969DA;
-      --page-brand-hover: #0550AE;
-      --page-brand-active: #033D8B;
-      --page-brand-soft: #F1F6FE;
-      --page-brand-soft-strong: #DDEAFB;
-      --page-brand-text: #033D8B;
-
-      /* Backward-compatible report variables */
-      --bg: #FFFFFF;
-      --bg2: #F6F8FA;
-      --rule: #D0D7DE;
-      --ink: #1F2328;
-      --muted: #636C76;
-      --text-secondary: #3D444D;
-      --text-disabled: #8C959F;
-      --accent: #0969DA;
-      --accent-hover: #0550AE;
-      --accent-active: #033D8B;
-      --accent-soft: #F1F6FE;
-      --accent2: #8250DF;
-
-      /* Chart / data tokens */
-      --chart-series-1: #0969DA;
-      --chart-series-2: #8250DF;
-      --chart-series-3: #06B6D4;
-      --chart-series-4: #BF3989;
-      --chart-other: #D0D7DE;
-      --chart-accent: #8250DF;
-      --chart-accent-2: #06B6D4;
-      --chart-positive: #52C41A;
-      --chart-warning: #FAAD14;
-      --chart-negative: #FF4D4F;
-      --chart-grid: rgba(31, 35, 40, 0.12);
-      --chart-axis: #636C76;
-      --chart-label: #636C76;
-      --chart-tooltip-bg: #FFFFFF;
-
-      /* Semantic compatibility tokens */
-      --success: #52C41A;
-      --info: #0969DA;
-      --reminder: #FF7A45;
-      --warning: #FAAD14;
-      --danger: #FF4D4F;
-      --positive: #52C41A;
-      --negative: #FF4D4F;
-    }
-
-    /* === Structural variables === */
-    :root {
-      --space-1: 4px;
-      --space-2: 8px;
-      --space-3: 12px;
-      --space-4: 16px;
-      --space-5: 24px;
-      --space-6: 32px;
-      --space-7: 48px;
-      --space-8: 64px;
-      --radius-sm: 4px;
-      --radius-md: 8px;
-      --radius-lg: 12px;
-      --radius-pill: 999px;
-      --font-sans: 'WorkSans', 'PingFang SC', 'Microsoft YaHei', 'Noto Sans CJK SC', sans-serif;
-      --font-mono: 'JetBrainsMono', 'SFMono-Regular', Consolas, monospace;
-      --font-metric: 'WorkSans', 'PingFang SC', 'Microsoft YaHei', 'Noto Sans CJK SC', sans-serif;
-      --max: 1040px;
-    }
-
-    /* === Base styles === */
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    html { font-size: 16px; scroll-behavior: smooth; }
-    body {
-      font-family: var(--font-sans);
-      color: var(--ink);
-      background: var(--bg);
-      line-height: 1.7;
-      padding: 2rem 0;
-      -webkit-font-smoothing: antialiased;
-    }
-    article.page { width: 100%; }
-    .page__content,
-    .report-intro__surface {
-      width: calc(100% - 2rem);
-      max-width: var(--max);
-      margin: 0 auto;
-    }
-    main > section { margin-top: var(--space-7); }
-    h1 { font-size: 1.9rem; letter-spacing: -0.01em; }
-    h2 {
-      font-size: 1.28rem;
-      line-height: 1.35;
-      margin-bottom: var(--space-4);
-      letter-spacing: -0.005em;
-    }
-    h3 { font-size: 1.05rem; margin-bottom: var(--space-3); }
-    p + p { margin-top: var(--space-3); }
-    section > p + p { margin-top: var(--space-3); }
-    strong { font-weight: 700; }
-    a { color: var(--accent); text-decoration: none; border-bottom: 1px solid color-mix(in srgb, var(--accent) 35%, transparent); }
-    a:hover { color: var(--accent-hover); }
-    ul { padding-left: 1.15rem; }
-    li { margin-top: var(--space-2); max-width: 80ch; }
-    sup a { border-bottom: none; font-size: 0.72em; font-weight: 700; }
-
-    /* === Intro (contained) === */
-    .report-intro { margin-bottom: var(--space-7); }
-    .report-intro__surface {
-      position: relative;
-      isolation: isolate;
-      overflow: hidden;
-      color: var(--page-brand-text, var(--ink));
-      background: var(--page-brand-soft, var(--page-surface-muted, var(--bg2)));
-      border-radius: var(--radius-lg);
-      padding: var(--space-7);
-    }
-    .report-intro__content { position: relative; z-index: 1; max-width: 800px; }
-    .report-intro:not(.report-intro--integrated):not(.report-intro--stage):not(.report-intro--with-media):not(.report-intro--plain) .report-intro__surface::before,
-    .report-intro:not(.report-intro--integrated):not(.report-intro--stage):not(.report-intro--with-media):not(.report-intro--plain) .report-intro__surface::after {
-      content: "";
-      position: absolute;
-      z-index: 0;
-      pointer-events: none;
-    }
-    .report-intro:not(.report-intro--integrated):not(.report-intro--stage):not(.report-intro--with-media):not(.report-intro--plain) .report-intro__surface::before {
-      width: 180px; height: 180px; top: -72px; right: -48px; border-radius: 50%;
-      background: var(--page-brand-soft-strong, var(--page-surface-muted, var(--bg2)));
-      opacity: 0.72;
-    }
-    .report-intro:not(.report-intro--integrated):not(.report-intro--stage):not(.report-intro--with-media):not(.report-intro--plain) .report-intro__surface::after {
-      width: 136px; height: 96px; right: 96px; bottom: -36px; border-radius: var(--radius-lg);
-      background: var(--page-surface, var(--bg));
-      opacity: 0.58; transform: rotate(-8deg);
-    }
-    .report-intro h1 { line-height: 1.22; overflow-wrap: anywhere; }
-    .report-intro__kicker {
-      font-size: 0.78rem; font-weight: 700; letter-spacing: 0.08em;
-      text-transform: uppercase; color: var(--accent); margin-bottom: var(--space-3);
-    }
-    .report-intro__summary {
-      max-width: 74ch; margin-top: var(--space-3);
-      color: var(--page-text-secondary, var(--text-secondary, var(--muted)));
-    }
-    .report-intro__meta {
-      display: flex; flex-wrap: wrap; gap: var(--space-2) var(--space-5);
-      margin-top: var(--space-5); padding-top: var(--space-4);
-      border-top: 1px solid color-mix(in srgb, var(--accent) 18%, transparent);
-      font-size: 0.82rem; color: var(--page-text-muted, var(--muted));
-    }
-    .report-intro__meta span { display: inline-block; }
-    .report-intro__meta b { color: var(--page-text-secondary, var(--text-secondary)); font-weight: 700; }
-
-    /* === Metric cards === */
-    .metric-grid {
-      display: grid; grid-template-columns: repeat(4, minmax(0, 1fr));
-      gap: var(--space-4); margin: var(--space-5) 0 var(--space-5);
-    }
-    .metric {
-      background: var(--page-surface, var(--bg2));
-      border: 1px solid var(--page-border, var(--rule));
-      border-radius: var(--radius-lg);
-      padding: var(--space-4) var(--space-4);
-    }
-    .metric__label { font-size: 0.78rem; color: var(--muted); line-height: 1.45; }
-    .metric__value {
-      font-family: var(--font-metric); font-variant-numeric: tabular-nums;
-      font-size: 1.5rem; font-weight: 700; line-height: 1.25;
-      margin: var(--space-2) 0 var(--space-1); color: var(--ink);
-    }
-    .metric__value--accent { color: var(--accent); }
-    .metric__note { font-size: 0.76rem; color: var(--page-text-muted, var(--muted)); line-height: 1.4; }
-
-    /* === Tables === */
-    .table-wrap { width: 100%; overflow: visible; margin-top: var(--space-4); }
-    figure.table-figure { margin-top: var(--space-5); }
-    figure.table-figure > figcaption {
-      font-size: 0.82rem; color: var(--muted); margin-top: var(--space-2);
-    }
-    figure.table-figure > h3 { margin-bottom: var(--space-1); }
-    table { width: 100%; border-collapse: collapse; table-layout: auto; font-size: 0.875rem; }
-    caption {
-      caption-side: top; text-align: left; font-size: 0.82rem; color: var(--muted);
-      padding-bottom: var(--space-2);
-    }
-    th, td {
-      padding: var(--space-2) var(--space-3);
-      border-bottom: 1px solid var(--rule);
-      text-align: left; vertical-align: top; overflow-wrap: anywhere;
-    }
-    thead th {
-      background: var(--page-surface-muted, var(--bg2));
-      font-size: 0.78rem; font-weight: 700; color: var(--page-text-secondary, var(--text-secondary));
-      white-space: nowrap;
-    }
-    tbody th[scope="row"] { font-weight: 700; }
-    td.num, th.num { text-align: right; font-family: var(--font-mono); font-variant-numeric: tabular-nums; white-space: nowrap; }
-    td.rank { text-align: center; font-family: var(--font-mono); color: var(--muted); }
-    .fund-name { font-weight: 700; }
-    .fund-code { color: var(--muted); font-family: var(--font-mono); font-size: 0.8em; }
-    tbody tr.is-top { background: color-mix(in srgb, var(--accent) 6%, transparent); }
-    .flag-good { color: var(--accent); font-weight: 700; }
-    .flag-warn { color: var(--danger); font-weight: 700; }
-
-    /* === Callout === */
-    .callout {
-      background: var(--page-surface, var(--bg2));
-      border: 1px solid var(--page-border, var(--rule));
-      border-radius: var(--radius-lg);
-      padding: var(--space-4) var(--space-5);
-      margin-top: var(--space-5);
-    }
-    .callout__label {
-      font-size: 0.78rem; font-weight: 700; letter-spacing: 0.04em;
-      color: var(--accent); margin-bottom: var(--space-2);
-    }
-    .callout--warning .callout__label { color: var(--danger); }
-    .callout p { max-width: 84ch; }
-    .callout p + p { margin-top: var(--space-3); }
-
-    /* === Chart figure === */
-    figure.chart-figure {
-      margin-top: var(--space-5);
-      background: var(--page-surface, var(--bg2));
-      border: 1px solid var(--page-border, var(--rule));
-      border-radius: var(--radius-lg);
-      padding: var(--space-5);
-    }
-    figure.chart-figure h3 { margin-bottom: var(--space-1); }
-    .chart-note { font-size: 0.82rem; color: var(--muted); margin-bottom: var(--space-4); }
-    #chart-risk-return { width: 100%; height: 460px; }
-    .chart-empty {
-      display: none; height: 460px; align-items: center; justify-content: center;
-      color: var(--muted); font-size: 0.9rem;
-    }
-    figure.chart-figure figcaption { font-size: 0.82rem; color: var(--muted); margin-top: var(--space-3); }
-
-    /* === Profile rows === */
-    .profile-list { margin-top: var(--space-4); }
-    .profile {
-      padding: var(--space-4) 0;
-      border-bottom: 1px solid var(--rule);
-    }
-    .profile:first-child { border-top: 1px solid var(--rule); }
-    .profile__head {
-      display: flex; flex-wrap: wrap; align-items: baseline; gap: var(--space-3);
-      margin-bottom: var(--space-2);
-    }
-    .profile__name { font-weight: 700; font-size: 1rem; }
-    .profile__code { font-family: var(--font-mono); font-size: 0.8rem; color: var(--muted); }
-    .profile p { font-size: 0.9rem; }
-    .profile__stats {
-      display: flex; flex-wrap: wrap; gap: var(--space-2) var(--space-6);
-      margin-top: var(--space-3); font-size: 0.82rem; color: var(--page-text-secondary, var(--text-secondary));
-    }
-    .profile__stats b { font-family: var(--font-mono); font-variant-numeric: tabular-nums; color: var(--ink); }
-
-    /* === Sources === */
-    footer { margin-top: var(--space-8); padding-top: var(--space-5); border-top: 1px solid var(--rule); }
-    footer h2 { font-size: 1.05rem; }
-    .sources ol { padding-left: 1.4rem; }
-    .sources li { font-size: 0.82rem; line-height: 1.6; margin-top: var(--space-2); }
-    .sources a { overflow-wrap: anywhere; }
-    .sources .src-note {
-      display: block; font-size: 0.78rem; color: var(--muted); margin-top: var(--space-1);
-    }
-    .method { font-size: 0.85rem; color: var(--page-text-secondary, var(--text-secondary)); }
-    .method p { max-width: 84ch; }
-
-    /* === Responsive === */
-    @media (max-width: 900px) {
-      .metric-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-    }
-    @media (max-width: 768px) {
-      body { padding: 1rem 0; }
-      .report-intro__surface { padding: var(--space-5); }
-      .report-intro:not(.report-intro--integrated):not(.report-intro--stage):not(.report-intro--with-media):not(.report-intro--plain) .report-intro__surface::before {
-        width: 124px; height: 124px; top: -44px; right: -52px; opacity: 0.38;
-      }
-      .report-intro:not(.report-intro--integrated):not(.report-intro--stage):not(.report-intro--with-media):not(.report-intro--plain) .report-intro__surface::after { display: none; }
-      h1 { font-size: 1.5rem; }
-      .metric-grid { grid-template-columns: 1fr; }
-      #chart-risk-return { height: 380px; }
-      .chart-empty { height: 380px; }
-      .stack-table thead { display: none; }
-      .stack-table, .stack-table tbody, .stack-table tr, .stack-table th, .stack-table td { display: block; width: 100%; }
-      .stack-table tr {
-        border: 1px solid var(--rule); border-radius: var(--radius-md);
-        padding: var(--space-2) var(--space-3); margin-bottom: var(--space-3);
-        background: var(--bg);
-      }
-      .stack-table tbody tr.is-top { background: color-mix(in srgb, var(--accent) 6%, transparent); }
-      .stack-table th, .stack-table td { border-bottom: 1px dashed var(--rule); padding: var(--space-2) 0; }
-      .stack-table th:last-child, .stack-table td:last-child { border-bottom: none; }
-      .stack-table td.num, .stack-table td.rank { text-align: left; }
-      .stack-table td[data-label]::before {
-        content: attr(data-label) "  ";
-        color: var(--muted); font-size: 0.76rem; display: inline-block; min-width: 7.5em;
-      }
-    }
-    @media print, (forced-colors: active) {
-      .report-intro__surface::before,
-      .report-intro__surface::after { display: none; }
-      a { color: var(--ink); }
-      figure.chart-figure, .metric, .callout { break-inside: avoid; }
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>沪深300指数增强基金推荐表 | 2026-09-14</title>
+<style>
+  :root{
+    --bg:#f7f8fa; --card:#ffffff; --line:#e6e9ef;
+    --ink:#1b1f27; --ink2:#4a5262; --ink3:#8a93a5;
+    --up:#c62828; --down:#1f8a45; --accent:#c62828; --warn:#b8860b;
+    --grid:#eef1f6;
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0; background:var(--bg); color:var(--ink);
+    font-family:"PingFang SC","Microsoft YaHei","Helvetica Neue",Arial,sans-serif;
+    font-size:15px; line-height:1.7;
+  }
+  .wrap{max-width:1180px;margin:0 auto;padding:32px 20px 72px;}
+  header{border-bottom:2px solid var(--ink);padding-bottom:18px;margin-bottom:28px;}
+  h1{font-size:27px;margin:0 0 8px;letter-spacing:.5px;}
+  .sub{color:var(--ink3);font-size:13.5px;}
+  h2{font-size:19px;margin:38px 0 14px;padding-left:11px;border-left:4px solid var(--accent);}
+  h3{font-size:16px;margin:24px 0 10px;color:var(--ink2);}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:20px 22px;margin:16px 0;}
+  .alert{border-left:4px solid var(--warn);background:#fffbf0;border-radius:8px;padding:16px 20px;margin:18px 0;border-top:1px solid #f2e6c8;border-right:1px solid #f2e6c8;border-bottom:1px solid #f2e6c8;}
+  .alert b{color:#8a6400;}
+  .alert--gray{border-left-color:var(--ink3);background:#f2f4f8;border-top-color:var(--line);border-right-color:var(--line);border-bottom-color:var(--line);}
+  .alert--gray b{color:var(--ink2);}
+  .table-scroll{width:100%;overflow-x:auto;}
+  table{width:100%;border-collapse:collapse;font-size:13.5px;margin:10px 0;}
+  th,td{border-bottom:1px solid var(--line);padding:9px 10px;text-align:left;vertical-align:middle;}
+  th{background:#f2f4f8;font-weight:600;color:var(--ink2);white-space:nowrap;font-size:13px;}
+  td.num{font-variant-numeric:tabular-nums;white-space:nowrap;}
+  tbody tr:hover td{background:#fafbfd;}
+  tr.top td{background:#fff8f8;}
+  tr.top:hover td{background:#fdf1f1;}
+  tfoot td{background:#f2f4f8;font-weight:600;color:var(--ink2);}
+  .tag{display:inline-block;font-size:11.5px;padding:1px 7px;border-radius:4px;white-space:nowrap;}
+  .t-good{background:#e8f5ec;color:#1f8a45;}
+  .t-mid{background:#fdf6e3;color:#8a6400;}
+  .t-bad{background:#fdeaea;color:#c62828;}
+  .t-info{background:#eaf0fa;color:#2c5aa0;}
+  .kpi{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:14px;margin:18px 0;}
+  .kpi div{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:16px 18px;}
+  .kpi .v{font-size:22px;font-weight:700;font-variant-numeric:tabular-nums;margin:4px 0 2px;line-height:1.3;}
+  .kpi .k{font-size:12.5px;color:var(--ink3);}
+  .note{font-size:12.5px;color:var(--ink3);line-height:1.65;margin:8px 0 0;}
+  .src{font-size:12px;color:var(--ink3);}
+  code{background:#eef1f6;padding:1px 5px;border-radius:4px;font-size:12.5px;font-family:Consolas,"SFMono-Regular",monospace;}
+  .switch{display:inline-flex;border:1px solid var(--line);border-radius:7px;overflow:hidden;margin:4px 0 10px;}
+  .switch button{background:#fff;border:0;padding:6px 15px;font-size:13px;cursor:pointer;color:var(--ink2);font-family:inherit;}
+  .switch button.on{background:var(--ink);color:#fff;}
+  .hidden{display:none;}
+  .chart{width:100%;}
+  .chart svg{width:100%;height:auto;display:block;}
+  .disc{background:#f2f4f8;border:1px solid var(--line);border-left:4px solid var(--ink3);border-radius:8px;padding:16px 20px;font-size:13px;color:var(--ink2);margin-top:34px;line-height:1.75;}
+  .two{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+  ul{margin:8px 0;padding-left:20px;}
+  li{margin:5px 0;}
+  footer{margin-top:34px;padding-top:18px;border-top:1px solid var(--line);font-size:12.5px;color:var(--ink3);}
+  footer li{font-size:12.5px;line-height:1.7;overflow-wrap:anywhere;}
+  @media(max-width:900px){
+    .two{grid-template-columns:1fr;}
+    h1{font-size:22px;}
+    .wrap{padding:22px 14px 56px;}
+  }
+</style>
 </head>
 <body>
-  <article class="page">
-    <header class="report-intro">
-      <div class="report-intro__surface">
-        <div class="report-intro__content">
-          <p class="report-intro__kicker">基金筛选 · 指数增强</p>
-          <h1>沪深300指数增强基金筛选报告</h1>
-          <p class="report-intro__summary">
-            按照"近三年最大回撤 3%~5%、卡玛比率大于 2、基金经理任期长且经历完整牛熊、机构持仓占比高"四个条件筛选沪深300指数增强产品，结论是：<strong>严格按净值口径，全市场没有一只产品能够达标</strong>。沪深300指数近三年每个年度的最大回撤都在 10% 以上，指增产品股票仓位普遍 88%~95%，样本近三年最大回撤实际落在 <strong>-13.17% 至 -19.41%</strong> 区间，卡玛比率落在 <strong>0.35 至 0.91</strong> 区间。这四个条件中的前两条，只有在业内通行的"超额收益口径"下才成立。本报告在可核验的公开数据基础上，按四项条件的综合打分给出 <strong>14 只</strong> 候选产品。
-          </p>
-          <div class="report-intro__meta">
-            <span><b>筛选范围</b> A股沪深300指数增强型公募基金</span>
-            <span><b>净值截止</b> 2026-09-11</span>
-            <span><b>风险指标截止</b> 2026-08-31</span>
-            <span><b>机构持仓截止</b> 2026-06-30</span>
-          </div>
-        </div>
-      </div>
-    </header>
+<div class="wrap">
 
-    <div class="page__content">
-      <main>
+<header>
+  <h1>沪深300指数增强基金推荐表</h1>
+  <div class="sub">筛选口径：近三年最大回撤 / 卡玛比率 / 基金经理任职年限 / 机构持有比例 &nbsp;·&nbsp; 净值与回撤截至 2026-09-11，机构持仓截至 2026-06-30（万家为 2025-12-31） &nbsp;·&nbsp; 生成日期 2026-09-14</div>
+</header>
 
-        <section id="report-overview">
-          <h2>结论速览</h2>
+<h2>一、先说结论：四条条件里有两条存在口径问题</h2>
 
-          <div class="metric-grid">
-            <div class="metric">
-              <div class="metric__label">满足"三年回撤 3%~5%"的产品（净值口径）</div>
-              <div class="metric__value metric__value--accent">0 只</div>
-              <div class="metric__note">沪深300指数自身近三年年度回撤 10.49%~21.51%，指增产品无法低于该量级</div>
-            </div>
-            <div class="metric">
-              <div class="metric__label">样本近三年最大回撤区间</div>
-              <div class="metric__value">-13.17% ~ -19.41%</div>
-              <div class="metric__note">14 只候选基金，复权净值口径</div>
-            </div>
-            <div class="metric">
-              <div class="metric__label">样本卡玛比率区间（年化收益 ÷ 最大回撤）</div>
-              <div class="metric__value">0.35 ~ 0.91</div>
-              <div class="metric__note">全部低于 2，最高为博道沪深300增强A 的 0.91</div>
-            </div>
-            <div class="metric">
-              <div class="metric__label">综合打分入选候选清单</div>
-              <div class="metric__value">14 只</div>
-              <div class="metric__note">按回撤、卡玛、经理任期、机构持仓四项加权</div>
-            </div>
-          </div>
+<div class="alert">
+  <b>核心发现：在 A 股「沪深300指数增强」这个品类里，同时满足「近三年最大回撤 3%~5%」且「卡玛比率 &gt; 2」的产品，一只都没有。这不是筛选得不够细，是净值口径下不成立。</b>
+</div>
 
-          <p>
-            四个条件里，<strong>条件一和条件二存在口径误解，条件三和条件四可以真实筛选</strong>。前两条在净值口径下不可达，但在指数增强基金的评价体系里，"最大回撤 3%~5% + 卡玛比率大于 2"恰好是行业描述<em>超额收益</em>（相对沪深300全收益指数的超额曲线）稳健性的标准区间<sup><a href="#cite-8">[8]</a></sup><sup><a href="#cite-9">[9]</a></sup>。因此本报告的处理方式是：先证明净值口径不可达，再说明超额口径的合理性与数据获取难点，最后给出在"回撤控制 + 风险收益比 + 经理任期 + 机构持仓"上综合最优的候选清单。
-          </p>
-          <p>
-            综合打分排名前五的是<strong>博道沪深300增强A（007044）、西部利得沪深300指数增强A（673100）、汇添富沪深300指数增强A（005530）、南方沪深300增强A（009059）、招商沪深300指数增强A（004190）</strong>。它们的共同特征是近三年最大回撤在 -13.17% 至 -14.27% 之间、卡玛比率 0.51 至 0.91、基金经理管理本基金 4.6 年以上、机构持仓占比 27%~54%。
-          </p>
-        </section>
+<div class="kpi">
+  <div><div class="k">满足「回撤 3%~5%」的产品（净值口径）</div><div class="v" style="color:var(--up)">0 只</div><div class="k">指数本身年度回撤就有 10%~22%</div></div>
+  <div><div class="k">样本近三年最大回撤区间</div><div class="v" style="color:var(--down)">-13.17% ~ -19.41%</div><div class="k">14 只候选，复权净值口径</div></div>
+  <div><div class="k">样本卡玛比率区间</div><div class="v">0.35 ~ 0.91</div><div class="k">最高为博道 007044，仍未达 2</div></div>
+  <div><div class="k">综合打分入选推荐</div><div class="v" style="color:var(--up)">14 只</div><div class="k">按四项条件加权排序</div></div>
+</div>
 
-        <section id="criteria">
-          <h2>筛选条件与口径核对</h2>
-          <p>
-            用户给出的四个条件中，第一条（近三年最大回撤 3%~5%）与第二条（卡玛比率大于 2）需要先确认口径，否则会得出错误结论。在公募基金语境下，不加限定词的"最大回撤""卡玛比率"默认指<strong>净值口径</strong>，即基金复权净值曲线的回撤，以及"年化收益率 ÷ 最大回撤"。晨星、天天基金等平台展示的都是这一口径<sup><a href="#cite-4">[4]</a></sup>。
-          </p>
-          <p>
-            而在<strong>指数增强产品</strong>的评价语境下，出现"回撤 3%~5%、卡玛大于 2"这样的组合时，讲的通常是<strong>超额收益口径</strong>：把基金复权净值除以基准（沪深300全收益指数）净值得到超额收益曲线，再计算该曲线的最大回撤与卡玛。格上理财给出的指增评价体系就是"年化超额收益、超额最大回撤、跟踪误差、信息比率"四项<sup><a href="#cite-9">[9]</a></sup>；券商金工研报也直接使用"超额最大回撤""超额卡玛比率"作为规范指标名<sup><a href="#cite-10">[10]</a></sup>。两种口径的数量级差异极大，不能混用。
-          </p>
+<p style="margin:0">四条里，<b>条件 1 和条件 2 是口径问题，条件 3 和条件 4 可以真实筛选</b>。在指数增强的评价体系里，「回撤 3%~5% + 卡玛大于 2」恰好是行业描述<b>超额收益</b>（相对沪深300全收益指数的超额曲线）稳健性的标准区间，而公募单只产品的这个指标没有公开榜单，需要用 Wind 或 Choice 自算。所以本表按净值口径给出可核验的推荐清单，并在第五节附上「如果低回撤是硬条件」的替代品类。</p>
 
-          <figure class="table-figure">
-            <h3>口径对照：同一只产品在两种口径下的差异量级</h3>
-            <div class="table-wrap">
-              <table class="stack-table">
-                <caption>口径、计算方式与本报告是否采用</caption>
-                <thead>
-                  <tr>
-                    <th scope="col">口径</th>
-                    <th scope="col">最大回撤定义</th>
-                    <th scope="col">卡玛比率定义</th>
-                    <th scope="col">沪深300指增的典型量级</th>
-                    <th scope="col">本报告处理</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <th scope="row">净值口径</th>
-                    <td data-label="最大回撤">基金复权净值曲线峰值到谷值的最大跌幅</td>
-                    <td data-label="卡玛定义">近三年年化收益率 ÷ 最大回撤绝对值</td>
-                    <td data-label="典型量级">回撤 -13% 至 -19%，卡玛 0.35 至 0.91</td>
-                    <td data-label="本报告处理">可核验，作为主表打分依据</td>
-                  </tr>
-                  <tr>
-                    <th scope="row">超额收益口径</th>
-                    <td data-label="最大回撤">基金净值 ÷ 沪深300全收益指数净值，该比值的最大回撤</td>
-                    <td data-label="卡玛定义">年化超额收益率 ÷ 超额收益最大回撤</td>
-                    <td data-label="典型量级">优秀产品超额回撤常在 5% 以内，超额卡玛 2 至 3</td>
-                    <td data-label="本报告处理">指标合理，但公募单只产品普遍未公开披露</td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-            <figcaption>数据来源：晨星中国、格上理财、国海证券金工研报。超额收益口径的量级参照为中证500/中证1000增强组合回测值。</figcaption>
-          </figure>
+<h2>二、推荐表：14 只沪深300指数增强基金（按综合得分排序）</h2>
 
-          <div class="callout">
-            <div class="callout__label">口径提示</div>
-            <p>
-              如果"最大回撤 3%~5%、卡玛比率大于 2"指的是<strong>超额收益口径</strong>，那么这个目标组合是合理的、可实现的行业区间，但复核名单需要通过 Wind、Choice 或韭圈儿等终端，用各基金 2023-09 至 2026-09 的复权净值除以沪深300全收益指数净值自行测算，公开网页无法直接给出横向排名。如果指的是<strong>净值口径</strong>，则该条件组合在沪深300指增产品上不存在。
-            </p>
-          </div>
-        </section>
+<p class="note">综合得分权重：回撤控制 20%、卡玛 20%、夏普 10%、经理管理本基金年限 25%、机构持有占比 25%，各分项做 0-100 极值归一化后加权。<b>加底色的前 3 名为首选</b>。卡玛为「近三年年化收益 ÷ |近三年最大回撤|」的派生值。</p>
 
-        <section id="feasibility">
-          <h2>条件一与条件二的可达性检验</h2>
-          <p>
-            把"近三年最大回撤 3%~5%"理解为净值口径时，可以直接用标的指数本身来检验下界。指数增强基金以跟踪沪深300为目标，股票仓位通常在 88%~95%，其净值回撤不可能显著低于标的指数。而沪深300指数在近三个完整年度以及 2026 年内的最大回撤如下表所示，<strong>没有任何一个年度低于 10%</strong>。
-          </p>
+<div class="card">
+<div class="table-scroll">
+<table>
+  <thead>
+    <tr>
+      <th>#</th><th>基金（代码）</th><th>近三年<br>年化收益</th><th>近三年<br>最大回撤</th>
+      <th>卡玛 / 夏普</th><th>基金经理</th><th>本基金任职</th><th>穿越<br>完整牛熊</th><th>机构持有</th><th>综合<br>得分</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr class="top">
+      <td>1</td><td><b>博道沪深300增强A</b><br><span class="src">007044.OF</span></td>
+      <td class="num" style="color:var(--up)"><b>+13.44%</b></td>
+      <td class="num" style="color:var(--down)">-14.84%</td>
+      <td class="num">0.91 / 0.70</td><td>杨梦</td><td class="num">2019-04-26 起<br>7.4 年</td>
+      <td><span class="tag t-good">是</span></td><td class="num"><b>53.55%</b></td><td class="num"><b>79.3</b></td>
+    </tr>
+    <tr class="top">
+      <td>2</td><td><b>西部利得沪深300指数增强A</b><br><span class="src">673100.OF</span></td>
+      <td class="num" style="color:var(--up)">+10.05%</td>
+      <td class="num" style="color:var(--down)"><b>-13.20%</b></td>
+      <td class="num">0.76 / 0.52</td><td>盛丰衍</td><td class="num">2018-05-16 起<br>8.3 年</td>
+      <td><span class="tag t-good">是</span></td><td class="num">46.97%</td><td class="num"><b>74.9</b></td>
+    </tr>
+    <tr class="top">
+      <td>3</td><td><b>汇添富沪深300指数增强A</b><br><span class="src">005530.OF</span></td>
+      <td class="num" style="color:var(--up)">+8.91%</td>
+      <td class="num" style="color:var(--down)">-14.27%</td>
+      <td class="num">0.62 / 0.47</td><td>许一尊</td><td class="num">2018-03-23 起<br>8.5 年</td>
+      <td><span class="tag t-good">是</span></td><td class="num">50.33%</td><td class="num"><b>67.2</b></td>
+    </tr>
+    <tr>
+      <td>4</td><td>南方沪深300增强A<br><span class="src">009059.OF</span></td>
+      <td class="num" style="color:var(--up)">+11.41%</td>
+      <td class="num" style="color:var(--down)"><b>-13.17%</b></td>
+      <td class="num">0.87 / 0.60</td><td>解锐</td><td class="num">2022-02-18 起<br>4.6 年</td>
+      <td><span class="tag t-mid">否</span></td><td class="num">27.18%</td><td class="num">63.4</td>
+    </tr>
+    <tr>
+      <td>5</td><td>招商沪深300指数增强A<br><span class="src">004190.OF</span></td>
+      <td class="num" style="color:var(--up)">+7.22%</td>
+      <td class="num" style="color:var(--down)">-14.11%</td>
+      <td class="num">0.51 / 0.33</td><td>王平</td><td class="num">2017-02-10 起<br>9.6 年</td>
+      <td><span class="tag t-good">是</span></td><td class="num">49.11%</td><td class="num">62.8</td>
+    </tr>
+    <tr>
+      <td>6</td><td>国投瑞银沪深300指数量化增强A<br><span class="src">007143.OF</span></td>
+      <td class="num" style="color:var(--up)">+10.05%</td>
+      <td class="num" style="color:var(--down)">-16.19%</td>
+      <td class="num">0.62 / 0.51</td><td>殷瑞飞</td><td class="num">2019-06-11 起<br>7.3 年</td>
+      <td><span class="tag t-good">是</span></td><td class="num">49.24%</td><td class="num">58.4</td>
+    </tr>
+    <tr>
+      <td>7</td><td>安信量化沪深300增强A<br><span class="src">003957.OF</span></td>
+      <td class="num" style="color:var(--up)"><b>+12.62%</b></td>
+      <td class="num" style="color:var(--down)">-16.93%</td>
+      <td class="num">0.75 / 0.64</td><td>施荣盛</td><td class="num">2023-08-24 起<br>3.1 年</td>
+      <td><span class="tag t-good">是</span></td><td class="num"><b>62.98%</b></td><td class="num">58.3</td>
+    </tr>
+    <tr>
+      <td>8</td><td>富国沪深300指数增强A<br><span class="src">100038.OF</span></td>
+      <td class="num" style="color:var(--up)">+8.27%</td>
+      <td class="num" style="color:var(--down)">-15.40%</td>
+      <td class="num">0.54 / 0.41</td><td>李笑薇 / 方旻</td><td class="num">2009-12-23 起<br><b>16.7 年</b></td>
+      <td><span class="tag t-good">是</span></td><td class="num">17.15% <span class="tag t-bad">低</span></td><td class="num">54.7</td>
+    </tr>
+    <tr>
+      <td>9</td><td>建信沪深300指数增强(LOF)A<br><span class="src">165310.OF</span></td>
+      <td class="num" style="color:var(--up)">+9.06%</td>
+      <td class="num" style="color:var(--down)">-15.16%</td>
+      <td class="num">0.60 / 0.45</td><td>梁洪昀 / 薛玲</td><td class="num">2015-03-25 起<br>11.5 年</td>
+      <td><span class="tag t-good">是</span></td><td class="num">0.00% <span class="tag t-bad">无机构</span></td><td class="num">50.5</td>
+    </tr>
+    <tr>
+      <td>10</td><td>华夏沪深300指数增强A<br><span class="src">001015.OF</span></td>
+      <td class="num" style="color:var(--up)">+10.81%</td>
+      <td class="num" style="color:var(--down)">-16.13%</td>
+      <td class="num">0.67 / 0.53</td><td>袁英杰</td><td class="num">2021-09-27 起<br>5.0 年</td>
+      <td><span class="tag t-good">是</span></td><td class="num">33.30%</td><td class="num">48.7</td>
+    </tr>
+    <tr>
+      <td>11</td><td>兴全沪深300指数增强(LOF)A<br><span class="src">163407.OF</span></td>
+      <td class="num" style="color:var(--up)">+5.56%</td>
+      <td class="num" style="color:var(--down)">-13.77%</td>
+      <td class="num">0.40 / 0.26</td><td>申庆</td><td class="num">2010-11-02 起<br><b>15.9 年</b></td>
+      <td><span class="tag t-good">是</span></td><td class="num">5.93% <span class="tag t-bad">低</span></td><td class="num">47.3</td>
+    </tr>
+    <tr>
+      <td>12</td><td>天弘沪深300指数增强发起A<br><span class="src">008592.OF</span></td>
+      <td class="num" style="color:var(--up)">+9.58%</td>
+      <td class="num" style="color:var(--down)">-15.53%</td>
+      <td class="num">0.62 / 0.47</td><td>杨超</td><td class="num">2019-12-27 起<br>6.7 年</td>
+      <td><span class="tag t-good">是</span></td><td class="num">21.92%</td><td class="num">47.1</td>
+    </tr>
+    <tr>
+      <td>13</td><td>宏利沪深300指数增强A<br><span class="src">162213.OF</span></td>
+      <td class="num" style="color:var(--up)">+9.72%</td>
+      <td class="num" style="color:var(--down)">-14.63%</td>
+      <td class="num">0.66 / 0.49</td><td>李婷婷</td><td class="num">2024-07-30 起<br>2.1 年 <span class="tag t-bad">短</span></td>
+      <td><span class="tag t-mid">否</span></td><td class="num">27.69%</td><td class="num">42.8</td>
+    </tr>
+    <tr>
+      <td>14</td><td>万家沪深300指数增强A<br><span class="src">002670.OF</span></td>
+      <td class="num" style="color:var(--up)">+6.84%</td>
+      <td class="num" style="color:var(--down)">-19.41%</td>
+      <td class="num">0.35 / 0.31</td><td>乔亮</td><td class="num">2019-09-06 起<br>7.0 年</td>
+      <td><span class="tag t-mid">待核实</span></td><td class="num">35.99%</td><td class="num">27.8</td>
+    </tr>
+  </tbody>
+  <tfoot>
+    <tr>
+      <td colspan="2">样本区间（14 只）</td>
+      <td class="num">+5.56% ~ +13.44%</td><td class="num">-13.17% ~ -19.41%</td>
+      <td class="num">0.35 ~ 0.91</td><td colspan="4">机构持有 0.00% ~ 62.98%</td><td class="num">27.8 ~ 79.3</td>
+    </tr>
+  </tfoot>
+</table>
+</div>
+<p class="src">数据来源：天天基金基金页（近三年阶段涨幅、特色数据夏普）、天天基金复权净值序列（自算近三年最大回撤）、晨星中国（风险指标）、天天基金持有人结构页（机构持有占比）、各基金基金经理页（任职起始与从业经历）。卡玛比率为「近三年年化收益 ÷ |近三年最大回撤|」的派生计算值，非官方披露。</p>
+</div>
 
-          <figure class="table-figure">
-            <h3>沪深300指数各年度最大回撤（净值口径）</h3>
-            <div class="table-wrap">
-              <table>
-                <caption>统计口径为自然年度内的指数最大回撤，与基金近三年滚动回撤不可直接等同，仅用于判定下界</caption>
-                <thead>
-                  <tr>
-                    <th scope="col">年度</th>
-                    <th scope="col" class="num">沪深300指数最大回撤</th>
-                    <th scope="col">与 3%~5% 目标的关系</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr><th scope="row">2023 年</th><td class="num">-21.51%</td><td>远超目标上限</td></tr>
-                  <tr><th scope="row">2024 年</th><td class="num">-14.41%</td><td>远超目标上限</td></tr>
-                  <tr><th scope="row">2025 年</th><td class="num">-10.49%</td><td>远超目标上限</td></tr>
-                  <tr><th scope="row">2026 年以来</th><td class="num">-10.86%</td><td>远超目标上限</td></tr>
-                </tbody>
-              </table>
-            </div>
-            <figcaption>数据来源：雪球基金（蛋卷）指数与基金净值页，净值截止 2026-09-11。</figcaption>
-          </figure>
+<h3>补充观察：6 只未纳入打分的样本</h3>
+<div class="card">
+<div class="table-scroll">
+<table>
+  <thead><tr><th>基金（代码）</th><th>最大回撤</th><th>卡玛比率</th><th>机构持有</th><th>未纳入主表的原因</th></tr></thead>
+  <tbody>
+    <tr><td>诺安沪深300指数增强A<br><span class="src">320014.OF</span></td><td class="num" style="color:var(--down)">-7.02%</td><td class="num">1.25</td><td class="num">56.62%</td><td>1 年期回撤全市场最优，但现任经理 2023-06 才任职，且成立以来净值回撤达 57%</td></tr>
+    <tr><td>国泰沪深300增强策略ETF联接A<br><span class="src">021847.OF</span></td><td class="num" style="color:var(--down)">-9.34%</td><td class="num">1.16</td><td class="num">待核实</td><td>成立不足三年，无近三年数据</td></tr>
+    <tr><td>中金沪深300指数增强A<br><span class="src">003015.OF</span></td><td class="num" style="color:var(--down)">-9.51%</td><td class="num">1.09</td><td class="num">47.08%</td><td>回撤与机构持仓均优，但经理从业起始年份未公开列明，无法确证牛熊经历</td></tr>
+    <tr><td>景顺长城沪深300指数增强A<br><span class="src">000311.OF</span></td><td class="num" style="color:var(--down)">-10.43%</td><td class="num">0.98</td><td class="num">4.30% <span class="tag t-bad">低</span></td><td>经理黎海威管理 12.9 年为最长之一，但机构持仓仅 4.30%</td></tr>
+    <tr><td>中银沪深300指数增强A<br><span class="src">004881.OF</span></td><td class="num" style="color:var(--down)">-9.96%</td><td class="num">0.93</td><td class="num">待核实</td><td>未取得与主表同口径的近三年收益与机构持仓数据</td></tr>
+    <tr><td>中泰沪深300指数增强C<br><span class="src">008239.OF</span></td><td class="num" style="color:var(--down)">-9.17%</td><td class="num">待核实</td><td class="num">待核实</td><td>1 年期回撤居前，但卡玛与机构持仓未取得</td></tr>
+  </tbody>
+</table>
+</div>
+<p class="src">本表风险指标为晨星 1 年期口径（截至 2026-08-31），与主表的近三年口径不可直接横向比较，仅作补充参考。</p>
+</div>
 
-          <p>
-            正因如此，14 只候选基金近三年最大回撤全部落在 <strong>-13.17% 至 -19.41%</strong>，其中回撤最小的南方沪深300增强A 为 -13.17%，仍是最低目标上限 5% 的 2.6 倍。条件二同样不成立：候选基金近三年卡玛比率最高的是博道沪深300增强A，为 <strong>0.91</strong>，其余在 0.35 至 0.87 之间，没有任何一只接近 2。放宽到 1 年期口径，晨星披露的最高卡玛比率是诺安沪深300指数增强A 的 <strong>1.25</strong>，仍低于 2<sup><a href="#cite-4">[4]</a></sup>。
-          </p>
-          <p>
-            另一方面，候选基金的绝对收益并不弱。近三年年化收益率全部为正，区间为 <strong>5.56% 至 13.44%</strong>，其中 6 只超过 11%。这说明"回撤大、卡玛低"不是产品能力问题，而是净值口径下沪深300这个beta本身的风险特征决定的。
-          </p>
-        </section>
+<h2>三、两张图看清这 14 只</h2>
 
-        <section id="excess-return">
-          <h2>超额收益口径的合理性与数据可得性</h2>
-          <p>
-            指数增强产品的价值在于相对基准的超额收益，因此业内评价其风险时，关注的是超额收益曲线是否平稳。行业惯例中，"超额最大回撤控制在 5% 以内"被视为优秀的阿尔法风控水平<sup><a href="#cite-8">[8]</a></sup>；券商金工的研究组合里，中证500增强组合的年化超额 10.30%、超额最大回撤 4.23%、超额卡玛比率 2.433，中证1000增强组合分别为 14.92%、4.59% 和 3.252<sup><a href="#cite-10">[10]</a></sup>。这些数字正好落在用户提出的"回撤 3%~5% + 卡玛大于 2"区间内，说明用户的条件来自指增评价体系，而非普通净值评价。
-          </p>
-          <p>
-            问题在于数据可得性。检索发现，公募单只沪深300指增产品的"近三年超额收益最大回撤"和"超额收益卡玛比率"<strong>没有公开的一站式披露榜单</strong>，这类指标集中在 Wind、Choice、朝阳永续等终端，或券商金工研报的自研回测中。可以查到的公开片段包括：汇安沪深300指数增强A 在 2025 年相对基准的最大回撤仅 -0.57%（这是超额口径，与净值回撤是两套体系）<sup><a href="#cite-13">[13]</a></sup>；博道沪深300增强A 近三年累计超额 27.93%，2023/2024/2025 年各年超额分别为 7.11、4.40、5.37 个百分点，逐年为正且分布均匀<sup><a href="#cite-11">[11]</a></sup>；华夏中证500指数增强的超额最大回撤为 5.91%。
-          </p>
-          <p>
-            因此，本报告不能给出"超额回撤落在 3%~5% 且超额卡玛大于 2"的确认名单，只能给出<strong>以超额稳定性为重要参考</strong>的综合候选清单。要把条件一、条件二严格落到超额口径，需要按下面的方法自行测算。
-          </p>
-
-          <div class="callout">
-            <div class="callout__label">复核方法（超额口径自算步骤）</div>
-            <p>
-              第一步，取目标基金 2023-09 至 2026-09 的复权净值日序列；第二步，基准取沪深300全收益指数（代码 H00300.CSI），注意晨星用全收益指数，而基金招募说明书的业绩基准是"沪深300指数收益率 × 95% + 银行活期存款利率（税后）× 5%"，两者算出的超额会相差数个百分点；第三步，逐日计算超额收益曲线，即基金净值除以基准净值；第四步，求该曲线的最大回撤，得到"超额收益最大回撤"；第五步，用年化超额收益率除以超额收益最大回撤，得到"超额收益卡玛比率"。
-            </p>
-          </div>
-        </section>
-
-        <section id="shortlist">
-          <h2>候选基金综合打分排名</h2>
-          <p>
-            在可核验的公开数据上，对 14 只成立满三年、数据完整的沪深300指数增强基金做综合打分。打分逻辑对应四条筛选要求：回撤控制（权重 20%）、卡玛比率（权重 20%）、近三年夏普比率（权重 10%）、基金经理管理本基金的年限（权重 25%，封顶 12 年）、机构投资者持有占比（权重 25%）。各分项先做 0 至 100 的极值归一化，再按权重加权。综合得分越高，表示越贴近"回撤稳、风险收益比好、经理任期长、机构认可度高"这一组目标。
-          </p>
-
-          <figure class="table-figure">
-            <h3>沪深300指数增强基金综合打分排名（14 只）</h3>
-            <div class="table-wrap">
-              <table class="stack-table">
-                <caption>数据截止 2026-09-11（收益与回撤）、2026-06-30 或 2025-12-31（机构持仓）、2026-09-14（经理任期）</caption>
-                <thead>
-                  <tr>
-                    <th scope="col">排名</th>
-                    <th scope="col">基金（代码）</th>
-                    <th scope="col" class="num">近三年年化</th>
-                    <th scope="col" class="num">近三年最大回撤</th>
-                    <th scope="col" class="num">卡玛 / 夏普</th>
-                    <th scope="col" class="num">经理管理本基金</th>
-                    <th scope="col" class="num">机构持仓</th>
-                    <th scope="col" class="num">综合得分</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr class="is-top">
-                    <td class="rank" data-label="排名">1</td>
-                    <td data-label="基金"><span class="fund-name">博道沪深300增强A</span><br><span class="fund-code">007044</span></td>
-                    <td class="num" data-label="近三年年化">+13.44%</td>
-                    <td class="num" data-label="最大回撤">-14.84%</td>
-                    <td class="num" data-label="卡玛/夏普">0.91 / 0.70</td>
-                    <td class="num" data-label="经理管理本基金">7.4 年</td>
-                    <td class="num" data-label="机构持仓">53.55%</td>
-                    <td class="num" data-label="综合得分">79.3</td>
-                  </tr>
-                  <tr class="is-top">
-                    <td class="rank" data-label="排名">2</td>
-                    <td data-label="基金"><span class="fund-name">西部利得沪深300指数增强A</span><br><span class="fund-code">673100</span></td>
-                    <td class="num" data-label="近三年年化">+10.05%</td>
-                    <td class="num" data-label="最大回撤">-13.20%</td>
-                    <td class="num" data-label="卡玛/夏普">0.76 / 0.52</td>
-                    <td class="num" data-label="经理管理本基金">8.3 年</td>
-                    <td class="num" data-label="机构持仓">46.97%</td>
-                    <td class="num" data-label="综合得分">74.9</td>
-                  </tr>
-                  <tr class="is-top">
-                    <td class="rank" data-label="排名">3</td>
-                    <td data-label="基金"><span class="fund-name">汇添富沪深300指数增强A</span><br><span class="fund-code">005530</span></td>
-                    <td class="num" data-label="近三年年化">+8.91%</td>
-                    <td class="num" data-label="最大回撤">-14.27%</td>
-                    <td class="num" data-label="卡玛/夏普">0.62 / 0.47</td>
-                    <td class="num" data-label="经理管理本基金">8.5 年</td>
-                    <td class="num" data-label="机构持仓">50.33%</td>
-                    <td class="num" data-label="综合得分">67.2</td>
-                  </tr>
-                  <tr>
-                    <td class="rank" data-label="排名">4</td>
-                    <td data-label="基金"><span class="fund-name">南方沪深300增强A</span><br><span class="fund-code">009059</span></td>
-                    <td class="num" data-label="近三年年化">+11.41%</td>
-                    <td class="num" data-label="最大回撤">-13.17%</td>
-                    <td class="num" data-label="卡玛/夏普">0.87 / 0.60</td>
-                    <td class="num" data-label="经理管理本基金">4.6 年</td>
-                    <td class="num" data-label="机构持仓">27.18%</td>
-                    <td class="num" data-label="综合得分">63.4</td>
-                  </tr>
-                  <tr>
-                    <td class="rank" data-label="排名">5</td>
-                    <td data-label="基金"><span class="fund-name">招商沪深300指数增强A</span><br><span class="fund-code">004190</span></td>
-                    <td class="num" data-label="近三年年化">+7.22%</td>
-                    <td class="num" data-label="最大回撤">-14.11%</td>
-                    <td class="num" data-label="卡玛/夏普">0.51 / 0.33</td>
-                    <td class="num" data-label="经理管理本基金">9.6 年</td>
-                    <td class="num" data-label="机构持仓">49.11%</td>
-                    <td class="num" data-label="综合得分">62.8</td>
-                  </tr>
-                  <tr>
-                    <td class="rank" data-label="排名">6</td>
-                    <td data-label="基金"><span class="fund-name">国投瑞银沪深300指数量化增强A</span><br><span class="fund-code">007143</span></td>
-                    <td class="num" data-label="近三年年化">+10.05%</td>
-                    <td class="num" data-label="最大回撤">-16.19%</td>
-                    <td class="num" data-label="卡玛/夏普">0.62 / 0.51</td>
-                    <td class="num" data-label="经理管理本基金">7.3 年</td>
-                    <td class="num" data-label="机构持仓">49.24%</td>
-                    <td class="num" data-label="综合得分">58.4</td>
-                  </tr>
-                  <tr>
-                    <td class="rank" data-label="排名">7</td>
-                    <td data-label="基金"><span class="fund-name">安信量化沪深300增强A</span><br><span class="fund-code">003957</span></td>
-                    <td class="num" data-label="近三年年化">+12.62%</td>
-                    <td class="num" data-label="最大回撤">-16.93%</td>
-                    <td class="num" data-label="卡玛/夏普">0.75 / 0.64</td>
-                    <td class="num" data-label="经理管理本基金">3.1 年</td>
-                    <td class="num" data-label="机构持仓">62.98%</td>
-                    <td class="num" data-label="综合得分">58.3</td>
-                  </tr>
-                  <tr>
-                    <td class="rank" data-label="排名">8</td>
-                    <td data-label="基金"><span class="fund-name">富国沪深300指数增强A</span><br><span class="fund-code">100038</span></td>
-                    <td class="num" data-label="近三年年化">+8.27%</td>
-                    <td class="num" data-label="最大回撤">-15.40%</td>
-                    <td class="num" data-label="卡玛/夏普">0.54 / 0.41</td>
-                    <td class="num" data-label="经理管理本基金">16.7 年</td>
-                    <td class="num" data-label="机构持仓">17.15%</td>
-                    <td class="num" data-label="综合得分">54.7</td>
-                  </tr>
-                  <tr>
-                    <td class="rank" data-label="排名">9</td>
-                    <td data-label="基金"><span class="fund-name">建信沪深300指数增强(LOF)A</span><br><span class="fund-code">165310</span></td>
-                    <td class="num" data-label="近三年年化">+9.06%</td>
-                    <td class="num" data-label="最大回撤">-15.16%</td>
-                    <td class="num" data-label="卡玛/夏普">0.60 / 0.45</td>
-                    <td class="num" data-label="经理管理本基金">11.5 年</td>
-                    <td class="num" data-label="机构持仓">0.00%</td>
-                    <td class="num" data-label="综合得分">50.5</td>
-                  </tr>
-                  <tr>
-                    <td class="rank" data-label="排名">10</td>
-                    <td data-label="基金"><span class="fund-name">华夏沪深300指数增强A</span><br><span class="fund-code">001015</span></td>
-                    <td class="num" data-label="近三年年化">+10.81%</td>
-                    <td class="num" data-label="最大回撤">-16.13%</td>
-                    <td class="num" data-label="卡玛/夏普">0.67 / 0.53</td>
-                    <td class="num" data-label="经理管理本基金">5.0 年</td>
-                    <td class="num" data-label="机构持仓">33.30%</td>
-                    <td class="num" data-label="综合得分">48.7</td>
-                  </tr>
-                  <tr>
-                    <td class="rank" data-label="排名">11</td>
-                    <td data-label="基金"><span class="fund-name">兴全沪深300指数增强(LOF)A</span><br><span class="fund-code">163407</span></td>
-                    <td class="num" data-label="近三年年化">+5.56%</td>
-                    <td class="num" data-label="最大回撤">-13.77%</td>
-                    <td class="num" data-label="卡玛/夏普">0.40 / 0.26</td>
-                    <td class="num" data-label="经理管理本基金">15.9 年</td>
-                    <td class="num" data-label="机构持仓">5.93%</td>
-                    <td class="num" data-label="综合得分">47.3</td>
-                  </tr>
-                  <tr>
-                    <td class="rank" data-label="排名">12</td>
-                    <td data-label="基金"><span class="fund-name">天弘沪深300指数增强发起A</span><br><span class="fund-code">008592</span></td>
-                    <td class="num" data-label="近三年年化">+9.58%</td>
-                    <td class="num" data-label="最大回撤">-15.53%</td>
-                    <td class="num" data-label="卡玛/夏普">0.62 / 0.47</td>
-                    <td class="num" data-label="经理管理本基金">6.7 年</td>
-                    <td class="num" data-label="机构持仓">21.92%</td>
-                    <td class="num" data-label="综合得分">47.1</td>
-                  </tr>
-                  <tr>
-                    <td class="rank" data-label="排名">13</td>
-                    <td data-label="基金"><span class="fund-name">宏利沪深300指数增强A</span><br><span class="fund-code">162213</span></td>
-                    <td class="num" data-label="近三年年化">+9.72%</td>
-                    <td class="num" data-label="最大回撤">-14.63%</td>
-                    <td class="num" data-label="卡玛/夏普">0.66 / 0.49</td>
-                    <td class="num" data-label="经理管理本基金">2.1 年</td>
-                    <td class="num" data-label="机构持仓">27.69%</td>
-                    <td class="num" data-label="综合得分">42.8</td>
-                  </tr>
-                  <tr>
-                    <td class="rank" data-label="排名">14</td>
-                    <td data-label="基金"><span class="fund-name">万家沪深300指数增强A</span><br><span class="fund-code">002670</span></td>
-                    <td class="num" data-label="近三年年化">+6.84%</td>
-                    <td class="num" data-label="最大回撤">-19.41%</td>
-                    <td class="num" data-label="卡玛/夏普">0.35 / 0.31</td>
-                    <td class="num" data-label="经理管理本基金">7.0 年</td>
-                    <td class="num" data-label="机构持仓">35.99%</td>
-                    <td class="num" data-label="综合得分">27.8</td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-            <figcaption>
-              卡玛比率为"近三年年化收益率 ÷ 近三年最大回撤绝对值"的派生计算值；夏普比率取自天天基金特色数据页。机构持仓占比中，万家为 2025-12-31，其余为 2026-06-30。综合得分为本报告按上述权重计算的相对排序值，不是外部机构评分。
-            </figcaption>
-          </figure>
-
-          <div class="callout callout--warning">
-            <div class="callout__label">机构持仓一项的实测风险</div>
-            <p>
-              14 只产品中，机构持仓占比最高的是安信量化沪深300增强A 的 62.98%，其次是博道 53.55%、汇添富 50.33%、国投瑞银 49.24%、招商 49.11%、西部利得 46.97%。但机构占比这项指标存在两点风险：一是<strong>波动极大</strong>，富国沪深300指数增强A 的机构占比从历史峰值 47.65% 降至 2026-06-30 的 17.15%，景顺长城沪深300指数增强A 从 19.64% 降至 4.30%<sup><a href="#cite-16">[16]</a></sup>；二是<strong>机构资金正在系统性转向费率更低的沪深300ETF</strong>，指增产品的机构占比整体呈下行趋势。此外建信沪深300指数增强(LOF)A 最新披露机构持仓为 0.00%（个人持有 100%），与"机构持仓占比高"这一条件直接冲突，因此尽管其经理任期达 11.5 年，综合排名仍被拉低到第 9 位。
-            </p>
-          </div>
-        </section>
-
-        <section id="risk-return-map">
-          <h2>候选基金的风险收益分布</h2>
-          <p>
-            把 14 只候选基金按"近三年最大回撤"（横轴，越靠左回撤越小）和"近三年年化收益率"（纵轴，越靠上收益越高）画在同一张图上，可以直观看出超额收益能力与回撤控制并不总是同向。点位大小表示机构持仓占比。
-          </p>
-
-          <figure class="chart-figure">
-            <h3>近三年风险收益分布（净值口径）</h3>
-            <p class="chart-note">横轴为近三年最大回撤绝对值，纵轴为近三年年化收益率，点位大小表示机构投资者持有占比。数据截止 2026-09-11。</p>
-            <div id="chart-risk-return" role="img" aria-label="沪深300指数增强基金近三年最大回撤与年化收益率的散点分布图"></div>
-            <div class="chart-empty" id="chart-risk-return-empty">数据暂不可用</div>
-            <figcaption>
-              博道与南方位于图的左上区域，兼具较高收益与较小回撤；万家位于右下角，回撤最大且收益最低；兴全与招商位于左下，回撤控制尚可但收益偏低。
-            </figcaption>
-          </figure>
-
-          <p>
-            左上区域的四只产品（博道、南方、安信、广发口径下的同类）在收益与回撤两个维度同时占优，是本次筛选中风险收益比最好的一档。需要说明的是，<strong>近三年恰好覆盖了沪深300一轮"下跌—筑底—修复"的完整过程</strong>，因此这一区间的排名对管理人的下行风控能力有较强区分度，比单一年度排名更值得参考。
-          </p>
-        </section>
-
-        <section id="profiles">
-          <h2>重点产品简评（前五）</h2>
-          <p>
-            以下按综合得分顺序，对排名前五的产品给出定位说明与关键数据。所有数值均为上一节的同一口径，不重复列示来源。
-          </p>
-
-          <div class="profile-list">
-            <div class="profile">
-              <div class="profile__head">
-                <span class="profile__name">博道沪深300增强A</span>
-                <span class="profile__code">007044</span>
-              </div>
-              <p>
-                量化基因最深的一只。基金经理杨梦 2011 年起从事量化研究，2019-04-26 接管本基金，完整经历了 2015 年牛熊与 2018 年熊市；近三年年化收益 13.44% 为候选名单最高，卡玛比率 0.91 与夏普 0.70 同样最高，机构持仓 53.55%。公开资料显示其近三年累计超额 27.93%，2023 至 2025 年各年超额分别为 7.11、4.40、5.37 个百分点，超额分布均匀，是"超额稳定性"这一维度最接近用户目标的样本。
-              </p>
-              <div class="profile__stats">
-                <span>近三年年化 <b>+13.44%</b></span>
-                <span>最大回撤 <b>-14.84%</b></span>
-                <span>卡玛 <b>0.91</b></span>
-                <span>经理任期 <b>7.4 年</b></span>
-                <span>机构持仓 <b>53.55%</b></span>
-              </div>
-            </div>
-
-            <div class="profile">
-              <div class="profile__head">
-                <span class="profile__name">西部利得沪深300指数增强A</span>
-                <span class="profile__code">673100</span>
-              </div>
-              <p>
-                回撤控制最扎实的一档。基金经理盛丰衍 2018-05-16 接管，管理本基金已 8.3 年，此前任职于光大证券、光大资管、兴证资管，从业跨越上一轮完整牛熊。近三年最大回撤 -13.20%，在 14 只中排第二小；年化收益 10.05%、卡玛 0.76、机构持仓 46.97%，四项条件均处于第一梯队，是唯一在"回撤、任期、机构持仓"三项上都进入前五的产品。
-              </p>
-              <div class="profile__stats">
-                <span>近三年年化 <b>+10.05%</b></span>
-                <span>最大回撤 <b>-13.20%</b></span>
-                <span>卡玛 <b>0.76</b></span>
-                <span>经理任期 <b>8.3 年</b></span>
-                <span>机构持仓 <b>46.97%</b></span>
-              </div>
-            </div>
-
-            <div class="profile">
-              <div class="profile__head">
-                <span class="profile__name">汇添富沪深300指数增强A</span>
-                <span class="profile__code">005530</span>
-              </div>
-              <p>
-                机构认可度与任期长度均衡。基金经理许一尊 2010-07 加入汇添富，2018-03-23 接管本基金并管理至今 8.5 年，跨越 2015 年牛熊与 2018 年熊市。机构持仓 50.33%，为候选名单第三高；近三年年化 8.91%、最大回撤 -14.27%、卡玛 0.62，各项均在中上水平，没有明显短板。
-              </p>
-              <div class="profile__stats">
-                <span>近三年年化 <b>+8.91%</b></span>
-                <span>最大回撤 <b>-14.27%</b></span>
-                <span>卡玛 <b>0.62</b></span>
-                <span>经理任期 <b>8.5 年</b></span>
-                <span>机构持仓 <b>50.33%</b></span>
-              </div>
-            </div>
-
-            <div class="profile">
-              <div class="profile__head">
-                <span class="profile__name">南方沪深300增强A</span>
-                <span class="profile__code">009059</span>
-              </div>
-              <p>
-                回撤最小、卡玛第二高。近三年最大回撤 -13.17%，是 14 只中最小的；卡玛 0.87 仅次于博道，夏普 0.60。基金经理解锐 2022-02-18 接管本基金，管理年限 4.6 年，未经历 2015 年牛熊，但经历了 2018 年以来的市场波动。机构持仓 27.18%，在候选名单中属中等偏下，是四项条件中相对薄弱的一环。
-              </p>
-              <div class="profile__stats">
-                <span>近三年年化 <b>+11.41%</b></span>
-                <span>最大回撤 <b>-13.17%</b></span>
-                <span>卡玛 <b>0.87</b></span>
-                <span>经理任期 <b>4.6 年</b></span>
-                <span>机构持仓 <b>27.18%</b></span>
-              </div>
-            </div>
-
-            <div class="profile">
-              <div class="profile__head">
-                <span class="profile__name">招商沪深300指数增强A</span>
-                <span class="profile__code">004190</span>
-              </div>
-              <p>
-                经理任期与机构持仓双高。基金经理王平 2006 年加入招商基金，2017-02-10 接管本基金，管理年限 9.6 年，完整经历上一轮牛熊；机构持仓 49.11%。代价是收益与风险调整后表现偏弱，近三年年化 7.22%、卡玛 0.51、夏普 0.33，在候选名单中处于中下水平。适合把"经理稳定性 + 机构认可"放在首位的配置需求。
-              </p>
-              <div class="profile__stats">
-                <span>近三年年化 <b>+7.22%</b></span>
-                <span>最大回撤 <b>-14.11%</b></span>
-                <span>卡玛 <b>0.51</b></span>
-                <span>经理任期 <b>9.6 年</b></span>
-                <span>机构持仓 <b>49.11%</b></span>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <section id="supplement">
-          <h2>补充观察：未纳入打分的六只产品</h2>
-          <p>
-            以下产品或因公开数据只覆盖 1 年期口径、或因成立不满三年，未能纳入同一张打分表，但在个别维度上值得关注。它们可以作为下一步复核的补充样本。
-          </p>
-
-          <figure class="table-figure">
-            <h3>补充样本与未纳入原因</h3>
-            <div class="table-wrap">
-              <table class="stack-table">
-                <caption>风险指标为晨星 1 年期口径（截止 2026-08-31），与主表的近三年口径不可直接比较</caption>
-                <thead>
-                  <tr>
-                    <th scope="col">基金（代码）</th>
-                    <th scope="col" class="num">最大回撤</th>
-                    <th scope="col" class="num">卡玛比率</th>
-                    <th scope="col" class="num">机构持仓</th>
-                    <th scope="col">未纳入主表的原因</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <th scope="row">诺安沪深300指数增强A <span class="fund-code">320014</span></th>
-                    <td class="num" data-label="最大回撤">-7.02%</td>
-                    <td class="num" data-label="卡玛比率">1.25</td>
-                    <td class="num" data-label="机构持仓">56.62%</td>
-                    <td data-label="未纳入原因">1 年期回撤控制全市场最优，但现任经理 2023-06 任职，且成立以来净值回撤达 57%</td>
-                  </tr>
-                  <tr>
-                    <th scope="row">国泰沪深300增强策略ETF联接A <span class="fund-code">021847</span></th>
-                    <td class="num" data-label="最大回撤">-9.34%</td>
-                    <td class="num" data-label="卡玛比率">1.16</td>
-                    <td class="num" data-label="机构持仓">待核实</td>
-                    <td data-label="未纳入原因">成立不足三年，无近三年数据</td>
-                  </tr>
-                  <tr>
-                    <th scope="row">中金沪深300指数增强A <span class="fund-code">003015</span></th>
-                    <td class="num" data-label="最大回撤">-9.51%</td>
-                    <td class="num" data-label="卡玛比率">1.09</td>
-                    <td class="num" data-label="机构持仓">47.08%</td>
-                    <td data-label="未纳入原因">机构持仓与回撤均优，但经理从业起始年份公开资料未列明，无法确证牛熊经历</td>
-                  </tr>
-                  <tr>
-                    <th scope="row">中银沪深300指数增强A <span class="fund-code">004881</span></th>
-                    <td class="num" data-label="最大回撤">-9.96%</td>
-                    <td class="num" data-label="卡玛比率">0.93</td>
-                    <td class="num" data-label="机构持仓">待核实</td>
-                    <td data-label="未纳入原因">未取得与主表同口径的近三年收益与机构持仓数据</td>
-                  </tr>
-                  <tr>
-                    <th scope="row">景顺长城沪深300指数增强A <span class="fund-code">000311</span></th>
-                    <td class="num" data-label="最大回撤">-10.43%</td>
-                    <td class="num" data-label="卡玛比率">0.98</td>
-                    <td class="num" data-label="机构持仓">4.30%</td>
-                    <td data-label="未纳入原因">经理黎海威管理 12.9 年为最长之一，但机构持仓仅 4.30%，与条件三冲突</td>
-                  </tr>
-                  <tr>
-                    <th scope="row">中泰沪深300指数增强C <span class="fund-code">008239</span></th>
-                    <td class="num" data-label="最大回撤">-9.17%</td>
-                    <td class="num" data-label="卡玛比率">待核实</td>
-                    <td class="num" data-label="机构持仓">待核实</td>
-                    <td data-label="未纳入原因">1 年期回撤表现居前，但卡玛比率与机构持仓未取得</td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-            <figcaption>数据来源：晨星中国、天天基金。净值截止 2026-09-11，风险指标截止 2026-08-31。</figcaption>
-          </figure>
-        </section>
-
-        <section id="actions">
-          <h2>使用建议与风险提示</h2>
-          <p>
-            <strong>第一，先确认口径，再决定名单。</strong>如果用户的目标是"净值口径下回撤 3%~5%、卡玛大于 2"，那么沪深300指增这个品类整体不符合，应考虑用低波动的固收+、二级债基或红利低波类产品替代；如果目标是"超额收益口径"，则应先用前文的方法自算超额回撤与超额卡玛，再对照本报告的候选清单做二次筛选。
-          </p>
-          <p>
-            <strong>第二，把经理任期与机构持仓当成"稳定性"而非"收益"指标。</strong>实测显示任期最长的三只产品（富国 16.7 年、兴全 15.9 年、建信 11.5 年）近三年年化收益分别只有 8.27%、5.56%、9.06%，均低于候选名单均值；机构持仓最高的安信（62.98%）经理任期仅 3.1 年。四个条件之间存在真实的权衡，几乎没有产品能同时把四项都做到最优。
-          </p>
-          <p>
-            <strong>第三，机构持仓占比具有时效性和反身性。</strong>该指标半年更新一次，且会随机构申赎剧烈波动，不适合作为买入的独立依据。建议把它作为"是否有专业资金长期驻留"的辅助信号，并与基金规模、费率、跟踪误差一起看。
-          </p>
-          <p>
-            <strong>第四，关注费率与规模。</strong>指数增强产品的超额收益会被管理费与交易成本侵蚀，规模过大也会限制量化策略的容量。本次候选名单中，规模较大的有易方达沪深300指数增强（约 34.6 亿元）、富国沪深300指数增强（约 48.5 亿元）、景顺长城（约 29.6 亿元）、华夏（约 24.2 亿元）<sup><a href="#cite-14">[14]</a></sup>，规模与超额稳定性需要结合评估。
-          </p>
-
-          <div class="callout callout--warning">
-            <div class="callout__label">风险提示</div>
-            <p>
-              本报告为基于公开信息的量化筛选，不构成任何投资建议或收益承诺。基金过往业绩不代表未来表现；指数增强产品的超额收益存在衰减与失效风险；沪深300指增为高波动权益类产品，净值回撤显著大于 3%~5%，请根据自身风险承受能力决策。所有历史数据均为公开渠道检索所得，未做插值或推定，缺失值以"待核实"标注。
-            </p>
-          </div>
-        </section>
-      </main>
-
-      <footer>
-        <section id="methodology">
-          <h2>数据来源与方法说明</h2>
-          <div class="method">
-            <p>
-              近三年区间取 2023-09-11 至 2026-09-10，年化收益率按几何年化换算（(1 + 累计收益率)^(1/3) − 1），累计收益率取自天天基金基金页"阶段涨幅－近3年"；近三年最大回撤基于天天基金的复权净值序列逐日计算峰值回撤；夏普比率取自天天基金特色数据页的官方披露值。机构投资者持有占比取自各基金 2026 年中期报告（部分为 2025 年年报）。基金经理任职起始与从业经历取自天天基金基金经理页与基金公司官网披露。综合打分为本报告自建的加权相对得分，权重为回撤 20%、卡玛 20%、夏普 10%、经理任期 25%、机构持仓 25%，各分项做极值归一化后加权，仅用于排序，不具备跨报告可比性。
-            </p>
-            <p>
-              检索过程中发现并已修正的一处代码错误：安信旗下产品的正确代码为 003957（安信量化沪深300增强A），而非 000176；000176 实为嘉实沪深300指数研究增强A（近三年年化 7.77%、最大回撤 -14.89%）。此外，华泰柏瑞沪深300指数增强A（001074）由原"量化驱动混合"于 2026-06-12 更名而来，历史业绩口径不连续，未纳入打分。
-            </p>
-            <p>
-              数据边界：本次检索未发现富国、嘉实、华安、银华等公司发行独立"沪深300指数增强"产品；天天基金基金排行批量接口与中证指数官网"相关产品"完整列表存在反爬限制，因此候选池无法保证百分百穷尽，如需绝对完整清单，建议以 Wind 或 iFinD 按"标的指数 = 沪深300、产品类型 = 指数增强"导出核对。
-            </p>
-          </div>
-        </section>
-
-        <div class="sources">
-          <h2>参考来源</h2>
-          <ol>
-            <li id="cite-1">
-              天天基金 · 基金主页（近3年阶段涨幅，示例 富国沪深300指数增强A 100038）
-              <span class="src-note">净值截止 2026-09-11</span>
-              <a href="http://fund.eastmoney.com/100038.html" target="_blank" rel="noopener">http://fund.eastmoney.com/100038.html</a>
-            </li>
-            <li id="cite-2">
-              天天基金 · 特色数据（近3年夏普比率、标准差）
-              <span class="src-note">示例 100038，截止 2026-09-11</span>
-              <a href="https://fundf10.eastmoney.com/tsdata_100038.html" target="_blank" rel="noopener">https://fundf10.eastmoney.com/tsdata_100038.html</a>
-            </li>
-            <li id="cite-3">
-              天天基金 · 复权净值数据序列（用于测算近三年最大回撤）
-              <a href="http://fund.eastmoney.com/pingzhongdata/100038.js" target="_blank" rel="noopener">http://fund.eastmoney.com/pingzhongdata/100038.js</a>
-            </li>
-            <li id="cite-4">
-              晨星中国 · 基金风险与性价比指标（最大回撤、卡玛比率、夏普，示例 诺安沪深300指数增强A 320014）
-              <span class="src-note">风险指标截止 2026-08-31</span>
-              <a href="https://www.morningstar.cn/fund/320014.html" target="_blank" rel="noopener">https://www.morningstar.cn/fund/320014.html</a>
-            </li>
-            <li id="cite-5">
-              雪球基金（蛋卷）· 指数与基金单年度、成立以来最大回撤（示例 沪深300指数 000300）
-              <a href="https://danjuanfunds.com/funding/000300" target="_blank" rel="noopener">https://danjuanfunds.com/funding/000300</a>
-            </li>
-            <li id="cite-6">
-              天天基金 · 持有人结构（机构投资者持有占比，示例 100038）
-              <span class="src-note">数据截止 2026-06-30</span>
-              <a href="https://fundf10.eastmoney.com/cyrjg_100038.html" target="_blank" rel="noopener">https://fundf10.eastmoney.com/cyrjg_100038.html</a>
-            </li>
-            <li id="cite-7">
-              天天基金 · 基金经理（任职起始日期与从业经历，示例 100038）
-              <a href="https://fundf10.eastmoney.com/jjjl_100038.html" target="_blank" rel="noopener">https://fundf10.eastmoney.com/jjjl_100038.html</a>
-            </li>
-            <li id="cite-8">
-              养基司令（腾讯新闻）· 指数增强超额收益解密，5 步法选出长期能打的基金
-              <span class="src-note">2026-09-01</span>
-              <a href="http://news.qq.com/rain/a/20260901A06V1B00" target="_blank" rel="noopener">http://news.qq.com/rain/a/20260901A06V1B00</a>
-            </li>
-            <li id="cite-9">
-              格上理财（新浪）· 私募基金指数增强策略指标定义（年化超额收益、超额最大回撤、跟踪误差、信息比率）
-              <a href="https://k.sina.cn/article_1908759833_71c55d1900101cjgy.html" target="_blank" rel="noopener">https://k.sina.cn/article_1908759833_71c55d1900101cjgy.html</a>
-            </li>
-            <li id="cite-10">
-              国海证券金融工程 · 机器学习系列专题（中证500/中证1000 增强组合的超额最大回撤与超额卡玛比率）
-              <a href="http://m.hibor.com.cn/wap_detail.aspx?id=c69c7ad2ea685fbeebc3181ac8e6b130" target="_blank" rel="noopener">http://m.hibor.com.cn/wap_detail.aspx?id=c69c7ad2ea685fbeebc3181ac8e6b130</a>
-            </li>
-            <li id="cite-11">
-              衡水日报（新浪财经）· 沪深300增强基金里，哪只长期超额收益最稳定
-              <span class="src-note">2026-06-05</span>
-              <a href="https://finance.sina.com.cn/jjxw/2026-06-05/doc-iniaiqkw8571340.shtml" target="_blank" rel="noopener">https://finance.sina.com.cn/jjxw/2026-06-05/doc-iniaiqkw8571340.shtml</a>
-            </li>
-            <li id="cite-12">
-              华泰金工（新浪财经）· 指增超额稳健，主动量化弹性凸显（公募量化产品一季度盘点）
-              <span class="src-note">2026-04-15</span>
-              <a href="https://finance.sina.com.cn/wm/2026-04-15/doc-inhupqxi8539134.shtml" target="_blank" rel="noopener">https://finance.sina.com.cn/wm/2026-04-15/doc-inhupqxi8539134.shtml</a>
-            </li>
-            <li id="cite-13">
-              国信金工（新浪财经）· 汇安沪深300指数增强基金投资价值分析
-              <span class="src-note">2026-01-28</span>
-              <a href="https://finance.sina.com.cn/roll/2026-01-28/doc-inhivfck4058807.shtml" target="_blank" rel="noopener">https://finance.sina.com.cn/roll/2026-01-28/doc-inhivfck4058807.shtml</a>
-            </li>
-            <li id="cite-14">
-              中证指数官网 · 沪深300指数相关产品（产品全称、类型、资产净值、成立日期、管理人）
-              <a href="https://www.csindex.com.cn/mobile-web/#/indices/family/detail?indexCode=000300" target="_blank" rel="noopener">https://www.csindex.com.cn/mobile-web/#/indices/family/detail?indexCode=000300</a>
-            </li>
-            <li id="cite-15">
-              新浪财经 · 震荡市里的超额捕手，天弘指增业务交出亮眼成绩单
-              <span class="src-note">2026-07-23</span>
-              <a href="https://finance.sina.com.cn/wm/2026-07-23/doc-iniivihw4537557.shtml" target="_blank" rel="noopener">https://finance.sina.com.cn/wm/2026-07-23/doc-iniivihw4537557.shtml</a>
-            </li>
-            <li id="cite-16">
-              东方财富股吧 · 机构持有热门增强指数基金排名（Choice 数据）
-              <a href="https://guba.eastmoney.com/news,cfhpl,1461415534.html" target="_blank" rel="noopener">https://guba.eastmoney.com/news,cfhpl,1461415534.html</a>
-            </li>
-            <li id="cite-17">
-              中国基金报 · 震荡市中的慢行者，广发量化投资部如何打造底仓型产品
-              <a href="https://www.chnfund.com/article/ARae28bb00-a216-114a-19ff-3a230b8997ae" target="_blank" rel="noopener">https://www.chnfund.com/article/ARae28bb00-a216-114a-19ff-3a230b8997ae</a>
-            </li>
-          </ol>
-        </div>
-      </footer>
+<h3>图 1：近三年最大回撤对比（数值越小越优）</h3>
+<div class="switch" id="sw1"><button class="on" data-t="c">看图形</button><button data-t="t">看精确表</button></div>
+<div class="card">
+  <div id="chart1" class="chart"></div>
+  <div id="table1" class="hidden">
+    <div class="table-scroll">
+    <table>
+      <thead><tr><th>基金</th><th>近三年最大回撤</th><th>近三年年化收益</th><th>卡玛比率</th></tr></thead>
+      <tbody>
+        <tr><td>南方沪深300增强A 009059</td><td class="num">-13.17%</td><td class="num">+11.41%</td><td class="num">0.87</td></tr>
+        <tr><td>西部利得沪深300指数增强A 673100</td><td class="num">-13.20%</td><td class="num">+10.05%</td><td class="num">0.76</td></tr>
+        <tr><td>兴全沪深300指数增强(LOF)A 163407</td><td class="num">-13.77%</td><td class="num">+5.56%</td><td class="num">0.40</td></tr>
+        <tr><td>招商沪深300指数增强A 004190</td><td class="num">-14.11%</td><td class="num">+7.22%</td><td class="num">0.51</td></tr>
+        <tr><td>汇添富沪深300指数增强A 005530</td><td class="num">-14.27%</td><td class="num">+8.91%</td><td class="num">0.62</td></tr>
+        <tr><td>宏利沪深300指数增强A 162213</td><td class="num">-14.63%</td><td class="num">+9.72%</td><td class="num">0.66</td></tr>
+        <tr><td>博道沪深300增强A 007044</td><td class="num">-14.84%</td><td class="num">+13.44%</td><td class="num">0.91</td></tr>
+        <tr><td>建信沪深300指数增强(LOF)A 165310</td><td class="num">-15.16%</td><td class="num">+9.06%</td><td class="num">0.60</td></tr>
+        <tr><td>富国沪深300指数增强A 100038</td><td class="num">-15.40%</td><td class="num">+8.27%</td><td class="num">0.54</td></tr>
+        <tr><td>天弘沪深300指数增强发起A 008592</td><td class="num">-15.53%</td><td class="num">+9.58%</td><td class="num">0.62</td></tr>
+        <tr><td>华夏沪深300指数增强A 001015</td><td class="num">-16.13%</td><td class="num">+10.81%</td><td class="num">0.67</td></tr>
+        <tr><td>国投瑞银沪深300指数量化增强A 007143</td><td class="num">-16.19%</td><td class="num">+10.05%</td><td class="num">0.62</td></tr>
+        <tr><td>安信量化沪深300增强A 003957</td><td class="num">-16.93%</td><td class="num">+12.62%</td><td class="num">0.75</td></tr>
+        <tr><td>万家沪深300指数增强A 002670</td><td class="num">-19.41%</td><td class="num">+6.84%</td><td class="num">0.35</td></tr>
+      </tbody>
+    </table>
     </div>
-  </article>
+  </div>
+  <p class="src">绿柱为各基金近三年最大回撤绝对值，红色虚线为沪深300指数 2023 年度最大回撤 -21.51%，用作下界参照。区间 2023-09-11 至 2026-09-11。</p>
+</div>
 
-  <script src="./_shared/js/echarts.min.js"></script>
-  <script src="./assets/charts.js"></script>
+<h3>图 2：近三年最大回撤 × 年化收益（气泡越大＝机构持有越高）</h3>
+<div class="card">
+  <div id="chart2" class="chart"></div>
+  <p class="src">横轴＝近三年最大回撤绝对值（越靠左越稳），纵轴＝近三年年化收益（越靠上越强）。左上区域代表「回撤小且收益高」，只有博道 007044、南方 009059、西部利得 673100 稳定落在该区域。数据截至 2026-09-11。</p>
+</div>
+
+<h2>四、首选三只，各自强在哪</h2>
+<div class="two">
+  <div class="card">
+    <b>综合第一：博道沪深300增强A（007044.OF）</b>
+    <p class="note">近三年年化 +13.44%、卡玛 0.91、夏普 0.70，三项均为 14 只中最高；机构持有 53.55%。公开资料显示其近三年累计超额 27.93%，2023/2024/2025 各年超额分别为 7.11、4.40、5.37 个百分点，逐年为正且分布均匀，是超额稳定性这一维度最贴近你目标的样本。</p>
+  </div>
+  <div class="card">
+    <b>回撤最稳 + 任期最长：西部利得沪深300指数增强A（673100.OF）</b>
+    <p class="note">近三年最大回撤 -13.20%，在 14 只中第二小；经理盛丰衍管理本基金 8.3 年，此前任职光大证券、光大资管、兴证资管，跨越上一轮完整牛熊；机构持有 46.97%。是唯一在「回撤、任期、机构持有」三项上都进入前五的产品。</p>
+  </div>
+  <div class="card">
+    <b>四项都均衡：汇添富沪深300指数增强A（005530.OF）</b>
+    <p class="note">经理许一尊 2010 年加入汇添富，2018-03-23 接管本基金至今 8.5 年，跨越 2015 年牛熊与 2018 年熊市；机构持有 50.33%，为 14 只中第三高；近三年年化 +8.91%、回撤 -14.27%、卡玛 0.62，没有明显短板。</p>
+  </div>
+  <div class="card">
+    <b>需要单独提醒的两点</b>
+    <p class="note"><span class="tag t-bad">机构持仓在下滑</span>富国 100038 机构占比从历史峰值 47.65% 降到 17.15%，景顺长城 000311 从 19.64% 降到 4.30%，与机构资金转向费率更低的沪深300ETF 有关。这项指标半年更新一次且波动极大，不宜作为买入的独立依据。</p>
+    <p class="note"><span class="tag t-bad">建信 165310 机构持仓为 0</span>最新披露个人持有 100%，与「机构持仓占比高」这一条直接冲突，尽管其经理任期达 11.5 年，综合排名仍被压到第 9 位。</p>
+  </div>
+</div>
+
+<h2>五、如果「低回撤」是不可让步的硬条件：需要换品类</h2>
+<p>下面这些<b>都不是指数增强基金</b>，跟踪逻辑完全不同。放进来是因为，如果 3%~5% 回撤和卡玛大于 2 是你的硬约束，沪深300指增这个品类整体出局，必须换轨道。<b>注意两者口径不同</b>（市场中性为近一年口径，量化固收+为近三年口径），不可横向直接比较。</p>
+
+<div class="card">
+<div class="table-scroll">
+<table>
+  <thead><tr><th>基金（代码）</th><th>品类</th><th>最大回撤</th><th>年化收益</th><th>卡玛比率</th><th>是否满足条件</th></tr></thead>
+  <tbody>
+    <tr>
+      <td><b>华夏卓享债券A</b><br><span class="src">011624.OF</span></td>
+      <td>量化固收+<br><span class="src">二级债基</span></td>
+      <td class="num" style="color:var(--down)"><b>-1.09%</b><br><span class="src">近 3 年</span></td>
+      <td class="num" style="color:var(--up)">+4.24%</td>
+      <td class="num"><b>≈ 4.0</b></td>
+      <td><span class="tag t-bad">回撤过小</span><span class="tag t-good">卡玛达标</span></td>
+    </tr>
+    <tr>
+      <td><b>华夏鼎泓债券A</b><br><span class="src">007666.OF</span></td>
+      <td>量化固收+<br><span class="src">二级债基</span></td>
+      <td class="num" style="color:var(--down)"><b>-1.18%</b><br><span class="src">近 3 年</span></td>
+      <td class="num" style="color:var(--up)">+4.71%</td>
+      <td class="num"><b>≈ 4.0</b></td>
+      <td><span class="tag t-bad">回撤过小</span><span class="tag t-good">卡玛达标</span></td>
+    </tr>
+    <tr>
+      <td>华夏稳享增利6个月A<br><span class="src">二级债基</span></td>
+      <td>量化固收+</td>
+      <td class="num" style="color:var(--down)">-1.27%<br><span class="src">近 3 年</span></td>
+      <td class="num">未找到</td>
+      <td class="num">未找到</td>
+      <td><span class="tag t-bad">回撤过小</span></td>
+    </tr>
+    <tr>
+      <td>华宝量化对冲策略混合A<br><span class="src">000753.OF</span></td>
+      <td>市场中性</td>
+      <td class="num" style="color:var(--down)">-3.24%<br><span class="src">2024 年度</span></td>
+      <td class="num" style="color:var(--up)">+2.42%<br><span class="src">近 3 年年化</span></td>
+      <td class="num">≈ 0.75<br><span class="src">近 3 年估算</span></td>
+      <td><span class="tag t-good">回撤达标</span><span class="tag t-bad">卡玛未达</span></td>
+    </tr>
+    <tr>
+      <td>汇添富绝对收益策略定开A<br><span class="src">000762.OF</span></td>
+      <td>市场中性</td>
+      <td class="num" style="color:var(--down)">-4.33%<br><span class="src">近 1 年</span></td>
+      <td class="num" style="color:var(--up)">+2.64%<br><span class="src">近 3 年年化</span></td>
+      <td class="num">2.55<br><span class="src">近 1 年</span></td>
+      <td><span class="tag t-good">回撤达标</span><span class="tag t-mid">卡玛达标<br>但口径短</span></td>
+    </tr>
+    <tr>
+      <td>富国量化对冲策略三个月持有A<br><span class="src">008835.OF</span></td>
+      <td>市场中性</td>
+      <td class="num" style="color:var(--down)">-3.60%<br><span class="src">近 1 年</span></td>
+      <td class="num" style="color:var(--up)">+1.04%<br><span class="src">近 3 年年化</span></td>
+      <td class="num" style="color:var(--down)">-0.22<br><span class="src">负值不排名</span></td>
+      <td><span class="tag t-good">回撤达标</span><span class="tag t-bad">卡玛未达</span></td>
+    </tr>
+    <tr>
+      <td>华夏安泰对冲策略3个月定开<br><span class="src">008856.OF</span></td>
+      <td>市场中性</td>
+      <td class="num" style="color:var(--down)">-6.33%<br><span class="src">2024 年度</span></td>
+      <td class="num">未找到</td>
+      <td class="num">未找到</td>
+      <td><span class="tag t-bad">回撤偏大</span></td>
+    </tr>
+    <tr>
+      <td>海富通阿尔法对冲混合A<br><span class="src">519062.OF</span></td>
+      <td>市场中性</td>
+      <td class="num" style="color:var(--down)">-5.11%<br><span class="src">近 1 年</span></td>
+      <td class="num" style="color:var(--down)">-1.56%<br><span class="src">近 3 年年化</span></td>
+      <td class="num">0.08<br><span class="src">近 1 年</span></td>
+      <td><span class="tag t-bad">回撤偏大</span><span class="tag t-bad">卡玛未达</span></td>
+    </tr>
+  </tbody>
+</table>
+</div>
+<p class="src">数据来源：晨星中国（近一年口径回撤与卡玛，截至 2026-08-31）、雪球基金（分年度最大回撤，截至 2026-09-11）、天天基金（区间收益）、华夏基金与新浪财经（量化固收+ 近三年回撤/年化，Wind 口径，截至 2026-06-30）。市场中性品类的「近三年区间最大回撤」无平台直接披露，本表以分年度最大值近似并已标注。</p>
+</div>
+
+<div class="alert">
+  <b>这一轨的关键矛盾：在低波产品里，回撤和卡玛是此消彼长的。</b>市场中性对冲能把回撤压到 3%~5%，但收益被对冲成本吃掉，近三年年化只有 -1.6%~+2.6%，卡玛落在 0.1~0.8；量化固收+能把卡玛做到约 4，但那是靠债券打底把回撤压到 1% 出头实现的，年化只有 4% 出头，<b>连 3% 的回撤下限都碰不到，而且完全不跟涨</b>。
+</div>
+
+<h2>六、数据缺口（必须坦白说明）</h2>
+<div class="card">
+<ul>
+  <li><b>「超额收益口径」的回撤与卡玛没有公开榜单。</b>公募单只沪深300指增产品的超额回撤、超额卡玛集中在 Wind、Choice、朝阳永续等终端或券商金工研报的自研回测中。本表全部用净值口径，没有为任何产品编造超额口径数值。</li>
+  <li><b>卡玛比率全行业披露不完整。</b>主表 14 只的卡玛全部是本表按「近三年年化收益 ÷ |近三年最大回撤|」自算的派生值，不是官方或评级机构披露值，与第三方口径会有差异。</li>
+  <li><b>机构持有占比的报告期不一致。</b>大部分为 2026-06-30 中报口径，万家 002670 为 2025-12-31 年报口径。</li>
+  <li><b>候选池无法保证百分百穷尽。</b>天天基金排行批量接口与中证指数官网「相关产品」列表存在反爬限制，如需绝对完整清单，建议以 Wind 或 iFinD 按「标的指数＝沪深300、产品类型＝指数增强」导出核对。</li>
+  <li><b>一处代码纠错。</b>安信旗下产品的正确代码是 <code>003957.OF</code>（安信量化沪深300增强A），不是 000176；000176 实为嘉实沪深300指数研究增强A（近三年年化 +7.77%、最大回撤 -14.89%）。</li>
+</ul>
+</div>
+
+<div class="disc">
+  <b>免责声明</b>：以上内容基于公开数据和量化筛选，仅供参考，不构成投资建议，也不构成任何收益承诺。基金过往业绩不代表未来表现，指数增强产品的超额收益存在衰减与失效风险；沪深300指增为高波动权益类产品，净值回撤显著大于 3%~5%。任何投资决策应结合个人风险承受能力、资金状况和投资目标独立判断，必要时咨询持牌专业机构。
+</div>
+
+<footer>
+  <b>参考来源</b>
+  <ol>
+    <li>天天基金 · 基金主页与阶段涨幅（近三年累计收益），示例 富国沪深300指数增强A 100038，净值截至 2026-09-11 · <a href="http://fund.eastmoney.com/100038.html" target="_blank" rel="noopener">fund.eastmoney.com/100038.html</a></li>
+    <li>天天基金 · 特色数据（近三年夏普比率、波动率） · <a href="https://fundf10.eastmoney.com/tsdata_100038.html" target="_blank" rel="noopener">fundf10.eastmoney.com/tsdata_100038.html</a></li>
+    <li>天天基金 · 复权净值数据序列（自算近三年最大回撤） · <a href="http://fund.eastmoney.com/pingzhongdata/100038.js" target="_blank" rel="noopener">fund.eastmoney.com/pingzhongdata/100038.js</a></li>
+    <li>晨星中国 · 基金风险与性价比指标（最大回撤、卡玛比率），示例 诺安沪深300指数增强A 320014，风险指标截至 2026-08-31 · <a href="https://www.morningstar.cn/fund/320014.html" target="_blank" rel="noopener">morningstar.cn/fund/320014.html</a></li>
+    <li>天天基金 · 持有人结构（机构投资者持有占比），示例 100038 · <a href="https://fundf10.eastmoney.com/cyrjg_100038.html" target="_blank" rel="noopener">fundf10.eastmoney.com/cyrjg_100038.html</a></li>
+    <li>天天基金 · 基金经理（任职起始与从业经历），示例 100038 · <a href="https://fundf10.eastmoney.com/jjjl_100038.html" target="_blank" rel="noopener">fundf10.eastmoney.com/jjjl_100038.html</a></li>
+    <li>雪球基金 · 指数与基金分年度、成立以来最大回撤（沪深300指数 000300；华宝 000753；汇添富 000762；富国 008835；华夏安泰 008856；海富通 519062；华夏卓享 011624；华夏鼎泓 007666） · <a href="https://danjuanfunds.com/funding/000300" target="_blank" rel="noopener">danjuanfunds.com/funding/000300</a></li>
+    <li>养基司令（腾讯新闻）· 指数增强超额收益解密，5 步法选出长期能打的基金，2026-09-01 · <a href="http://news.qq.com/rain/a/20260901A06V1B00" target="_blank" rel="noopener">news.qq.com/rain/a/20260901A06V1B00</a></li>
+    <li>格上理财（新浪）· 指数增强策略指标定义（年化超额收益、超额最大回撤、跟踪误差、信息比率） · <a href="https://k.sina.cn/article_1908759833_71c55d1900101cjgy.html" target="_blank" rel="noopener">k.sina.cn/article_1908759833_71c55d1900101cjgy.html</a></li>
+    <li>国海证券金融工程 · 机器学习系列专题（中证500 增强组合超额最大回撤 4.23%、超额卡玛 2.433） · <a href="http://m.hibor.com.cn/wap_detail.aspx?id=c69c7ad2ea685fbeebc3181ac8e6b130" target="_blank" rel="noopener">m.hibor.com.cn</a></li>
+    <li>衡水日报（新浪财经）· 沪深300增强基金里，哪只长期超额收益最稳定，2026-06-05 · <a href="https://finance.sina.com.cn/jjxw/2026-06-05/doc-iniaiqkw8571340.shtml" target="_blank" rel="noopener">finance.sina.com.cn</a></li>
+    <li>国信金工（新浪财经）· 汇安沪深300指数增强基金投资价值分析，2026-01-28 · <a href="https://finance.sina.com.cn/roll/2026-01-28/doc-inhivfck4058807.shtml" target="_blank" rel="noopener">finance.sina.com.cn</a></li>
+    <li>华夏基金（新浪财经）· 严控回撤，盘点成立三年以上的高卡玛比率固收+基金，2026-08-28 · <a href="https://finance.sina.com.cn/wm/2026-08-28/doc-inipwait4614246.shtml" target="_blank" rel="noopener">finance.sina.com.cn</a></li>
+    <li>证券时报 · 近七成告负，量化对冲策略何以失效 · <a href="https://stcn.com/article/detail/3256186.html" target="_blank" rel="noopener">stcn.com/article/detail/3256186.html</a></li>
+    <li>中证指数官网 · 沪深300指数相关产品（产品全称、资产净值、成立日期、管理人） · <a href="https://www.csindex.com.cn/mobile-web/#/indices/family/detail?indexCode=000300" target="_blank" rel="noopener">csindex.com.cn</a></li>
+  </ol>
+</footer>
+
+</div>
+
+<noscript>
+  <div class="wrap"><div class="alert"><b>提示：</b>本页图表需要启用 JavaScript 才能显示；表格数据在未启用脚本时依然完整可读。</div></div>
+</noscript>
+
+<script>
+(function () {
+  'use strict';
+
+  var FUNDS = [
+    { n: '南方沪深300增强A',            s: '南方',     c: '009059', dd: 13.17, ret: 11.41, calmar: 0.87, inst: 27.18 },
+    { n: '西部利得沪深300指数增强A',    s: '西部利得', c: '673100', dd: 13.20, ret: 10.05, calmar: 0.76, inst: 46.97 },
+    { n: '兴全沪深300指数增强(LOF)A',   s: '兴全',     c: '163407', dd: 13.77, ret: 5.56,  calmar: 0.40, inst: 5.93 },
+    { n: '招商沪深300指数增强A',        s: '招商',     c: '004190', dd: 14.11, ret: 7.22,  calmar: 0.51, inst: 49.11 },
+    { n: '汇添富沪深300指数增强A',      s: '汇添富',   c: '005530', dd: 14.27, ret: 8.91,  calmar: 0.62, inst: 50.33 },
+    { n: '宏利沪深300指数增强A',        s: '宏利',     c: '162213', dd: 14.63, ret: 9.72,  calmar: 0.66, inst: 27.69 },
+    { n: '博道沪深300增强A',            s: '博道',     c: '007044', dd: 14.84, ret: 13.44, calmar: 0.91, inst: 53.55 },
+    { n: '建信沪深300指数增强(LOF)A',   s: '建信',     c: '165310', dd: 15.16, ret: 9.06,  calmar: 0.60, inst: 0.00 },
+    { n: '富国沪深300指数增强A',        s: '富国',     c: '100038', dd: 15.40, ret: 8.27,  calmar: 0.54, inst: 17.15 },
+    { n: '天弘沪深300指数增强发起A',    s: '天弘',     c: '008592', dd: 15.53, ret: 9.58,  calmar: 0.62, inst: 21.92 },
+    { n: '华夏沪深300指数增强A',        s: '华夏',     c: '001015', dd: 16.13, ret: 10.81, calmar: 0.67, inst: 33.30 },
+    { n: '国投瑞银沪深300指数量化增强A', s: '国投瑞银', c: '007143', dd: 16.19, ret: 10.05, calmar: 0.62, inst: 49.24 },
+    { n: '安信量化沪深300增强A',        s: '安信',     c: '003957', dd: 16.93, ret: 12.62, calmar: 0.75, inst: 62.98 },
+    { n: '万家沪深300指数增强A',        s: '万家',     c: '002670', dd: 19.41, ret: 6.84,  calmar: 0.35, inst: 35.99 }
+  ];
+
+  var GREEN = '#3d9e63', RED = '#c62828', INK2 = '#4a5262', INK3 = '#8a93a5', GRID = '#eef1f6';
+  var FONT = '"PingFang SC","Microsoft YaHei",Arial,sans-serif';
+  function esc(v) {
+    return String(v).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+  }
+  function svg(w, h, body) {
+    return '<svg viewBox="0 0 ' + w + ' ' + h + '" role="img" xmlns="http://www.w3.org/2000/svg" font-family=\'' + FONT + '\'>' + body + '</svg>';
+  }
+
+  /* ---- 图 1：近三年最大回撤横向条形图 ---- */
+  function drawDrawdownBars(host) {
+    var W = 960, LEFT = 210, RIGHT = 90, TOP = 34, ROW = 27;
+    var H = TOP + FUNDS.length * ROW + 46;
+    var plotW = W - LEFT - RIGHT, DOMAIN = 24, S = plotW / DOMAIN;
+    var p = [];
+
+    p.push('<text x="0" y="16" font-size="12" fill="' + INK3 + '">最大回撤绝对值（%），越短越优</text>');
+    for (var g = 0; g <= 24; g += 6) {
+      var gx = LEFT + g * S;
+      p.push('<line x1="' + gx + '" y1="' + TOP + '" x2="' + gx + '" y2="' + (TOP + FUNDS.length * ROW) + '" stroke="' + GRID + '" stroke-width="1"/>');
+      p.push('<text x="' + gx + '" y="' + (TOP + FUNDS.length * ROW + 20) + '" font-size="11" fill="' + INK3 + '" text-anchor="middle">' + g + '%</text>');
+    }
+
+    FUNDS.forEach(function (f, i) {
+      var y = TOP + i * ROW, bw = Math.max(2, f.dd * S);
+      p.push('<text x="' + (LEFT - 10) + '" y="' + (y + 13) + '" font-size="12" fill="' + INK2 + '" text-anchor="end">' + esc(f.n) + ' ' + f.c + '</text>');
+      p.push('<rect x="' + LEFT + '" y="' + (y + 3) + '" width="' + bw.toFixed(1) + '" height="15" rx="3" fill="' + GREEN + '" opacity="0.86"/>');
+      p.push('<text x="' + (LEFT + bw + 7).toFixed(1) + '" y="' + (y + 15) + '" font-size="11.5" fill="' + INK2 + '">-' + f.dd.toFixed(2) + '%</text>');
+    });
+
+    var rx = LEFT + 21.51 * S, base = TOP + FUNDS.length * ROW;
+    p.push('<line x1="' + rx.toFixed(1) + '" y1="' + (TOP - 6) + '" x2="' + rx.toFixed(1) + '" y2="' + base + '" stroke="' + RED + '" stroke-width="1.5" stroke-dasharray="5 4"/>');
+    p.push('<text x="' + (rx - 6).toFixed(1) + '" y="' + (TOP - 12) + '" font-size="11.5" fill="' + RED + '" text-anchor="end">沪深300指数 2023 年度回撤 -21.51%</text>');
+
+    host.innerHTML = svg(W, H, p.join(''));
+  }
+
+  /* ---- 图 2：回撤 × 收益散点图（气泡＝机构持有） ---- */
+  function drawScatter(host) {
+    var W = 960, H = 470, L = 74, R = 34, T = 34, B = 62;
+    var pw = W - L - R, ph = H - T - B;
+    var X0 = 12, X1 = 20, Y0 = 4, Y1 = 14;
+    function xp(v) { return L + (v - X0) / (X1 - X0) * pw; }
+    function yp(v) { return T + (Y1 - v) / (Y1 - Y0) * ph; }
+    var p = [];
+
+    for (var x = 12; x <= 20; x += 2) {
+      p.push('<line x1="' + xp(x).toFixed(1) + '" y1="' + T + '" x2="' + xp(x).toFixed(1) + '" y2="' + (T + ph) + '" stroke="' + GRID + '" stroke-width="1"/>');
+      p.push('<text x="' + xp(x).toFixed(1) + '" y="' + (T + ph + 20) + '" font-size="11" fill="' + INK3 + '" text-anchor="middle">' + x + '%</text>');
+    }
+    for (var y = 4; y <= 14; y += 2) {
+      p.push('<line x1="' + L + '" y1="' + yp(y).toFixed(1) + '" x2="' + (L + pw) + '" y2="' + yp(y).toFixed(1) + '" stroke="' + GRID + '" stroke-width="1"/>');
+      p.push('<text x="' + (L - 10) + '" y="' + (yp(y) + 4).toFixed(1) + '" font-size="11" fill="' + INK3 + '" text-anchor="end">' + y + '%</text>');
+    }
+    p.push('<line x1="' + L + '" y1="' + (T + ph) + '" x2="' + (L + pw) + '" y2="' + (T + ph) + '" stroke="#c9ced9" stroke-width="1"/>');
+    p.push('<line x1="' + L + '" y1="' + T + '" x2="' + L + '" y2="' + (T + ph) + '" stroke="#c9ced9" stroke-width="1"/>');
+    p.push('<text x="' + (L + pw / 2) + '" y="' + (H - 14) + '" font-size="12" fill="' + INK2 + '" text-anchor="middle">近三年最大回撤绝对值（%）→ 越靠左越稳</text>');
+    p.push('<text x="16" y="' + (T + ph / 2) + '" font-size="12" fill="' + INK2 + '" text-anchor="middle" transform="rotate(-90 16 ' + (T + ph / 2) + ')">近三年年化收益（%）→ 越靠上越强</text>');
+
+    var maxInst = 65;
+    FUNDS.forEach(function (f) {
+      var cx = xp(f.dd), cy = yp(f.ret), r = 5 + Math.min(maxInst, f.inst) / maxInst * 9;
+      p.push('<circle cx="' + cx.toFixed(1) + '" cy="' + cy.toFixed(1) + '" r="' + r.toFixed(1) + '" fill="rgba(198,40,40,0.55)" stroke="' + RED + '" stroke-width="1"><title>' +
+        esc(f.n) + ' ' + f.c + '\n近三年最大回撤 -' + f.dd.toFixed(2) + '%\n近三年年化收益 +' + f.ret.toFixed(2) + '%\n卡玛比率 ' + f.calmar.toFixed(2) + '\n机构持有 ' + f.inst.toFixed(2) + '%</title></circle>');
+      p.push('<text x="' + cx.toFixed(1) + '" y="' + (cy - r - 5).toFixed(1) + '" font-size="10.5" fill="' + INK2 + '" text-anchor="middle">' + esc(f.s) + '</text>');
+    });
+
+    host.innerHTML = svg(W, H, p.join(''));
+  }
+
+  function boot() {
+    var c1 = document.getElementById('chart1');
+    var c2 = document.getElementById('chart2');
+    if (c1) { drawDrawdownBars(c1); }
+    if (c2) { drawScatter(c2); }
+
+    var sw = document.getElementById('sw1');
+    if (sw && c1) {
+      sw.addEventListener('click', function (e) {
+        var btn = e.target;
+        if (!btn || btn.tagName !== 'BUTTON') { return; }
+        var kids = sw.getElementsByTagName('button');
+        for (var i = 0; i < kids.length; i++) { kids[i].className = ''; }
+        btn.className = 'on';
+        var showChart = btn.getAttribute('data-t') === 'c';
+        c1.className = showChart ? 'chart' : 'hidden';
+        document.getElementById('table1').className = showChart ? 'hidden' : '';
+      });
+    }
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', boot);
+  } else {
+    boot();
+  }
+})();
+</script>
 </body>
 </html>
