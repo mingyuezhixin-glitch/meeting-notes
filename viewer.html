@@ -1,0 +1,1210 @@
+<!-- 顺顺 · 生辰深度解读 · 感情 / 事业 / 财运 合稿 -->
+<!DOCTYPE html>
+<html lang="zh-CN"><head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>你的生辰深度解读</title>
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Helvetica Neue", sans-serif;
+    background-color: #F5F0E8;
+    color: #2C2C2C;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+}
+
+.page {
+    max-width: 414px;
+    margin: 0 auto;
+    min-height: 100vh;
+    background-color: #F5F0E8;
+    padding: 12px 16px 40px;
+}
+
+/* ===== Card ===== */
+.card {
+    background: #FFFFFF;
+    border-radius: 16px;
+    padding: 20px 18px;
+    margin-bottom: 14px;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.05);
+}
+
+/* ===== Card Header ===== */
+.card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 18px;
+}
+
+.card-title {
+    font-size: 18px;
+    font-weight: 700;
+    color: #1A1A1A;
+    letter-spacing: 0.5px;
+}
+
+.ai-badge {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 12px;
+    color: #B8860B;
+    font-weight: 500;
+}
+
+.ai-icon {
+    width: 16px;
+    height: 16px;
+    background: linear-gradient(135deg, #D4A437, #B8860B);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    font-size: 9px;
+    font-weight: 700;
+}
+
+/* ===== Highlight Quote (with left border) ===== */
+.highlight-quote {
+    background: linear-gradient(135deg, #FFF8E7, #FDF0D9);
+    border-left: 4px solid #D4A437;
+    border-radius: 0 12px 12px 0;
+    padding: 14px 16px;
+    margin-bottom: 16px;
+}
+
+.quote-text {
+    font-size: 15px;
+    color: #5A4A2A;
+    font-weight: 600;
+    line-height: 1.8;
+}
+
+/* ===== Bullet List ===== */
+.bullet-list {
+    list-style: none;
+    margin-bottom: 16px;
+}
+
+.bullet-list li {
+    font-size: 15px;
+    color: #4A4A4A;
+    line-height: 1.9;
+    padding-left: 18px;
+    position: relative;
+    margin-bottom: 8px;
+}
+
+.bullet-list li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 10px;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: #D4A437;
+}
+
+.bullet-list li:last-child {
+    margin-bottom: 0;
+}
+
+/* ===== Action Bar ===== */
+.action-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #FAF6EF;
+    border-radius: 12px;
+    padding: 12px 14px;
+    gap: 8px;
+}
+
+.action-left {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex: 1;
+    min-width: 0;
+}
+
+.bulb-icon {
+    width: 20px;
+    height: 20px;
+    flex-shrink: 0;
+    color: #D4A437;
+}
+
+.action-question {
+    font-size: 12.5px;
+    color: #6B6B6B;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.ask-btn {
+    display: flex;
+    align-items: center;
+    gap: 2px;
+    background: linear-gradient(135deg, #D4A437, #B8860B);
+    color: #fff;
+    border: none;
+    border-radius: 20px;
+    padding: 7px 14px;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    white-space: nowrap;
+    flex-shrink: 0;
+}
+
+.ask-arrow {
+    font-size: 12px;
+    margin-left: 1px;
+}
+
+/* ===== Body Text ===== */
+.body-text {
+    font-size: 15px;
+    color: #4A4A4A;
+    line-height: 1.9;
+    margin-bottom: 16px;
+}
+
+/* ===== Analysis Block (天赋/领域) ===== */
+.analysis-label {
+    font-size: 13px;
+    color: #8B6914;
+    font-weight: 600;
+    margin-bottom: 6px;
+}
+
+.analysis-text {
+    font-size: 15px;
+    color: #4A4A4A;
+    line-height: 1.9;
+    margin-bottom: 16px;
+}
+
+.analysis-text:last-child {
+    margin-bottom: 0;
+}
+
+/* ===== 2x2 Grid (贵人特质) ===== */
+.traits-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin-bottom: 16px;
+}
+
+.trait-card {
+    background: #FAF6EF;
+    border-radius: 14px;
+    padding: 16px 14px 14px;
+    display: flex;
+    flex-direction: column;
+    min-height: 120px;
+}
+
+.trait-icon {
+    width: 32px;
+    height: 32px;
+    margin-bottom: 10px;
+    color: #D4A437;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.trait-icon svg {
+    width: 28px;
+    height: 28px;
+}
+
+.trait-label {
+    font-size: 13px;
+    color: #1A1A1A;
+    font-weight: 600;
+    margin-bottom: 6px;
+}
+
+.trait-desc {
+    font-size: 15px;
+    color: #6B6B6B;
+    line-height: 1.7;
+}
+
+/* ===== Progress Comparison ===== */
+.progress-section {
+    margin-bottom: 18px;
+}
+
+.progress-row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 10px;
+}
+
+.progress-row:last-child {
+    margin-bottom: 0;
+}
+
+.progress-label {
+    font-size: 13px;
+    color: #4A4A4A;
+    font-weight: 600;
+    width: 70px;
+    flex-shrink: 0;
+}
+
+.progress-track {
+    flex: 1;
+    height: 10px;
+    background: #E8E0D0;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.progress-fill {
+    height: 100%;
+    border-radius: 5px;
+    background: linear-gradient(90deg, #D4A437, #B8860B);
+}
+
+.progress-percent {
+    font-size: 13px;
+    color: #8B6914;
+    font-weight: 700;
+    width: 36px;
+    text-align: right;
+    flex-shrink: 0;
+}
+
+/* ===== Dual-color Split Bar (打工/创业) ===== */
+.split-section {
+    margin-bottom: 18px;
+}
+
+.split-bar {
+    display: flex;
+    height: 36px;
+    border-radius: 8px;
+    overflow: hidden;
+    background: #E8E0D0;
+}
+
+.split-seg {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12.5px;
+    font-weight: 600;
+    color: #fff;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.split-work {
+    background: linear-gradient(90deg, #D4A437, #B8860B);
+}
+
+.split-entre {
+    background: #C0C0C0;
+    font-size: 11.5px;
+}
+
+.split-note {
+    font-size: 15px;
+    color: #4A4A4A;
+    line-height: 1.9;
+    margin-top: 14px;
+}
+
+.tip-box {
+    margin-top: 12px;
+    background: #FAF6EF;
+    border-radius: 12px;
+    padding: 14px;
+    font-size: 15px;
+    color: #4A4A4A;
+    line-height: 1.85;
+}
+
+/* ===== City Pills ===== */
+.city-pills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 16px;
+}
+
+.city-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    background: linear-gradient(135deg, #FFF8E7, #FDF0D9);
+    border: 1px solid #F0D9A8;
+    border-radius: 24px;
+    padding: 8px 18px;
+    font-size: 14px;
+    color: #8B6914;
+    font-weight: 600;
+}
+
+/* ===== Bottom Note ===== */
+.bottom-note {
+    text-align: center;
+    font-size: 11px;
+    color: #B0B0B0;
+    padding: 8px 0 4px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Helvetica Neue", sans-serif;
+    background-color: #F5F0E8;
+    color: #2C2C2C;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+}
+
+.page {
+    max-width: 414px;
+    margin: 0 auto;
+    min-height: 100vh;
+    background-color: #F5F0E8;
+    padding: 12px 16px 40px;
+}
+
+/* Card */
+.card {
+    background: #FFFFFF;
+    border-radius: 16px;
+    padding: 20px 18px;
+    margin-bottom: 14px;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.05);
+}
+
+/* Card Header */
+.card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 16px;
+}
+
+.card-title {
+    font-size: 18px;
+    font-weight: 700;
+    color: #1A1A1A;
+    letter-spacing: 0.5px;
+}
+
+.ai-badge {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 12px;
+    color: #B8860B;
+    font-weight: 500;
+}
+
+.ai-icon {
+    width: 16px;
+    height: 16px;
+    background: linear-gradient(135deg, #D4A437, #B8860B);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    font-size: 10px;
+    font-weight: 700;
+}
+
+/* Section 1: Wealth Level */
+.highlight-banner {
+    background: linear-gradient(135deg, #FFF8E7, #FDF0D9);
+    border: 1px solid #F0D9A8;
+    border-radius: 12px;
+    padding: 14px 16px;
+    margin-bottom: 14px;
+}
+
+.highlight-banner-text {
+    font-size: 15px;
+    color: #8B6914;
+    font-weight: 600;
+    line-height: 1.7;
+}
+
+.body-text {
+    font-size: 15px;
+    color: #4A4A4A;
+    line-height: 1.85;
+    margin-bottom: 16px;
+}
+
+/* Action Bar */
+.action-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #FAF6EF;
+    border-radius: 12px;
+    padding: 12px 14px;
+    gap: 8px;
+}
+
+.action-left {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex: 1;
+    min-width: 0;
+}
+
+.bulb-icon {
+    width: 20px;
+    height: 20px;
+    flex-shrink: 0;
+    color: #D4A437;
+}
+
+.action-question {
+    font-size: 12.5px;
+    color: #6B6B6B;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.ask-btn {
+    display: flex;
+    align-items: center;
+    gap: 2px;
+    background: linear-gradient(135deg, #D4A437, #B8860B);
+    color: #fff;
+    border: none;
+    border-radius: 20px;
+    padding: 7px 14px;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    white-space: nowrap;
+    flex-shrink: 0;
+}
+
+.ask-arrow {
+    font-size: 12px;
+    margin-left: 1px;
+}
+
+/* Section 2: Wealth Magnitude */
+.range-label {
+    font-size: 13px;
+    color: #8B6914;
+    font-weight: 500;
+    margin-bottom: 6px;
+}
+
+.range-value {
+    font-size: 32px;
+    font-weight: 800;
+    color: #D4A437;
+    margin-bottom: 16px;
+    letter-spacing: 1px;
+}
+
+.characteristic-label {
+    font-size: 13px;
+    color: #8B6914;
+    font-weight: 500;
+    margin-bottom: 6px;
+}
+
+.characteristic-text {
+    font-size: 15px;
+    color: #4A4A4A;
+    line-height: 1.85;
+    margin-bottom: 16px;
+}
+
+/* Section 3: Best Wealth Method */
+.comparison-container {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 14px;
+}
+
+.compare-card {
+    flex: 1;
+    background: #FAF6EF;
+    border-radius: 12px;
+    padding: 16px 14px;
+    text-align: center;
+}
+
+.compare-label {
+    font-size: 14px;
+    color: #4A4A4A;
+    font-weight: 600;
+    margin-bottom: 8px;
+}
+
+.compare-strength {
+    font-size: 13px;
+    font-weight: 700;
+    margin-bottom: 12px;
+}
+
+.strength-strong {
+    color: #D4A437;
+}
+
+.strength-weak {
+    color: #B0B0B0;
+}
+
+.progress-bar {
+    width: 100%;
+    height: 8px;
+    background: #E8E0D0;
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.progress-fill {
+    height: 100%;
+    border-radius: 4px;
+}
+
+.fill-strong {
+    width: 85%;
+    background: linear-gradient(90deg, #D4A437, #B8860B);
+}
+
+.fill-weak {
+    width: 25%;
+    background: linear-gradient(90deg, #C0C0C0, #A0A0A0);
+}
+
+.strategy-text {
+    font-size: 15px;
+    color: #4A4A4A;
+    line-height: 1.85;
+    margin-bottom: 16px;
+}
+
+/* Bottom spacing */
+.bottom-note {
+    text-align: center;
+    font-size: 11px;
+    color: #B0B0B0;
+    padding: 8px 0 4px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Helvetica Neue", sans-serif;
+    background-color: #F5F0E8;
+    color: #2C2C2C;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+}
+
+.page {
+    max-width: 414px;
+    margin: 0 auto;
+    min-height: 100vh;
+    background-color: #F5F0E8;
+    padding: 12px 16px 40px;
+}
+
+/* ===== Card ===== */
+.card {
+    background: #FFFFFF;
+    border-radius: 16px;
+    padding: 20px 18px;
+    margin-bottom: 14px;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.05);
+}
+
+/* ===== Card Header ===== */
+.card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 18px;
+}
+
+.card-title {
+    font-size: 18px;
+    font-weight: 700;
+    color: #1A1A1A;
+    letter-spacing: 0.5px;
+}
+
+.ai-badge {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 12px;
+    color: #B8860B;
+    font-weight: 500;
+}
+
+.ai-icon {
+    width: 16px;
+    height: 16px;
+    background: linear-gradient(135deg, #D4A437, #B8860B);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 0;
+}
+
+/* ===== Section 1: 感情画像 Grid ===== */
+.traits-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin-bottom: 18px;
+}
+
+.trait-card {
+    background: #FAF6EF;
+    border-radius: 14px;
+    padding: 16px 14px 14px;
+    display: flex;
+    flex-direction: column;
+    min-height: 120px;
+}
+
+.trait-icon {
+    width: 32px;
+    height: 32px;
+    margin-bottom: 10px;
+    color: #D4A437;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.trait-icon svg {
+    width: 28px;
+    height: 28px;
+}
+
+.trait-label {
+    font-size: 13px;
+    color: #1A1A1A;
+    font-weight: 600;
+    margin-bottom: 6px;
+}
+
+.trait-desc {
+    font-size: 15px;
+    color: #6B6B6B;
+    line-height: 1.7;
+}
+
+/* ===== Body Text ===== */
+.body-text {
+    font-size: 15px;
+    color: #4A4A4A;
+    line-height: 1.9;
+    margin-bottom: 16px;
+}
+
+/* ===== Action Bar ===== */
+.action-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #FAF6EF;
+    border-radius: 12px;
+    padding: 12px 14px;
+    gap: 8px;
+}
+
+.action-left {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex: 1;
+    min-width: 0;
+}
+
+.bulb-icon {
+    width: 20px;
+    height: 20px;
+    flex-shrink: 0;
+    color: #D4A437;
+}
+
+.action-question {
+    font-size: 12.5px;
+    color: #6B6B6B;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.ask-btn {
+    display: flex;
+    align-items: center;
+    gap: 2px;
+    background: linear-gradient(135deg, #D4A437, #B8860B);
+    color: #fff;
+    border: none;
+    border-radius: 20px;
+    padding: 7px 14px;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    white-space: nowrap;
+    flex-shrink: 0;
+}
+
+.ask-arrow {
+    font-size: 12px;
+    margin-left: 1px;
+}
+
+/* ===== Highlight Quote ===== */
+.highlight-quote {
+    background: linear-gradient(135deg, #FFF8E7, #FDF0D9);
+    border-left: 4px solid #D4A437;
+    border-radius: 0 12px 12px 0;
+    padding: 14px 16px;
+    margin-bottom: 16px;
+}
+
+.quote-text {
+    font-size: 15px;
+    color: #5A4A2A;
+    font-weight: 700;
+    line-height: 1.8;
+}
+
+/* ===== Section 2: 真爱特征 Table ===== */
+.trait-table-wrap {
+    border-radius: 12px;
+    overflow: hidden;
+    border: 1px solid #F0E8D8;
+    margin-bottom: 16px;
+}
+
+.trait-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: #FFFCF6;
+}
+
+.trait-table th {
+    background: linear-gradient(135deg, #FFF8E7, #FDF0D9);
+    color: #8B6914;
+    font-size: 13px;
+    font-weight: 600;
+    padding: 12px 14px;
+    text-align: left;
+    border-bottom: 1px solid #F0D9A8;
+}
+
+.trait-table th:not(:last-child) {
+    border-right: 1px solid #F0D9A8;
+}
+
+.trait-table td {
+    font-size: 13px;
+    color: #4A4A4A;
+    padding: 14px;
+    line-height: 1.7;
+    border-bottom: 1px solid #F5EFE2;
+    vertical-align: top;
+}
+
+.trait-table tr:last-child td {
+    border-bottom: none;
+}
+
+.trait-table td:first-child {
+    font-weight: 600;
+    color: #5A4A2A;
+    background: #FAF6EF;
+    width: 35%;
+    border-right: 1px solid #F0E8D8;
+}
+
+/* ===== Section 3: 关键感情线 Timeline ===== */
+.timeline {
+    position: relative;
+    padding-left: 24px;
+    margin-bottom: 18px;
+}
+
+.timeline::before {
+    content: '';
+    position: absolute;
+    left: 7px;
+    top: 8px;
+    bottom: 8px;
+    width: 2px;
+    background: linear-gradient(180deg, #D4A437, #E8D9B8);
+    border-radius: 1px;
+}
+
+.timeline-item {
+    position: relative;
+    padding-bottom: 20px;
+}
+
+.timeline-item:last-child {
+    padding-bottom: 0;
+}
+
+.timeline-dot {
+    position: absolute;
+    left: -22px;
+    top: 4px;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background: #FFFFFF;
+    border: 3px solid #D4A437;
+    box-shadow: 0 1px 4px rgba(212, 164, 55, 0.3);
+    z-index: 1;
+}
+
+.timeline-age {
+    font-size: 16px;
+    font-weight: 800;
+    color: #D4A437;
+    margin-bottom: 2px;
+}
+
+.timeline-tag {
+    display: inline-block;
+    font-size: 12px;
+    color: #8B6914;
+    font-weight: 600;
+    background: #FFF8E7;
+    border: 1px solid #F0D9A8;
+    border-radius: 6px;
+    padding: 2px 8px;
+    margin-bottom: 6px;
+}
+
+.timeline-desc {
+    font-size: 13px;
+    color: #4A4A4A;
+    line-height: 1.8;
+}
+
+/* ===== Bottom Note ===== */
+.bottom-note {
+    text-align: center;
+    font-size: 11px;
+    color: #B0B0B0;
+    padding: 8px 0 4px;
+}
+
+/* ===== 合稿：封面与分节 ===== */
+.report-hero {
+    text-align: center;
+    padding: 22px 16px 26px;
+    margin-bottom: 18px;
+    background: #FFFFFF;
+    border-radius: 16px;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.05);
+}
+.report-hero .rh-seal {
+    width: 44px; height: 44px; margin: 0 auto 12px;
+    border-radius: 12px;
+    background: linear-gradient(135deg, #D4A437, #B8860B);
+    color: #fff; font-size: 22px; font-weight: 700;
+    display: flex; align-items: center; justify-content: center;
+    box-shadow: inset 0 0 0 2px rgba(255, 255, 255, 0.3);
+}
+.report-hero .rh-title {
+    font-size: 22px; font-weight: 700; color: #1A1A1A; letter-spacing: 1px;
+}
+.report-hero .rh-sub {
+    font-size: 13px; color: #8B6914; margin-top: 8px; letter-spacing: .5px;
+}
+.sec-divider {
+    display: flex; align-items: center; gap: 10px;
+    margin: 30px 0 14px;
+}
+.sec-divider .sec-num {
+    flex: 0 0 auto; width: 28px; height: 28px; border-radius: 9px;
+    background: linear-gradient(135deg, #D4A437, #B8860B);
+    color: #fff; font-size: 14px; font-weight: 700;
+    display: flex; align-items: center; justify-content: center;
+}
+.sec-divider h2 {
+    font-size: 17px; font-weight: 700; color: #1A1A1A; letter-spacing: .5px;
+}
+.sec-divider .sec-line {
+    flex: 1; height: 1px;
+    background: linear-gradient(90deg, #E8D9B8, rgba(232, 217, 184, 0));
+}
+</style>
+</head>
+<body>
+<div class="toolbar">
+  <div class="toolbar-row">
+    <strong>报告查看器</strong>
+    <span class="toolbar-hint">把 Dify 输出的 JSON 整段粘进下面的框，点「渲染报告」即可</span>
+    <button class="tbtn primary" onclick="build()">渲染报告</button>
+    <button class="tbtn" onclick="togglePanel()" id="toggle">收起输入框</button>
+    <button class="tbtn" onclick="clearAll()">清空</button>
+  </div>
+  <div id="panel">
+    <textarea id="in" spellcheck="false" placeholder='在此粘贴 JSON。可以直接粘贴多段（财富、感情、事业各一段），查看器会自动合并并按顺序渲染。'></textarea>
+  </div>
+  <div id="status" class="status"></div>
+</div>
+<div class="page" id="page"></div>
+
+<script>
+const SECTIONS = [
+  {num:'一', title:'财富层次', cards:['你的财富层次','你的财富量级','你的最佳求财方式']},
+  {num:'二', title:'感情画像', cards:['你的感情画像','你的真爱特征','你的关键感情线']},
+  {num:'三', title:'事业格局', cards:['你的事业格局','你的事业贵人','你适合打工还是创业','最旺你事业的城市']}
+];
+const BULB = '<svg class="bulb-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 2C8.13 2 5 5.13 5 9c0 2.38 1.19 4.47 3 5.74V17c0 .55.45 1 1 1h6c.55 0 1-.45 1-1v-2.26c1.81-1.27 3-3.36 3-5.74 0-3.87-3.13-7-7-7zM9 21c0 .55.45 1 1 1h4c.55 0 1-.45 1-1v-1H9v1z" fill="currentColor"></path></svg>';
+
+function esc(s){ return String(s==null?'':s).replace(/[&<>]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;'}[c])); }
+function norm(t){ return String(t||'').replace(/\s/g,''); }
+
+function splitDocs(text){
+  const docs=[]; let depth=0,start=-1,inStr=false,escaped=false;
+  for(let i=0;i<text.length;i++){
+    const ch=text[i];
+    if(inStr){
+      if(escaped){escaped=false;}
+      else if(ch==='\\'){escaped=true;}
+      else if(ch==='"'){inStr=false;}
+      continue;
+    }
+    if(ch==='"'){inStr=true;continue;}
+    if(ch==='{'){ if(depth===0) start=i; depth++; }
+    else if(ch==='}'){ depth--; if(depth===0 && start>=0){ docs.push(text.slice(start,i+1)); start=-1; } }
+  }
+  return docs;
+}
+
+function collect(text){
+  const cards=[]; let info=null; const bad=[];
+  splitDocs(text).forEach((d,idx)=>{
+    let o; try{ o=JSON.parse(d); }catch(e){ bad.push(idx+1); return; }
+    Object.keys(o).forEach(k=>{
+      const r=o[k]; if(!r || typeof r!=='object') return;
+      if(r.consultant_info && !info) info=r.consultant_info;
+      (r.sections||[]).forEach(sec=>(sec.cards||[]).forEach(c=>{ if(c&&c.card_title) cards.push(c); }));
+    });
+  });
+  return {cards, info, bad};
+}
+
+function actionBar(c){
+  const q=(c.follow_up&&c.follow_up.length)?c.follow_up[0]:'';
+  return '<div class="action-bar"><div class="action-left">'+BULB
+    +'<span class="action-question">'+esc(q)+'</span></div>'
+    +'<button class="ask-btn">问问<span class="ask-arrow">›</span></button></div>';
+}
+function cardShell(title, inner){
+  return '<div class="card"><div class="card-header"><div class="card-title">'+esc(title)+'</div>'
+    +'<div class="ai-badge"><div class="ai-icon">AI</div><span>问顺顺老师</span></div></div>'
+    + inner + '</div>';
+}
+function quoteBlock(q){ return q ? '<div class="highlight-quote"><div class="quote-text">'+esc(q)+'</div></div>' : ''; }
+function bannerBlock(q){ return q ? '<div class="highlight-banner"><div class="highlight-banner-text">'+esc(q)+'</div></div>' : ''; }
+function textBlock(c){ return '<div class="body-text" style="font-size: 15px;">'+esc(c.text)+(c.hook?'<strong>'+esc(c.hook)+'</strong>':'')+'</div>'; }
+function traitsGrid(items){
+  return '<div class="traits-grid">'+(items||[]).map(it=>
+    '<div class="trait-card"><div class="trait-label">'+esc(it.item_title)+'</div>'
+    +'<div class="trait-desc" style="font-size: 15px;">'+esc(it.text)+'</div></div>').join('')+'</div>';
+}
+function traitTable(items){
+  return '<div class="trait-table-wrap"><table class="trait-table"><thead><tr>'
+    +'<th style="font-size: 15px;">特征</th><th style="font-size: 15px;">解读</th></tr></thead><tbody>'
+    +(items||[]).map(it=>'<tr><td style="font-size: 15px;">'+esc(it.item_title)+'</td>'
+    +'<td style="font-size: 15px;">'+esc(it.text)+'</td></tr>').join('')
+    +'</tbody></table></div>';
+}
+function timeline(items){
+  return '<div class="timeline">'+(items||[]).map(it=>
+    '<div class="timeline-item"><div class="timeline-dot"></div>'
+    +'<div class="timeline-age">'+esc(it.time)+'</div>'
+    +'<div class="timeline-tag">'+esc(it.tag)+'</div>'
+    +'<div class="timeline-desc" style="font-size: 15px">'+esc(it.text)+'</div></div>').join('')+'</div>';
+}
+function comparison(items){
+  return '<div class="comparison-container">'+(items||[]).map(it=>{
+    const strong = String(it.value).indexOf('强')>=0;
+    const cls = strong?'strong':'weak';
+    return '<div class="compare-card"><div class="compare-label">'+esc(it.item_title)+'</div>'
+      +'<div class="compare-strength strength-'+cls+'">'+esc(it.value)+'</div>'
+      +'<div class="progress-bar"><div class="progress-fill fill-'+cls+'"></div></div></div>';
+  }).join('')+'</div>';
+}
+function strategyBlock(c){
+  return '<div class="strategy-text">'+esc(c.text)+(c.hook?'<strong>'+esc(c.hook)+'</strong>':'')+'</div>';
+}
+function analysis(items){
+  return (items||[]).map(it=>'<div class="analysis-label">'+esc(it.item_title)+'</div>'
+    +'<div class="analysis-text">'+esc(it.text)+'</div>').join('');
+}
+function ratioBlock(c){
+  const v = (c.stats&&c.stats.length)?String(c.stats[0].value):'';
+  const mw = v.match(/打工\s*(\d+)\s*%/); const me = v.match(/创业\s*(\d+)\s*%/);
+  const w = mw?mw[1]:'70'; const e = me?me[1]:'30';
+  return '<div class="split-section"><div class="split-bar">'
+    +'<div class="split-seg split-work" style="width: '+w+'%;">打工 '+w+'%</div>'
+    +'<div class="split-seg split-entre" style="width: '+e+'%;">创业 '+e+'%</div></div>'
+    +'<div class="split-note">'+esc(c.text)+'</div>'
+    +'<div class="tip-box">'+esc(c.advice||'')+(c.hook?'<strong>'+esc(c.hook)+'</strong>':'')+'</div></div>';
+}
+function cityBlock(c){
+  return '<div class="city-pills">'+(c.tags||[]).map(t=>'<span class="city-pill">'+esc(t)+'</span>').join('')+'</div>';
+}
+function metricBlock(c){
+  const s=(c.stats&&c.stats.length)?c.stats[0]:{label:'财富区间',value:''};
+  return '<div class="range-label">'+esc(s.label)+'</div><div class="range-value">'+esc(s.value)+'</div>'
+    +'<div class="characteristic-label">'+esc(c.subtitle||'承财特点')+'</div>'
+    +'<div class="characteristic-text" style="font-size: 15px;">'+esc(c.text||'')
+    +(c.hook?'<strong>'+esc(c.hook)+'</strong>':'')+'</div>';
+}
+
+function renderCard(c){
+  const t = norm(c.card_title);
+  if(t==='你的财富层次')     return cardShell(c.card_title, bannerBlock(c.quote)+textBlock(c)+actionBar(c));
+  if(t==='你的财富量级')     return cardShell(c.card_title, metricBlock(c)+actionBar(c));
+  if(t==='你的最佳求财方式') return cardShell(c.card_title, comparison(c.items)+strategyBlock(c)+actionBar(c));
+  if(t==='你的感情画像')     return cardShell(c.card_title, traitsGrid(c.items)+textBlock(c)+actionBar(c));
+  if(t==='你的真爱特征')     return cardShell(c.card_title, quoteBlock(c.quote)+traitTable(c.items)+actionBar(c));
+  if(t==='你的关键感情线')   return cardShell(c.card_title, timeline(c.timeline)+textBlock(c)+actionBar(c));
+  if(t==='你的事业格局')     return cardShell(c.card_title, quoteBlock(c.quote)+analysis(c.items)+actionBar(c));
+  if(t==='你的事业贵人')     return cardShell(c.card_title, quoteBlock(c.quote)+traitsGrid(c.items)+actionBar(c));
+  if(t==='你适合打工还是创业') return cardShell(c.card_title, ratioBlock(c)+actionBar(c));
+  if(t==='最旺你事业的城市') return cardShell(c.card_title, cityBlock(c)+textBlock(c)+actionBar(c));
+  // 未识别的卡片：把能拿到的字段尽量展示出来
+  let inner = quoteBlock(c.quote);
+  if(c.text) inner += textBlock(c);
+  if(c.items && c.items.length && c.items[0].value!==undefined) inner += comparison(c.items);
+  else if(c.items && c.items.length) inner += traitsGrid(c.items);
+  if(c.timeline) inner += timeline(c.timeline);
+  if(c.tags) inner += cityBlock(c);
+  return cardShell(c.card_title, inner + actionBar(c));
+}
+
+function build(){
+  const text=document.getElementById('in').value;
+  const status=document.getElementById('status');
+  const page=document.getElementById('page');
+  if(!text.trim()){ status.textContent='请先粘贴 JSON 数据'; status.className='status warn'; return; }
+  const {cards, info, bad} = collect(text);
+  if(!cards.length){
+    status.textContent='没解析出任何卡片，请检查 JSON 是否为 Dify 的输出格式';
+    status.className='status warn';
+    return;
+  }
+  const byTitle={};
+  cards.forEach(c=>{ const k=norm(c.card_title); if(!byTitle[k]) byTitle[k]=c; });
+
+  let html='<div class="report-hero"><div class="rh-seal">顺</div>'
+    +'<div class="rh-title">你的生辰深度解读</div>'
+    +'<div class="rh-sub">财运 · 感情 · 事业 三盘合参</div>'
+    + (info? '<div class="rh-info">'+(info.birthday?esc(info.birthday):'')
+        + (info.bazi_info? (info.birthday?' ｜ ':'')+esc(info.bazi_info) : '') +'</div>' : '')
+    +'</div>';
+
+  let shown=0;
+  SECTIONS.forEach(sec=>{
+    const list=sec.cards.map(t=>byTitle[norm(t)]).filter(Boolean);
+    if(!list.length) return;
+    html+='<div class="sec-divider"><span class="sec-num">'+sec.num+'</span><h2>'+sec.title+'</h2><span class="sec-line"></span></div>';
+    list.forEach(c=>{ html+=renderCard(c); shown++; });
+  });
+  // 未落入已知分节的卡片，追加到末尾
+  const known={}; SECTIONS.forEach(s=>s.cards.forEach(t=>known[norm(t)]=1));
+  const extras=cards.filter(c=>!known[norm(c.card_title)]);
+  if(extras.length){
+    html+='<div class="sec-divider"><span class="sec-num">附</span><h2>其他</h2><span class="sec-line"></span></div>';
+    extras.forEach(c=>{ html+=renderCard(c); shown++; });
+  }
+  html+='<div class="bottom-note">— 以上为AI生成内容，仅供参考 —</div>';
+  page.innerHTML=html;
+  status.textContent='已渲染 '+shown+' 张卡片'
+    + (bad.length? '（有 '+bad.length+' 段未能解析为 JSON）':'');
+  status.className = bad.length? 'status warn':'status ok';
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+
+function clearAll(){
+  document.getElementById('in').value='';
+  document.getElementById('page').innerHTML='';
+  const s=document.getElementById('status'); s.textContent=''; s.className='status';
+}
+
+function togglePanel(){
+  const p=document.getElementById('panel');
+  const hidden = p.style.display==='none';
+  p.style.display = hidden? 'block':'none';
+  document.getElementById('toggle').textContent = hidden? '收起输入框' : '展开输入框';
+}
+</script>
+
+<style>
+.toolbar{max-width:700px;margin:0 auto 18px;background:#FFFFFF;border-radius:16px;padding:16px;
+  box-shadow:0 2px 12px rgba(0,0,0,.05);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Microsoft YaHei",sans-serif;}
+.toolbar-row{display:flex;align-items:center;gap:10px;flex-wrap:wrap;}
+.toolbar-row strong{font-size:15px;color:#1A1A1A;}
+.toolbar-hint{font-size:12.5px;color:#8A8A8A;flex:1;min-width:180px;}
+.tbtn{border:1px solid #E3D9C4;background:#FAF6EF;color:#6B5B33;border-radius:10px;
+  padding:7px 14px;font-size:13px;cursor:pointer;}
+.tbtn:hover{background:#F3EDE0;}
+.tbtn.primary{background:linear-gradient(135deg,#D4A437,#B8860B);border:none;color:#fff;font-weight:600;}
+.tbtn.primary:hover{filter:brightness(1.05);}
+#panel{margin-top:12px;}
+#in{width:100%;box-sizing:border-box;height:190px;border:1px solid #E3D9C4;border-radius:10px;
+  padding:10px 12px;font-size:12.5px;line-height:1.6;font-family:Consolas,Monaco,"Courier New",monospace;
+  color:#3A3A3A;background:#FDFCF9;resize:vertical;}
+#in:focus{outline:none;border-color:#D4A437;}
+.status{margin-top:10px;font-size:13px;color:#8A8A8A;}
+.status.ok{color:#2E7D32;}
+.status.warn{color:#C0392B;}
+.report-hero .rh-info{font-size:12.5px;color:#9A9A9A;margin-top:6px;letter-spacing:.3px;}
+</style>
+
+</body></html>
