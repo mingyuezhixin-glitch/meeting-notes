@@ -1,0 +1,853 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>月运 · 陈冬冬 · 2026年9月</title>
+<style>
+/* ===== 全站样式表已内联到此页（原为外链，避免某些预览器不加载外部样式） ===== */
+/* =========================================================================
+   月来运转 · 月运解读 App —— 共享设计令牌 + 组件库
+   面向 30–50 岁下沉市场：新中式暖调 / 超大字号 / 高对比 / 低层级
+   ========================================================================= */
+
+:root{
+  /* 文字 */
+  --ink:#2A2118;
+  --ink2:#5C4E3E;
+  --ink3:#93836E;
+  /* 底色 */
+  --paper:#F6F1E7;
+  --paper2:#EFE7D8;
+  --card:#FFFFFF;
+  --card2:#FCF8F1;
+  --line:#EAE0D0;
+  /* 主色 · 朱红 */
+  --red:#C1392B;
+  --red2:#E05543;
+  --redsoft:#FCEDE9;
+  /* 辅色 · 鎏金 */
+  --gold:#BE8F35;
+  --gold2:#E7C878;
+  --goldsoft:#FBF3DF;
+  /* 语义 · 宜/吉 */
+  --green:#2E8A55;
+  --green2:#4CA96E;
+  --greensoft:#E7F4EB;
+  /* 圆角 */
+  --r-xl:24px; --r-lg:18px; --r-md:14px; --r-sm:10px; --r-full:999px;
+  /* 阴影 */
+  --sh-1:0 2px 8px rgba(94,66,26,.06);
+  --sh-2:0 8px 24px rgba(94,66,26,.10);
+  --sh-3:0 14px 40px rgba(94,66,26,.18);
+  /* 字号（整体放大） */
+  --fs-xs:12px; --fs-sm:13px; --fs-base:15px; --fs-md:16px;
+  --fs-lg:18px; --fs-xl:21px; --fs-2xl:26px; --fs-3xl:34px; --fs-4xl:46px;
+}
+
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html,body{margin:0;padding:0}
+body{
+  font-family:"PingFang SC","Microsoft YaHei","Hiragino Sans GB","Noto Sans CJK SC",system-ui,sans-serif;
+  font-size:var(--fs-base);
+  line-height:1.6;
+  color:var(--ink);
+  background:var(--paper);
+  -webkit-font-smoothing:antialiased;
+}
+a{color:inherit}
+img{max-width:100%}
+
+/* ---------- 屏幕容器 ---------- */
+.screen{
+  position:relative;
+  display:flex;flex-direction:column;
+  width:100%;max-width:390px;height:100vh;margin:0 auto;
+  overflow:hidden;background:var(--paper);
+}
+
+/* ---------- 状态栏 ---------- */
+.statusbar{
+  flex:none;height:40px;padding:0 18px;
+  display:flex;align-items:center;justify-content:space-between;
+  font-size:var(--fs-sm);font-weight:700;color:var(--ink);
+}
+.sb-r{display:flex;align-items:center;gap:4px;font-size:11px;font-weight:600;color:var(--ink2)}
+.sb-r i{display:block;width:3px;border-radius:1px;background:var(--ink2)}
+.sb-r i:nth-child(1){height:5px}
+.sb-r i:nth-child(2){height:8px}
+.sb-r i:nth-child(3){height:11px}
+
+/* ---------- 顶部标题栏 ---------- */
+.appbar{
+  flex:none;display:flex;align-items:center;justify-content:space-between;gap:10px;
+  padding:4px 18px 14px;
+}
+.appbar h1{margin:0;font-size:var(--fs-2xl);font-weight:800;letter-spacing:.5px}
+.appbar .sub-t{margin:4px 0 0;font-size:var(--fs-sm);color:var(--ink3);font-weight:500}
+.appbar .act{
+  flex:none;display:flex;align-items:center;gap:8px;
+  font-size:var(--fs-sm);color:var(--ink2);
+}
+.appbar .ico-btn{
+  width:34px;height:34px;border-radius:var(--r-full);border:1px solid var(--line);
+  background:#fff;display:grid;place-items:center;color:var(--ink2);
+}
+.appbar .ico-btn svg{width:19px;height:19px}
+/* 子页返回栏 */
+.appbar.sub{justify-content:flex-start;padding-bottom:12px}
+.appbar.sub h1{font-size:var(--fs-xl);flex:1;text-align:center}
+.back{
+  flex:none;width:36px;height:36px;border-radius:var(--r-full);
+  background:#fff;border:1px solid var(--line);display:grid;place-items:center;color:var(--ink);
+}
+.back svg{width:20px;height:20px}
+.appbar-pad{flex:none;width:36px;height:36px}
+
+/* ---------- 滚动内容区 ---------- */
+.scroll{
+  flex:1;min-height:0;overflow-y:auto;overflow-x:hidden;
+  padding:0 16px 26px;
+  scrollbar-width:none;
+}
+.scroll::-webkit-scrollbar{display:none}
+.scroll.pb-fab{padding-bottom:110px}
+
+/* ---------- 底部导航（4 Tab，禁止增删） ---------- */
+.tabbar{
+  flex:none;display:flex;align-items:stretch;
+  background:#fff;border-top:1px solid var(--line);
+  padding:6px 4px calc(6px + env(safe-area-inset-bottom));
+  box-shadow:0 -4px 18px rgba(94,66,26,.05);
+}
+.tb{
+  flex:1;display:flex;flex-direction:column;align-items:center;gap:3px;
+  padding:6px 0;text-decoration:none;color:var(--ink3);
+  font-size:var(--fs-xs);font-weight:600;
+}
+.tb .tic{width:23px;height:23px}
+.tb.is-on{color:var(--red)}
+.tb.is-on .tic{transform:translateY(-1px)}
+
+/* ---------- 悬浮按钮 ---------- */
+.fab{
+  position:absolute;right:16px;bottom:82px;z-index:20;
+  display:flex;align-items:center;gap:6px;
+  padding:12px 18px;border-radius:var(--r-full);
+  background:linear-gradient(135deg,var(--red),var(--red2));
+  color:#fff;font-size:var(--fs-base);font-weight:800;text-decoration:none;
+  box-shadow:0 10px 24px rgba(193,57,43,.34);
+}
+.fab svg{width:19px;height:19px}
+
+/* ---------- 卡片 ---------- */
+.card{
+  background:var(--card);border:1px solid var(--line);border-radius:var(--r-lg);
+  padding:16px;box-shadow:var(--sh-1);margin-bottom:12px;
+}
+.card.tint{background:var(--card2)}
+.card.flat{box-shadow:none}
+.card.tight{padding:12px 14px}
+.ct{display:flex;align-items:center;gap:8px;margin:0 0 12px;font-size:var(--fs-lg);font-weight:800}
+.ct-mark{flex:none;width:4px;height:16px;border-radius:2px;background:var(--gold)}
+.ct .more{margin-left:auto;font-size:var(--fs-sm);font-weight:500;color:var(--ink3);text-decoration:none}
+.sec{display:flex;align-items:center;justify-content:space-between;margin:22px 4px 10px}
+.sec h3{display:flex;align-items:center;gap:8px;margin:0;font-size:var(--fs-lg);font-weight:800}
+.sec h3::before{content:"";flex:none;width:4px;height:16px;border-radius:2px;background:var(--red)}
+.sec a{font-size:var(--fs-sm);color:var(--ink3);text-decoration:none}
+
+/* ---------- 文本 ---------- */
+.p{margin:0;font-size:var(--fs-base);line-height:1.9;color:var(--ink2)}
+.p + .p{margin-top:10px}
+.note{margin:8px 0 0;font-size:var(--fs-sm);line-height:1.7;color:var(--ink3)}
+.hook{
+  font-weight:800;color:#8A5310;
+  background:linear-gradient(transparent 62%,rgba(231,200,120,.55) 62%);
+}
+.em{font-weight:800;color:var(--red)}
+.divider{height:1px;background:var(--line);margin:14px 0}
+
+/* ---------- 首屏运势卡（渐变） ---------- */
+.hero{
+  position:relative;overflow:hidden;
+  padding:20px;border-radius:var(--r-xl);color:#fff;
+  background:linear-gradient(148deg,#B9382A 0%,#CC5136 44%,#BE8A33 100%);
+  box-shadow:0 12px 26px rgba(160,70,40,.26);
+}
+.hero::before,.hero::after{content:"";position:absolute;border-radius:50%;background:rgba(255,255,255,.10)}
+.hero::before{right:-46px;top:-54px;width:176px;height:176px}
+.hero::after{left:-36px;bottom:-64px;width:132px;height:132px;background:rgba(255,255,255,.07)}
+.hero>*{position:relative;z-index:1}
+.hero .h-eyebrow{font-size:var(--fs-sm);font-weight:600;opacity:.9;letter-spacing:1px}
+.hero .h-key{
+  display:inline-flex;align-items:center;gap:5px;margin-left:8px;
+  padding:2px 10px;border-radius:var(--r-full);
+  background:rgba(255,255,255,.22);font-size:var(--fs-xs);font-weight:700;
+}
+.hero .h-main{display:flex;align-items:flex-end;gap:14px;margin:12px 0 4px}
+.hero .h-num{font-size:var(--fs-4xl);font-weight:800;line-height:1}
+.hero .h-num small{font-size:var(--fs-base);font-weight:600;margin-left:2px;opacity:.85}
+.hero .h-cap{font-size:var(--fs-lg);font-weight:800;padding-bottom:6px}
+.hero .h-txt{
+  margin:10px 0 0;font-size:var(--fs-base);line-height:1.8;
+  color:rgba(255,255,255,.96);font-weight:500;
+}
+.hero .h-foot{
+  display:flex;align-items:center;gap:6px;margin-top:14px;padding-top:12px;
+  border-top:1px solid rgba(255,255,255,.22);font-size:var(--fs-sm);opacity:.95;
+}
+
+/* ---------- 分数 / 环形 / 星级 ---------- */
+.score{font-size:var(--fs-3xl);font-weight:800;line-height:1.1}
+.ring{
+  --p:82;position:relative;flex:none;width:96px;height:96px;border-radius:50%;
+  background:conic-gradient(var(--red) calc(var(--p) * 1%), #EFE7D8 0);
+  display:grid;place-items:center;
+}
+.ring::after{content:"";position:absolute;inset:9px;border-radius:50%;background:#fff}
+.ring b{position:relative;z-index:1;font-size:var(--fs-3xl);font-weight:800;line-height:1}
+.ring b small{font-size:var(--fs-xs);font-weight:600;color:var(--ink3)}
+.ring.gold{background:conic-gradient(var(--gold) calc(var(--p) * 1%), #EFE7D8 0)}
+.stars{font-size:var(--fs-md);letter-spacing:2px;color:var(--gold)}
+.stars s{text-decoration:none;color:#DCD2C0}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.stat{background:#fff;border:1px solid var(--line);border-radius:var(--r-md);padding:12px;text-align:center}
+.stat b{display:block;font-size:var(--fs-xl);font-weight:800;color:var(--red)}
+.stat span{font-size:var(--fs-xs);color:var(--ink3)}
+
+/* ---------- 标签 ---------- */
+.tag{
+  display:inline-flex;align-items:center;gap:4px;
+  padding:3px 10px;border-radius:var(--r-full);
+  font-size:var(--fs-xs);font-weight:700;line-height:1.7;
+}
+.tag-yi{background:var(--greensoft);color:var(--green)}
+.tag-ji{background:var(--redsoft);color:var(--red)}
+.tag-gold{background:var(--goldsoft);color:#8A5310}
+.tag-plain{background:#F2ECE1;color:var(--ink2)}
+.pill{
+  display:inline-flex;align-items:center;gap:5px;padding:5px 12px;border-radius:var(--r-full);
+  background:var(--goldsoft);color:#8A5310;font-size:var(--fs-sm);font-weight:700;
+}
+
+/* ---------- 进度条 / 指标 ---------- */
+.bar{height:8px;border-radius:var(--r-full);background:#EFE7D8;overflow:hidden}
+.bar > i{display:block;height:100%;border-radius:var(--r-full);background:linear-gradient(90deg,var(--gold2),var(--gold))}
+.bar.red > i{background:linear-gradient(90deg,var(--red2),var(--red))}
+.bar.green > i{background:linear-gradient(90deg,var(--green2),var(--green))}
+.metric{margin-bottom:13px}
+.metric:last-child{margin-bottom:0}
+.metric .m-h{display:flex;align-items:baseline;justify-content:space-between;margin-bottom:6px}
+.metric .m-h b{font-size:var(--fs-md);font-weight:700}
+.metric .m-h b em{font-style:normal;font-size:var(--fs-xs);color:var(--ink3);font-weight:500;margin-left:5px}
+.metric .m-h span{font-size:var(--fs-md);font-weight:800;color:var(--red)}
+
+/* ---------- 今日宜忌 ---------- */
+.yj{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.yj-col{
+  padding:15px 14px;border-radius:var(--r-lg);border:1px solid var(--line);
+  background:#fff;
+}
+.yj-col.yi{background:linear-gradient(180deg,#F0F8F2,#fff)}
+.yj-col.ji{background:linear-gradient(180deg,#FDF0EC,#fff)}
+.yj-col h4{display:flex;align-items:center;gap:6px;margin:0 0 8px;font-size:var(--fs-base);font-weight:800}
+.yj-col h4 i{font-style:normal;width:20px;height:20px;border-radius:6px;display:grid;place-items:center;font-size:12px;color:#fff}
+.yj-col.yi h4 i{background:var(--green)}
+.yj-col.ji h4 i{background:var(--red)}
+.yj-col .w{font-size:28px;font-weight:800;letter-spacing:3px;line-height:1.25}
+.yj-col.yi .w{color:var(--green)}
+.yj-col.ji .w{color:var(--red)}
+.yj-col .d{margin:6px 0 0;font-size:var(--fs-sm);color:var(--ink3);line-height:1.6}
+
+/* ---------- 日历 ---------- */
+.cal{display:grid;grid-template-columns:repeat(7,1fr);gap:4px}
+.cal-w{padding:6px 0;text-align:center;font-size:var(--fs-xs);font-weight:700;color:var(--ink3)}
+.cal-c{
+  position:relative;aspect-ratio:1/1;display:flex;flex-direction:column;
+  align-items:center;justify-content:center;border-radius:var(--r-sm);
+  font-size:var(--fs-base);font-weight:700;color:var(--ink2);
+  border:1px solid transparent;cursor:pointer;background:transparent;
+  font-family:inherit;
+}
+.cal-c .lu{font-size:9px;font-weight:500;color:var(--ink3);line-height:1.1}
+.cal-c.is-good{background:var(--greensoft);color:var(--green)}
+.cal-c.is-bad{background:var(--redsoft);color:var(--red)}
+.cal-c.is-today{border-color:var(--red);box-shadow:0 0 0 1.5px rgba(193,57,43,.25)}
+.cal-c.is-sel{background:var(--red);color:#fff}
+.cal-c.is-sel .lu{color:rgba(255,255,255,.85)}
+.cal-c.is-empty{visibility:hidden}
+.legend{display:flex;flex-wrap:wrap;gap:14px;margin:12px 2px 0;font-size:var(--fs-xs);color:var(--ink3)}
+.legend span{display:flex;align-items:center;gap:5px}
+.legend i{width:11px;height:11px;border-radius:3px;display:block}
+.lg-good{background:var(--greensoft);border:1px solid #CBE6D5}
+.lg-bad{background:var(--redsoft);border:1px solid #F4CFC7}
+.lg-today{border:1.5px solid var(--red)}
+
+/* ---------- 时间轴 ---------- */
+.tl{position:relative;padding-left:24px}
+.tl::before{content:"";position:absolute;left:6px;top:8px;bottom:8px;width:2px;background:var(--line)}
+.tl-i{position:relative;padding-bottom:16px}
+.tl-i:last-child{padding-bottom:0}
+.tl-i::before{
+  content:"";position:absolute;left:-24px;top:4px;
+  width:14px;height:14px;border-radius:50%;background:#fff;border:3px solid var(--gold);
+}
+.tl-i.hot::before{border-color:var(--red)}
+.tl-i h5{margin:0 0 3px;font-size:var(--fs-md);font-weight:800}
+.tl-i p{margin:0;font-size:var(--fs-sm);line-height:1.7;color:var(--ink3)}
+.tl-i .tl-day{font-size:var(--fs-xs);font-weight:700;color:var(--gold);letter-spacing:.5px}
+
+/* ---------- 建议条目 ---------- */
+.adv{display:flex;gap:10px;padding:11px 0;border-bottom:1px dashed var(--line);font-size:var(--fs-base);line-height:1.75}
+.adv:last-child{border-bottom:0;padding-bottom:0}
+.adv:first-child{padding-top:0}
+.adv .n{
+  flex:none;width:22px;height:22px;border-radius:var(--r-full);margin-top:3px;
+  display:grid;place-items:center;font-size:12px;font-weight:800;color:#fff;
+}
+.adv.yes .n{background:var(--green)}
+.adv.no .n{background:var(--red)}
+.adv .t{flex:1;min-width:0}
+
+/* ---------- 列表 ---------- */
+.list{background:#fff;border:1px solid var(--line);border-radius:var(--r-lg);overflow:hidden}
+.list .li{
+  display:flex;align-items:center;gap:12px;padding:14px 16px;
+  border-bottom:1px solid var(--line);text-decoration:none;color:inherit;
+}
+.list .li:last-child{border-bottom:0}
+.lic{
+  flex:none;width:40px;height:40px;border-radius:var(--r-md);
+  display:grid;place-items:center;background:var(--goldsoft);font-size:19px;
+}
+.lic.red{background:var(--redsoft)}
+.lic.green{background:var(--greensoft)}
+.lic svg{width:20px;height:20px}
+.lt{flex:1;min-width:0}
+.lt b{display:block;font-size:var(--fs-md);font-weight:700}
+.lt small{display:block;margin-top:2px;font-size:var(--fs-sm);color:var(--ink3);font-weight:400}
+.arrow{flex:none;color:#C8BCA8}
+.arrow svg{width:18px;height:18px}
+
+/* ---------- 按钮 ---------- */
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:6px;
+  height:48px;padding:0 22px;border:0;border-radius:var(--r-full);
+  font-family:inherit;font-size:var(--fs-md);font-weight:800;cursor:pointer;text-decoration:none;
+}
+.btn svg{width:18px;height:18px}
+.btn-primary{background:linear-gradient(135deg,var(--red),var(--red2));color:#fff;box-shadow:0 8px 18px rgba(193,57,43,.26)}
+.btn-gold{background:linear-gradient(135deg,var(--gold2),var(--gold));color:#fff;box-shadow:0 8px 18px rgba(190,143,53,.26)}
+.btn-ghost{background:transparent;color:var(--ink2);border:1.5px solid var(--line);box-shadow:none}
+.btn-block{display:flex;width:100%}
+.btn-sm{height:38px;padding:0 16px;font-size:var(--fs-sm);border-radius:var(--r-full)}
+
+/* ---------- 分段控件 ---------- */
+.seg{display:flex;gap:4px;padding:4px;border-radius:var(--r-full);background:var(--paper2)}
+.seg button{
+  flex:1;height:38px;border:0;border-radius:var(--r-full);background:transparent;
+  font-family:inherit;font-size:var(--fs-base);font-weight:700;color:var(--ink2);cursor:pointer;
+}
+.seg button.on{background:#fff;color:var(--red);box-shadow:var(--sh-1)}
+
+/* ---------- 快捷问题 ---------- */
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{
+  padding:10px 14px;border-radius:var(--r-full);background:#fff;
+  border:1px solid var(--line);font-size:var(--fs-sm);color:var(--ink2);
+}
+.chip.on{border-color:var(--red);color:var(--red);background:var(--redsoft)}
+
+/* ---------- 对话气泡 ---------- */
+.bubble{
+  max-width:82%;padding:12px 15px;border-radius:var(--r-lg);
+  font-size:var(--fs-base);line-height:1.8;
+}
+.bubble.ai{background:#fff;border:1px solid var(--line);border-top-left-radius:5px;box-shadow:var(--sh-1)}
+.bubble.me{
+  margin-left:auto;border-top-right-radius:5px;color:#fff;
+  background:linear-gradient(135deg,var(--red),var(--red2));
+}
+.bubble + .bubble{margin-top:10px}
+.bubble.me + .bubble,.bubble + .bubble.me{margin-top:10px}
+
+/* ---------- 提问输入条 ---------- */
+.askbar{display:flex;gap:8px;align-items:center}
+.askbar input{
+  flex:1;height:48px;padding:0 16px;border-radius:var(--r-full);
+  border:1px solid var(--line);background:#fff;font-family:inherit;font-size:var(--fs-base);color:var(--ink);
+}
+.askbar input::placeholder{color:#B8AC98}
+
+/* ---------- 提示条 ---------- */
+.banner{
+  display:flex;gap:9px;align-items:flex-start;
+  padding:12px 14px;border-radius:var(--r-md);
+  background:var(--goldsoft);border:1px solid #F0E0BC;
+  font-size:var(--fs-sm);line-height:1.65;color:#7A5A18;
+}
+.banner .bn-i{flex:none;font-size:15px;line-height:1.4}
+.banner.green{background:var(--greensoft);border-color:#CBE6D5;color:#1F6B41}
+.banner svg{flex:none;width:17px;height:17px;margin-top:2px}
+
+/* ---------- 付费解锁遮罩 ---------- */
+.lock{position:relative;overflow:hidden;border-radius:var(--r-lg)}
+.lock-body{filter:blur(4.5px);opacity:.5;pointer-events:none;user-select:none;padding:16px}
+.lock-mask{
+  position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;
+  gap:8px;padding:20px;text-align:center;
+  background:linear-gradient(180deg,rgba(255,255,255,.30),rgba(255,255,255,.94) 62%);
+}
+.lock-mask .lk-i{width:42px;height:42px;border-radius:var(--r-full);background:var(--goldsoft);display:grid;place-items:center;color:var(--gold)}
+.lock-mask .lk-i svg{width:21px;height:21px}
+.lock-mask b{font-size:var(--fs-md);font-weight:800}
+.lock-mask span{font-size:var(--fs-sm);color:var(--ink3)}
+
+/* ---------- 价格表 ---------- */
+.ptable{border-radius:var(--r-md);overflow:hidden;border:1px solid var(--line)}
+.pr{display:flex;align-items:center;gap:10px;padding:13px 14px;border-bottom:1px solid var(--line);background:#fff}
+.pr:last-child{border-bottom:0}
+.pr .pr-t{flex:1;min-width:0}
+.pr .pr-t b{display:block;font-size:var(--fs-base);font-weight:700}
+.pr .pr-t small{font-size:var(--fs-xs);color:var(--ink3)}
+.pr .pr-v{font-size:var(--fs-lg);font-weight:800;color:var(--red);white-space:nowrap}
+.pr.hot{background:var(--goldsoft)}
+.pr.hot .pr-v{color:#8A5310}
+
+/* ---------- 头像 ---------- */
+.avatar{
+  flex:none;width:52px;height:52px;border-radius:var(--r-full);
+  display:grid;place-items:center;font-size:var(--fs-lg);font-weight:800;color:#fff;
+  background:linear-gradient(135deg,var(--gold2),var(--gold));
+}
+.avatar.lg{width:64px;height:64px;font-size:var(--fs-xl)}
+.avatar.red{background:linear-gradient(135deg,var(--red2),var(--red))}
+
+/* ---------- 家人卡 ---------- */
+.fam{
+  display:flex;align-items:center;gap:12px;padding:14px;
+  border-radius:var(--r-lg);border:1px solid var(--line);background:#fff;margin-bottom:10px;
+}
+.fam .f-i{flex:1;min-width:0}
+.fam .f-i b{display:block;font-size:var(--fs-md);font-weight:800}
+.fam .f-i small{font-size:var(--fs-xs);color:var(--ink3)}
+.fam .f-s{flex:none;text-align:right}
+.fam .f-s b{display:block;font-size:var(--fs-xl);font-weight:800;color:var(--red)}
+.fam .f-s small{font-size:10px;color:var(--ink3)}
+
+/* ---------- 空/占位 ---------- */
+.ph{color:var(--ink3);font-size:var(--fs-sm)}
+.center{text-align:center}
+.mt-0{margin-top:0}.mt-8{margin-top:8px}.mt-12{margin-top:12px}.mt-16{margin-top:16px}
+.mb-0{margin-bottom:0}.mb-8{margin-bottom:8px}.mb-12{margin-bottom:12px}
+
+/* =========================================================
+   v3 扩展段 · 日运功能组件
+   （每日一签 / 一事一卦 / 姓名卦象 / 今日壁纸 / 十二时辰）
+   只做追加，不改动上文任何已有规则
+   ========================================================= */
+
+/* ---------- 分段控件（链接版：日运 / 月运） ---------- */
+.seg a{
+  flex:1;height:38px;display:flex;align-items:center;justify-content:center;gap:5px;
+  border-radius:var(--r-full);background:transparent;text-decoration:none;
+  font-size:var(--fs-base);font-weight:700;color:var(--ink2);
+}
+.seg a.on{background:#fff;color:var(--red);box-shadow:var(--sh-1)}
+
+/* ---------- 7 天日期条：还没到的日子 ---------- */
+.cal-c.off{opacity:.4;pointer-events:none}
+
+/* ---------- 十二时辰横条 ---------- */
+.shi{display:flex;gap:6px;overflow-x:auto;padding:2px 0 4px;-webkit-overflow-scrolling:touch}
+.shi::-webkit-scrollbar{display:none}
+.shi .shi-i{
+  flex:none;width:46px;padding:9px 0;border-radius:var(--r-sm);
+  display:flex;flex-direction:column;align-items:center;gap:2px;
+  background:var(--card2);border:1px solid var(--line);
+}
+.shi .shi-i b{font-size:var(--fs-md);font-weight:800;color:var(--ink2);line-height:1.2}
+.shi .shi-i small{font-size:9px;color:var(--ink3);white-space:nowrap}
+.shi .shi-i.good{background:var(--greensoft);border-color:#CBE6D5}
+.shi .shi-i.good b{color:var(--green)}
+.shi .shi-i.bad{background:var(--redsoft);border-color:#F4CFC7}
+.shi .shi-i.bad b{color:var(--red)}
+.shi .shi-i.now{background:linear-gradient(135deg,var(--gold2),var(--gold));border-color:var(--gold);box-shadow:var(--sh-2)}
+.shi .shi-i.now b{color:#4A3208}
+.shi .shi-i.now small{color:#6B4A0E}
+
+/* ---------- 卦象六爻（HTML 自上而下书写：第 6 爻 → 第 1 爻） ---------- */
+.gua{display:flex;flex-direction:column;gap:8px;width:96px;margin:2px auto}
+.gua .gua-i{position:relative;display:flex;gap:10px;height:12px}
+.gua .gua-i i{
+  display:block;height:100%;flex:1;border-radius:3px;
+  background:linear-gradient(90deg,var(--gold2),var(--gold));
+}
+/* 阳爻（一长条）/ 阴爻（断成两截）：靠 <i> 的个数区分，这里显式声明，动爻规则见下 */
+.gua .gua-i.yang i{background:linear-gradient(90deg,var(--gold2),var(--gold))}
+.gua .gua-i.yin i{background:linear-gradient(90deg,var(--gold2),var(--gold))}
+.gua .gua-i.dong i{background:linear-gradient(90deg,var(--red2),var(--red))}
+.gua .gua-i.dong::after{
+  content:"动";position:absolute;left:calc(100% + 8px);top:50%;transform:translateY(-50%);
+  font-size:10px;font-weight:800;color:var(--red);
+}
+.gua-c{margin-top:10px;text-align:center;font-size:var(--fs-xs);color:var(--ink3)}
+
+/* ---------- 签文卡 ---------- */
+.qian{
+  padding:18px 16px;border-radius:var(--r-lg);text-align:center;
+  background:linear-gradient(180deg,#FFFDF7,#FBF3E1);
+  border:1px solid var(--gold2);box-shadow:var(--sh-2);
+}
+.qian .q-lv{
+  display:inline-block;padding:3px 13px;border-radius:var(--r-full);
+  font-size:var(--fs-xs);font-weight:800;letter-spacing:1px;
+  background:var(--goldsoft);color:#8A5310;border:1px solid var(--gold2);
+}
+.qian .q-lv.warn{background:var(--redsoft);color:var(--red);border-color:#F0CFC6}
+.qian .q-no{margin-top:10px;font-size:var(--fs-sm);color:var(--ink3)}
+.qian .q-poem{
+  margin-top:12px;font-size:var(--fs-md);font-weight:700;
+  line-height:2;color:var(--ink);letter-spacing:1px;
+}
+
+/* ---------- 签筒 ---------- */
+.tube{
+  position:relative;width:98px;height:132px;margin:8px auto 4px;
+  border-radius:16px 16px 12px 12px;
+  background:linear-gradient(180deg,#C4552F,#A03721 62%,#832B19);
+  border:2px solid var(--gold2);box-shadow:var(--sh-2);
+  display:grid;place-items:center;cursor:pointer;overflow:hidden;
+  transform-origin:50% 88%;
+}
+.tube::before{
+  content:"";position:absolute;top:6px;left:50%;transform:translateX(-50%);
+  width:58px;height:30px;border-radius:5px;
+  background:repeating-linear-gradient(90deg,#F6E7C4 0 7px,#D9BF88 7px 9px);
+}
+.tube>span{
+  position:relative;width:46px;height:46px;border-radius:var(--r-full);
+  display:grid;place-items:center;margin-top:26px;
+  background:var(--goldsoft);color:#8A5310;border:1px solid var(--gold2);
+  font-size:var(--fs-xl);font-weight:800;
+}
+.tube.shake{animation:tubeShake .6s ease-in-out 1.4 both}
+@keyframes tubeShake{
+  0%,100%{transform:rotate(0deg)}
+  14%{transform:rotate(-7deg)}
+  28%{transform:rotate(6deg)}
+  42%{transform:rotate(-5deg)}
+  58%{transform:rotate(4deg)}
+  74%{transform:rotate(-2deg)}
+  88%{transform:rotate(1deg)}
+}
+
+/* ---------- 今日壁纸（纯 CSS 渐变，不依赖图片资源） ---------- */
+.wp{border-radius:var(--r-lg);overflow:hidden;border:1px solid var(--line);box-shadow:var(--sh-2)}
+.wp .w-t{padding:9px 13px;font-size:10px;letter-spacing:2px;color:rgba(255,255,255,.82);background:rgba(0,0,0,.16)}
+.wp .w-big{
+  min-height:196px;padding:30px 20px;
+  display:flex;flex-direction:column;gap:12px;align-items:center;justify-content:center;
+}
+.wp .w-big b{
+  font-size:var(--fs-xl);font-weight:800;letter-spacing:3px;line-height:1.65;
+  color:#fff;text-align:center;text-shadow:0 2px 12px rgba(0,0,0,.32);
+}
+.wp .w-big small{font-size:10px;letter-spacing:4px;color:rgba(255,255,255,.72)}
+.wp .w-f{
+  padding:9px 13px;display:flex;align-items:center;justify-content:space-between;
+  font-size:10px;letter-spacing:1px;color:rgba(255,255,255,.78);background:rgba(0,0,0,.16);
+}
+.wp-1{background:radial-gradient(124% 92% at 50% 0%,#D9482F 0%,#A5261B 56%,#6B140E 100%)}
+.wp-2{background:radial-gradient(124% 92% at 50% 0%,#418057 0%,#25573F 56%,#123325 100%)}
+.wp-3{background:radial-gradient(124% 92% at 50% 0%,#5E4D8B 0%,#382D5E 56%,#1D1637 100%)}
+.wp-4{background:radial-gradient(124% 92% at 50% 0%,#CDA448 0%,#8F6B20 56%,#573F11 100%)}
+.wp-tabs{display:flex;gap:10px;justify-content:center;padding:2px 0}
+.wp-tab{
+  flex:none;width:62px;height:78px;border-radius:var(--r-sm);
+  border:2px solid transparent;box-shadow:var(--sh-1);cursor:pointer;
+}
+.wp-tab.on{border-color:var(--ink2)}
+
+/* ---------- 三步流程条 ---------- */
+.steps{display:flex;align-items:center;gap:7px;font-size:var(--fs-xs);font-weight:700;color:var(--ink3)}
+.steps b{font-weight:800;color:var(--ink3);white-space:nowrap}
+.steps b.on{color:var(--red)}
+.steps s{flex:1;height:2px;min-width:10px;background:var(--line);text-decoration:none}
+
+/* ---------- 四列宫格 ---------- */
+.grid4{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}
+
+/* =========================================================
+   v4 扩展段 · 家人日运
+   （家人今日卡片：按「异动方向」区分底色与分数颜色）
+   ========================================================= */
+.fam.down{background:linear-gradient(180deg,var(--redsoft),#fff);border-color:#F4CFC7}
+.fam.up{background:linear-gradient(180deg,var(--greensoft),#fff);border-color:#CBE6D5}
+.fam.down .f-s b{color:var(--red)}
+.fam.up .f-s b{color:var(--green)}
+.fam .f-i .tag{vertical-align:middle}
+.fam .f-i small{line-height:1.7}
+
+/* =========================================================
+   v5 扩展段 · 单版面长报告
+   （880px 阅读宽容器；时间轴补一档绿色状态，用于「感情回暖」节点）
+   只做追加，不改动上文任何已有规则
+   ========================================================= */
+.rp{max-width:880px;margin:0 auto}
+.tl-i.green::before{border-color:var(--green)}
+
+</style>
+<style>
+  /* 单版面长报告的版式：沿用 App 的 token 与组件，只改容器宽度与阅读留白。
+     只覆盖已有 class 的选择器，不新增 class 名。 */
+  body{background:var(--paper);margin:0;padding:32px 20px 64px}
+  h1{margin:0;font-size:var(--fs-2xl);font-weight:800;letter-spacing:.5px;color:var(--ink)}
+  h1 small{display:block;margin-top:7px;font-size:11px;font-weight:500;letter-spacing:2.5px;text-transform:uppercase;color:var(--ink3)}
+  .card{padding:22px 24px;border-radius:var(--r-xl);margin-bottom:16px;box-shadow:var(--sh-2)}
+  .card .ct{margin-bottom:14px}
+  .card > svg{width:100%;height:auto;display:block}
+  .p{font-size:var(--fs-base);line-height:1.95}
+  .note{line-height:1.8}
+  .hero{padding:26px 28px;border-radius:var(--r-xl);margin-bottom:0;box-shadow:none}
+  .hero .h-num{font-size:60px}
+  .hero .h-txt{font-size:var(--fs-md);line-height:1.9}
+  .tl{margin-top:4px}
+  .tl-i{padding-bottom:20px}
+  .tl-i h5{font-size:var(--fs-lg)}
+  .tl-i p{font-size:var(--fs-base);line-height:1.9;color:var(--ink2);margin-top:3px}
+  .tl-i .tl-day{font-size:var(--fs-sm);color:var(--gold)}
+  .legend{gap:18px;margin-top:16px}
+  .grid4{gap:20px}
+  .metric .m-h b{font-size:var(--fs-md)}
+  .metric .m-h span{font-size:var(--fs-lg)}
+  .adv{padding:14px 0;font-size:var(--fs-base);line-height:1.85}
+  .adv .n{margin-top:5px}
+  .hook{white-space:nowrap}
+  @media (max-width:720px){
+    body{padding:20px 14px 48px}
+    h1{font-size:var(--fs-xl)}
+    .card{padding:16px 15px}
+    .hero{padding:20px 18px}
+    .hero .h-num{font-size:42px}
+    .grid4{grid-template-columns:repeat(2,1fr);gap:12px}
+  }
+  @media print{
+    body{background:#fff;padding:0}
+    .card{box-shadow:none;border:1px solid var(--line)}
+    .hero{box-shadow:none;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+    .btn{display:none}
+  }
+</style>
+</head>
+<body>
+<div class="rp">
+
+  <!-- ══════ 报头 ══════ -->
+  <header style="margin-bottom:20px">
+    <h1>陈冬冬 · 财富运势<small>Monthly Forecast · 2026 年 9 月</small></h1>
+    <div class="chips" style="margin-top:14px">
+      <span class="tag tag-gold">丙午年 丁酉月</span>
+      <span class="tag tag-plain">属猪</span>
+      <span class="tag tag-plain">身弱</span>
+      <span class="tag tag-plain">金气偏旺</span>
+      <span class="tag tag-plain">后半月发力</span>
+    </div>
+  </header>
+
+  <!-- ══════ 一、下半年 6 个月走势 ══════ -->
+  <div class="card">
+    <div class="ct"><i class="ct-mark"></i>一、下半年 6 个月走势<span class="more">六个月整体走势</span></div>
+    <svg viewBox="0 0 800 230" role="img" aria-label="2026 年 7–12 月运势走势：9 月为高点 82 分，10 月为低谷 68 分">
+      <line x1="56" y1="34" x2="760" y2="34" stroke="#EAE0D0" stroke-width="1"/>
+      <line x1="56" y1="69" x2="760" y2="69" stroke="#EAE0D0" stroke-width="1"/>
+      <line x1="56" y1="104" x2="760" y2="104" stroke="#EAE0D0" stroke-width="1"/>
+      <line x1="56" y1="139" x2="760" y2="139" stroke="#EAE0D0" stroke-width="1"/>
+      <line x1="56" y1="174" x2="760" y2="174" stroke="#EAE0D0" stroke-width="1"/>
+      <defs><linearGradient id="cg" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0%" stop-color="#E7C878" stop-opacity=".34"/>
+        <stop offset="100%" stop-color="#E7C878" stop-opacity="0"/>
+      </linearGradient></defs>
+      <path d="M56,174 L56,129 L196.8,99 L337.6,69 L478.4,139 L619.2,124 L760,99 L760,174 Z" fill="url(#cg)"/>
+      <polyline points="56,129 196.8,99 337.6,69 478.4,139 619.2,124 760,99"
+                fill="none" stroke="#BE8F35" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+      <circle cx="56" cy="129" r="4.5" fill="#fff" stroke="#BE8F35" stroke-width="2.5"/>
+      <text x="56" y="115" text-anchor="middle" style="font-size:15px;font-weight:800;fill:#BE8F35">70</text>
+      <text x="56" y="204" text-anchor="middle" style="font-size:14px;fill:#93836E">7月</text>
+      <circle cx="196.8" cy="99" r="4.5" fill="#fff" stroke="#BE8F35" stroke-width="2.5"/>
+      <text x="196.8" y="85" text-anchor="middle" style="font-size:15px;font-weight:800;fill:#BE8F35">76</text>
+      <text x="196.8" y="204" text-anchor="middle" style="font-size:14px;fill:#93836E">8月</text>
+      <circle cx="337.6" cy="69" r="7" fill="#fff" stroke="#2E8A55" stroke-width="2.5"/>
+      <text x="337.6" y="55" text-anchor="middle" style="font-size:15px;font-weight:800;fill:#2E8A55">82</text>
+      <text x="337.6" y="204" text-anchor="middle" style="font-size:14px;fill:#93836E">9月</text>
+      <text x="337.6" y="224" text-anchor="middle" style="font-size:12px;fill:#2E8A55">高点</text>
+      <circle cx="478.4" cy="139" r="7" fill="#fff" stroke="#C1392B" stroke-width="2.5"/>
+      <text x="478.4" y="125" text-anchor="middle" style="font-size:15px;font-weight:800;fill:#C1392B">68</text>
+      <text x="478.4" y="204" text-anchor="middle" style="font-size:14px;fill:#93836E">10月</text>
+      <text x="478.4" y="224" text-anchor="middle" style="font-size:12px;fill:#C1392B">低谷</text>
+      <circle cx="619.2" cy="124" r="4.5" fill="#fff" stroke="#BE8F35" stroke-width="2.5"/>
+      <text x="619.2" y="110" text-anchor="middle" style="font-size:15px;font-weight:800;fill:#BE8F35">71</text>
+      <text x="619.2" y="204" text-anchor="middle" style="font-size:14px;fill:#93836E">11月</text>
+      <circle cx="760" cy="99" r="4.5" fill="#fff" stroke="#BE8F35" stroke-width="2.5"/>
+      <text x="760" y="85" text-anchor="middle" style="font-size:15px;font-weight:800;fill:#BE8F35">76</text>
+      <text x="760" y="204" text-anchor="middle" style="font-size:14px;fill:#93836E">12月</text>
+    </svg>
+    <div class="legend">
+      <span><i class="lg-good"></i>高点月份</span>
+      <span><i class="lg-bad"></i>低谷月份</span>
+      <span><i class="lg-today"></i>平常月份</span>
+    </div>
+    <div class="divider"></div>
+    <p class="p">这半年里，<b>10 月</b>是相对低的一段。比起其它月份，那个月往往感受到阻碍更多，心里也容易出现意难平的时候。那个月不必跟自己较劲，<b>谨言慎行</b>、少做重大决定，把意外风险降下来就行。</p>
+    <p class="p">反过来，<b>9 月</b>（也就是本月）是这半年最顺的一段，要紧的事可以排在后半月。</p>
+  </div>
+
+  <!-- ══════ 二、当月综合 ══════ -->
+  <div class="card">
+    <div class="ct"><i class="ct-mark"></i>二、当月综合<span class="more">30 天 · 日均推演</span></div>
+
+    <div class="hero">
+      <div class="h-eyebrow">陈冬冬 · 属猪<span class="h-key">关键词 财富</span></div>
+      <div class="h-main">
+        <div class="h-num">82<small>分</small></div>
+        <div class="h-cap">综合 · 偏上</div>
+      </div>
+      <p class="h-txt">丙午年丁酉月，金气偏旺。你是属猪的，这个月贵在不抢跑。前半月更像是给你擦盘子：理顺关系、把手上的烂尾事收干净。真正能动的位置在后半月。</p>
+      <div class="h-foot">财运已连续 2 个月持续上升</div>
+    </div>
+
+    <div class="grid4" style="margin-top:20px">
+      <div class="metric">
+        <div class="m-h"><b>事业</b><span>85</span></div>
+        <div class="bar green"><i style="width:85%"></i></div>
+      </div>
+      <div class="metric">
+        <div class="m-h"><b>感情</b><span>71</span></div>
+        <div class="bar"><i style="width:71%"></i></div>
+      </div>
+      <div class="metric">
+        <div class="m-h"><b>健康</b><span>88</span></div>
+        <div class="bar green"><i style="width:88%"></i></div>
+      </div>
+      <div class="metric">
+        <div class="m-h"><b>爱情</b><span>71</span></div>
+        <div class="bar"><i style="width:71%"></i></div>
+      </div>
+    </div>
+    <p class="note">本月感情与爱情同一条线（都看 09/29 – 09/30 回暖），所以分数相同。</p>
+  </div>
+
+  <!-- ══════ 三、本月关键节点与择日 ══════ -->
+  <div class="card">
+    <div class="ct"><i class="ct-mark"></i>三、本月关键节点与择日<span class="more">按时间先后</span></div>
+
+    <div class="tl">
+      <div class="tl-i">
+        <div class="tl-day">09/22 – 09/25 · 共 4 天</div>
+        <h5>事业窗口 <span class="tag tag-yi">顺</span></h5>
+        <p>适合谈合作、提方案、见老客户。这四天开口，对方更容易点头。</p>
+      </div>
+      <div class="tl-i hot">
+        <div class="tl-day">09/27 – 09/28 · 共 2 天</div>
+        <h5>财运转折 <span class="tag tag-ji">险</span></h5>
+        <p>钱进得快也出得快，忌大额支出、忌借人钱，合同条款要看两遍。</p>
+      </div>
+      <div class="tl-i green">
+        <div class="tl-day">09/29 – 09/30 · 共 2 天</div>
+        <h5>感情回暖 <span class="tag tag-gold">暖</span></h5>
+        <p>适合把话说开，家里那点别扭在这两天讲，比平时好解决。</p>
+      </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="ct" style="margin:14px 0 8px"><i class="ct-mark"></i>师傅帮你挑日子</div>
+    <p class="p">家里要办喜事、要开店、要动工，只要说一句是什么事、大概哪个时间段，师傅会把能用的日子直接列给你。</p>
+    <p class="p">这个月里有一个日子，看着普通，其实是<b>近三个月里最合适的一天</b>。免费日历上没标出来，因为它要跟你的生辰一起看。</p>
+    <button class="btn btn-primary btn-block" style="margin-top:16px" type="button" id="pickBtn">让师傅帮我挑日子</button>
+  </div>
+
+  <!-- ══════ 四、本月要办的三件事 ══════ -->
+  <div class="card">
+    <div class="ct"><i class="ct-mark"></i>四、本月要办的三件事<span class="more">照着做就行</span></div>
+    <div class="adv yes">
+      <span class="n">1</span>
+      <span class="t">把欠着的人情先还掉。这个月帮你的那个人，多半来自你以前顺手帮过的人。</span>
+    </div>
+    <div class="adv yes">
+      <span class="n">2</span>
+      <span class="t">22 号到 25 号之间，至少主动约一次线下见面，别只在微信上说。</span>
+    </div>
+    <div class="adv yes">
+      <span class="n">3</span>
+      <span class="t">27、28 号不要签没看清的合同，也不要给人做担保。</span>
+    </div>
+  </div>
+
+  <!-- ══════ 五、抽运解读 ══════ -->
+  <div class="card">
+    <div class="ct"><i class="ct-mark"></i>五、抽运解读<span class="more">按十神与流月关系逐项拆解</span></div>
+
+    <div class="ct" style="margin:16px 0 6px"><i class="ct-mark"></i>事业</div>
+    <p class="note" style="margin:0 0 10px">丁酉流月，食神制杀，感情易生口舌</p>
+    <p class="p">你八字七杀重，身弱喜印比。当前丁酉流月，食神透出制杀，但酉金为食神，与日支巳半合金局，增强了金的力量。金为官杀各星，代表你的事业和感情。这意味着本月你在感情中容易变得挑剔、言辞犀利，对另一半的要求变高。流年丙午火旺，因印星旺火生土，让你内心安全感不足。作为 29 岁的女性，若你处于恋爱或已婚状态，需警惕因工作压力大或生活琐事引发的争吵。尤其是亲密关系中有权威感或地位的人出现，单身者则可能遇到让你心动的对象，但对方也可能比较强势，需要你耐心观察。</p>
+
+    <div class="ct" style="margin:22px 0 6px"><i class="ct-mark"></i>感情</div>
+    <p class="note" style="margin:0 0 10px">丁酉流月，食神制杀，感情易生口舌</p>
+    <p class="p">本月金气偏旺，食神透出，你在亲密关系中容易变得挑剔、言辞犀利，对另一半的要求不知不觉拔高。流年丙午火旺，印星生身却也让内心安全感不足，容易把工作中的压力带进感情里，因琐事引发争吵。</p>
+    <p class="p">巳酉半合金局，强化了官杀力量，意味着本月身边容易出现有权威感或地位的人。若你处于恋爱中，需警惕外部诱惑对现有关系的冲击；若已婚，注意与伴侣长辈之间的相处分寸。</p>
+    <p class="p">单身者本月可能遇到让你心动的对象，对方气场较强、做事果断，但不宜急于推进，建议留到 09/29 – 09/30 感情回暖节点再深入交流，彼时判断力更稳。</p>
+    <p class="p">已有伴侣者，09/22 – 09/25 事业窗口期间容易因忙于工作忽略对方，记得主动报备行程；09/29 – 09/30 是把积压的话说开的最佳时机，平时容易吵起来的话题在这两天讲，对方更容易听进去。</p>
+
+    <div class="ct" style="margin:22px 0 6px"><i class="ct-mark"></i>财运</div>
+    <p class="note" style="margin:0 0 10px">食神生财，正财运持续上升</p>
+    <p class="p">丁酉流月食神透出，食神为财源之星，本月正财路线稳步上扬，连续两个月呈上升态势。但身弱七杀重，财多身弱反而不担财，意味着钱进得快也出得快，留不住。</p>
+    <p class="p">09/27 – 09/28 为财运转折节点，这两天王水相激，财来财去波动大。忌大额支出，忌借人钱，合同条款务必看两遍再签，尤其注意隐藏条款和口头承诺。</p>
+    <p class="p">上半月利于收回欠款、理顺账目，把之前的烂尾账清干净；后半月正财位置才真正动得起来，适合谈加薪、谈报价、推进回款。</p>
+    <p class="p">偏财方面本月不宜冒险，不建议投资陌生领域，更不宜为他人做担保。若有人主动拉你入伙，先拖到下月再答复。</p>
+
+    <div class="ct" style="margin:22px 0 6px"><i class="ct-mark"></i>子女</div>
+    <p class="note" style="margin:0 0 10px">食神当令，利于子女沟通与教育</p>
+    <p class="p">丁酉流月食神透出，食神为子女星之一（女命以食神为子、伤官为女），本月与孩子的缘分偏旺，适合处理孩子相关事务——升学沟通、辅导功课、亲子活动都比平时更顺。</p>
+    <p class="p">但金气过旺，食神过旺则克官，意味着你对孩子的要求本月容易偏严、偏急，言辞上不知不觉会施压。尤其 09/22 – 09/25 事业窗口期间自己忙，容易把焦虑情绪转嫁到孩子身上，注意收敛语气。</p>
+    <p class="p">09/29 – 09/30 感情回暖节点同样适用于亲子关系，如果近期与孩子有摩擦或冷战，这两天是修复的好时机，把话说开比硬扛着有效。</p>
+    <p class="p">若暂无子女，本月食神旺相，利孕育谋划，但不宜催促。流年丙午火旺生土，身弱需养好气血再谈，建议先调身体、后做计划，急不得。</p>
+  </div>
+
+  <!-- ══════ 页脚 ══════ -->
+  <p class="note" style="padding:0 2px">本报告由命盘与流月干支推演生成，所有日期节点均由当月每日推演结果归纳得出，非人工挑选。同一命盘、同一月份，结果恒定。<br>运势是参考，不是判决。要紧的决定，请结合自己的实际情况——手里有什么、能承受多少，这些比任何命盘都重要。重要的事请自己拿主意。</p>
+
+</div>
+
+<script>
+  (function () {
+    'use strict';
+
+    /* 借鉴：正文里的日期自动高亮（用 App 自己的 .hook 金色荧光，不用新标签） */
+    function hl(s) {
+      return String(s).replace(/(\d{2}\/\d{2}(?:\s*-\s*\d{2}\/\d{2})?)/g, '<span class="hook">$1</span>');
+    }
+    /* 借鉴：风险词自动标色（用 App 自己的 .em 红字） */
+    function warnify(s) {
+      return hl(s).replace(/(不要[^。；，,]*|忌[^。；，,]*|不宜[^。；，,]*|务必[^。；，,]*)/g, function (m) {
+        return '<span class="em">' + m + '</span>';
+      });
+    }
+
+    var ts = document.querySelectorAll('.tl-i p, .adv .t, .p');
+    for (var i = 0; i < ts.length; i++) {
+      ts[i].innerHTML = warnify(ts[i].textContent);
+    }
+
+    var b = document.getElementById('pickBtn');
+    if (b) {
+      b.addEventListener('click', function () {
+        b.textContent = '已收到 · 师傅在看日子了（原型演示）';
+        b.disabled = true;
+      });
+    }
+  })();
+</script>
+</body>
+</html>
