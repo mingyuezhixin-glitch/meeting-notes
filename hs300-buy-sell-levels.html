@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>沪深300 买卖档位表 · 按金渐成纪律设置</title>
+<script src="https://cdn.jsdelivr.net/npm/echarts@5/dist/echarts.min.js"></script>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", "Segoe UI", sans-serif;
+    background: #F5F6F8; color: #1F2328; line-height: 1.65; font-size: 15px;
+    padding: 32px 20px 64px;
+  }
+  .wrap { max-width: 1080px; margin: 0 auto; }
+  h1 { font-size: 26px; font-weight: 600; letter-spacing: -0.3px; }
+  h2 { font-size: 19px; font-weight: 600; margin-bottom: 6px; }
+  h3 { font-size: 15px; font-weight: 600; margin-bottom: 8px; }
+  .sub { color: #6B7280; font-size: 13px; margin-top: 6px; }
+  .card { background: #fff; border: 1px solid #E5E7EB; border-radius: 12px; padding: 22px 24px; margin-top: 18px; }
+  .tldr { background: #fff; border: 1px solid #E5E7EB; border-left: 4px solid #B91C1C; border-radius: 12px; padding: 22px 24px; margin-top: 20px; }
+  .tldr p { margin-bottom: 10px; }
+  .tldr p:last-child { margin-bottom: 0; }
+  .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 12px; margin-top: 18px; }
+  .kpi { background: #fff; border: 1px solid #E5E7EB; border-radius: 10px; padding: 14px 16px; }
+  .kpi .k { font-size: 12px; color: #6B7280; }
+  .kpi .v { font-size: 20px; font-weight: 600; margin-top: 4px; letter-spacing: -0.4px; }
+  .kpi .n { font-size: 12px; color: #9CA3AF; margin-top: 2px; }
+  .up { color: #C1272D; }
+  .down { color: #1E7B45; }
+  .warn { background: #FFFBEB; border: 1px solid #FCD34D; border-radius: 12px; padding: 18px 22px; margin-top: 18px; }
+  .warn h3 { color: #92400E; }
+  .note { background: #F3F4F6; border-radius: 10px; padding: 14px 18px; margin-top: 14px; font-size: 14px; color: #4B5563; }
+  table { width: 100%; border-collapse: collapse; margin-top: 14px; font-size: 14px; }
+  th, td { padding: 11px 10px; text-align: left; border-bottom: 1px solid #EDEFF2; }
+  th { background: #FAFAFB; font-weight: 600; font-size: 13px; color: #4B5563; }
+  tr:last-child td { border-bottom: none; }
+  .tag { display: inline-block; padding: 2px 8px; border-radius: 6px; font-size: 12px; font-weight: 500; }
+  .tag-buy { background: #E7F3EC; color: #1E7B45; }
+  .tag-sell { background: #FBE9E9; color: #B91C1C; }
+  .tag-now { background: #E8EEF9; color: #1D4ED8; }
+  .tag-base { background: #F3F4F6; color: #4B5563; }
+  .chart { width: 100%; height: 340px; margin-top: 10px; }
+  .legend-note { display: flex; gap: 20px; flex-wrap: wrap; font-size: 13px; color: #6B7280; margin-top: 10px; }
+  .dot { display: inline-block; width: 9px; height: 9px; border-radius: 2px; margin-right: 6px; }
+  ol, ul { padding-left: 22px; }
+  li { margin-bottom: 8px; }
+  .risk { background: #F9FAFB; border: 1px solid #E5E7EB; border-radius: 12px; padding: 18px 22px; margin-top: 18px; font-size: 13px; color: #6B7280; }
+  code { background: #F3F4F6; padding: 2px 6px; border-radius: 5px; font-size: 13px; font-family: ui-monospace, Menlo, Consolas, monospace; }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <h1>沪深300 买卖档位表</h1>
+  <p class="sub">按金渐成（玑哥）纪律内核设置 · 数据截至 2026-09-22 收盘 · 标的：招商沪深300指数增强（004190/004191）／沪深300ETF招商（561930）</p>
+
+  <div class="tldr">
+    <p><strong>一句话结论：现在不是买点，但离第一档只差 2%。</strong>沪深300 现价 4549，距 6 月高点已回撤 10.2%，PE 13.5（近十年 66% 分位）——处在"可以开始摆档位、但还没到扣扳机"的位置。</p>
+    <p><strong>不要现在一次性买入。</strong>你的钱应该分成 5 份，挂在 4450 / 4280 / 4100 / 3900 / 3600 五个位置，越跌买越多（10%-15%-20%-25%-30%）。这是玑哥"金字塔加仓"的原法。</p>
+    <p><strong>止盈不要设"涨多少就卖"，要设"PE 到多少就卖"。</strong>沪深300 的合理锚是 PE：15 减第一笔、16 再减、17 减第三笔，PE 18 以上只留底仓。</p>
+  </div>
+
+  <div class="grid">
+    <div class="kpi"><div class="k">沪深300 收盘</div><div class="v">4549</div><div class="n">2026-09-22</div></div>
+    <div class="kpi"><div class="k">年内涨跌</div><div class="v down">-1.8%</div><div class="n">起点 4629.94</div></div>
+    <div class="kpi"><div class="k">距年内高点</div><div class="v down">-10.2%</div><div class="n">高点 5064.27（6/23）</div></div>
+    <div class="kpi"><div class="k">PE（TTM）</div><div class="v">13.5</div><div class="n">近十年 66% 分位</div></div>
+    <div class="kpi"><div class="k">距历史最高</div><div class="v down">-23.3%</div><div class="n">5930.91</div></div>
+    <div class="kpi"><div class="k">年内振幅</div><div class="v">14.5%</div><div class="n">低波动，档差要小</div></div>
+  </div>
+
+  <div class="warn">
+    <h3>先说清楚玑哥对 A 股的态度（这条比档位更重要）</h3>
+    <p style="margin-top:8px">他本人的原话是：<strong>"大 A 是融资市，是某种意志的战略工具；专注美股市场，大 A 能不碰尽量不碰，除非机会点很好、确定性很强。"</strong></p>
+    <p style="margin-top:8px">也就是说，<strong>沪深300 不在他的标准配置清单里</strong>（他的清单是七巨头 + 台积电 + QQQ/SPY + 消费医药 + 美债）。所以下面这套档位表，是把他的<strong>通用纪律</strong>（不追高、分批、金字塔、预设节点、永不满仓）套用到沪深300 上，不是他本人给 A 股的建议。</p>
+    <p style="margin-top:8px"><strong>仓位上限建议：总资产 10% 以内</strong>，并把它算作"主动超配 A 股"，不要占掉你的宽基底仓。</p>
+  </div>
+
+  <div class="card">
+    <h2>一、低点买入档位（5 档 · 金字塔加仓）</h2>
+    <p class="sub">档差约 4%，最后一档拉大到 7.7%（极端行情用）。触发条件 = 沪深300 收盘价到达该点位。</p>
+    <div id="chartBuy" class="chart"></div>
+    <div class="legend-note">
+      <span><span class="dot" style="background:#1E7B45"></span>绿色柱 = 需下跌到达的买入档</span>
+      <span><span class="dot" style="background:#1D4ED8"></span>蓝线 = 该档投入资金占比（越跌买越多）</span>
+    </div>
+
+    <table>
+      <thead>
+        <tr><th>档位</th><th>触发点位</th><th>距年内高点</th><th>距现价</th><th>估算 PE</th><th>投入资金</th><th>累计建仓</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><span class="tag tag-buy">第 1 档</span></td><td><strong>4450</strong></td><td>-12.1%</td><td class="down">-2.2%</td><td>13.2</td><td>10%</td><td>10%</td></tr>
+        <tr><td><span class="tag tag-buy">第 2 档</span></td><td><strong>4280</strong></td><td>-15.5%</td><td class="down">-5.9%</td><td>12.7</td><td>15%</td><td>25%</td></tr>
+        <tr><td><span class="tag tag-buy">第 3 档</span></td><td><strong>4100</strong></td><td>-19.0%</td><td class="down">-9.9%</td><td>12.2</td><td>20%</td><td>45%</td></tr>
+        <tr><td><span class="tag tag-buy">第 4 档</span></td><td><strong>3900</strong></td><td>-23.0%</td><td class="down">-14.3%</td><td>11.6</td><td>25%</td><td>70%</td></tr>
+        <tr><td><span class="tag tag-buy">第 5 档</span></td><td><strong>3600</strong></td><td>-28.9%</td><td class="down">-20.9%</td><td>10.7</td><td>30%</td><td>100%</td></tr>
+      </tbody>
+    </table>
+
+    <div class="note">
+      <strong>为什么档位这么设：</strong>沪深300 的年内振幅只有 14.5%，远小于纳指。玑哥给纳指设的是"跌 9% 起步、每 3.5% 一档"——那套档差放到沪深300 上会**一个月就全部触发完**，起不到拉低成本的作用。所以这里把档差压到 4% 左右，但把**下跌深度**拉大（最后一档到 -29%），让子弹留给真正的恐慌。
+    </div>
+    <div class="note">
+      <strong>资金不够怎么办：</strong>玑哥的规则是"资金有限就把档差拉大到 8% 甚至 10-15%"。若你的计划本金在 5 万以内，建议只留 3 档：4450（20%）／4100（30%）／3800（50%）。
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>二、止盈抛出档位（4 档 · 倒金字塔减仓）</h2>
+    <p class="sub">玑哥原法：<strong>"高点要止盈，达到预期就卖，不要总想着还能再创新高，人心不足蛇吞象。"</strong>止盈的目标不是清仓，是<strong>把本金抽回来</strong>。</p>
+    <div id="chartSell" class="chart"></div>
+    <div class="legend-note">
+      <span><span class="dot" style="background:#C1272D"></span>红色柱 = 需上涨到达的止盈档</span>
+      <span><span class="dot" style="background:#92400E"></span>橙线 = 该档减仓比例</span>
+    </div>
+
+    <table>
+      <thead>
+        <tr><th>档位</th><th>触发点位</th><th>估算 PE</th><th>距现价</th><th>减仓比例</th><th>减仓理由</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><span class="tag tag-sell">第 1 档</span></td><td><strong>5060</strong></td><td>15.0</td><td class="up">+11.2%</td><td>减 20%</td><td>突破年内高点（5064）即减，创新高先落袋</td></tr>
+        <tr><td><span class="tag tag-sell">第 2 档</span></td><td><strong>5380</strong></td><td>16.0</td><td class="up">+18.3%</td><td>减 25%</td><td>PE 进入历史偏高区（约 80% 分位）</td></tr>
+        <tr><td><span class="tag tag-sell">第 3 档</span></td><td><strong>5720</strong></td><td>17.0</td><td class="up">+25.7%</td><td>减 25%</td><td>PE 17 ≈ 2015/2021 两轮高点区</td></tr>
+        <tr><td><span class="tag tag-sell">第 4 档</span></td><td><strong>6050+</strong></td><td>18.0+</td><td class="up">+33.0%</td><td>减剩余</td><td>只留负成本底仓，其余全部兑现</td></tr>
+      </tbody>
+    </table>
+
+    <div class="note">
+      <strong>负成本测算（假设 5 档全部触发、均价约 4200）：</strong>到第 3 档减完时累计减仓 70%，回收资金约<strong>九成本金</strong>，剩下 30% 仓位的成本被摊薄到 1400 点附近（市价 5720）——这就是玑哥说的"把成本掏出来，账户里的都是盈利部分，涨跌就不是那么所谓了"。
+    </div>
+    <div class="note">
+      <strong>为什么止盈档用 PE 而不是涨幅：</strong>玑哥给个股设的 +30%／+40%／+50% 减仓档，是为高波动资产设计的。沪深300 自 2005 年以来年化只有约 7.8%，从底部涨 30% 往往要两三年——照搬涨幅档会变成"永远等不到"。用 PE 锚定更贴合 A 股宽基的节奏。
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>三、怎么换算到你的基金上</h2>
+    <p class="sub">上面所有点位都是<strong>沪深300 指数点位</strong>，不是你那只基金的净值。换算法：</p>
+    <div class="note">
+      <strong>换算系数 k = 观察日的指数点位 ÷ 同日基金净值</strong><br>
+      目标净值 = 目标点位 ÷ k<br><br>
+      示例（仅演示算法，两个数字取的不是同一天）：9 月 17 日招商沪深300指数增强 A（004190）净值 1.7549；若同日指数约 4549，则 k ≈ 2593。对应：4450 → 净值约 1.716，4100 → 约 1.582，5060 → 约 1.952。<br>
+      <strong>实操时用你自己持仓当天的数据重算一次 k</strong>，误差更小。
+    </div>
+    <h3 style="margin-top:18px">两种产品的执行方式完全不同</h3>
+    <ul>
+      <li><strong>场外 004190 / 004191（指数增强）</strong>：不能挂限价单，只能按当日净值申购赎回。你必须<strong>自己盯指数点位</strong>，到了就手动操作；持有不满 7 天赎回费 1.5%，别当短线工具。跟踪误差目标年化 7.75%，有增强也有跑输的可能。</li>
+      <li><strong>场内 561930（沪深300ETF）</strong>：可以挂条件单/限价单，到点自动成交，最省心。但注意它规模只有约 1.98 亿，<strong>流动性远不如华泰柏瑞 510300、华夏 510330 这类千亿级 ETF</strong>——买卖价差和冲击成本会吃掉一部分收益。若纯粹为了执行纪律，流动性更好的沪深300ETF 是更实际的选择。</li>
+      <li><strong>561990（沪深300增强ETF）</strong>：场内的增强版，兼顾挂单与超额，但同样存在规模与跟踪偏离的问题。</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h2>四、下单前必须过的四道纪律检查</h2>
+    <ol>
+      <li><strong>永不满仓。</strong>"满仓的骨子里都是赌徒"——常规持仓 7~7.5 成，永远留 30% 现金。沪深300 的仓位要算在这 7 成里面，不要额外加。</li>
+      <li><strong>只用闲钱。</strong>不影响生活的钱。玑哥 2008 年用积蓄炒股的教训：亏了顶多心疼，不能伤筋动骨。</li>
+      <li><strong>不用杠杆。</strong>他 2022 年纳指 -37.7% 被杠杆教训过（浮亏 30%、资金耗尽），此后除非把握极大不用杠杆。</li>
+      <li><strong>预设价格单，不临时决策。</strong>今天就把这 9 个价位写下来。到了就执行，没到就等——"投资大部分时间都是等待，只有少数买卖的节点。"</li>
+    </ol>
+    <div class="note">
+      <strong>最后提醒一个刻舟求剑的坑：</strong>玑哥自己也说"很多人容易犯的错就是路径依赖，喜欢把一个阶段的成功经验当成永远有效的真理"。上面这套档位是基于 <strong>2026 年内的 4394~5064 波动区间</strong>和当前 PE 13.5 设定的，<strong>每季度要复核一次</strong>：如果指数盈利增速兑现（机构预期 2026 年 EPS 增速约 25%），同样的 PE 对应点位会整体上移，档位也要跟着抬。
+    </div>
+  </div>
+
+  <div class="risk">
+    <strong>边界声明与风险提示</strong><br>
+    1. 本表是把金渐成公开文章中披露的纪律方法（分批、金字塔加仓、倒金字塔减仓、负成本、预设节点）套用到沪深300 上的推演，<strong>不是金渐成本人的 A 股建议</strong>——他明确表示"A 股能不碰尽量不碰"。<br>
+    2. 所有点位为按 2026-09-22 数据的测算值，市场随时变化，仅作方法论参考，<strong>不构成投资建议</strong>。<br>
+    3. 玑哥体系建立在大资金体量 + 负成本底仓 + 充足现金流之上，普通人不照搬具体价位，只吸收纪律内核。<br>
+    4. 基金投资有风险，过往表现不预示未来收益。招商沪深300指数增强为增强型指数基金，存在跟踪偏离与跑输标的指数的可能；ETF 存在折溢价与流动性风险。请结合自身风险承受能力、资金状况与投资期限独立判断。
+  </div>
+
+</div>
+
+<script>
+var buyLabels = ['第1档 4450', '第2档 4280', '第3档 4100', '第4档 3900', '第5档 3600'];
+var buyPoints = [4450, 4280, 4100, 3900, 3600];
+var buyWeight = [10, 15, 20, 25, 30];
+
+echarts.init(document.getElementById('chartBuy')).setOption({
+  tooltip: { trigger: 'axis', axisPointer: { type: 'shadow' } },
+  grid: { left: 60, right: 60, top: 40, bottom: 40 },
+  xAxis: { type: 'category', data: buyLabels, axisLabel: { fontSize: 11 } },
+  yAxis: [
+    { type: 'value', name: '点位', min: 3500, max: 4650, nameTextStyle: { fontSize: 11 } },
+    { type: 'value', name: '资金%', min: 0, max: 40, nameTextStyle: { fontSize: 11 } }
+  ],
+  series: [
+    {
+      name: '触发点位', type: 'bar', barWidth: '42%',
+      data: buyPoints,
+      itemStyle: { color: '#1E7B45', borderRadius: [4, 4, 0, 0] },
+      label: { show: true, position: 'top', fontSize: 11, color: '#1E7B45' },
+      markLine: {
+        symbol: 'none', silent: true,
+        data: [
+          { yAxis: 4549, label: { formatter: '现价 4549', fontSize: 11, color: '#1D4ED8' }, lineStyle: { color: '#1D4ED8', type: 'dashed' } },
+          { yAxis: 4394, label: { formatter: '年内低点 4394', fontSize: 11, color: '#9CA3AF' }, lineStyle: { color: '#9CA3AF', type: 'dotted' } }
+        ]
+      }
+    },
+    {
+      name: '投入资金占比', type: 'line', yAxisIndex: 1, smooth: true,
+      data: buyWeight, symbolSize: 7,
+      itemStyle: { color: '#1D4ED8' }, lineStyle: { color: '#1D4ED8', width: 2 }
+    }
+  ]
+});
+
+var sellLabels = ['第1档 5060', '第2档 5380', '第3档 5720', '第4档 6050+'];
+var sellPoints = [5060, 5380, 5720, 6050];
+var sellRatio = [20, 25, 25, 30];
+
+echarts.init(document.getElementById('chartSell')).setOption({
+  tooltip: { trigger: 'axis', axisPointer: { type: 'shadow' } },
+  grid: { left: 60, right: 60, top: 40, bottom: 40 },
+  xAxis: { type: 'category', data: sellLabels, axisLabel: { fontSize: 11 } },
+  yAxis: [
+    { type: 'value', name: '点位', min: 4900, max: 6200, nameTextStyle: { fontSize: 11 } },
+    { type: 'value', name: '减仓%', min: 0, max: 40, nameTextStyle: { fontSize: 11 } }
+  ],
+  series: [
+    {
+      name: '触发点位', type: 'bar', barWidth: '42%',
+      data: sellPoints,
+      itemStyle: { color: '#C1272D', borderRadius: [4, 4, 0, 0] },
+      label: { show: true, position: 'top', fontSize: 11, color: '#C1272D' },
+      markLine: {
+        symbol: 'none', silent: true,
+        data: [
+          { yAxis: 5064, label: { formatter: '年内高点 5064', fontSize: 11, color: '#92400E' }, lineStyle: { color: '#92400E', type: 'dashed' } },
+          { yAxis: 5931, label: { formatter: '历史最高 5931', fontSize: 11, color: '#9CA3AF' }, lineStyle: { color: '#9CA3AF', type: 'dotted' } }
+        ]
+      }
+    },
+    {
+      name: '减仓比例', type: 'line', yAxisIndex: 1, smooth: true,
+      data: sellRatio, symbolSize: 7,
+      itemStyle: { color: '#92400E' }, lineStyle: { color: '#92400E', width: 2 }
+    }
+  ]
+});
+</script>
+</body>
+</html>
