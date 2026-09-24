@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>沪深300 投资操作手册 · 完整版</title>
+<script src="https://cdn.jsdelivr.net/npm/echarts@5/dist/echarts.min.js"></script>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", "Segoe UI", sans-serif;
+    background: #F5F6F8; color: #1F2328; line-height: 1.65; font-size: 15px;
+    padding: 32px 20px 64px;
+  }
+  .wrap { max-width: 1080px; margin: 0 auto; }
+  h1 { font-size: 26px; font-weight: 600; letter-spacing: -0.3px; }
+  h2 { font-size: 19px; font-weight: 600; margin-bottom: 6px; }
+  h3 { font-size: 15px; font-weight: 600; margin-bottom: 8px; }
+  .sub { color: #6B7280; font-size: 13px; margin-top: 6px; }
+  .card { background: #fff; border: 1px solid #E5E7EB; border-radius: 12px; padding: 22px 24px; margin-top: 18px; }
+  .tldr { background: #fff; border: 1px solid #E5E7EB; border-left: 4px solid #B91C1C; border-radius: 12px; padding: 22px 24px; margin-top: 20px; }
+  .tldr p { margin-bottom: 10px; }
+  .tldr p:last-child { margin-bottom: 0; }
+  .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(148px, 1fr)); gap: 12px; margin-top: 18px; }
+  .kpi { background: #fff; border: 1px solid #E5E7EB; border-radius: 10px; padding: 14px 16px; }
+  .kpi .k { font-size: 12px; color: #6B7280; }
+  .kpi .v { font-size: 20px; font-weight: 600; margin-top: 4px; letter-spacing: -0.4px; }
+  .kpi .n { font-size: 12px; color: #9CA3AF; margin-top: 2px; }
+  .up { color: #C1272D; }
+  .down { color: #1E7B45; }
+  .bad { color: #B91C1C; }
+  .ok { color: #1E7B45; }
+  .warn { background: #FFFBEB; border: 1px solid #FCD34D; border-radius: 12px; padding: 18px 22px; margin-top: 18px; }
+  .warn h3 { color: #92400E; }
+  .note { background: #F3F4F6; border-radius: 10px; padding: 14px 18px; margin-top: 14px; font-size: 14px; color: #4B5563; }
+  .good { background: #E7F3EC; border-radius: 10px; padding: 14px 18px; margin-top: 14px; font-size: 14px; color: #1E7B45; }
+  .quote { background: #FAFAFB; border-left: 3px solid #9CA3AF; border-radius: 0 8px 8px 0; padding: 16px 20px; margin-top: 14px; font-size: 14px; color: #374151; }
+  .quote .src { font-size: 12px; color: #9CA3AF; margin-top: 10px; }
+  table { width: 100%; border-collapse: collapse; margin-top: 14px; font-size: 14px; }
+  th, td { padding: 10px; text-align: left; border-bottom: 1px solid #EDEFF2; }
+  th { background: #FAFAFB; font-weight: 600; font-size: 13px; color: #4B5563; }
+  tr:last-child td { border-bottom: none; }
+  tfoot td { font-weight: 600; background: #FAFAFB; }
+  .tag { display: inline-block; padding: 2px 8px; border-radius: 6px; font-size: 12px; font-weight: 500; }
+  .t-base { background: #E8EEF9; color: #1D4ED8; }
+  .t-buy { background: #E7F3EC; color: #1E7B45; }
+  .t-s1 { background: #FBE9E9; color: #B91C1C; }
+  .t-s2 { background: #FEF3C7; color: #92400E; }
+  .t-s3 { background: #E7F3EC; color: #1E7B45; }
+  .t-hold { background: #F3F4F6; color: #4B5563; }
+  .chart { width: 100%; height: 360px; margin-top: 10px; }
+  .chart-sm { width: 100%; height: 280px; margin-top: 10px; }
+  .cols { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 14px; }
+  .col { background: #FAFAFB; border: 1px solid #E5E7EB; border-radius: 10px; padding: 16px 18px; font-size: 14px; }
+  .col h3 { font-size: 14px; margin-bottom: 8px; }
+  ol, ul { padding-left: 22px; }
+  li { margin-bottom: 8px; }
+  .risk { background: #F9FAFB; border: 1px solid #E5E7EB; border-radius: 12px; padding: 18px 22px; margin-top: 18px; font-size: 13px; color: #6B7280; }
+  code { background: #F3F4F6; padding: 2px 6px; border-radius: 5px; font-size: 13px; font-family: ui-monospace, Menlo, Consolas, monospace; }
+  .calc { background: #F8FAFC; border: 1px solid #CBD5E1; border-radius: 12px; padding: 18px 22px; margin-top: 16px; }
+  .calc-row { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
+  .calc input { font-size: 16px; padding: 8px 12px; width: 140px; border: 1px solid #CBD5E1; border-radius: 8px; font-family: inherit; }
+  .calc-out { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 12px; margin-top: 16px; }
+  .calc-item { background: #fff; border: 1px solid #E5E7EB; border-radius: 10px; padding: 12px 14px; }
+  .calc-item .k { font-size: 12px; color: #6B7280; }
+  .calc-item .v { font-size: 19px; font-weight: 600; margin-top: 3px; }
+  .steps { counter-reset: s; list-style: none; padding-left: 0; }
+  .steps li { counter-increment: s; position: relative; padding-left: 38px; margin-bottom: 12px; }
+  .steps li::before {
+    content: counter(s); position: absolute; left: 0; top: 1px;
+    width: 24px; height: 24px; border-radius: 50%; background: #1F2328; color: #fff;
+    font-size: 12px; font-weight: 600; display: flex; align-items: center; justify-content: center;
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <h1>沪深300 投资操作手册</h1>
+  <p class="sub">完整版 · 融合周期定位 + 建仓计划 + 减仓计划 · 方法论依据：金渐成公开文章 · 数据基准：2026-09-22（沪深300 收 4549、PE 13.52）</p>
+
+  <div class="tldr">
+    <p><strong>① 现在该做什么：轻仓慢买，不要一次性买入。</strong>PE 13.5 处在近十年 <strong>66% 分位</strong>（偏高），距 6 月高点已回撤 10.2%——属于"可以摆档位、但还没到重仓"的位置。总仓位上限建议为总资产 <strong>10%</strong>。</p>
+    <p><strong>② 钱要分成两个池子：底仓 30% + 档位仓 70%。</strong>底仓不等档位（分 6 期买入，防"市场不给机会你永远空手"）；档位仓挂在 <strong>4450 / 4280 / 4100 / 3900 / 3600</strong>，越跌买越多。</p>
+    <p><strong>③ 卖出用 PE 锚，不用涨幅锚。</strong>2-3-3-2 的比例（20%/30%/30%/20%）照搬，但触发条件换成 PE 15 / 16 / 17 / 19——照搬"涨 30% 才减"，在沪深300 上你的止盈单几年都挂不上。</p>
+    <p><strong>④ 完整走完一轮（买满 + 卖到第 8 档），本金可全部回笼，剩下 28% 是纯利润。</strong>这是这套体系的终点，也是它能让人睡得着觉的原因。</p>
+  </div>
+
+  <div class="grid">
+    <div class="kpi"><div class="k">沪深300 收盘</div><div class="v">4549</div><div class="n">2026-09-22</div></div>
+    <div class="kpi"><div class="k">年内涨跌</div><div class="v down">-1.8%</div><div class="n">起点 4629.94</div></div>
+    <div class="kpi"><div class="k">距年内高点</div><div class="v down">-10.2%</div><div class="n">高点 5064.27（6/23）</div></div>
+    <div class="kpi"><div class="k">PE（TTM）</div><div class="v">13.5</div><div class="n">近十年 66% 分位</div></div>
+    <div class="kpi"><div class="k">距历史最高</div><div class="v down">-23.3%</div><div class="n">5930.91（2007）</div></div>
+    <div class="kpi"><div class="k">换算系数</div><div class="v">336.5</div><div class="n">点位 ÷ PE</div></div>
+  </div>
+
+  <div class="warn">
+    <h3>开工前必须先读这一条</h3>
+    <p style="margin-top:8px">玑哥对 A 股的态度是明确的：<strong>"大 A 是融资市，是某种意志的战略工具；专注美股市场，大 A 能不碰尽量不碰，除非机会点很好、确定性很强。"</strong></p>
+    <p style="margin-top:8px">沪深300 <strong>不在他的标准配置清单内</strong>（他的清单是七巨头 + 台积电 + QQQ/SPY + 消费医药 + 美债）。本手册是把他的<strong>通用纪律</strong>（不追高、分批、金字塔、预设节点、永不满仓、负成本）套用到沪深300 上，<strong>不是他的 A 股建议</strong>。</p>
+    <p style="margin-top:8px">因此：<strong>把沪深300 视为"主动超配 A 股"，仓位上限总资产 10%，且不要占用你的宽基底仓额度。</strong></p>
+  </div>
+
+  <div class="card">
+    <h2>第一层 · 周期定位：决定「该买多少」</h2>
+    <p class="sub">周期不是"每月投一次"的时间节奏，而是利率与资产价格的周期位置。它回答的问题是<strong>总仓位该多重</strong>，不回答"何时下单"。</p>
+    <table>
+      <thead><tr><th>锚</th><th>当前读数</th><th>解读</th></tr></thead>
+      <tbody>
+        <tr><td><strong>估值分位</strong></td><td>PE 13.5，近十年 <strong>66%</strong> 分位</td><td class="bad">偏高 → 不是重仓时点，应轻仓慢买</td></tr>
+        <tr><td><strong>盈利周期</strong></td><td>2026 年 EPS 增速机构一致预期约 <strong>25%</strong></td><td>向上 → 支撑当前估值，是"慢买"的前提</td></tr>
+        <tr><td><strong>美元流动性</strong></td><td>1 年期 LPR 3.0%、5 年期 3.5%（连续 16 个月不动）；10 年国债 1.68%</td><td>宽松但空间收窄；无风险收益极低</td></tr>
+        <tr><td><strong>政策周期</strong></td><td>地产仍在出清（1-8 月房地产开发投资 -20.9%）</td><td>拖累项，压制指数上限</td></tr>
+      </tbody>
+    </table>
+    <div class="note">
+      <strong>这四个锚怎么用：</strong>它们共同决定你的<strong>总仓位上限和现金比例</strong>——不是决定买点。玑哥自己的现金比例就是这么调的：2024 年末 32% → 2025-08 约 20% → 2026-02 约 35%（现金:美股）。<strong>周期变，变的是重量级；价格到位，才扣扳机。</strong><br><br>
+      <strong>复核频率：每季度一次。</strong>他自己的警告是"喜欢把一个阶段的成功经验当成永远有效的真理"就是刻舟求剑——PE 分位、EPS 增速、利率环境都会变。
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>第二层 · 资金分配：两个池子</h2>
+    <p class="sub">这是整套方案的总账。把计划投入沪深300 的<strong>全部资金</strong>按下面的比例拆开，之后的买入、卖出都在这张账上走。</p>
+    <div class="cols">
+      <div class="col">
+        <div id="chartAlloc" class="chart-sm"></div>
+      </div>
+      <div class="col">
+        <h3>A 池 · 底仓 30%</h3>
+        <p><strong>不等档位，分 6 期买入</strong>（每月一期，每期 5%）。<br><br>
+        作用：解决纯价格触发的致命缺点——<strong>市场不跌，你就永远空着手</strong>。玑哥原话承认过这个痛点："个股触发的速度太慢了，甚至有些个股还未触发。"他的解法是"毛毛雨试水"，你的底仓就是放大版。</p>
+        <h3 style="margin-top:16px">B 池 · 档位仓 70%</h3>
+        <p>按 5 个价格档位分配，<strong>越跌买越多</strong>（金字塔法）。现价 4549，距第一档 4450 只差 <strong>2.2%</strong>。</p>
+        <p style="margin-top:12px"><strong>合计 = 100%。</strong>买满后需再预留一份"极端备用金"给第 5 档之后的意外深跌（可选）。</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>第三层 · 买入执行表</h2>
+    <p class="sub">先看全局：绿色是"需要下跌到达"的买入档，红色是"需要上涨到达"的卖出档，蓝线是你要盯紧的两个参照点。</p>
+    <div id="chartMap" class="chart"></div>
+
+    <h3 style="margin-top:22px">A 池 · 底仓（30%，分 6 期）</h3>
+    <table>
+      <thead><tr><th>期数</th><th>时间</th><th>金额占比</th><th>执行方式</th></tr></thead>
+      <tbody>
+        <tr><td>第 1~6 期</td><td>每月固定一日</td><td>每期 5%（合计 30%）</td><td>场外基金设自动定投；场内 ETF 手动买</td></tr>
+      </tbody>
+    </table>
+    <div class="note">底仓<strong>不看价格、不看点位</strong>，只按时间执行。它的使命是"保证你在场"，不是"买在最低"。若 6 期买完后市场已上涨，不要追高补仓——交给 B 池的逻辑。</div>
+
+    <h3 style="margin-top:22px">B 池 · 档位仓（70%，按价格触发）</h3>
+    <table>
+      <thead><tr><th>档位</th><th>触发点位</th><th>距年内高点</th><th>距现价</th><th>估算 PE</th><th>池内比例</th><th>占总资金</th></tr></thead>
+      <tbody>
+        <tr><td><span class="tag t-buy">第 1 档</span></td><td><strong>4450</strong></td><td>-12.1%</td><td class="down">-2.2%</td><td>13.2</td><td>10%</td><td>7%</td></tr>
+        <tr><td><span class="tag t-buy">第 2 档</span></td><td><strong>4280</strong></td><td>-15.5%</td><td class="down">-5.9%</td><td>12.7</td><td>15%</td><td>10%</td></tr>
+        <tr><td><span class="tag t-buy">第 3 档</span></td><td><strong>4100</strong></td><td>-19.0%</td><td class="down">-9.9%</td><td>12.2</td><td>20%</td><td>14%</td></tr>
+        <tr><td><span class="tag t-buy">第 4 档</span></td><td><strong>3900</strong></td><td>-23.0%</td><td class="down">-14.3%</td><td>11.6</td><td>25%</td><td>18%</td></tr>
+        <tr><td><span class="tag t-buy">第 5 档</span></td><td><strong>3600</strong></td><td>-28.9%</td><td class="down">-20.9%</td><td>10.7</td><td>30%</td><td>21%</td></tr>
+      </tbody>
+      <tfoot><tr><td colspan="5">B 池合计</td><td>100%</td><td>70%</td></tr></tfoot>
+    </table>
+
+    <div class="note">
+      <strong>档差为什么是 4%？</strong>这是本次设计里最关键的技术判断。沪深300 年内振幅只有 <strong>14.5%</strong>，而玑哥给纳指设的是"跌 9% 起步、每 3.5% 一档"——照搬到沪深300 会<strong>一个月内全部触发完</strong>，档位就失去摊薄成本的意义。所以这里把档差压到 4%，把<strong>下跌深度</strong>拉大到 -29%，让子弹留给真正的恐慌。<br><br>
+      <strong>本金不足 5 万时</strong>，参考他的规则"资金有限就把档差拉大到 8% 甚至 10-15%"，只留 3 档：4450（20%）/ 4100（30%）/ 3800（50%）。
+    </div>
+
+    <h3 style="margin-top:22px">建仓均价测算（三种情形）</h3>
+    <table>
+      <thead><tr><th>情形</th><th>触发情况</th><th>累计仓位</th><th>建仓均价</th></tr></thead>
+      <tbody>
+        <tr><td>A</td><td>仅底仓 6 期 + 档位第 1、2 档</td><td>47%</td><td>约 <strong>4446</strong></td></tr>
+        <tr><td>B</td><td>至档位第 3 档</td><td>64%</td><td>约 <strong>4162</strong></td></tr>
+        <tr><td>C</td><td>五档全部触发</td><td>100%</td><td>约 <strong>4122</strong></td></tr>
+      </tbody>
+    </table>
+    <div class="note">底仓按 6 期均价 4500 估算。<strong>这个均价是你后面所有卖出测算的基准</strong>——买入结束后，务必用实际数据重算一次（总投入 ÷ 总份额）。</div>
+  </div>
+
+  <div class="card">
+    <h2>第四层 · 卖出执行表（2-3-3-2 换锚版）</h2>
+    <div class="quote">
+      我做美股，在倒金字塔卖出法的基础上做了细化，总结出了属于适合自己的"2-3-3-2"法。即第一阶段计划在股价上涨 <strong>30-50%</strong> 阶段，卖掉 <strong>20%</strong>；上涨 <strong>50-80%</strong> 阶段卖掉 <strong>30%</strong>，其他的分成 <strong>30% 和 20%</strong> 卖出，但这时候已经负成本了，正常反而会持有不卖。第一阶段卖出的 20%，也不是一股脑卖出的，而是根据股价上涨的情况，<strong>分 3-4 次卖掉 20%，即每次 5-10% 左右</strong>。
+      <div class="src">—— 金渐成《越无知越自信》2025-04-08</div>
+    </div>
+
+    <div class="warn" style="margin-top:16px">
+      <h3>关键改造：涨幅锚 → PE 锚</h3>
+      <p style="margin-top:8px">照搬 +30% / +50% / +80%（以均价 4200 计需 5460 / 6300 / 7560，对应 PE 16.2 / 18.7 / <strong>22.5</strong>）——而沪深300 历史最高 5931（2007 年），<strong>PE 22.5 从未在正常周期出现过</strong>。结果是第二、三档永远等不到，止盈单变摆设。</p>
+      <p style="margin-top:8px"><strong>改成 PE 锚：</strong>因为 2-3-3-2 的本质不是"涨 30% 就卖"，而是"<strong>在估值进入偏高区间时分批减仓</strong>"。涨幅只是他表达"估值偏高"的代理指标——对英伟达这类成长股，涨 30% 意味着估值透支；对沪深300 这种低波动宽基，估值透支的信号是 <strong>PE 抬升</strong>，不是涨幅。<strong>换锚不换逻辑，比例仍是 20% / 30% / 30% / 20%。</strong></p>
+    </div>
+
+    <table>
+      <thead><tr><th>序</th><th>触发 PE</th><th>触发点位</th><th>本笔卖出</th><th>累计卖出</th><th>属阶段</th></tr></thead>
+      <tbody>
+        <tr><td>1</td><td>15.0</td><td><strong>5050</strong></td><td>5%</td><td>5%</td><td><span class="tag t-s1">第一档 20%</span></td></tr>
+        <tr><td>2</td><td>15.5</td><td><strong>5215</strong></td><td>5%</td><td>10%</td><td><span class="tag t-s1">分 4 次</span></td></tr>
+        <tr><td>3</td><td>16.0</td><td><strong>5385</strong></td><td>5%</td><td>15%</td><td><span class="tag t-s1">每次 5%</span></td></tr>
+        <tr><td>4</td><td>16.5</td><td><strong>5550</strong></td><td>5%</td><td>20%</td><td><span class="tag t-s1">第一档完成</span></td></tr>
+        <tr><td>5</td><td>17.0</td><td><strong>5720</strong></td><td>10%</td><td>30%</td><td><span class="tag t-s2">第二档 30%</span></td></tr>
+        <tr><td>6</td><td>17.5</td><td><strong>5890</strong></td><td>10%</td><td>40%</td><td><span class="tag t-s2">分 3 次</span></td></tr>
+        <tr><td>7</td><td>18.0</td><td><strong>6060</strong></td><td>10%</td><td>50%</td><td><span class="tag t-s2">第二档完成</span></td></tr>
+        <tr><td>8</td><td>19.0</td><td><strong>6390</strong></td><td>22%</td><td>72%</td><td><span class="tag t-s3">掏出本金</span></td></tr>
+        <tr><td>—</td><td>—</td><td>不再挂单</td><td>持有</td><td>28%</td><td><span class="tag t-hold">纯利润底仓</span></td></tr>
+      </tbody>
+    </table>
+
+    <div class="note">
+      <strong>两个终点，你自己选：</strong><br>
+      <strong>终点一（严格照搬原文，留 50%）</strong>：卖到第 7 档为止，剩 50% 长期持有 → 结果是<strong>低成本，但本金只回笼约 2/3</strong>。<br>
+      <strong>终点二（做成负成本，留 28%）</strong>：在 PE 19（6390）再卖 22%，<strong>本金全部回笼</strong>，剩 28% 是纯利润 → 这就是他说的"把成本掏出来，账户里的都是盈利部分"。
+    </div>
+
+    <div class="note">
+      <strong>他给的实战教训，比方法本身更重要。</strong>同篇里台积电、Meta 两笔的执行记录：计划卖 30% 的第二档，<strong>台积电只卖出 20%（215、220 各 5%、225 卖 10%），Meta 只卖出 10%（735 卖了 10%）</strong>——因为"740 的 10% 和 750 的 10% 没卖成就下跌了"。<br><br>
+      <strong>所以：止盈计划是"上限"，不是"必须完成的任务"。</strong>没涨到就不卖，不追着卖，也不懊恼。很多人的错误恰恰相反——为了"完成计划"而在没到价位时提前卖出。
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>第五层 · 本金回笼测算（可交互）</h2>
+    <p class="sub">按上表 8 档全部执行（累计卖出 72%），投入你的真实建仓均价，看本金能回笼多少、剩余仓位成本降到多少。</p>
+    <div class="calc">
+      <div class="calc-row">
+        <label for="costInput" style="font-weight:600">你的建仓均价：</label>
+        <input type="number" id="costInput" value="4200" step="10" min="3000" max="6000">
+        <span style="color:#6B7280;font-size:13px">（默认 4200，即上表"情形 B/C"的中间值）</span>
+      </div>
+      <div class="calc-out" id="calcOut"></div>
+      <p style="margin-top:14px;font-size:13px;color:#6B7280">测算逻辑：8 档累计回笼金额按"卖出比例 × 触发点位"加总，除以"100 份 × 你的均价"。剩余 28% 仓位的单位成本 = （本金 − 累计回笼）÷ 28。</p>
+    </div>
+    <div id="chartPayback" class="chart"></div>
+    <div class="note">
+      <strong>怎么看这张图：</strong>横线在 100% 处——<strong>越过这条线的那一刻，本金全部拿回来了</strong>，剩下的持仓全是利润，心态会发生质的变化。注意前 4 档（PE 15~16.5）只回笼约 25% 本金，<strong>所以第一档必须拆 4 次慢慢卖</strong>，而不是一次性清掉。
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>执行顺序（照这个顺序做，不要跳步）</h2>
+    <ol class="steps">
+      <li><strong>先定总仓位上限。</strong>按第一层的四个锚，现在 PE 66% 分位 → 沪深300 不超过总资产 10%。<strong>这一步不做，后面全是空谈。</strong></li>
+      <li><strong>确认这笔钱是闲钱。</strong>不影响生活、不加杠杆。玑哥 2008 年用积蓄炒股的教训，和 2022 年纳指 -37.7% 被杠杆打到资金耗尽的教训，都是真金白银换来的。</li>
+      <li><strong>启动 A 池底仓定投</strong>（30%，分 6 期），每月一期。这一步不需要判断市场。</li>
+      <li><strong>把 B 池的 5 个买入价位挂好/记好</strong>（4450/4280/4100/3900/3600）。<strong>到了就买，没到就等</strong>——"投资大部分时间都是等待，只有少数买卖的节点。"</li>
+      <li><strong>买入全部结束后，算真实建仓均价</strong>（总投入 ÷ 总份额），用上面的计算器跑一次回笼测算。</li>
+      <li><strong>挂 8 个卖出价位</strong>（PE 15~19）。第一档 20% 必须分 4 次各 5%；第二档 30% 分 3 次各 10%。<strong>没到就不卖。</strong></li>
+      <li><strong>维持仓位在 6~7 成</strong>。他的原话："不空仓、不满仓，我基本上保持 6-7 成仓，高了就做 T 控制，低了就逢低买入一些。"沪深300 的仓位要算在这个总量里。</li>
+      <li><strong>做完一轮，回到第 3 步。</strong>这就是循环："逢高减仓 → 回笼现金 → 大跌到目标位买入 → 再涨再减 → 循环。"</li>
+    </ol>
+
+    <h3 style="margin-top:20px">场内外产品的执行差异</h3>
+    <table>
+      <thead><tr><th>产品</th><th>代码</th><th>能否挂条件单</th><th>注意事项</th></tr></thead>
+      <tbody>
+        <tr><td>招商沪深300指数增强 A/C</td><td>004190 / 004191</td><td class="bad">不能</td><td>按当日净值申赎，须自己盯指数点位；持有不满 7 天赎回费 1.5%；年化跟踪误差目标 7.75%，有跑输可能</td></tr>
+        <tr><td>沪深300ETF招商</td><td>561930</td><td class="ok">可以</td><td>可挂条件单自动执行；但规模仅约 1.98 亿，流动性远不如华泰柏瑞 510300、华夏 510330 这类千亿级 ETF</td></tr>
+        <tr><td>沪深300增强ETF招商</td><td>561990</td><td class="ok">可以</td><td>兼顾挂单与超额，仍存在规模与跟踪偏离问题</td></tr>
+      </tbody>
+    </table>
+    <div class="note"><strong>纯粹为了执行纪律，流动性更好的沪深300ETF 是更实际的选择</strong>——买卖价差和冲击成本会吃掉一部分收益，这对"分批买卖 13 次"的策略影响不小。</div>
+  </div>
+
+  <div class="card">
+    <h2>换算与复核机制</h2>
+    <div class="note">
+      <strong>点位 → 净值换算：</strong>换算系数 <code>k = 观察日指数点位 ÷ 同日基金净值</code>，目标净值 = 目标点位 ÷ k。<br>
+      示例（仅演示算法，两个数字非同日）：9 月 17 日 004190 净值 1.7549；若同日指数约 4549，则 k ≈ 2593 → 4450 对应净值约 1.716，5060 约 1.952。<strong>实操时用你自己持仓当天的数据重算。</strong>
+    </div>
+    <div class="note">
+      <strong>PE → 点位换算（每季度必做）：</strong>当前系数 336.5（4549 ÷ 13.52）。<br>
+      复核方法：拿到最新 PE 后，<code>目标点位 = 目标 PE × 新系数</code>（新系数 = 最新点位 ÷ 最新 PE）。<strong>如果盈利增速兑现（机构预期 2026 年 EPS 增速约 25%），同样的 PE 对应的点位会整体上移，全部档位都要跟着抬。</strong>
+    </div>
+    <div class="warn">
+      <h3>最后一条纪律：不要刻舟求剑</h3>
+      <p style="margin-top:8px">他自己的警告是："很多人容易犯的错，就是路径依赖，俗称刻舟求剑，喜欢把一个阶段的成功经验当成永远有效的真理。"</p>
+      <p style="margin-top:8px">本手册所有点位基于 <strong>2026-09-22 的估值与波动区间</strong>。市场结构变了（盈利趋势转弱、流动性环境逆转、指数成分大调整），<strong>档位必须重设，而不是继续照用。</strong></p>
+    </div>
+  </div>
+
+  <div class="risk">
+    <strong>边界声明与风险提示</strong><br>
+    1. 本手册是把金渐成公开文章中披露的纪律方法（金字塔建仓、分批买入、倒金字塔减仓、2-3-3-2 减仓法、负成本体系、永不满仓）套用到沪深300 上的推演。<strong>他本人明确表示"A 股能不碰尽量不碰"，沪深300 不在其标准配置清单内，本手册不构成他的 A 股建议。</strong><br>
+    2. 其中"把涨幅锚替换为 PE 锚""把 2-3-3-2 比例调为 2-3-2-3"均为<strong>基于公开数据与数学测算的推论，非其原文主张</strong>，请知悉这一区别并自行判断是否接受。<br>
+    3. 所有点位基于 2026-09-22 数据（沪深300 收 4549、PE 13.52、336.5 点/PE）测算，估值与盈利随时间漂移，须按上文复核机制定期重算。<br>
+    4. 台积电、Meta 案例数据引自其原文操作记录，市场已变化，仅作方法论参考。<br>
+    5. 该体系建立在大资金体量 + 负成本底仓 + 充足现金流之上，普通人不照搬具体价位，只吸收纪律内核。<br>
+    6. 本内容不构成投资建议。基金投资有风险，过往表现不预示未来收益。招商沪深300指数增强为增强型指数基金，存在跟踪偏离与跑输标的指数的可能；ETF 存在折溢价与流动性风险。请结合自身风险承受能力、资金状况与投资期限独立判断，必要时咨询持牌专业机构。
+  </div>
+
+</div>
+
+<script>
+var upColor = '#C1272D';
+var downColor = '#1E7B45';
+
+echarts.init(document.getElementById('chartAlloc')).setOption({
+  tooltip: { trigger: 'item', formatter: '{b}: {d}%' },
+  legend: { bottom: 0, textStyle: { fontSize: 11 }, itemWidth: 12, itemHeight: 12 },
+  series: [{
+    type: 'pie', radius: ['42%', '68%'], center: ['50%', '44%'],
+    label: { fontSize: 11 },
+    data: [
+      { name: 'A池 底仓', value: 30, itemStyle: { color: '#378ADD' } },
+      { name: 'B池 4450档', value: 7, itemStyle: { color: '#9FE1CB' } },
+      { name: 'B池 4280档', value: 10, itemStyle: { color: '#5DCAA5' } },
+      { name: 'B池 4100档', value: 14, itemStyle: { color: '#1D9E75' } },
+      { name: 'B池 3900档', value: 18, itemStyle: { color: '#0F6E56' } },
+      { name: 'B池 3600档', value: 21, itemStyle: { color: '#085041' } }
+    ]
+  }]
+});
+
+var mapLabels = ['4450', '4280', '4100', '3900', '3600', '5050', '5215', '5385', '5550', '5720', '5890', '6060', '6390'];
+var mapValues = [4450, 4280, 4100, 3900, 3600, 5050, 5215, 5385, 5550, 5720, 5890, 6060, 6390];
+var mapColors = [downColor, downColor, downColor, downColor, downColor, upColor, upColor, upColor, upColor, upColor, upColor, upColor, upColor];
+
+echarts.init(document.getElementById('chartMap')).setOption({
+  tooltip: { trigger: 'axis', axisPointer: { type: 'shadow' } },
+  grid: { left: 66, right: 40, top: 46, bottom: 56 },
+  xAxis: {
+    type: 'category', data: mapLabels,
+    axisLabel: { fontSize: 10, interval: 0, rotate: 0 },
+    name: '买入档 ← 　 　 → 卖出档', nameLocation: 'middle', nameGap: 34, nameTextStyle: { fontSize: 11 }
+  },
+  yAxis: { type: 'value', name: '点位', min: 3400, max: 6600, nameTextStyle: { fontSize: 11 } },
+  series: [{
+    name: '触发点位', type: 'bar', barWidth: '58%',
+    data: mapValues.map(function (v, i) { return { value: v, itemStyle: { color: mapColors[i], borderRadius: [4, 4, 0, 0] } }; }),
+    label: { show: true, position: 'top', fontSize: 10, color: '#4B5563' },
+    markLine: {
+      symbol: 'none', silent: true,
+      data: [
+        { yAxis: 4549, label: { formatter: '现价 4549', fontSize: 11, color: '#1D4ED8' }, lineStyle: { color: '#1D4ED8', type: 'dashed' } },
+        { yAxis: 5064, label: { formatter: '年内高点 5064', fontSize: 11, color: '#92400E' }, lineStyle: { color: '#92400E', type: 'dotted' } },
+        { yAxis: 5931, label: { formatter: '历史最高 5931', fontSize: 11, color: '#9CA3AF' }, lineStyle: { color: '#9CA3AF', type: 'dotted' } }
+      ]
+    }
+  }]
+});
+
+var paybackLabels = ['5050', '5215', '5385', '5550', '5720', '5890', '6060', '6390'];
+var paybackRaw = [25250, 51325, 78250, 106000, 163200, 222100, 282700, 423280];
+
+echarts.init(document.getElementById('chartPayback')).setOption({
+  tooltip: { trigger: 'axis', formatter: '{b} 点位：累计回笼 {c}% 本金（按均价 4200）' },
+  grid: { left: 66, right: 40, top: 30, bottom: 46 },
+  xAxis: {
+    type: 'category', data: paybackLabels, axisLabel: { fontSize: 11 },
+    name: '触发点位', nameLocation: 'middle', nameGap: 28, nameTextStyle: { fontSize: 11 }
+  },
+  yAxis: { type: 'value', name: '回笼 / 本金 %', min: 0, max: 120, nameTextStyle: { fontSize: 11 } },
+  series: [{
+    name: '累计回笼占本金比例', type: 'line', step: 'end', symbolSize: 8,
+    data: [6.0, 12.2, 18.6, 25.2, 38.9, 52.9, 67.3, 100.8],
+    itemStyle: { color: downColor }, lineStyle: { color: downColor, width: 2.5 },
+    areaStyle: { color: 'rgba(30,123,69,0.10)' },
+    markLine: {
+      symbol: 'none', silent: true,
+      data: [
+        { yAxis: 100, label: { formatter: '本金全部回笼', fontSize: 11, color: upColor }, lineStyle: { color: upColor, type: 'dashed' } }
+      ]
+    }
+  }]
+});
+
+function recalc() {
+  var input = document.getElementById('costInput');
+  var out = document.getElementById('calcOut');
+  var c = parseFloat(input.value);
+  if (!c || c <= 0 || isNaN(c)) {
+    out.innerHTML = '<div class="calc-item"><div class="k">提示</div><div class="v" style="font-size:14px">请输入有效的建仓均价</div></div>';
+    return;
+  }
+  var totalBack = 423280;
+  var cost = 100 * c;
+  var paybackPct = totalBack / cost * 100;
+  var leftCost = (cost - totalBack) / 28;
+  var dropPct = (1 - leftCost / c) * 100;
+  var status, statusColor;
+  if (leftCost <= 0) {
+    status = '已达负成本';
+    statusColor = downColor;
+  } else if (leftCost < c * 0.3) {
+    status = '接近负成本';
+    statusColor = '#BA7517';
+  } else {
+    status = '低成本（未达负成本）';
+    statusColor = '#1F2328';
+  }
+  var paybackColor = paybackPct >= 100 ? downColor : upColor;
+  out.innerHTML =
+    '<div class="calc-item"><div class="k">累计回笼占本金</div><div class="v" style="color:' + paybackColor + '">' + paybackPct.toFixed(1) + '%</div></div>' +
+    '<div class="calc-item"><div class="k">剩余 28% 的单位成本</div><div class="v">' + Math.round(leftCost) + '</div></div>' +
+    '<div class="calc-item"><div class="k">相对建仓均价降幅</div><div class="v">' + dropPct.toFixed(0) + '%</div></div>' +
+    '<div class="calc-item"><div class="k">状态</div><div class="v" style="font-size:15px;color:' + statusColor + '">' + status + '</div></div>';
+}
+document.getElementById('costInput').addEventListener('input', recalc);
+recalc();
+</script>
+</body>
+</html>
