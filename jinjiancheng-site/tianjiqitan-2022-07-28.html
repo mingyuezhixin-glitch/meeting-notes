@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>守与变 · 天机奇谈</title>
+<meta name="description" content="天机奇谈 2022-07-28 守与变">
+<link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2064%2064'%3E%3Crect%20width='64'%20height='64'%20rx='16'%20fill='%23b45309'/%3E%3Ctext%20x='32'%20y='45'%20font-size='38'%20font-family='sans-serif'%20font-weight='700'%20fill='%23fff'%20text-anchor='middle'%3E%E7%8E%91%3C/text%3E%3C/svg%3E">
+<style>
+:root {--bg: #faf9f6;--bg-2: #f2efe9;--surface: #ffffff;--surface-2: #f6f4ef;--fg: #171614;--fg-2: #3d3a35;--muted: #7a7570;--line: #e7e3da;--line-2: #f0ece4;--accent: #b45309;--accent-2: #d98218;--accent-soft: rgba(180, 83, 9, .09);--accent-line: rgba(180, 83, 9, .22);--on-accent: #ffffff;--shadow-xs: 0 1px 2px rgba(23, 22, 20, .05);--shadow-sm: 0 1px 3px rgba(23, 22, 20, .06), 0 1px 2px rgba(23, 22, 20, .04);--shadow-md: 0 8px 24px -6px rgba(23, 22, 20, .10), 0 2px 6px rgba(23, 22, 20, .05);--shadow-lg: 0 20px 48px -12px rgba(23, 22, 20, .16);--radius: 18px;--radius-sm: 12px;--container: 68rem;}@media (prefers-color-scheme: dark) {:root:not([data-theme="light"]) {--bg: #0f0f10;--bg-2: #16161a;--surface: #17171b;--surface-2: #1d1d22;--fg: #f2f0ec;--fg-2: #d4d1cb;--muted: #918d87;--line: #29292f;--line-2: #212127;--accent: #f0972a;--accent-2: #f5b400;--accent-soft: rgba(240, 151, 42, .12);--accent-line: rgba(240, 151, 42, .3);--on-accent: #17120a;--shadow-xs: 0 1px 2px rgba(0, 0, 0, .45);--shadow-sm: 0 1px 3px rgba(0, 0, 0, .5);--shadow-md: 0 8px 24px -6px rgba(0, 0, 0, .6);--shadow-lg: 0 20px 48px -12px rgba(0, 0, 0, .7);}}html[data-theme="dark"] {--bg: #0f0f10; --bg-2: #16161a; --surface: #17171b; --surface-2: #1d1d22;--fg: #f2f0ec; --fg-2: #d4d1cb; --muted: #918d87; --line: #29292f; --line-2: #212127;--accent: #f0972a; --accent-2: #f5b400;--accent-soft: rgba(240, 151, 42, .12); --accent-line: rgba(240, 151, 42, .3);--on-accent: #17120a;--shadow-xs: 0 1px 2px rgba(0, 0, 0, .45);--shadow-sm: 0 1px 3px rgba(0, 0, 0, .5);--shadow-md: 0 8px 24px -6px rgba(0, 0, 0, .6);--shadow-lg: 0 20px 48px -12px rgba(0, 0, 0, .7);}* { box-sizing: border-box; margin: 0; padding: 0; border: 0 solid var(--line); }html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }body {background: var(--bg);background-image:radial-gradient(60rem 32rem at 12% -8%, var(--accent-soft), transparent 62%),radial-gradient(48rem 28rem at 92% 2%, rgba(217, 130, 24, .06), transparent 60%);background-repeat: no-repeat;background-attachment: fixed;color: var(--fg);font-family: Inter, -apple-system, BlinkMacSystemFont, "PingFang SC", "Hiragino Sans GB","Microsoft YaHei", "Helvetica Neue", Helvetica, Arial, sans-serif;-webkit-font-smoothing: antialiased;-moz-osx-font-smoothing: grayscale;line-height: 1.6;min-height: 100vh;display: flex;flex-direction: column;}a { color: inherit; text-decoration: none; }img { max-width: 100%; height: auto; display: block; border-radius: 10px; }button { font: inherit; color: inherit; background: none; cursor: pointer; }::selection { background: var(--accent-soft); }.site-header {position: sticky; top: 0; z-index: 50;background: color-mix(in srgb, var(--bg) 82%, transparent);backdrop-filter: saturate(180%) blur(14px);-webkit-backdrop-filter: saturate(180%) blur(14px);border-bottom: 1px solid var(--line);}.header-inner {max-width: var(--container); margin: 0 auto;padding: .85rem 1.5rem;display: flex; align-items: center; justify-content: space-between; gap: 1rem;}.brand { display: flex; align-items: center; gap: .7rem; transition: opacity .2s; flex: 0 0 auto; }.brand:hover { opacity: .82; }.brand-mark {width: 2.3rem; height: 2.3rem; border-radius: 12px; flex: 0 0 auto;background: linear-gradient(140deg, var(--accent-2), var(--accent) 70%);color: #fff; font-weight: 800; font-size: 1.08rem;display: flex; align-items: center; justify-content: center;box-shadow: 0 4px 12px -2px var(--accent-line), inset 0 1px 0 rgba(255,255,255,.28);}.brand-text { display: flex; flex-direction: column; line-height: 1.2; }.brand-text b { font-size: 1rem; font-weight: 750; letter-spacing: -.015em; }.brand-text span { font-size: .68rem; color: var(--muted); letter-spacing: .1em; margin-top: .1rem; }.nav { display: flex; align-items: center; gap: .15rem; font-size: .9rem; font-weight: 550; }.nav a {padding: .48rem .78rem; border-radius: 9px; color: var(--muted);transition: color .18s, background .18s; white-space: nowrap;}.nav a:hover { color: var(--fg); background: var(--surface-2); }.nav a.active { color: var(--accent); background: var(--accent-soft); font-weight: 700; }.nav-tools { display: flex; align-items: center; gap: .3rem; padding-left: .5rem; margin-left: .35rem; border-left: 1px solid var(--line); }.icon-btn {width: 2.1rem; height: 2.1rem; border-radius: 9px; color: var(--muted);display: flex; align-items: center; justify-content: center;transition: .18s; font-size: 1rem;}.icon-btn:hover { color: var(--accent); background: var(--accent-soft); }.menu-btn { display: none; }main { flex: 1; }.container {max-width: var(--container); margin: 0 auto;padding: 3rem 1.5rem 5.5rem;display: flex; flex-direction: column; gap: 3.75rem;}.hero { margin-bottom: 0; }.crumb {display: flex; flex-wrap: wrap; align-items: center; gap: .45rem;font-size: .85rem; font-weight: 550; color: var(--muted); margin-bottom: 1.1rem;}.crumb a:hover { color: var(--accent); }.crumb .sep { opacity: .35; }.hero h1 {font-size: clamp(2.1rem, 5.6vw, 3.15rem);font-weight: 830; line-height: 1.08; letter-spacing: -.035em;background: linear-gradient(180deg, var(--fg) 62%, color-mix(in srgb, var(--fg) 62%, var(--accent)));-webkit-background-clip: text; background-clip: text;-webkit-text-fill-color: transparent;}.hero .lead {margin-top: 1.35rem; max-width: 44rem;font-size: 1.06rem; line-height: 1.85; color: var(--muted);}.hero .lead strong { color: var(--fg); font-weight: 750; }.hero-actions { margin-top: 1.9rem; display: flex; flex-wrap: wrap; gap: .7rem; }.btn {padding: .72rem 1.55rem; border-radius: 999px;font-weight: 600; font-size: .95rem;transition: transform .18s, box-shadow .18s, background .18s, border-color .18s, color .18s;display: inline-flex; align-items: center; gap: .45rem;}.btn-primary {background: linear-gradient(140deg, var(--accent-2), var(--accent));color: #fff;box-shadow: 0 6px 18px -6px var(--accent-line), inset 0 1px 0 rgba(255,255,255,.22);}.btn-primary:hover { transform: translateY(-2px); box-shadow: 0 12px 26px -8px var(--accent-line); }.btn-ghost { border: 1px solid var(--line); background: var(--surface); color: var(--fg-2); }.btn-ghost:hover { background: var(--surface-2); border-color: var(--accent-line); color: var(--accent); }.stats { margin-top: 1.9rem; display: flex; flex-wrap: wrap; gap: .6rem; }.stat {display: flex; align-items: baseline; gap: .4rem;background: var(--surface); border: 1px solid var(--line);border-radius: 999px; padding: .42rem 1rem;box-shadow: var(--shadow-xs);}.stat b { font-size: 1rem; font-weight: 780; letter-spacing: -.02em; color: var(--fg); font-variant-numeric: tabular-nums; }.stat span { font-size: .8rem; color: var(--muted); }.section { display: flex; flex-direction: column; }.section-head {display: flex; align-items: baseline; justify-content: space-between;gap: 1rem; margin-bottom: 1.5rem; padding-bottom: .85rem;border-bottom: 1px solid var(--line);}.section-head h2 {position: relative; padding-left: .85rem;font-size: .92rem; font-weight: 780; text-transform: uppercase;letter-spacing: .17em; color: var(--fg);}.section-head h2::before {content: ""; position: absolute; left: 0; top: 50%; transform: translateY(-50%);width: 3px; height: 1.05em; border-radius: 2px;background: linear-gradient(180deg, var(--accent-2), var(--accent));}.section-head .more { font-size: .88rem; font-weight: 600; color: var(--muted); white-space: nowrap; transition: .18s; }.section-head .more:hover { color: var(--accent); }.grid { display: grid; gap: 1.05rem; }.grid-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }.grid-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }.grid-4 { grid-template-columns: repeat(4, minmax(0, 1fr)); }.card {position: relative; overflow: hidden;background: var(--surface);border: 1px solid var(--line);border-radius: var(--radius);padding: 1.3rem 1.4rem;box-shadow: var(--shadow-xs);transition: transform .2s cubic-bezier(.2,.7,.3,1), box-shadow .2s, border-color .2s;display: block;}.card::after {content: ""; position: absolute; inset: 0 0 auto 0; height: 2px;background: linear-gradient(90deg, var(--accent-2), var(--accent) 55%, transparent);opacity: 0; transition: opacity .2s;}a.card:hover {transform: translateY(-3px);box-shadow: var(--shadow-md);border-color: var(--accent-line);}a.card:hover::after { opacity: 1; }.card .kicker {font-size: .7rem; font-weight: 780; letter-spacing: .12em;color: var(--accent); text-transform: uppercase;}.card h3 { margin-top: .55rem; font-size: 1.04rem; font-weight: 730; line-height: 1.4; letter-spacing: -.015em; }.card p { margin-top: .55rem; font-size: .875rem; line-height: 1.72; color: var(--muted); }.card .count { font-size: .78rem; font-weight: 600; color: var(--muted); }.rows {display: flex; flex-direction: column;background: var(--surface); border: 1px solid var(--line);border-radius: var(--radius); overflow: hidden;box-shadow: var(--shadow-xs);}.row {display: flex; align-items: baseline; gap: 1.1rem;padding: .82rem 1.15rem;transition: background .16s;border-bottom: 1px solid var(--line-2);position: relative;}.row:last-child { border-bottom: 0; }.row::before {content: ""; position: absolute; left: 0; top: 0; bottom: 0; width: 3px;background: var(--accent); transform: scaleY(0); transition: transform .18s;}.row:hover { background: var(--surface-2); }.row:hover::before { transform: scaleY(1); }.row .date {flex: 0 0 auto; width: 5.1rem; font-size: .82rem; font-weight: 600;font-variant-numeric: tabular-nums; color: var(--muted); letter-spacing: -.01em;}.row .title { flex: 1 1 auto; font-size: .97rem; font-weight: 550; line-height: 1.55; color: var(--fg-2); }.row:hover .title { color: var(--accent); font-weight: 620; }.row .tags { flex: 0 0 auto; display: flex; gap: .35rem; }.tag {font-size: .7rem; font-weight: 620; padding: .2rem .6rem; border-radius: 999px;background: var(--surface-2); border: 1px solid var(--line);color: var(--muted); white-space: nowrap;}.year-head { display: flex; align-items: center; gap: .9rem; margin: 1.9rem 0 .75rem; }.year-head:first-child { margin-top: 0; }.year-head .y { font-size: 1.3rem; font-weight: 830; letter-spacing: -.03em; }.year-head .n { font-size: .78rem; font-weight: 600; color: var(--muted); background: var(--surface-2); border: 1px solid var(--line); padding: .12rem .55rem; border-radius: 999px; }.year-head .line { flex: 1; height: 1px; background: linear-gradient(90deg, var(--line), transparent); }.post-wrap { max-width: 46rem; margin: 0 auto; width: 100%; }.post-head { margin-bottom: 2.25rem; padding-bottom: 1.6rem; border-bottom: 1px solid var(--line); }.post-head h1 { font-size: clamp(1.55rem, 4.4vw, 2.05rem); font-weight: 760; line-height: 1.32; letter-spacing: -.028em; }.post-meta { margin-top: 1rem; display: flex; flex-wrap: wrap; gap: .5rem 1rem; font-size: .84rem; color: var(--muted); align-items: center; font-weight: 550; }.post-meta .dot { opacity: .35; }.prose { color: var(--fg-2); font-size: 1.06rem; line-height: 1.9; letter-spacing: .008em; max-width: 68ch; }.prose p { margin: 1.5em 0; }.prose h1, .prose h2, .prose h3 { color: var(--fg); letter-spacing: -.018em; font-weight: 730; line-height: 1.4; }.prose h1 { font-size: 1.65rem; margin: 2.1em 0 .8em; }.prose h2 {font-size: 1.28rem; margin: 2.3em 0 .85em; padding-bottom: .5em;border-bottom: 1px solid var(--line);}.prose h3 {font-size: 1.03rem; margin: 2.2em 0 .7em;letter-spacing: .16em; color: var(--accent); font-weight: 780;}.prose strong { color: var(--fg); font-weight: 700; }.prose em { font-style: italic; }.prose a { color: var(--accent); text-decoration: underline; text-underline-offset: 3px; text-decoration-thickness: 1px; }.prose a:hover { opacity: .8; }.prose blockquote {border-left: 3px solid var(--accent);background: var(--accent-soft);color: var(--fg-2); border-radius: 0 10px 10px 0;margin: 1.9em 0; padding: 1.05em 1.35em; font-style: italic;}.prose blockquote p { margin: 0; }.prose ul { margin: 1.3em 0; list-style: none; }.prose ul > li { margin: .55em 0; padding-left: 1.35em; position: relative; }.prose ul > li::before { content: ""; position: absolute; left: .15em; top: .72em; width: 5px; height: 5px; border-radius: 50%; background: var(--accent); opacity: .6; }.prose ol { margin: 1.3em 0; padding-left: 1.5em; list-style: decimal; }.prose ol > li { margin: .55em 0; }.prose img { margin: 2em 0; box-shadow: var(--shadow-md); }.prose hr { margin: 2.6em 0; border-top: 1px solid var(--line); height: 0; }.post-foot {margin-top: 3.2rem; padding-top: 1.6rem; border-top: 1px solid var(--line);display: flex; align-items: center; justify-content: space-between;gap: 1rem; flex-wrap: wrap; font-size: .88rem; font-weight: 550; color: var(--muted);}.post-foot a:hover { color: var(--accent); }.pager { display: flex; gap: .8rem; flex-wrap: wrap; }.pager a {background: var(--surface); border: 1px solid var(--line); border-radius: 12px;padding: .65rem 1rem; max-width: 17rem; font-size: .86rem;transition: .18s; box-shadow: var(--shadow-xs); line-height: 1.45;}.pager a:hover { background: var(--surface-2); border-color: var(--accent-line); color: var(--accent); transform: translateY(-2px); }.pager .lbl { display: block; font-size: .7rem; font-weight: 650; color: var(--muted); margin-bottom: .2rem; letter-spacing: .04em; }.comments {margin-top: 3rem; border-top: 1px solid var(--line); padding-top: 1.6rem;}.comments-head {display: flex; align-items: baseline; justify-content: space-between;gap: 1rem; flex-wrap: wrap; margin-bottom: 1.15rem;}.comments-head h2 {position: relative; padding-left: .8rem;font-size: .82rem; font-weight: 780; text-transform: uppercase;letter-spacing: .17em; color: var(--fg);}.comments-head h2::before {content: ""; position: absolute; left: 0; top: 50%; transform: translateY(-50%);width: 3px; height: 1.05em; border-radius: 2px;background: linear-gradient(180deg, var(--accent-2), var(--accent));}.comments-head span { font-size: .76rem; color: var(--muted); }.comments-body {background: var(--surface-2);border: 1px solid var(--line);border-radius: var(--radius-sm);padding: 1.15rem 1.35rem;font-size: .95rem; line-height: 1.8; color: var(--muted);max-width: 68ch;}.comments-body p { margin: .75em 0; }.comments-body p:first-child { margin-top: 0; }.comments-body p:last-child { margin-bottom: 0; }.comments-body strong { color: var(--fg-2); font-weight: 650; }.comments-body a { color: var(--accent); text-decoration: underline; text-underline-offset: 3px; }.comments-body ul { margin: .9em 0; list-style: none; }.comments-body ul > li { margin: .4em 0; padding-left: 1.15em; position: relative; }.comments-body ul > li::before { content: ""; position: absolute; left: .1em; top: .7em; width: 4px; height: 4px; border-radius: 50%; background: var(--muted); opacity: .5; }.comments-body blockquote {border-left: 3px solid var(--line); margin: 1em 0; padding: .4em 1em;color: var(--muted); font-style: italic;}.toolbar {display: flex; flex-wrap: wrap; gap: .6rem; align-items: center;margin-bottom: 1.35rem;}.search {flex: 1 1 17rem; min-width: 12rem;display: flex; align-items: center; gap: .55rem;background: var(--surface); border: 1px solid var(--line);border-radius: 999px; padding: .58rem 1.05rem;color: var(--muted); transition: border-color .18s, box-shadow .18s;box-shadow: var(--shadow-xs);}.search:focus-within { border-color: var(--accent); box-shadow: 0 0 0 3px var(--accent-soft); }.search input { flex: 1; background: none; border: none; outline: none; color: var(--fg); font-size: .93rem; }.chip {font-size: .84rem; font-weight: 600; padding: .5rem 1rem; border-radius: 999px;background: var(--surface); border: 1px solid var(--line);color: var(--muted); transition: .18s; box-shadow: var(--shadow-xs);}.chip:hover { border-color: var(--accent-line); color: var(--accent); }.chip.on {background: linear-gradient(140deg, var(--accent-2), var(--accent));color: #fff; border-color: transparent;box-shadow: 0 5px 14px -5px var(--accent-line);}.empty-note { padding: 3rem 0; text-align: center; color: var(--muted); font-size: .93rem; }.faq { display: flex; flex-direction: column; gap: .6rem; }.faq details {background: var(--surface); border: 1px solid var(--line);border-radius: var(--radius-sm); padding: 1.05rem 1.3rem;transition: border-color .18s, box-shadow .18s; box-shadow: var(--shadow-xs);}.faq details[open] { border-color: var(--accent-line); box-shadow: var(--shadow-sm); }.faq summary {cursor: pointer; font-weight: 650; font-size: .96rem; list-style: none;display: flex; justify-content: space-between; gap: 1rem; align-items: center;}.faq summary::-webkit-details-marker { display: none; }.faq summary::after {content: "+"; color: var(--accent); font-weight: 500; font-size: 1.1rem;width: 1.4rem; height: 1.4rem; border-radius: 50%;display: flex; align-items: center; justify-content: center;background: var(--accent-soft); flex: 0 0 auto;}.faq details[open] summary::after { content: "−"; }.faq .ans { margin-top: .85rem; font-size: .91rem; line-height: 1.82; color: var(--muted); }.site-footer { border-top: 1px solid var(--line); background: color-mix(in srgb, var(--bg-2) 60%, transparent); }.footer-inner {max-width: var(--container); margin: 0 auto; padding: 2.75rem 1.5rem;display: flex; flex-wrap: wrap; gap: 1.5rem 2.5rem; justify-content: space-between;font-size: .85rem; color: var(--muted);}.footer-inner a:hover { color: var(--accent); }.footer-links { display: flex; flex-wrap: wrap; gap: .55rem 1.15rem; font-weight: 600; }.footer-links a { color: var(--fg-2); }.disclaimer { font-size: .78rem; color: var(--muted); line-height: 1.75; max-width: 35rem; opacity: .9; }@media (max-width: 900px) {.grid-4, .grid-3 { grid-template-columns: repeat(2, minmax(0, 1fr)); }.nav { display: none; }.nav.open {display: flex; flex-direction: column; align-items: stretch;position: absolute; left: 1rem; right: 1rem; top: 4.35rem;background: var(--surface); border: 1px solid var(--line);border-radius: var(--radius); padding: .5rem; box-shadow: var(--shadow-lg); gap: .1rem;}.nav.open a { padding: .72rem .9rem; }.menu-btn { display: flex; }.nav-tools { border: none; padding: 0; margin: 0; padding-top: .35rem; }}@media (max-width: 620px) {.container { gap: 2.6rem; padding: 1.9rem 1.15rem 4rem; }.grid-4, .grid-3, .grid-2 { grid-template-columns: 1fr; }.rows { border-radius: var(--radius-sm); }.row { flex-wrap: wrap; gap: .3rem .8rem; padding: .8rem 1rem; }.row .date { width: auto; }.row .title { flex-basis: 100%; }.hero .lead { font-size: 1rem; }.header-inner { padding: .75rem 1.15rem; }}
+</style>
+</head>
+<body>
+<header class="site-header">
+  <div class="header-inner">
+    <a class="brand" href="index.html">
+      <span class="brand-mark">玑</span>
+      <span class="brand-text"><b>金渐成文章整理</b><span>美股 · 港股 · 加密 · 黄金 · 楼市</span></span>
+    </a>
+    <nav class="nav" id="nav"><a href="all.html" class="active">公众号文章</a><a href="topics.html">文章主题</a><a href="notes.html">学习笔记</a><a href="portfolio.html">账户持仓</a><a href="timeline.html">投资时间线</a><a href="tools.html">工具箱</a><a href="booklist.html">书单</a><a href="about.html">关于</a>
+      <span class="nav-tools"><button class="icon-btn" id="themeBtn" title="切换主题" aria-label="切换主题">◐</button></span>
+    </nav>
+    <button class="icon-btn menu-btn" id="menuBtn" aria-label="菜单">☰</button>
+  </div>
+</header>
+<main>
+<div class="container">
+  <article class="post-wrap">
+    <div class="post-head">
+      <div class="crumb"><a href="index.html">首页</a><span class="sep">/</span><a href="all.html">公众号文章</a><span class="sep">/</span><a href="tianjiqitan.html">天机奇谈</a></div>
+      <h1>守与变</h1>
+      <div class="post-meta"><span>2022-07-28</span><span class="dot">·</span><span>天机奇谈</span><span class="dot">·</span><span>约 8 分钟读完</span></div>
+    </div>
+    <div class="prose">
+<p>今天的文章主要是地产人转型、转行等话题，横向跨度很大，涉及微观的层面很庞杂。</p>
+<p>我也只能做个概括和总结，不一定都对，文章很长，评论区留给大家，作为正文的补充部分。</p>
+<p>尽量不废话。</p>
+<p>NO. 1｜壹</p>
+<p>人最大的运气，是某天你遇到一个人，他打破了你原来的思维，提高了你的认知，进而提升你的境界，带你走上更高的平台，这就是你人生的贵人。</p>
+<p>我们常将其称之为运气。我们都希望自己有好运气，能遇到贵人。</p>
+<p>有人说：有钱人的乡下是净土，没钱人的乡下净是土；有钱人看雪好美好美，没钱人看雪好冷好冷。</p>
+<p>钱这个东西，对有些人是为糊口，对有些人是为了享乐，对有些人是为了证明价值。</p>
+<p>个人认为，认知才是最大的竞争力。钱是认知的一种价值变现，是认知价值的货币体现。</p>
+<p>其实，地产从业超过5年的，大多吃到过时代红利：</p>
+<p>最不顺、最困难的时刻，就像在惊涛骇浪游泳，能死里逃生，已经是好运。至少有水，没有水，你拿什么游？</p>
+<p>说得文雅些，是对社会输送人才，是毕业；说得现实些，就是裁员和失业人员太多。</p>
+<p>于是，人心惶惶，不安的情绪急剧上升、汇聚，并产生共鸣和共识。</p>
+<p>但谁又不是一边前行，一边重拾破碎，粘成一个完整的自己？所谓坚强，不是能应付一切打击，而是能忽视所有伤害。</p>
+<p>你以为错过是遗憾，其实可能是躲过一劫。得到未必是福，失去未必是祸。</p>
+<p>人总有幸运和不幸。不幸的是经历，幸运的是你的坚强。</p>
+<p>当下的房地产行业就是这样，后者大多属于运气+深耕。</p>
+<p>俗话说“树挪死，人挪活”，我们据此，将房地产从业者分为“守与变”两大类。</p>
+<p>NO. 2｜贰</p>
+<p>先讲“守”。</p>
+<p><strong> “守”的第一类型</strong> ，是继续在房地产行业持续深耕的这票地产人，只是可能换了个平台。</p>
+<p>现在的地产人才流动大趋势，是从民营企业跳往国企央企和地方城投公司去，图个稳定，虽然薪资待遇普遍降幅较大，降幅25-50%是普遍状况.</p>
+<p>这类地产人的职业规划，在潜意识中仍是计划继续深耕房地产，先图稳，保住饭碗和岗位，以待来年，待市场有变，则闻风而起，一展抱负。</p>
+<p>对于这类持续深耕行业的地产从业者，我个人的建议：无论在哪个岗位，尽量做到最顶尖，即让自己的价值具有不可替代性。</p>
+<p>即之前文章所说的，让领导需要你：基层管理者主要是做事，在不出事时把事办好，出事时兜得住，这是中层管理者对你的需要；</p>
+<p>将办得成的事办成，将办不成的事办好，这是高层管理者对中层管理者的需要；敢投资自己的资源和钱，跟公司捆绑在一起，有能力跟对人，帮老板做决策和占位置，这是老板对高管的需要。</p>
+<p>对于“守”的第一类型，尽量往上走，去管理层；尽量让自己具有不可替代性。</p>
+<p>... ...</p>
+<p><strong> “守”的第二类型</strong> ，是在房地产行业内转岗不转行。</p>
+<p>如从房地产开发板块转到物业板块，从开发板块转到商业管理板块，从营销策划转运营等，都仍在行业内，只转岗，不转行。</p>
+<p>这类在过去一年中，已经有很多案例。</p>
+<p><strong> “守”的第三类型</strong> ，是地产行业内创业，属于半跨行业。较典型的有三种：</p>
+<p>1、做二房东，即公寓、厂房与商业地产的包租再转租。</p>
+<p>这方面我接触过最优秀的一个，是95后的小伙子，三四年前已经开始专门盘核心区域的高档写字楼和工业厂房，5-10年长约低价拿下，再根据市场需求装修成商业办公场地，之后转租，2-3年回本，净利润很高。</p>
+<p>这类的核心是做好风控，防止租客欠款跑路、防止房东提前收房、做好现金流管控 。不过，今年的行业会比较差。</p>
+<p>2、做地产自媒体与分销、包销。</p>
+<p>C，这类主要靠帮房企项目做广告或分销导客，获取广告费或佣金。</p>
+<p>在to C的这类地产自媒体中，又根据受众，分为全国和区域两类地产自媒体。</p>
+<p>区域自媒体又比较吃香，有专门给房企内部人员回扣，以获取项目广告订单，再将阅读量刷高，赚取广告费的；也有专门洗房企项目案场客户，内导外，赚取佣金的。</p>
+<p>大凡真实流量和粉丝购买力强的区域地产自媒体，一般会选择深耕区域和城市。落地线下，做分销包销渠道，佣金丰厚。</p>
+<p>对于绝大多数人来说，目前最大的困难应该是流量。这方面建议做视频号，目前腾讯有巨额流量和政策扶持。公众号这类图文已经在走下坡路了，很难崛起。</p>
+<p>对于地产自媒体来说，最重要的，是要规划好商业模式，也就是变现，自媒体只是一个平台而已。再根据商业模式，去做内容找精准客群，精准的流量才有用。</p>
+<p>至于我，公众号就是维持一个沟通的平台和渠道，商业化程度很浅陋，至今仍没有盈利，真心给不了什么好建议。</p>
+<p>3、装修、家装。</p>
+<p>这类过去几年，有不少地产人转型转行在做，只不过赛道比较窄。</p>
+<p>没有人永远爱你，但永远有人爱你。行业内，其实也仍有机会，重要的是去发现。</p>
+<p>NO. 3｜叁</p>
+<p>再说“变”。这里的变，指转行。转行又分成两种，一种是转行不转岗，一种是转行又转岗。</p>
+<p>转行的话，先要认识自己，看是否有真正拥抱变化的能力。</p>
+<p>应该多了解其他行业，多看一些行业报告和市场风向，学习新知识，给观念和认知充电，及时改变；明确自己想要什么，以确定目标。</p>
+<p>地产人的优势：执行力强、素质相对较高，通晓人情世故；但地产人被行业PUA严重，绝对服从，与“世界”脱节严重，导致部分人群洞察能力和深度思考能力较弱。</p>
+<p>... ...</p>
+<p>先说“转行不转岗”。</p>
+<p>如地产HR，江湖戏称地产人贩子，跨行业依然做人贩子，只是换了个行业，财务也是如此。这就叫转行不转岗。</p>
+<p>如地产设计管理等岗位，可以考虑互联网项目管理，发挥沟通能力强、协调资源保障项目推进的优势；</p>
+<p>设计岗转互联网UI、室内设计、景观机构和作品集老师等；投资岗可以考虑转咨询顾问公司研究岗、高端制造业投资岗、新能源投资岗、继续往上游进入VC；</p>
+<p>成本招采岗转供应链管理；工程岗转新能源基建现场管理，新基建、投资平台国企等；</p>
+<p>... ...</p>
+<p>再说“转行又转岗”。</p>
+<p><strong> 第一类</strong> ，求稳型：考公、考编。</p>
+<p>“宇宙的尽头是编制”嘛，这也是当下社会就业的大热门赛道。图稳定，硬伤是考公考编有年龄限制。但只要考上了，性质就有了很大的转变：从纳税者变成食税者。</p>
+<p><strong> 第二类</strong> ，进取型：逐风口。</p>
+<p>转行时，尽量往风口行业去，一是只有在风口上才能最大概率赚到钱；二是大的市场才有空间让企业长大，企业长大从业者才有更多更大的机会，即“在大江大河里才有可能成为大鱼”。</p>
+<p>在选热门行业的时候，也要看热门行业所对应的热门城市，新能源汽车热门城市集中在宁德（电池）、合肥、上海等城市；</p>
+<p>医美这类，分重资产和轻资产，也可以简单理解为线上和线下，线下重团队（营销、技术等）和产品，线上更多偏知识，即博主，通过分享干货获取流量，与线下机构合作，获取回报；</p>
+<p>互联网虽然在裁员，但机会依然存在，大厂难进，中厂依然有机会；一如既往好选择的金融行业、医疗大健康行业、消费金融行业、地产营销人资源转化首选的保险行业、仍有三五年风口机会的半导体/集成电路、碳中和也值得关注。</p>
+<p>转行的简历，应该提炼关键词，侧重突出能力，减少HR的阅读成本，据HR朋友反馈，阅读的前3-5秒就决定了简历会不会被简历池里；同时，因为跨行业求职，凸显匹配度就显得非常重要，主动凸显，有机会进入面试。</p>
+<p>如面试碳中和行业，有绿建相关经验的项目管理经验是加分项。</p>
+<p>简历尽量让所在行业的人内推。这点很重要！</p>
+<p><strong> 第三类</strong> ，观望型：读硕、读博。</p>
+<p><strong> 第四类</strong> ，创业型：建议选择自己热爱的、有利于资源积累的行业。</p>
+<p>地产人做得较多的，一是以房产为核心的抵押贷，帮客户做抵押贷，赚取手续费和利息差；二是茶、酒行业，这个目前竞争白热化，水深；三是瑜伽、健身等自己感兴趣又能赚钱的助眠、锻炼行业；四是律师等行业。</p>
+<p>世上最可怕的事，不是孤独终老，而是跟让自己孤独的人终老。所以，选择自己热爱的行业很重要。</p>
+<p>... ...</p>
+<p>我们读了那么多书，走了那么多路，是为了找到一个平和的方式，和这个世界温柔相处。</p>
+<p>相遇无需准备、告别不必惦记。</p>
+<p>遇到再大再多的坎，如果不能跨过去，也要努力抓住枯枝烂木漂过去。</p>
+<p>哭容易，笑很难，就像人一生下来就会哭，后来才学会了笑。地产人，正在经历哭这阶段。</p>
+<p>融雪化尽，便是春天。</p>
+<p>“你不一定非得长成玫瑰，你乐意的话，做茉莉，做雏菊，做无名小花，做千千万万”。</p>
+    </div>
+    <div class="post-foot"><a href="tianjiqitan.html">← 返回天机奇谈文章列表</a><div class="pager"><a href="tianjiqitan-2022-07-30.html"><span class="lbl">← 更新一篇</span>它来了</a><a href="tianjiqitan-2022-07-23.html"><span class="lbl">更早一篇 →</span>恒大再度上演让领导先走n子公司恒大物业用自己的存款为第三方公司提供贷款担</a></div></div>
+  </article>
+</div>
+</main>
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div>
+      <div class="footer-links">
+        <a href="all.html">公众号文章</a>
+        <a href="topics.html">文章主题</a>
+        <a href="notes.html">学习笔记</a>
+        <a href="timeline.html">投资时间线</a>
+        <a href="about.html">关于</a>
+      </div>
+      <p class="disclaimer" style="margin-top:1rem">本站为个人阅读存档，收录金渐成 / 天机奇谈公开发表的公众号文章，便于按主题与时间线连续阅读。<br>内容仅供参考，<strong>不构成任何投资建议</strong>。投资有风险，决策需谨慎。</p>
+    </div>
+    <div>共 781 篇文章 · 静态存档<br><span style="opacity:.7">生成于 2026-10-09</span></div>
+  </div>
+</footer>
+<script>
+/* 金渐成文章整理 —— 交互脚本 */
+(function () {
+  'use strict';
+
+  /* ---- 主题切换 ---- */
+  var root = document.documentElement;
+  var saved = null;
+  try { saved = localStorage.getItem('jjc-theme'); } catch (e) {}
+  if (saved) root.setAttribute('data-theme', saved);
+
+  function currentIsDark() {
+    var t = root.getAttribute('data-theme');
+    if (t === 'dark') return true;
+    if (t === 'light') return false;
+    return window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+  }
+
+  var themeBtn = document.getElementById('themeBtn');
+  if (themeBtn) {
+    themeBtn.addEventListener('click', function () {
+      var next = currentIsDark() ? 'light' : 'dark';
+      root.setAttribute('data-theme', next);
+      try { localStorage.setItem('jjc-theme', next); } catch (e) {}
+    });
+  }
+
+  /* ---- 移动端菜单 ---- */
+  var menuBtn = document.getElementById('menuBtn');
+  var nav = document.getElementById('nav');
+  if (menuBtn && nav) {
+    menuBtn.addEventListener('click', function (e) {
+      e.stopPropagation();
+      nav.classList.toggle('open');
+    });
+    document.addEventListener('click', function (e) {
+      if (nav.classList.contains('open') && !nav.contains(e.target)) nav.classList.remove('open');
+    });
+  }
+
+  /* ---- 列表搜索 / 分栏筛选 ---- */
+  var q = document.getElementById('q');
+  var list = document.getElementById('list');
+  var empty = document.getElementById('empty');
+  if (q && list) {
+    var rows = Array.prototype.slice.call(list.querySelectorAll('.row'));
+    var rowsByChannel = rows.map(function (r) {
+      var tag = r.querySelector('.tag');
+      var txt = tag ? tag.textContent.trim() : '';
+      return txt === '金渐成' ? 'jinjiancheng' : (txt === '天机奇谈' ? 'tianjiqitan' : '');
+    });
+    var channel = 'all';
+    var chips = Array.prototype.slice.call(document.querySelectorAll('.chip[data-ch]'));
+
+    function apply() {
+      var kw = (q.value || '').trim().toLowerCase();
+      var shown = 0;
+      var yearHeads = Array.prototype.slice.call(list.querySelectorAll('.year-head'));
+      rows.forEach(function (r, i) {
+        var hay = r.textContent.toLowerCase();
+        var okKw = !kw || hay.indexOf(kw) !== -1;
+        var okCh = channel === 'all' || rowsByChannel[i] === channel;
+        var ok = okKw && okCh;
+        r.style.display = ok ? '' : 'none';
+        if (ok) shown++;
+      });
+      // 年份标题在筛选时整体隐藏，避免出现空年份
+      yearHeads.forEach(function (h) { h.style.display = (kw || channel !== 'all') ? 'none' : ''; });
+      if (empty) empty.style.display = shown === 0 ? '' : 'none';
+    }
+
+    q.addEventListener('input', apply);
+    chips.forEach(function (c) {
+      c.addEventListener('click', function () {
+        chips.forEach(function (x) { x.classList.remove('on'); });
+        c.classList.add('on');
+        channel = c.getAttribute('data-ch');
+        apply();
+      });
+    });
+  }
+})();
+
+</script>
+</body>
+</html>

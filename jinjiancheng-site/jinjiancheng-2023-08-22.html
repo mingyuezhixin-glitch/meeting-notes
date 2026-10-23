@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>栖息 · 金渐成</title>
+<meta name="description" content="金渐成 2023-08-22 栖息">
+<link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2064%2064'%3E%3Crect%20width='64'%20height='64'%20rx='16'%20fill='%23b45309'/%3E%3Ctext%20x='32'%20y='45'%20font-size='38'%20font-family='sans-serif'%20font-weight='700'%20fill='%23fff'%20text-anchor='middle'%3E%E7%8E%91%3C/text%3E%3C/svg%3E">
+<style>
+:root {--bg: #faf9f6;--bg-2: #f2efe9;--surface: #ffffff;--surface-2: #f6f4ef;--fg: #171614;--fg-2: #3d3a35;--muted: #7a7570;--line: #e7e3da;--line-2: #f0ece4;--accent: #b45309;--accent-2: #d98218;--accent-soft: rgba(180, 83, 9, .09);--accent-line: rgba(180, 83, 9, .22);--on-accent: #ffffff;--shadow-xs: 0 1px 2px rgba(23, 22, 20, .05);--shadow-sm: 0 1px 3px rgba(23, 22, 20, .06), 0 1px 2px rgba(23, 22, 20, .04);--shadow-md: 0 8px 24px -6px rgba(23, 22, 20, .10), 0 2px 6px rgba(23, 22, 20, .05);--shadow-lg: 0 20px 48px -12px rgba(23, 22, 20, .16);--radius: 18px;--radius-sm: 12px;--container: 68rem;}@media (prefers-color-scheme: dark) {:root:not([data-theme="light"]) {--bg: #0f0f10;--bg-2: #16161a;--surface: #17171b;--surface-2: #1d1d22;--fg: #f2f0ec;--fg-2: #d4d1cb;--muted: #918d87;--line: #29292f;--line-2: #212127;--accent: #f0972a;--accent-2: #f5b400;--accent-soft: rgba(240, 151, 42, .12);--accent-line: rgba(240, 151, 42, .3);--on-accent: #17120a;--shadow-xs: 0 1px 2px rgba(0, 0, 0, .45);--shadow-sm: 0 1px 3px rgba(0, 0, 0, .5);--shadow-md: 0 8px 24px -6px rgba(0, 0, 0, .6);--shadow-lg: 0 20px 48px -12px rgba(0, 0, 0, .7);}}html[data-theme="dark"] {--bg: #0f0f10; --bg-2: #16161a; --surface: #17171b; --surface-2: #1d1d22;--fg: #f2f0ec; --fg-2: #d4d1cb; --muted: #918d87; --line: #29292f; --line-2: #212127;--accent: #f0972a; --accent-2: #f5b400;--accent-soft: rgba(240, 151, 42, .12); --accent-line: rgba(240, 151, 42, .3);--on-accent: #17120a;--shadow-xs: 0 1px 2px rgba(0, 0, 0, .45);--shadow-sm: 0 1px 3px rgba(0, 0, 0, .5);--shadow-md: 0 8px 24px -6px rgba(0, 0, 0, .6);--shadow-lg: 0 20px 48px -12px rgba(0, 0, 0, .7);}* { box-sizing: border-box; margin: 0; padding: 0; border: 0 solid var(--line); }html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }body {background: var(--bg);background-image:radial-gradient(60rem 32rem at 12% -8%, var(--accent-soft), transparent 62%),radial-gradient(48rem 28rem at 92% 2%, rgba(217, 130, 24, .06), transparent 60%);background-repeat: no-repeat;background-attachment: fixed;color: var(--fg);font-family: Inter, -apple-system, BlinkMacSystemFont, "PingFang SC", "Hiragino Sans GB","Microsoft YaHei", "Helvetica Neue", Helvetica, Arial, sans-serif;-webkit-font-smoothing: antialiased;-moz-osx-font-smoothing: grayscale;line-height: 1.6;min-height: 100vh;display: flex;flex-direction: column;}a { color: inherit; text-decoration: none; }img { max-width: 100%; height: auto; display: block; border-radius: 10px; }button { font: inherit; color: inherit; background: none; cursor: pointer; }::selection { background: var(--accent-soft); }.site-header {position: sticky; top: 0; z-index: 50;background: color-mix(in srgb, var(--bg) 82%, transparent);backdrop-filter: saturate(180%) blur(14px);-webkit-backdrop-filter: saturate(180%) blur(14px);border-bottom: 1px solid var(--line);}.header-inner {max-width: var(--container); margin: 0 auto;padding: .85rem 1.5rem;display: flex; align-items: center; justify-content: space-between; gap: 1rem;}.brand { display: flex; align-items: center; gap: .7rem; transition: opacity .2s; flex: 0 0 auto; }.brand:hover { opacity: .82; }.brand-mark {width: 2.3rem; height: 2.3rem; border-radius: 12px; flex: 0 0 auto;background: linear-gradient(140deg, var(--accent-2), var(--accent) 70%);color: #fff; font-weight: 800; font-size: 1.08rem;display: flex; align-items: center; justify-content: center;box-shadow: 0 4px 12px -2px var(--accent-line), inset 0 1px 0 rgba(255,255,255,.28);}.brand-text { display: flex; flex-direction: column; line-height: 1.2; }.brand-text b { font-size: 1rem; font-weight: 750; letter-spacing: -.015em; }.brand-text span { font-size: .68rem; color: var(--muted); letter-spacing: .1em; margin-top: .1rem; }.nav { display: flex; align-items: center; gap: .15rem; font-size: .9rem; font-weight: 550; }.nav a {padding: .48rem .78rem; border-radius: 9px; color: var(--muted);transition: color .18s, background .18s; white-space: nowrap;}.nav a:hover { color: var(--fg); background: var(--surface-2); }.nav a.active { color: var(--accent); background: var(--accent-soft); font-weight: 700; }.nav-tools { display: flex; align-items: center; gap: .3rem; padding-left: .5rem; margin-left: .35rem; border-left: 1px solid var(--line); }.icon-btn {width: 2.1rem; height: 2.1rem; border-radius: 9px; color: var(--muted);display: flex; align-items: center; justify-content: center;transition: .18s; font-size: 1rem;}.icon-btn:hover { color: var(--accent); background: var(--accent-soft); }.menu-btn { display: none; }main { flex: 1; }.container {max-width: var(--container); margin: 0 auto;padding: 3rem 1.5rem 5.5rem;display: flex; flex-direction: column; gap: 3.75rem;}.hero { margin-bottom: 0; }.crumb {display: flex; flex-wrap: wrap; align-items: center; gap: .45rem;font-size: .85rem; font-weight: 550; color: var(--muted); margin-bottom: 1.1rem;}.crumb a:hover { color: var(--accent); }.crumb .sep { opacity: .35; }.hero h1 {font-size: clamp(2.1rem, 5.6vw, 3.15rem);font-weight: 830; line-height: 1.08; letter-spacing: -.035em;background: linear-gradient(180deg, var(--fg) 62%, color-mix(in srgb, var(--fg) 62%, var(--accent)));-webkit-background-clip: text; background-clip: text;-webkit-text-fill-color: transparent;}.hero .lead {margin-top: 1.35rem; max-width: 44rem;font-size: 1.06rem; line-height: 1.85; color: var(--muted);}.hero .lead strong { color: var(--fg); font-weight: 750; }.hero-actions { margin-top: 1.9rem; display: flex; flex-wrap: wrap; gap: .7rem; }.btn {padding: .72rem 1.55rem; border-radius: 999px;font-weight: 600; font-size: .95rem;transition: transform .18s, box-shadow .18s, background .18s, border-color .18s, color .18s;display: inline-flex; align-items: center; gap: .45rem;}.btn-primary {background: linear-gradient(140deg, var(--accent-2), var(--accent));color: #fff;box-shadow: 0 6px 18px -6px var(--accent-line), inset 0 1px 0 rgba(255,255,255,.22);}.btn-primary:hover { transform: translateY(-2px); box-shadow: 0 12px 26px -8px var(--accent-line); }.btn-ghost { border: 1px solid var(--line); background: var(--surface); color: var(--fg-2); }.btn-ghost:hover { background: var(--surface-2); border-color: var(--accent-line); color: var(--accent); }.stats { margin-top: 1.9rem; display: flex; flex-wrap: wrap; gap: .6rem; }.stat {display: flex; align-items: baseline; gap: .4rem;background: var(--surface); border: 1px solid var(--line);border-radius: 999px; padding: .42rem 1rem;box-shadow: var(--shadow-xs);}.stat b { font-size: 1rem; font-weight: 780; letter-spacing: -.02em; color: var(--fg); font-variant-numeric: tabular-nums; }.stat span { font-size: .8rem; color: var(--muted); }.section { display: flex; flex-direction: column; }.section-head {display: flex; align-items: baseline; justify-content: space-between;gap: 1rem; margin-bottom: 1.5rem; padding-bottom: .85rem;border-bottom: 1px solid var(--line);}.section-head h2 {position: relative; padding-left: .85rem;font-size: .92rem; font-weight: 780; text-transform: uppercase;letter-spacing: .17em; color: var(--fg);}.section-head h2::before {content: ""; position: absolute; left: 0; top: 50%; transform: translateY(-50%);width: 3px; height: 1.05em; border-radius: 2px;background: linear-gradient(180deg, var(--accent-2), var(--accent));}.section-head .more { font-size: .88rem; font-weight: 600; color: var(--muted); white-space: nowrap; transition: .18s; }.section-head .more:hover { color: var(--accent); }.grid { display: grid; gap: 1.05rem; }.grid-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }.grid-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }.grid-4 { grid-template-columns: repeat(4, minmax(0, 1fr)); }.card {position: relative; overflow: hidden;background: var(--surface);border: 1px solid var(--line);border-radius: var(--radius);padding: 1.3rem 1.4rem;box-shadow: var(--shadow-xs);transition: transform .2s cubic-bezier(.2,.7,.3,1), box-shadow .2s, border-color .2s;display: block;}.card::after {content: ""; position: absolute; inset: 0 0 auto 0; height: 2px;background: linear-gradient(90deg, var(--accent-2), var(--accent) 55%, transparent);opacity: 0; transition: opacity .2s;}a.card:hover {transform: translateY(-3px);box-shadow: var(--shadow-md);border-color: var(--accent-line);}a.card:hover::after { opacity: 1; }.card .kicker {font-size: .7rem; font-weight: 780; letter-spacing: .12em;color: var(--accent); text-transform: uppercase;}.card h3 { margin-top: .55rem; font-size: 1.04rem; font-weight: 730; line-height: 1.4; letter-spacing: -.015em; }.card p { margin-top: .55rem; font-size: .875rem; line-height: 1.72; color: var(--muted); }.card .count { font-size: .78rem; font-weight: 600; color: var(--muted); }.rows {display: flex; flex-direction: column;background: var(--surface); border: 1px solid var(--line);border-radius: var(--radius); overflow: hidden;box-shadow: var(--shadow-xs);}.row {display: flex; align-items: baseline; gap: 1.1rem;padding: .82rem 1.15rem;transition: background .16s;border-bottom: 1px solid var(--line-2);position: relative;}.row:last-child { border-bottom: 0; }.row::before {content: ""; position: absolute; left: 0; top: 0; bottom: 0; width: 3px;background: var(--accent); transform: scaleY(0); transition: transform .18s;}.row:hover { background: var(--surface-2); }.row:hover::before { transform: scaleY(1); }.row .date {flex: 0 0 auto; width: 5.1rem; font-size: .82rem; font-weight: 600;font-variant-numeric: tabular-nums; color: var(--muted); letter-spacing: -.01em;}.row .title { flex: 1 1 auto; font-size: .97rem; font-weight: 550; line-height: 1.55; color: var(--fg-2); }.row:hover .title { color: var(--accent); font-weight: 620; }.row .tags { flex: 0 0 auto; display: flex; gap: .35rem; }.tag {font-size: .7rem; font-weight: 620; padding: .2rem .6rem; border-radius: 999px;background: var(--surface-2); border: 1px solid var(--line);color: var(--muted); white-space: nowrap;}.year-head { display: flex; align-items: center; gap: .9rem; margin: 1.9rem 0 .75rem; }.year-head:first-child { margin-top: 0; }.year-head .y { font-size: 1.3rem; font-weight: 830; letter-spacing: -.03em; }.year-head .n { font-size: .78rem; font-weight: 600; color: var(--muted); background: var(--surface-2); border: 1px solid var(--line); padding: .12rem .55rem; border-radius: 999px; }.year-head .line { flex: 1; height: 1px; background: linear-gradient(90deg, var(--line), transparent); }.post-wrap { max-width: 46rem; margin: 0 auto; width: 100%; }.post-head { margin-bottom: 2.25rem; padding-bottom: 1.6rem; border-bottom: 1px solid var(--line); }.post-head h1 { font-size: clamp(1.55rem, 4.4vw, 2.05rem); font-weight: 760; line-height: 1.32; letter-spacing: -.028em; }.post-meta { margin-top: 1rem; display: flex; flex-wrap: wrap; gap: .5rem 1rem; font-size: .84rem; color: var(--muted); align-items: center; font-weight: 550; }.post-meta .dot { opacity: .35; }.prose { color: var(--fg-2); font-size: 1.06rem; line-height: 1.9; letter-spacing: .008em; max-width: 68ch; }.prose p { margin: 1.5em 0; }.prose h1, .prose h2, .prose h3 { color: var(--fg); letter-spacing: -.018em; font-weight: 730; line-height: 1.4; }.prose h1 { font-size: 1.65rem; margin: 2.1em 0 .8em; }.prose h2 {font-size: 1.28rem; margin: 2.3em 0 .85em; padding-bottom: .5em;border-bottom: 1px solid var(--line);}.prose h3 {font-size: 1.03rem; margin: 2.2em 0 .7em;letter-spacing: .16em; color: var(--accent); font-weight: 780;}.prose strong { color: var(--fg); font-weight: 700; }.prose em { font-style: italic; }.prose a { color: var(--accent); text-decoration: underline; text-underline-offset: 3px; text-decoration-thickness: 1px; }.prose a:hover { opacity: .8; }.prose blockquote {border-left: 3px solid var(--accent);background: var(--accent-soft);color: var(--fg-2); border-radius: 0 10px 10px 0;margin: 1.9em 0; padding: 1.05em 1.35em; font-style: italic;}.prose blockquote p { margin: 0; }.prose ul { margin: 1.3em 0; list-style: none; }.prose ul > li { margin: .55em 0; padding-left: 1.35em; position: relative; }.prose ul > li::before { content: ""; position: absolute; left: .15em; top: .72em; width: 5px; height: 5px; border-radius: 50%; background: var(--accent); opacity: .6; }.prose ol { margin: 1.3em 0; padding-left: 1.5em; list-style: decimal; }.prose ol > li { margin: .55em 0; }.prose img { margin: 2em 0; box-shadow: var(--shadow-md); }.prose hr { margin: 2.6em 0; border-top: 1px solid var(--line); height: 0; }.post-foot {margin-top: 3.2rem; padding-top: 1.6rem; border-top: 1px solid var(--line);display: flex; align-items: center; justify-content: space-between;gap: 1rem; flex-wrap: wrap; font-size: .88rem; font-weight: 550; color: var(--muted);}.post-foot a:hover { color: var(--accent); }.pager { display: flex; gap: .8rem; flex-wrap: wrap; }.pager a {background: var(--surface); border: 1px solid var(--line); border-radius: 12px;padding: .65rem 1rem; max-width: 17rem; font-size: .86rem;transition: .18s; box-shadow: var(--shadow-xs); line-height: 1.45;}.pager a:hover { background: var(--surface-2); border-color: var(--accent-line); color: var(--accent); transform: translateY(-2px); }.pager .lbl { display: block; font-size: .7rem; font-weight: 650; color: var(--muted); margin-bottom: .2rem; letter-spacing: .04em; }.comments {margin-top: 3rem; border-top: 1px solid var(--line); padding-top: 1.6rem;}.comments-head {display: flex; align-items: baseline; justify-content: space-between;gap: 1rem; flex-wrap: wrap; margin-bottom: 1.15rem;}.comments-head h2 {position: relative; padding-left: .8rem;font-size: .82rem; font-weight: 780; text-transform: uppercase;letter-spacing: .17em; color: var(--fg);}.comments-head h2::before {content: ""; position: absolute; left: 0; top: 50%; transform: translateY(-50%);width: 3px; height: 1.05em; border-radius: 2px;background: linear-gradient(180deg, var(--accent-2), var(--accent));}.comments-head span { font-size: .76rem; color: var(--muted); }.comments-body {background: var(--surface-2);border: 1px solid var(--line);border-radius: var(--radius-sm);padding: 1.15rem 1.35rem;font-size: .95rem; line-height: 1.8; color: var(--muted);max-width: 68ch;}.comments-body p { margin: .75em 0; }.comments-body p:first-child { margin-top: 0; }.comments-body p:last-child { margin-bottom: 0; }.comments-body strong { color: var(--fg-2); font-weight: 650; }.comments-body a { color: var(--accent); text-decoration: underline; text-underline-offset: 3px; }.comments-body ul { margin: .9em 0; list-style: none; }.comments-body ul > li { margin: .4em 0; padding-left: 1.15em; position: relative; }.comments-body ul > li::before { content: ""; position: absolute; left: .1em; top: .7em; width: 4px; height: 4px; border-radius: 50%; background: var(--muted); opacity: .5; }.comments-body blockquote {border-left: 3px solid var(--line); margin: 1em 0; padding: .4em 1em;color: var(--muted); font-style: italic;}.toolbar {display: flex; flex-wrap: wrap; gap: .6rem; align-items: center;margin-bottom: 1.35rem;}.search {flex: 1 1 17rem; min-width: 12rem;display: flex; align-items: center; gap: .55rem;background: var(--surface); border: 1px solid var(--line);border-radius: 999px; padding: .58rem 1.05rem;color: var(--muted); transition: border-color .18s, box-shadow .18s;box-shadow: var(--shadow-xs);}.search:focus-within { border-color: var(--accent); box-shadow: 0 0 0 3px var(--accent-soft); }.search input { flex: 1; background: none; border: none; outline: none; color: var(--fg); font-size: .93rem; }.chip {font-size: .84rem; font-weight: 600; padding: .5rem 1rem; border-radius: 999px;background: var(--surface); border: 1px solid var(--line);color: var(--muted); transition: .18s; box-shadow: var(--shadow-xs);}.chip:hover { border-color: var(--accent-line); color: var(--accent); }.chip.on {background: linear-gradient(140deg, var(--accent-2), var(--accent));color: #fff; border-color: transparent;box-shadow: 0 5px 14px -5px var(--accent-line);}.empty-note { padding: 3rem 0; text-align: center; color: var(--muted); font-size: .93rem; }.faq { display: flex; flex-direction: column; gap: .6rem; }.faq details {background: var(--surface); border: 1px solid var(--line);border-radius: var(--radius-sm); padding: 1.05rem 1.3rem;transition: border-color .18s, box-shadow .18s; box-shadow: var(--shadow-xs);}.faq details[open] { border-color: var(--accent-line); box-shadow: var(--shadow-sm); }.faq summary {cursor: pointer; font-weight: 650; font-size: .96rem; list-style: none;display: flex; justify-content: space-between; gap: 1rem; align-items: center;}.faq summary::-webkit-details-marker { display: none; }.faq summary::after {content: "+"; color: var(--accent); font-weight: 500; font-size: 1.1rem;width: 1.4rem; height: 1.4rem; border-radius: 50%;display: flex; align-items: center; justify-content: center;background: var(--accent-soft); flex: 0 0 auto;}.faq details[open] summary::after { content: "−"; }.faq .ans { margin-top: .85rem; font-size: .91rem; line-height: 1.82; color: var(--muted); }.site-footer { border-top: 1px solid var(--line); background: color-mix(in srgb, var(--bg-2) 60%, transparent); }.footer-inner {max-width: var(--container); margin: 0 auto; padding: 2.75rem 1.5rem;display: flex; flex-wrap: wrap; gap: 1.5rem 2.5rem; justify-content: space-between;font-size: .85rem; color: var(--muted);}.footer-inner a:hover { color: var(--accent); }.footer-links { display: flex; flex-wrap: wrap; gap: .55rem 1.15rem; font-weight: 600; }.footer-links a { color: var(--fg-2); }.disclaimer { font-size: .78rem; color: var(--muted); line-height: 1.75; max-width: 35rem; opacity: .9; }@media (max-width: 900px) {.grid-4, .grid-3 { grid-template-columns: repeat(2, minmax(0, 1fr)); }.nav { display: none; }.nav.open {display: flex; flex-direction: column; align-items: stretch;position: absolute; left: 1rem; right: 1rem; top: 4.35rem;background: var(--surface); border: 1px solid var(--line);border-radius: var(--radius); padding: .5rem; box-shadow: var(--shadow-lg); gap: .1rem;}.nav.open a { padding: .72rem .9rem; }.menu-btn { display: flex; }.nav-tools { border: none; padding: 0; margin: 0; padding-top: .35rem; }}@media (max-width: 620px) {.container { gap: 2.6rem; padding: 1.9rem 1.15rem 4rem; }.grid-4, .grid-3, .grid-2 { grid-template-columns: 1fr; }.rows { border-radius: var(--radius-sm); }.row { flex-wrap: wrap; gap: .3rem .8rem; padding: .8rem 1rem; }.row .date { width: auto; }.row .title { flex-basis: 100%; }.hero .lead { font-size: 1rem; }.header-inner { padding: .75rem 1.15rem; }}
+</style>
+</head>
+<body>
+<header class="site-header">
+  <div class="header-inner">
+    <a class="brand" href="index.html">
+      <span class="brand-mark">玑</span>
+      <span class="brand-text"><b>金渐成文章整理</b><span>美股 · 港股 · 加密 · 黄金 · 楼市</span></span>
+    </a>
+    <nav class="nav" id="nav"><a href="all.html" class="active">公众号文章</a><a href="topics.html">文章主题</a><a href="notes.html">学习笔记</a><a href="portfolio.html">账户持仓</a><a href="timeline.html">投资时间线</a><a href="tools.html">工具箱</a><a href="booklist.html">书单</a><a href="about.html">关于</a>
+      <span class="nav-tools"><button class="icon-btn" id="themeBtn" title="切换主题" aria-label="切换主题">◐</button></span>
+    </nav>
+    <button class="icon-btn menu-btn" id="menuBtn" aria-label="菜单">☰</button>
+  </div>
+</header>
+<main>
+<div class="container">
+  <article class="post-wrap">
+    <div class="post-head">
+      <div class="crumb"><a href="index.html">首页</a><span class="sep">/</span><a href="all.html">公众号文章</a><span class="sep">/</span><a href="jinjiancheng.html">金渐成</a></div>
+      <h1>栖息</h1>
+      <div class="post-meta"><span>2023-08-22</span><span class="dot">·</span><span>金渐成</span><span class="dot">·</span><span>约 4 分钟读完</span></div>
+    </div>
+    <div class="prose">
+<p>今天七夕，聊点感情的事，简化点表达。</p>
+<p>据说朋友的友情往往建立在相互误解的基础上，想来恋爱大概也是如此。</p>
+<p>、你只爱工作、跟你的工作过去吧！”这类话，成为经常听到的抱怨。</p>
+<p>不可以动情，不远不近的欣赏，淡淡的喜欢。</p>
+<p><img src="https://res.wx.qq.com/t/wx_fed/we-emoji/res/v1.3.10/assets/newemoji/Lol.png" alt="" loading="lazy"> ，最终第四年还是断了，换了个城市。</p>
+<p>第二个女朋友是同事，表现欲很强，掌控欲也很强，人很强势，但工作能力也是真的很强。不幸，是个“扶弟魔”，没有下限。</p>
+<p><img src="https://res.wx.qq.com/t/wx_fed/we-emoji/res/v1.3.10/assets/newemoji/Lol.png" alt="" loading="lazy"></p>
+<p>后来争执了两年多，还是分了，做“ATM机”的感觉很不好，两个人大大方方干净利落地分开，没给对方难堪。</p>
+<p>这事我一年后才知道，想想算了，懒得计较。</p>
+<p>。嗯，以后不能找同事，钱包要自己管。</p>
+<p>就走出来了。</p>
+<p>从此鲜花赠自己，纵马踏花向自由。</p>
+<p>一段时间后，专心搞钱，醉心事业，哈哈，那会我觉得，把时间和精力花在自己和事业上，能力会提升、事业会回报你。花在感情上，可能最后什么都没有。</p>
+<p>人静下心来，像一颗石子，潜伏在水底，让时光像水一般在身上湍急而过，只指身在水中，不觉水流。不知不觉间，被打磨得如同鹅卵石般外圆内方，为人处世渐渐圆融润达。</p>
+<p>事实证明，一个人的外表、能力和才华，可以成为吸引人的资本，但这世上最能打动人的，永远是内心那些至纯至真的东西。然后，我遇到了我媳妇，栽在她手上。</p>
+<p>娶对媳妇，嫁对郎君，是每个男女这一生中最重要的投资。</p>
+<p>从此烟雨落杭城，一人撑伞两人行。她也在一步步成长，从刚开始任性、情绪化的女孩子，成长到既是我的贤内助，也是我事业上的得力助手、左膀右臂。然后有了三个娃。</p>
+<p>我们开始规划小孩的未来，在陪伴的过程中尝试和探索教小孩怎么交朋友，怎么处理友谊破裂、朋友离别、感情受挫、亲人离世、宠物生病、被欺凌、遭遇创伤、孤独、抑郁焦虑这些问题；</p>
+<p>手把手教，引导小孩明白社会的运行规则和基本常识，怎么办银行卡、怎么坐火车、地铁、飞机，怎么规划出行线路，怎么点菜、找酒店等等；</p>
+<p>引导小孩认识自我，学会看人、观察人，明白为人处世的原则，教他们怎么热情面对生活。</p>
+<p>我希望他们以后是个独立的个体，过自己喜欢和追寻的生活，而不是我生活的延续。</p>
+<p>现在，我依然觉得，男人要玩，就在二十来岁年轻的时候好好玩，三十而立就该收心，别再跑出去乱玩。每个年龄段有每个年龄段该做的事。</p>
+<p>七夕，有的人过情人节，有的人遭情人劫。但对于我来说，七夕，就是栖息。</p>
+<p>今天就这样吧。对了，助农项目做了个特惠活动，感兴趣的读者可以看看：意外的活动。</p>
+<p>谢谢大家~</p>
+    </div>
+    <section class="comments">
+      <div class="comments-head"><h2>读者留言</h2><span>原文评论区内容，与正文分开呈现</span></div>
+      <div class="comments-body">
+<p>想不到已经三个孩子！</p>
+<p>大家早点休息，我去准备第四个娃了~[旺柴]</p>
+<p>想弱弱问一句，你媳妇怎么从一个任性，情绪化的女孩子变得这么优秀的，想向偶像学习[撇嘴]</p>
+<p>循循善诱，错了先不要指责，先肯定她做的不错，再告诉她，如果怎么怎么改进，效果会更好，久而久之，她自然就懂了，也进步了。至于情绪化，还是需要男的hold住自己，耐心沟通，沟通的话术和语调很重要，总之，多耐心，心气平和地沟通，不要讲道理，先感性，后引导，女人很难在气头上跟你讲道理。</p>
+<p>嗯嗯～我先生也是这样的，所以我们基本不吵架</p>
+<p>和带娃一样</p>
+<p>大部分父母都是放养式，等自己知道那些社会规则的时候，已经摔得片体鳞伤了，最重要的是胆气和自信也摔没了</p>
+<p>还是要教，很多家长都没教，小孩毕业后出社会，就是一张白纸，什么都不懂，全靠自己摸爬滚打，好不容易到三十几岁开窍了，已经落后一大截了~</p>
+<p>好，看完我继续看书了。事实证明多读书，内心越来越平静，知识是穷人最大的财富。</p>
+<p>知识是穷人最大的财富，也是富人收割穷人的法宝，所以多读书、多经历，对自己有好处。</p>
+<p>一躺平就不想再支棱起来了……</p>
+<p>因为害怕结束而从不开始，是大多数人的生活真相。</p>
+<p>什么让你选择了现在的老婆[微笑]</p>
+<p>你要问的话，那我肯定回答：因为爱情。她和娃一样，是我的软肋，也是我的铠甲。</p>
+<p>机哥，你觉得中国未来的贫富差距趋势是怎么样呢？</p>
+<p>你看看东方明珠塔，差不多就那样。</p>
+<p>那是对我振聋发聩的声音。后来认识我的媳妇，我努力学会如何去爱人，让自己努力变得更优秀。年轻的时候，不应该去爱一个生命中难以承受的爱情。年轻的时候，伤害了太多女生的感情，会让你以后痛不欲生，它会变成愧疚折磨自己。</p>
+<p>年轻时追女孩，即便你很努力，女孩最后可能还是不会选择你。很多年后回忆起这些过往，它不会击垮你，你也不会因为它不再进入感情，它成为了你人生感情经历的一部分。你为了那个女孩努力完善自己，可能没能获得她的青睐，但很可能在之后的某一天，这些经历和成就，成为你下一个伴侣被你吸引的原因。</p>
+<p>三个娃都多大了，自己带吗</p>
+<p>最小的5.5周岁了，都自己带，阿姨只是协助，主要的还是要自己来。</p>
+<p>你只是提前谈了两个没结婚[裂开]还有后来[旺柴]</p>
+<p>后来一个大学老师5个月，一个空姐2个月，不谈也罢，哈哈哈</p>
+<p>不接受把卡交出去，可以报账，不能交账</p>
+<p>哈哈哈，钱包还是要掌握在自己手里。有些人会要求管钱，还要求对方听自己的，这个我很搞不懂了：按照社会规则，弱者怎么能控制和支配强者，让强者听弱者的话呢？有点违背常理。可能有的时候，不讲常理吧~</p>
+<p>也许大概可能是弱者的一种道德绑架手段？你不上交工资卡就是不爱我[捂脸]</p>
+<p>是这样，我最烦这种了，哈哈哈</p>
+<p>机哥，我怎么觉着少了些莺莺燕燕呢[旺柴]</p>
+<p>那东西能写吗？一句话带过就行了[旺柴]</p>
+<p>机哥分手后是怎么最大程度减少内耗的？逼着自己不去想？</p>
+<p>逼自己是没用的，感性的问题，还需要理性来解题，最佳方式是转移注意力，专注搞事业。</p>
+<p>朋友圈都没有看到有人秀转账，今年经济形势不太好</p>
+<p>过完十二点再看看，再不恋爱、不做舔狗，现在资本都开始转向讨好男性了[捂脸]</p>
+<p>机哥，家里的另外一半会不会对你过往的感情经历严加拷问[吃瓜]</p>
+<p>不会，她会吃醋，但整体大度，哈哈哈。</p>
+<p>妥妥的吃了一把狗粮[旺柴]</p>
+<p>相信自己，你不狗，站起来走[旺柴]</p>
+<p>我没结婚之前，一个结过婚的朋友跟我讲。等你结婚后，要是可以把自己的小家和双方父母关系处理好，经营的很好，除此之外的任何事情那都不叫事儿，结婚后我发现真的很难，很累[捂脸][捂脸][捂脸]</p>
+<p>所以古人说，清官难断家务事。还好，我没有这些烦恼。</p>
+<p>现在躺平流是大行其道，婚恋方面也不遑多让[破涕为笑]</p>
+<p>现在婚恋，秤上一边是感情，另一边是利益。就看怎么平衡了，很累人的。</p>
+<p>我始终觉得，恋爱就不要谈理智，最后很多不甘心和不舍往往是觉得自己付出太多或者对方反馈太少，但其实有没有可能是还没有遇到爱或者不够爱，因为世上的至爱，是不计较，无条件。</p>
+<p>错把好感当感情的，太多了。真到了恋爱的程度，绝大多数人都很难做到理性。</p>
+<p>机哥是北方人吗？愿意接受收入都上交的对方的要求。咱们广东男人是宁愿打光棍都不会接受滴。[Chuckle]</p>
+<p>肯定不是啊，我也没上交，都自己管钱。不过，第二个女朋友是北方人没错[捂脸]</p>
+<p>本北方人也宁死不交，不过会偶尔大额转账[奸笑]</p>
+<p>七夕，就是栖息[强][强][强]</p>
+<p>有家，就有栖息之地</p>
+<p>七夕表白被拒，跟你第二段感情很像，哈哈，挫败感爆棚[破涕为笑]</p>
+<p>没什么，你做好自己，让自己成长起来，回头指不定后悔的是别人。</p>
+<p>挥刀断水，该流则流，该断则断，我就是吃了这个亏。</p>
+<p>话筒给你，跟我们说说你吃亏的事，让大家引以为鉴[吃瓜]</p>
+<p>每天的更新就像我的电子安眠药，睡前看完再咀嚼一番然后睡去。</p>
+<p>还有这助眠功能？😂[捂脸]</p>
+<p>每天睡前都把两个号翻一翻看有没有更新[破涕为笑]（有时候更新了但是订阅号没有推送提醒）。</p>
+<p>星标公众号试试，应该能解决这个问题</p>
+<p>前几篇文章机弟（我比你大）说有几个孩子，我当时就猜是三个，因为我也是三个孩子。[呲牙]因为一般一个说一个，两个说两个，有三个才敢说几个孩子[呲牙]</p>
+<p>哈哈哈，是这样，三个及以上才会说几个。</p>
+<p>谁不曾年少，鲜衣怒马！再回头，当时明月在 曾照彩云归</p>
+<p>当年明月不在（现在城市扬尘等污染严重，月不够亮）；彩云也嫁人了，不会回来了[旺柴]</p>
+<p>建议不光今天，平时可以多讲讲感情经历，毕竟对于年轻人来说，个人觉得好的感情和伴侣胜似一次绝妙投资，可惜大多都是局中人懵懵懂懂</p>
+<p>不要被我误导就行，大家自己辨识，我说的不一定都对~我能讲的会讲</p>
+<p>头一次看到机哥分享育儿，是我欣赏且一直努力实践的那种，很有共鸣[强][强]</p>
+<p>其实之前也有写，哈哈哈，你可以翻翻历史文章</p>
+<p>忘记说了，今天还买了助农的茶，尝尝味道如何。</p>
+<p>大家评价都很好，哈哈，不过各个地区的口味都不太一样，因人而异，你先尝尝看怎么样，谢谢支持，也欢迎给我们提意见和建议[玫瑰][抱拳]</p>
+      </div>
+    </section>
+    <div class="post-foot"><a href="jinjiancheng.html">← 返回金渐成文章列表</a><div class="pager"><a href="jinjiancheng-2023-08-23.html"><span class="lbl">← 更新一篇</span>种地</a><a href="jinjiancheng-2023-08-21.html"><span class="lbl">更早一篇 →</span>奶</a></div></div>
+  </article>
+</div>
+</main>
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div>
+      <div class="footer-links">
+        <a href="all.html">公众号文章</a>
+        <a href="topics.html">文章主题</a>
+        <a href="notes.html">学习笔记</a>
+        <a href="timeline.html">投资时间线</a>
+        <a href="about.html">关于</a>
+      </div>
+      <p class="disclaimer" style="margin-top:1rem">本站为个人阅读存档，收录金渐成 / 天机奇谈公开发表的公众号文章，便于按主题与时间线连续阅读。<br>内容仅供参考，<strong>不构成任何投资建议</strong>。投资有风险，决策需谨慎。</p>
+    </div>
+    <div>共 781 篇文章 · 静态存档<br><span style="opacity:.7">生成于 2026-10-09</span></div>
+  </div>
+</footer>
+<script>
+/* 金渐成文章整理 —— 交互脚本 */
+(function () {
+  'use strict';
+
+  /* ---- 主题切换 ---- */
+  var root = document.documentElement;
+  var saved = null;
+  try { saved = localStorage.getItem('jjc-theme'); } catch (e) {}
+  if (saved) root.setAttribute('data-theme', saved);
+
+  function currentIsDark() {
+    var t = root.getAttribute('data-theme');
+    if (t === 'dark') return true;
+    if (t === 'light') return false;
+    return window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+  }
+
+  var themeBtn = document.getElementById('themeBtn');
+  if (themeBtn) {
+    themeBtn.addEventListener('click', function () {
+      var next = currentIsDark() ? 'light' : 'dark';
+      root.setAttribute('data-theme', next);
+      try { localStorage.setItem('jjc-theme', next); } catch (e) {}
+    });
+  }
+
+  /* ---- 移动端菜单 ---- */
+  var menuBtn = document.getElementById('menuBtn');
+  var nav = document.getElementById('nav');
+  if (menuBtn && nav) {
+    menuBtn.addEventListener('click', function (e) {
+      e.stopPropagation();
+      nav.classList.toggle('open');
+    });
+    document.addEventListener('click', function (e) {
+      if (nav.classList.contains('open') && !nav.contains(e.target)) nav.classList.remove('open');
+    });
+  }
+
+  /* ---- 列表搜索 / 分栏筛选 ---- */
+  var q = document.getElementById('q');
+  var list = document.getElementById('list');
+  var empty = document.getElementById('empty');
+  if (q && list) {
+    var rows = Array.prototype.slice.call(list.querySelectorAll('.row'));
+    var rowsByChannel = rows.map(function (r) {
+      var tag = r.querySelector('.tag');
+      var txt = tag ? tag.textContent.trim() : '';
+      return txt === '金渐成' ? 'jinjiancheng' : (txt === '天机奇谈' ? 'tianjiqitan' : '');
+    });
+    var channel = 'all';
+    var chips = Array.prototype.slice.call(document.querySelectorAll('.chip[data-ch]'));
+
+    function apply() {
+      var kw = (q.value || '').trim().toLowerCase();
+      var shown = 0;
+      var yearHeads = Array.prototype.slice.call(list.querySelectorAll('.year-head'));
+      rows.forEach(function (r, i) {
+        var hay = r.textContent.toLowerCase();
+        var okKw = !kw || hay.indexOf(kw) !== -1;
+        var okCh = channel === 'all' || rowsByChannel[i] === channel;
+        var ok = okKw && okCh;
+        r.style.display = ok ? '' : 'none';
+        if (ok) shown++;
+      });
+      // 年份标题在筛选时整体隐藏，避免出现空年份
+      yearHeads.forEach(function (h) { h.style.display = (kw || channel !== 'all') ? 'none' : ''; });
+      if (empty) empty.style.display = shown === 0 ? '' : 'none';
+    }
+
+    q.addEventListener('input', apply);
+    chips.forEach(function (c) {
+      c.addEventListener('click', function () {
+        chips.forEach(function (x) { x.classList.remove('on'); });
+        c.classList.add('on');
+        channel = c.getAttribute('data-ch');
+        apply();
+      });
+    });
+  }
+})();
+
+</script>
+</body>
+</html>

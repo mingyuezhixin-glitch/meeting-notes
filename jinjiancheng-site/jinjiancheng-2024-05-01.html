@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>信息茧房 · 金渐成</title>
+<meta name="description" content="金渐成 2024-05-01 信息茧房">
+<link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2064%2064'%3E%3Crect%20width='64'%20height='64'%20rx='16'%20fill='%23b45309'/%3E%3Ctext%20x='32'%20y='45'%20font-size='38'%20font-family='sans-serif'%20font-weight='700'%20fill='%23fff'%20text-anchor='middle'%3E%E7%8E%91%3C/text%3E%3C/svg%3E">
+<style>
+:root {--bg: #faf9f6;--bg-2: #f2efe9;--surface: #ffffff;--surface-2: #f6f4ef;--fg: #171614;--fg-2: #3d3a35;--muted: #7a7570;--line: #e7e3da;--line-2: #f0ece4;--accent: #b45309;--accent-2: #d98218;--accent-soft: rgba(180, 83, 9, .09);--accent-line: rgba(180, 83, 9, .22);--on-accent: #ffffff;--shadow-xs: 0 1px 2px rgba(23, 22, 20, .05);--shadow-sm: 0 1px 3px rgba(23, 22, 20, .06), 0 1px 2px rgba(23, 22, 20, .04);--shadow-md: 0 8px 24px -6px rgba(23, 22, 20, .10), 0 2px 6px rgba(23, 22, 20, .05);--shadow-lg: 0 20px 48px -12px rgba(23, 22, 20, .16);--radius: 18px;--radius-sm: 12px;--container: 68rem;}@media (prefers-color-scheme: dark) {:root:not([data-theme="light"]) {--bg: #0f0f10;--bg-2: #16161a;--surface: #17171b;--surface-2: #1d1d22;--fg: #f2f0ec;--fg-2: #d4d1cb;--muted: #918d87;--line: #29292f;--line-2: #212127;--accent: #f0972a;--accent-2: #f5b400;--accent-soft: rgba(240, 151, 42, .12);--accent-line: rgba(240, 151, 42, .3);--on-accent: #17120a;--shadow-xs: 0 1px 2px rgba(0, 0, 0, .45);--shadow-sm: 0 1px 3px rgba(0, 0, 0, .5);--shadow-md: 0 8px 24px -6px rgba(0, 0, 0, .6);--shadow-lg: 0 20px 48px -12px rgba(0, 0, 0, .7);}}html[data-theme="dark"] {--bg: #0f0f10; --bg-2: #16161a; --surface: #17171b; --surface-2: #1d1d22;--fg: #f2f0ec; --fg-2: #d4d1cb; --muted: #918d87; --line: #29292f; --line-2: #212127;--accent: #f0972a; --accent-2: #f5b400;--accent-soft: rgba(240, 151, 42, .12); --accent-line: rgba(240, 151, 42, .3);--on-accent: #17120a;--shadow-xs: 0 1px 2px rgba(0, 0, 0, .45);--shadow-sm: 0 1px 3px rgba(0, 0, 0, .5);--shadow-md: 0 8px 24px -6px rgba(0, 0, 0, .6);--shadow-lg: 0 20px 48px -12px rgba(0, 0, 0, .7);}* { box-sizing: border-box; margin: 0; padding: 0; border: 0 solid var(--line); }html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }body {background: var(--bg);background-image:radial-gradient(60rem 32rem at 12% -8%, var(--accent-soft), transparent 62%),radial-gradient(48rem 28rem at 92% 2%, rgba(217, 130, 24, .06), transparent 60%);background-repeat: no-repeat;background-attachment: fixed;color: var(--fg);font-family: Inter, -apple-system, BlinkMacSystemFont, "PingFang SC", "Hiragino Sans GB","Microsoft YaHei", "Helvetica Neue", Helvetica, Arial, sans-serif;-webkit-font-smoothing: antialiased;-moz-osx-font-smoothing: grayscale;line-height: 1.6;min-height: 100vh;display: flex;flex-direction: column;}a { color: inherit; text-decoration: none; }img { max-width: 100%; height: auto; display: block; border-radius: 10px; }button { font: inherit; color: inherit; background: none; cursor: pointer; }::selection { background: var(--accent-soft); }.site-header {position: sticky; top: 0; z-index: 50;background: color-mix(in srgb, var(--bg) 82%, transparent);backdrop-filter: saturate(180%) blur(14px);-webkit-backdrop-filter: saturate(180%) blur(14px);border-bottom: 1px solid var(--line);}.header-inner {max-width: var(--container); margin: 0 auto;padding: .85rem 1.5rem;display: flex; align-items: center; justify-content: space-between; gap: 1rem;}.brand { display: flex; align-items: center; gap: .7rem; transition: opacity .2s; flex: 0 0 auto; }.brand:hover { opacity: .82; }.brand-mark {width: 2.3rem; height: 2.3rem; border-radius: 12px; flex: 0 0 auto;background: linear-gradient(140deg, var(--accent-2), var(--accent) 70%);color: #fff; font-weight: 800; font-size: 1.08rem;display: flex; align-items: center; justify-content: center;box-shadow: 0 4px 12px -2px var(--accent-line), inset 0 1px 0 rgba(255,255,255,.28);}.brand-text { display: flex; flex-direction: column; line-height: 1.2; }.brand-text b { font-size: 1rem; font-weight: 750; letter-spacing: -.015em; }.brand-text span { font-size: .68rem; color: var(--muted); letter-spacing: .1em; margin-top: .1rem; }.nav { display: flex; align-items: center; gap: .15rem; font-size: .9rem; font-weight: 550; }.nav a {padding: .48rem .78rem; border-radius: 9px; color: var(--muted);transition: color .18s, background .18s; white-space: nowrap;}.nav a:hover { color: var(--fg); background: var(--surface-2); }.nav a.active { color: var(--accent); background: var(--accent-soft); font-weight: 700; }.nav-tools { display: flex; align-items: center; gap: .3rem; padding-left: .5rem; margin-left: .35rem; border-left: 1px solid var(--line); }.icon-btn {width: 2.1rem; height: 2.1rem; border-radius: 9px; color: var(--muted);display: flex; align-items: center; justify-content: center;transition: .18s; font-size: 1rem;}.icon-btn:hover { color: var(--accent); background: var(--accent-soft); }.menu-btn { display: none; }main { flex: 1; }.container {max-width: var(--container); margin: 0 auto;padding: 3rem 1.5rem 5.5rem;display: flex; flex-direction: column; gap: 3.75rem;}.hero { margin-bottom: 0; }.crumb {display: flex; flex-wrap: wrap; align-items: center; gap: .45rem;font-size: .85rem; font-weight: 550; color: var(--muted); margin-bottom: 1.1rem;}.crumb a:hover { color: var(--accent); }.crumb .sep { opacity: .35; }.hero h1 {font-size: clamp(2.1rem, 5.6vw, 3.15rem);font-weight: 830; line-height: 1.08; letter-spacing: -.035em;background: linear-gradient(180deg, var(--fg) 62%, color-mix(in srgb, var(--fg) 62%, var(--accent)));-webkit-background-clip: text; background-clip: text;-webkit-text-fill-color: transparent;}.hero .lead {margin-top: 1.35rem; max-width: 44rem;font-size: 1.06rem; line-height: 1.85; color: var(--muted);}.hero .lead strong { color: var(--fg); font-weight: 750; }.hero-actions { margin-top: 1.9rem; display: flex; flex-wrap: wrap; gap: .7rem; }.btn {padding: .72rem 1.55rem; border-radius: 999px;font-weight: 600; font-size: .95rem;transition: transform .18s, box-shadow .18s, background .18s, border-color .18s, color .18s;display: inline-flex; align-items: center; gap: .45rem;}.btn-primary {background: linear-gradient(140deg, var(--accent-2), var(--accent));color: #fff;box-shadow: 0 6px 18px -6px var(--accent-line), inset 0 1px 0 rgba(255,255,255,.22);}.btn-primary:hover { transform: translateY(-2px); box-shadow: 0 12px 26px -8px var(--accent-line); }.btn-ghost { border: 1px solid var(--line); background: var(--surface); color: var(--fg-2); }.btn-ghost:hover { background: var(--surface-2); border-color: var(--accent-line); color: var(--accent); }.stats { margin-top: 1.9rem; display: flex; flex-wrap: wrap; gap: .6rem; }.stat {display: flex; align-items: baseline; gap: .4rem;background: var(--surface); border: 1px solid var(--line);border-radius: 999px; padding: .42rem 1rem;box-shadow: var(--shadow-xs);}.stat b { font-size: 1rem; font-weight: 780; letter-spacing: -.02em; color: var(--fg); font-variant-numeric: tabular-nums; }.stat span { font-size: .8rem; color: var(--muted); }.section { display: flex; flex-direction: column; }.section-head {display: flex; align-items: baseline; justify-content: space-between;gap: 1rem; margin-bottom: 1.5rem; padding-bottom: .85rem;border-bottom: 1px solid var(--line);}.section-head h2 {position: relative; padding-left: .85rem;font-size: .92rem; font-weight: 780; text-transform: uppercase;letter-spacing: .17em; color: var(--fg);}.section-head h2::before {content: ""; position: absolute; left: 0; top: 50%; transform: translateY(-50%);width: 3px; height: 1.05em; border-radius: 2px;background: linear-gradient(180deg, var(--accent-2), var(--accent));}.section-head .more { font-size: .88rem; font-weight: 600; color: var(--muted); white-space: nowrap; transition: .18s; }.section-head .more:hover { color: var(--accent); }.grid { display: grid; gap: 1.05rem; }.grid-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }.grid-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }.grid-4 { grid-template-columns: repeat(4, minmax(0, 1fr)); }.card {position: relative; overflow: hidden;background: var(--surface);border: 1px solid var(--line);border-radius: var(--radius);padding: 1.3rem 1.4rem;box-shadow: var(--shadow-xs);transition: transform .2s cubic-bezier(.2,.7,.3,1), box-shadow .2s, border-color .2s;display: block;}.card::after {content: ""; position: absolute; inset: 0 0 auto 0; height: 2px;background: linear-gradient(90deg, var(--accent-2), var(--accent) 55%, transparent);opacity: 0; transition: opacity .2s;}a.card:hover {transform: translateY(-3px);box-shadow: var(--shadow-md);border-color: var(--accent-line);}a.card:hover::after { opacity: 1; }.card .kicker {font-size: .7rem; font-weight: 780; letter-spacing: .12em;color: var(--accent); text-transform: uppercase;}.card h3 { margin-top: .55rem; font-size: 1.04rem; font-weight: 730; line-height: 1.4; letter-spacing: -.015em; }.card p { margin-top: .55rem; font-size: .875rem; line-height: 1.72; color: var(--muted); }.card .count { font-size: .78rem; font-weight: 600; color: var(--muted); }.rows {display: flex; flex-direction: column;background: var(--surface); border: 1px solid var(--line);border-radius: var(--radius); overflow: hidden;box-shadow: var(--shadow-xs);}.row {display: flex; align-items: baseline; gap: 1.1rem;padding: .82rem 1.15rem;transition: background .16s;border-bottom: 1px solid var(--line-2);position: relative;}.row:last-child { border-bottom: 0; }.row::before {content: ""; position: absolute; left: 0; top: 0; bottom: 0; width: 3px;background: var(--accent); transform: scaleY(0); transition: transform .18s;}.row:hover { background: var(--surface-2); }.row:hover::before { transform: scaleY(1); }.row .date {flex: 0 0 auto; width: 5.1rem; font-size: .82rem; font-weight: 600;font-variant-numeric: tabular-nums; color: var(--muted); letter-spacing: -.01em;}.row .title { flex: 1 1 auto; font-size: .97rem; font-weight: 550; line-height: 1.55; color: var(--fg-2); }.row:hover .title { color: var(--accent); font-weight: 620; }.row .tags { flex: 0 0 auto; display: flex; gap: .35rem; }.tag {font-size: .7rem; font-weight: 620; padding: .2rem .6rem; border-radius: 999px;background: var(--surface-2); border: 1px solid var(--line);color: var(--muted); white-space: nowrap;}.year-head { display: flex; align-items: center; gap: .9rem; margin: 1.9rem 0 .75rem; }.year-head:first-child { margin-top: 0; }.year-head .y { font-size: 1.3rem; font-weight: 830; letter-spacing: -.03em; }.year-head .n { font-size: .78rem; font-weight: 600; color: var(--muted); background: var(--surface-2); border: 1px solid var(--line); padding: .12rem .55rem; border-radius: 999px; }.year-head .line { flex: 1; height: 1px; background: linear-gradient(90deg, var(--line), transparent); }.post-wrap { max-width: 46rem; margin: 0 auto; width: 100%; }.post-head { margin-bottom: 2.25rem; padding-bottom: 1.6rem; border-bottom: 1px solid var(--line); }.post-head h1 { font-size: clamp(1.55rem, 4.4vw, 2.05rem); font-weight: 760; line-height: 1.32; letter-spacing: -.028em; }.post-meta { margin-top: 1rem; display: flex; flex-wrap: wrap; gap: .5rem 1rem; font-size: .84rem; color: var(--muted); align-items: center; font-weight: 550; }.post-meta .dot { opacity: .35; }.prose { color: var(--fg-2); font-size: 1.06rem; line-height: 1.9; letter-spacing: .008em; max-width: 68ch; }.prose p { margin: 1.5em 0; }.prose h1, .prose h2, .prose h3 { color: var(--fg); letter-spacing: -.018em; font-weight: 730; line-height: 1.4; }.prose h1 { font-size: 1.65rem; margin: 2.1em 0 .8em; }.prose h2 {font-size: 1.28rem; margin: 2.3em 0 .85em; padding-bottom: .5em;border-bottom: 1px solid var(--line);}.prose h3 {font-size: 1.03rem; margin: 2.2em 0 .7em;letter-spacing: .16em; color: var(--accent); font-weight: 780;}.prose strong { color: var(--fg); font-weight: 700; }.prose em { font-style: italic; }.prose a { color: var(--accent); text-decoration: underline; text-underline-offset: 3px; text-decoration-thickness: 1px; }.prose a:hover { opacity: .8; }.prose blockquote {border-left: 3px solid var(--accent);background: var(--accent-soft);color: var(--fg-2); border-radius: 0 10px 10px 0;margin: 1.9em 0; padding: 1.05em 1.35em; font-style: italic;}.prose blockquote p { margin: 0; }.prose ul { margin: 1.3em 0; list-style: none; }.prose ul > li { margin: .55em 0; padding-left: 1.35em; position: relative; }.prose ul > li::before { content: ""; position: absolute; left: .15em; top: .72em; width: 5px; height: 5px; border-radius: 50%; background: var(--accent); opacity: .6; }.prose ol { margin: 1.3em 0; padding-left: 1.5em; list-style: decimal; }.prose ol > li { margin: .55em 0; }.prose img { margin: 2em 0; box-shadow: var(--shadow-md); }.prose hr { margin: 2.6em 0; border-top: 1px solid var(--line); height: 0; }.post-foot {margin-top: 3.2rem; padding-top: 1.6rem; border-top: 1px solid var(--line);display: flex; align-items: center; justify-content: space-between;gap: 1rem; flex-wrap: wrap; font-size: .88rem; font-weight: 550; color: var(--muted);}.post-foot a:hover { color: var(--accent); }.pager { display: flex; gap: .8rem; flex-wrap: wrap; }.pager a {background: var(--surface); border: 1px solid var(--line); border-radius: 12px;padding: .65rem 1rem; max-width: 17rem; font-size: .86rem;transition: .18s; box-shadow: var(--shadow-xs); line-height: 1.45;}.pager a:hover { background: var(--surface-2); border-color: var(--accent-line); color: var(--accent); transform: translateY(-2px); }.pager .lbl { display: block; font-size: .7rem; font-weight: 650; color: var(--muted); margin-bottom: .2rem; letter-spacing: .04em; }.comments {margin-top: 3rem; border-top: 1px solid var(--line); padding-top: 1.6rem;}.comments-head {display: flex; align-items: baseline; justify-content: space-between;gap: 1rem; flex-wrap: wrap; margin-bottom: 1.15rem;}.comments-head h2 {position: relative; padding-left: .8rem;font-size: .82rem; font-weight: 780; text-transform: uppercase;letter-spacing: .17em; color: var(--fg);}.comments-head h2::before {content: ""; position: absolute; left: 0; top: 50%; transform: translateY(-50%);width: 3px; height: 1.05em; border-radius: 2px;background: linear-gradient(180deg, var(--accent-2), var(--accent));}.comments-head span { font-size: .76rem; color: var(--muted); }.comments-body {background: var(--surface-2);border: 1px solid var(--line);border-radius: var(--radius-sm);padding: 1.15rem 1.35rem;font-size: .95rem; line-height: 1.8; color: var(--muted);max-width: 68ch;}.comments-body p { margin: .75em 0; }.comments-body p:first-child { margin-top: 0; }.comments-body p:last-child { margin-bottom: 0; }.comments-body strong { color: var(--fg-2); font-weight: 650; }.comments-body a { color: var(--accent); text-decoration: underline; text-underline-offset: 3px; }.comments-body ul { margin: .9em 0; list-style: none; }.comments-body ul > li { margin: .4em 0; padding-left: 1.15em; position: relative; }.comments-body ul > li::before { content: ""; position: absolute; left: .1em; top: .7em; width: 4px; height: 4px; border-radius: 50%; background: var(--muted); opacity: .5; }.comments-body blockquote {border-left: 3px solid var(--line); margin: 1em 0; padding: .4em 1em;color: var(--muted); font-style: italic;}.toolbar {display: flex; flex-wrap: wrap; gap: .6rem; align-items: center;margin-bottom: 1.35rem;}.search {flex: 1 1 17rem; min-width: 12rem;display: flex; align-items: center; gap: .55rem;background: var(--surface); border: 1px solid var(--line);border-radius: 999px; padding: .58rem 1.05rem;color: var(--muted); transition: border-color .18s, box-shadow .18s;box-shadow: var(--shadow-xs);}.search:focus-within { border-color: var(--accent); box-shadow: 0 0 0 3px var(--accent-soft); }.search input { flex: 1; background: none; border: none; outline: none; color: var(--fg); font-size: .93rem; }.chip {font-size: .84rem; font-weight: 600; padding: .5rem 1rem; border-radius: 999px;background: var(--surface); border: 1px solid var(--line);color: var(--muted); transition: .18s; box-shadow: var(--shadow-xs);}.chip:hover { border-color: var(--accent-line); color: var(--accent); }.chip.on {background: linear-gradient(140deg, var(--accent-2), var(--accent));color: #fff; border-color: transparent;box-shadow: 0 5px 14px -5px var(--accent-line);}.empty-note { padding: 3rem 0; text-align: center; color: var(--muted); font-size: .93rem; }.faq { display: flex; flex-direction: column; gap: .6rem; }.faq details {background: var(--surface); border: 1px solid var(--line);border-radius: var(--radius-sm); padding: 1.05rem 1.3rem;transition: border-color .18s, box-shadow .18s; box-shadow: var(--shadow-xs);}.faq details[open] { border-color: var(--accent-line); box-shadow: var(--shadow-sm); }.faq summary {cursor: pointer; font-weight: 650; font-size: .96rem; list-style: none;display: flex; justify-content: space-between; gap: 1rem; align-items: center;}.faq summary::-webkit-details-marker { display: none; }.faq summary::after {content: "+"; color: var(--accent); font-weight: 500; font-size: 1.1rem;width: 1.4rem; height: 1.4rem; border-radius: 50%;display: flex; align-items: center; justify-content: center;background: var(--accent-soft); flex: 0 0 auto;}.faq details[open] summary::after { content: "−"; }.faq .ans { margin-top: .85rem; font-size: .91rem; line-height: 1.82; color: var(--muted); }.site-footer { border-top: 1px solid var(--line); background: color-mix(in srgb, var(--bg-2) 60%, transparent); }.footer-inner {max-width: var(--container); margin: 0 auto; padding: 2.75rem 1.5rem;display: flex; flex-wrap: wrap; gap: 1.5rem 2.5rem; justify-content: space-between;font-size: .85rem; color: var(--muted);}.footer-inner a:hover { color: var(--accent); }.footer-links { display: flex; flex-wrap: wrap; gap: .55rem 1.15rem; font-weight: 600; }.footer-links a { color: var(--fg-2); }.disclaimer { font-size: .78rem; color: var(--muted); line-height: 1.75; max-width: 35rem; opacity: .9; }@media (max-width: 900px) {.grid-4, .grid-3 { grid-template-columns: repeat(2, minmax(0, 1fr)); }.nav { display: none; }.nav.open {display: flex; flex-direction: column; align-items: stretch;position: absolute; left: 1rem; right: 1rem; top: 4.35rem;background: var(--surface); border: 1px solid var(--line);border-radius: var(--radius); padding: .5rem; box-shadow: var(--shadow-lg); gap: .1rem;}.nav.open a { padding: .72rem .9rem; }.menu-btn { display: flex; }.nav-tools { border: none; padding: 0; margin: 0; padding-top: .35rem; }}@media (max-width: 620px) {.container { gap: 2.6rem; padding: 1.9rem 1.15rem 4rem; }.grid-4, .grid-3, .grid-2 { grid-template-columns: 1fr; }.rows { border-radius: var(--radius-sm); }.row { flex-wrap: wrap; gap: .3rem .8rem; padding: .8rem 1rem; }.row .date { width: auto; }.row .title { flex-basis: 100%; }.hero .lead { font-size: 1rem; }.header-inner { padding: .75rem 1.15rem; }}
+</style>
+</head>
+<body>
+<header class="site-header">
+  <div class="header-inner">
+    <a class="brand" href="index.html">
+      <span class="brand-mark">玑</span>
+      <span class="brand-text"><b>金渐成文章整理</b><span>美股 · 港股 · 加密 · 黄金 · 楼市</span></span>
+    </a>
+    <nav class="nav" id="nav"><a href="all.html" class="active">公众号文章</a><a href="topics.html">文章主题</a><a href="notes.html">学习笔记</a><a href="portfolio.html">账户持仓</a><a href="timeline.html">投资时间线</a><a href="tools.html">工具箱</a><a href="booklist.html">书单</a><a href="about.html">关于</a>
+      <span class="nav-tools"><button class="icon-btn" id="themeBtn" title="切换主题" aria-label="切换主题">◐</button></span>
+    </nav>
+    <button class="icon-btn menu-btn" id="menuBtn" aria-label="菜单">☰</button>
+  </div>
+</header>
+<main>
+<div class="container">
+  <article class="post-wrap">
+    <div class="post-head">
+      <div class="crumb"><a href="index.html">首页</a><span class="sep">/</span><a href="all.html">公众号文章</a><span class="sep">/</span><a href="jinjiancheng.html">金渐成</a></div>
+      <h1>信息茧房</h1>
+      <div class="post-meta"><span>2024-05-01</span><span class="dot">·</span><span>金渐成</span><span class="dot">·</span><span>约 5 分钟读完</span></div>
+    </div>
+    <div class="prose">
+<p>我看了下后台，几个比较集中的问题，我写一写。</p>
+<p>第一个，这次到日本旅行是自由行，还是报团？</p>
+<p>是自由行，五年期的自由行很方便，办自由行门槛也不高。</p>
+<p>现在赴日本旅游观光团数量整体在下降，但高净值人群为主的各种考察团、医疗/体检团的数量在上升。</p>
+<p>考察团的主要是考察对象是日本的各类企业，他们在经营方面确实很有一手；体检团方面，由于日本的生物医药技术领先世界，在筛查癌症和治疗等方面，比较受高净值人群的认可。</p>
+<p>你要问我怎么看？我只能说，相信有钱人的眼光，人家是有钱，但不傻。</p>
+<p>第二个，日本的收入情况？</p>
+<p>日本的收入整体分布是一个橄榄型:两头（顶尖富人和底层贫民）群体少，中产群体占比大。这点和中美很不一样。</p>
+<p>平均收入45万日元/月，临时工的小时工资1300-1800日元/小时。</p>
+<p>农民的日子不错，比较有钱，政府每年也有100万日元的补贴。日本的农民是高尔夫球的重要玩家群体。</p>
+<p>日本的蔬菜种类不多，仅比韩国略多一些，所以日本人可选择购买的蔬菜种类很少，这点是远不如我们国内的品类多、选项多。</p>
+<p>第三个，日本的房子还能买吗？</p>
+<p>2018年之前，日本的房价整体没啥动静，没涨，甚至略跌。2018年到2022年底，日本的房价主要是东京等极少数城市，由于奥运的利好带动，涨了一两波。</p>
+<p>2023年下旬开始，房价又有所回落了些，目前仍在持续。</p>
+<p>由于购买日本的房产，需要缴纳管理费，以及传承有巨额的遗产税（约50-60%），叠加日本经历过的消化泡沫期，所以日本人很少有炒房的。</p>
+<p>现在来买的国人不少，但踩坑的也挺多的。如果非要买，我个人是建议选择流动性好的房产，以那么一两个核心城市核心区优质资产为主，其他的就不要考虑了。</p>
+<p>第四个，日本有什么不同于国内的职业？</p>
+<p>这个就很多了，不同的这个面太广了，没法细聊，就说两个比较有意思的职业:</p>
+<p>一个是和尚，收入很高。另外，生了儿子一样可以做和尚，生女儿可以外面招个女婿来继承衣钵。</p>
+<p>一个是相扑手的媳妇，相扑手收入高而命短，他们的配偶往往能早早坐拥财富。但这个职业也不好干，光鲜的背后，更多是鲜为人知的辛酸。</p>
+<p>庞大的中产阶级，由于社会阶层太牢固，几乎没什么阶层跃升的希望，叠加大量外部和内在问题。</p>
+<p>因此日本百姓的抑郁症等心理类型的问题，较高发。</p>
+<p>第五个，日本的消费高不高？</p>
+<p>这个怎么说呢，还是昨天说的那样，吃住行是主要的花销，占了大头。他们的收入是高，但花得也不少。</p>
+<p>此外的服装等，反而不贵，质量还上乘。他们赚日元花日元，所以最合理的是按日元来计价。</p>
+<p>如果你非要换成人民币来算他们的支出，那确实也不低。</p>
+<p>第六个，日本真的失去三十年了吗？</p>
+<p>这个可以了解一下“影子日本”，他们在还海外大量买地买资源，输送回日本的以原材料为主，出口的以高附加值的产品为主，赚取利润的同时，海外的布局也已在悄然间成为庞然大物。</p>
+<p>不过我个人觉得，最值得我们企业家学习的是:</p>
+<p>日本会把最好的东西留在本国，海外的好东西也尽可能输送回日本，供给自己的百姓。</p>
+<p>善待自己的国民，这点确实是我们需要多学习的地方。</p>
+<p>其他更多的我就不多说了，怕有些人从情感上接受不了，有机会就亲身走一遭，自己体会，也有助于你从信息茧房脱困。</p>
+<p>… …</p>
+<p>看后台的一些留言，我有时挺哭笑不得的。</p>
+<p>由于大部分人获取信息的渠道被垄断，绝大多数信息是被污染和加工过的，所以获取的信息本身就有问题。</p>
+<p>奈何他们并不清楚自己在信息茧房里，或者清楚自己在信息茧房里，然而并没有什么改变。</p>
+<p>翻看留言时，我很轻易就能看出哪些人落在信息茧房里，用不全面甚至是错误的信息，来指引自己对这个世界的认知。</p>
+<p>也能判断出对方大致的经济和财富状况、认知阶段和所处的社会阶层。</p>
+<p>这种感知来得很容易，一点也没有难度，就像你看一个人，大概就能知道对方是小学生还是幼稚园的幼儿。</p>
+<p>更致命的是，对方评论和反驳所采用的信息，都是用被加工和污染过的信息源，然后终日困在宏大叙事带来的致命缺陷中，不知道自己生而为人的基本权利。</p>
+<p>咱没有改变他人看法的习惯，也没有提醒它们信息有误的义务，更没有改变他人观念的责任。</p>
+<p>有的只会是尊重生物的多样性，尊重他人命运，然后在这个我的记录平台上，动动手指把它们拉黑，让它们永远闭嘴，省得污染我视线。</p>
+<p>这些年，由于我另一个账号身处行业头部，因此和某些部门打交道很多，深知如今各种信息是如何因时因需被加工和扭曲的，其中的严重程度和毒害，让我逐渐丧失了表达的欲望，为大多数普通人深感悲哀。</p>
+<p>至于少数动不动想给我指导的二愣子，你是指南针转世嘛？这么爱指导别人，也不看看你自己配吗？</p>
+<p>说得难听点，就你那点少得可怜、几乎可以忽略不计的认知和财富，想跨阶层去指导别人，无异于幼稚园的幼儿想指导大学生写作业。</p>
+<p>人难能可贵是自知。脑瘫们要么自己闭嘴，要么自觉取关，要么被我拉黑。</p>
+<p>别把自己想得太重要，我写号就是做个记录，不像专职的自媒体需要靠这个吃饭，所以你看不看对我压根没影响，人少一点反而好，我喜欢清静。</p>
+<p>咱在自己的公众号上写一写记录，你看不惯也可以自己开一个写一写嘛，可能写了也没人看。</p>
+<p>嗯，就这样打住吧，实在受不了有些智障了，认知有问题，就花点钱出去看看世界，经历是最好的老师。</p>
+<p>没钱的话，那就抓紧赚钱，别在那指点江山，你就是个小人物，有空装叉，还不如利用好时间提升自己。</p>
+<p>最烦沙雕在我面前装叉，没点自知之明。</p>
+    </div>
+    <section class="comments">
+      <div class="comments-head"><h2>读者留言</h2><span>原文评论区内容，与正文分开呈现</span></div>
+      <div class="comments-body">
+<p>傻逼属于国有资产，机哥唤醒它们，就是造成国有资产流失……你有罪[呲牙]</p>
+<p>啊？我不是故意的，以后注意[捂脸]</p>
+<p>说得太对了 基础盘牢不可破</p>
+<p>最佳评论[呲牙]</p>
+<p>哈哈哈，笑死了</p>
+<p>赞同</p>
+<p>以前不理解 现在觉得一定意义上真的是资产</p>
+<p>笑死我了</p>
+<p>今日最佳[偷笑][偷笑][偷笑]</p>
+<p>这个评论经典</p>
+<p>父亲生气的说：败家子，告诉他们外面有狼就好了！</p>
+<p>哈哈哈，经典做法</p>
+<p>国内的和尚，收入也很高，另外，生了儿子也一样可以做和尚[呲牙]</p>
+<p>这个和尚，地位是可以传承的，有些不一样。</p>
+<p>我国也有，税务烟草石油电力，世代相传，家族裙带，简称“世家”</p>
+<p>在日本普遍群体压抑的社会中，日本的和尚属于心理治疗师性质的职业，收入高是正常的。在日本难的一见的快乐的日子当属樱花开放的季节，以及放烟花的时刻。</p>
+<p>门阀士族，江西周公子</p>
+<p>关于国内宏大叙事确实如此，是个人都能分析俄乌战争，巴以战争，感觉挺悲哀的，还着房贷，降着薪水，丢着工作，却关心这些叼毛事，过好自己才最重要</p>
+<p>搞不清楚自己定位，真把自己当接班人了呗，小人物的悲哀是沉迷于宏大叙事不能自拔，把自己卑微的一生寄托在宏大背景里寻找价值感和存在感。</p>
+<p>金老师，有个问题一直困扰我，不知道您怎么看。我差不多两年去一次日本，也挺喜欢环境和感觉，但是总觉得别扭，毕竟被杀了几千万人就在几十年前，他们也确实不去承认。您方便说说您的看法吗</p>
+<p>牢记历史和学习他人优秀、先进的东西，并不冲突。</p>
+<p>怕自己太喜欢这个国家，再有冲突不能坚定反击[破涕为笑]</p>
+<p>坚定自己的信念，炼心，也是一种历练。</p>
+<p>你要是出国了多看看本国历史（最近几十年的）感觉你会精神奔溃ZS</p>
+<p>历史是胜利者书写的，您的史观同样是从胜利者缔造的信息茧房出来的。您不妨从其它角度去审视雅尔塔史观，会解开你的心结。这不仅需要智慧，也需要勇气。</p>
+<p>三年自然灾害比你说的更狠！很多人都忘记了</p>
+<p>秦制社会天然缺乏一些基因，只是近代以来被迫破壳接受了一些词语，作为各方势力斗争笼络人心的手段。秦制内核天然反对这些观念，但是在现代社会也不得不用其包装自己，以此彰显现代合法性。青萍秋风，感受到的人无需多言。无话可说，言尽于此。</p>
+<p>嗯，说到根源上了</p>
+<p>服装其实都是国内产的，只要适合长途运输的工业品发达国家都很便宜，因为中国都能把价格卷下来</p>
+<p>那你错了，现在中国产的占比很低了，很多是东南亚产的，虽然其中有很多是国内去投产的。不过我们国内产的，出口那部分，商品质量都是最好的。</p>
+<p>你看你看，下边是哪位的留言？我还没展开看到内容呢，您又给删了</p>
+<p>我从不删留言，都是被盾的，谢谢</p>
+<p>大哥误会了，我不是说您[抱拳] 肯定是网管在加班出勤</p>
+<p>事实上整个大屠杀华人期间，没有一个日本侨民被误伤。</p>
+<p>你说这个，有人会说我们也通知了撤，但他们不愿意撤。实际上，其中细节还是有很多区别的，有兴趣的可以自己外面看看当时的记录，和你说的很一致。</p>
+<p>以前不懂事翻墙找完资料瞎说，网络账号被封停，深有体会[呲牙]</p>
+<p>机哥，昨天各个公众号都在说“核弹级”救市，你怎么看？</p>
+<p>核心问题:缺钱</p>
+<p>上两周才从大坂回来，特意观察人家小朋友上学，根本没有家长接送，自己坐地铁，小学一二年级就很独立，背着个大书包，从地铁口走出来，而我们每到接送时间学门口堆满人和车。光着一点就说明很多问题</p>
+<p>小孩不懂学校怎么走，不准送，直接跟学校说，校长或老师会上门，手把手带小孩怎么去学校，怎么过马路之类的，直到小孩会了，就不再接送，让小孩独立。</p>
+<p>羊总是害怕狼，但绝大部分羊都是被人吃掉的。</p>
+<p>这个也经典</p>
+<p>文章跟我了解的日本基本一致。很多人被洗脑了，还觉得自己很聪明。很多年了，跟很多人一样，都不看XWLB了[偷笑]。另外，现在的言论ZY，真的让人觉得很可悲。</p>
+<p>没办法，很多人在信息茧房里，只能采用被加工和污染后的信源，久而久之，自然认知就偏了。</p>
+<p>其实麻痹一下也挺好，很多人如果认识都提高了，又没有办法改变自己的阶层，其实那样活起更痛苦，还不如生活在自己构建的美好社会里。至少自己觉得活的很幸福！</p>
+<p>有些人跪久了，机哥让人家站一下肯定不适应[偷笑]</p>
+<p>人家还觉得跪着是理所应当的，真是受不了，不知道啥是生而为人的基本权利。</p>
+<p>《沉思录》里说：我们听到的一切都是一个观点，不是事实。我们看见的一切都是一个视角，不是真相。</p>
+<p>嗯，所以多看看，多观察，多走走，有益无害。</p>
+<p>今天是怼人爽文，骂人也骂的很高级</p>
+<p>我的缺点之一，就是受不了沙雕自以为是[捂脸]</p>
+<p>多掌握一门语言是工具，目的是能多渠道了解世界，辩证看待问题吧[捂脸]</p>
+<p>也挺对的，人就活几十年，不能活得稀里糊涂的，一辈子在别人精心构建的谎言中。</p>
+<p>所以我有计划以后去日本养老，不为其他（日本都把最好的留给国民，所以国民都信赖日本产），就为了可以吃个放心，可以看病住院不需要有家人请假来医院照顾。</p>
+<p>国内富人群体，好多都在这，我们商会里的，我最近接触到了好多，公众号后台约见面的也很多。</p>
+<p>国内富人，在欧美日澳的巨多。国外的富人很少有在中国的，富人不傻。</p>
+<p>日本的基础教育关注啥？大概什么模式[呲牙]</p>
+<p>他们更注重社会实践，教孩子独立、不要给别人舔麻烦。教育在文化（理论）层面的深度反而不太够。</p>
+<p>之前看过日本教育的纪录片，他们这种教独立不给别人添麻烦，要融入群体的教育有点太压抑了[撇嘴]。希望分享见闻的同时聊聊外面的教育模式[抱拳]</p>
+<p>是的，有时会有一些霸凌现象。</p>
+<p>传说校长跟老师吃的和学生一样，待求证，我们不知道多少是预制菜？鼠头当鸭脖，校长和老师是另外的小饭堂。</p>
+<p>不用传说，就是真的，我这次有参观他们的学校。</p>
+<p>我们有个特点很有意思，每当不好的时候吧，歌颂苦难的故事就漫天飞，其实多数人想不通，吃的苦中苦，才能吃一辈子苦[呲牙]这是个认识问题</p>
+<p>回复因违反相关规定已不可见</p>
+<p>从小好像就被教育好吃的好喝的要可外边人先吃</p>
+<p>一直也是这么做的…</p>
+<p>机哥，前几年去日本，他们的基建，高速和高铁确实比国内差些，你怎么看？</p>
+<p>你看看他们的基建都是几十年前的了，这方面肯定是不如国内。</p>
+<p>对。新干线都是五十年多前了</p>
+<p>60年代初的产品了，应该是六十多年前的了</p>
+<p>确实如此，去欧洲看完米兰的中央车站，感觉和国内高铁比；也没有高级到哪里去（除了人文和艺术感）；但是告诉你建造到使用都已经快一百年了，除了国内基建近十几年的飞速外；也感慨以前的差距实在太大。</p>
+<p>最近几个月经历了几次延期交付的wq事件，深刻的体会了一把[捂脸]</p>
+<p>多经历挺好的，很多事只有经历过，才会深有体会，也增加人生见识和厚度。</p>
+<p>去年8月份第一次去日本，去之前有一种“骄傲感”，想去“视察”一下失去了30年的日本。在关西玩的时候，这种“骄傲感”还在，内心想着“跟上海也差不多嘛”，但是当我们来到东京，“骄傲感”突然变成了“焦虑感”，脑子里全是“这竟然是失去了30年的东京？！！”，道路阻且长啊。日本有一种魔力，去了还想去，今年又去了一次关西，准备下半年再去一次东京周边[偷笑]</p>
+<p>很真实的感受</p>
+<p>45万日元换算成东大币也就2万，购买力可能1万东大币能抵得上45万日元？</p>
+<p>你这是按最新的汇率来算了，然后我还特意说了，不能按人民币来换算，人家赚日元花日元。</p>
+<p>机哥，补充一点，日本很干净。大阪和京都路上很少有垃圾桶，地面非常干净，也很少有人在路上抽烟。</p>
+<p>这些我就不说了，免得很多人情感上接受不了，等以后自己有机会来感受吧。</p>
+<p>为什么总是会有些人喜欢在自己认知里对别人指指点点，自己不会游泳还要告诉别人怎么游是正确的。</p>
+<p>这种少不了的，总有些自以为是的，井里的蛤蟆，不知道天有多大。</p>
+<p>日本人的秩序感、职业化这些就不说了。就说个日料，魔都的日料真难吃，去了日本才发现人均百元的旋转寿司都那么新鲜[捂脸]</p>
+<p>国内的很多是…米饭用料都不一样</p>
+<p>以前经常觉得🇯🇵很压抑，这回再去，感觉用克制形容🇯🇵更合适，在各方面，建筑，街道，待人接物…….</p>
+<p>对头</p>
+<p>唧哥曾经说过，能改变自己的都是神，能改变别人的都是神经病[吃瓜][吃瓜][吃瓜]</p>
+<p>沙发，机哥早上5点写文？勤奋[强]</p>
+<p>没呀，写这种没有任何压力，蹲个马桶的时间就写完了，十分钟。</p>
+<p>由于大部分人获取信息的渠道被垄断，绝大多数信息是被污染和加工过的，所以获取的信息本身就有问题。这个很认同，但真的很难改变</p>
+<p>是啊，可以内外多对冲，往往能获取较真实的信息。</p>
+<p>真的先得平心静气，然后自己身临其境慢慢品味。</p>
+<p>有人会说，只会让你看得到的地方打扫干净，视线死角会全是垃圾。上万点赞，因为这是他们想要的答案</p>
+<p>我以前很恨日本和印尼这两个国家，于是我选择自己到这俩国家去感受一下。我就觉得，如果恨对手，那我就自己去了解他。然后身边很多朋友就说印尼屠华人，日本怎么怎么啦！结果后来日本年年去，印尼去了三次，直到疫情开始。日本是最让我震惊的，就基本去过一次的，大部分还会接着去。</p>
+<p>而且日本不同地区的感觉也不同，关东北海道会感觉很日本，旅行体验都很不错。但关西就明显感觉热情随意一点，没那么的压抑。</p>
+<p>我怀疑我的账户被平台风控了，好几天的留言都被盾了[破涕为笑]</p>
+<p>现在评论都盾得很厉害，最少三分一被盾了</p>
+<p>你但凡夸一句，他们马上给你扣上BAG的🎩</p>
+<p>所以，夸的东西，我基本上很少写，这些就让它们有机会自己来感受吧。</p>
+      </div>
+    </section>
+    <div class="post-foot"><a href="jinjiancheng.html">← 返回金渐成文章列表</a><div class="pager"><a href="jinjiancheng-2024-05-03.html"><span class="lbl">← 更新一篇</span>机会</a><a href="jinjiancheng-2024-04-30.html"><span class="lbl">更早一篇 →</span>无题</a></div></div>
+  </article>
+</div>
+</main>
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div>
+      <div class="footer-links">
+        <a href="all.html">公众号文章</a>
+        <a href="topics.html">文章主题</a>
+        <a href="notes.html">学习笔记</a>
+        <a href="timeline.html">投资时间线</a>
+        <a href="about.html">关于</a>
+      </div>
+      <p class="disclaimer" style="margin-top:1rem">本站为个人阅读存档，收录金渐成 / 天机奇谈公开发表的公众号文章，便于按主题与时间线连续阅读。<br>内容仅供参考，<strong>不构成任何投资建议</strong>。投资有风险，决策需谨慎。</p>
+    </div>
+    <div>共 781 篇文章 · 静态存档<br><span style="opacity:.7">生成于 2026-10-09</span></div>
+  </div>
+</footer>
+<script>
+/* 金渐成文章整理 —— 交互脚本 */
+(function () {
+  'use strict';
+
+  /* ---- 主题切换 ---- */
+  var root = document.documentElement;
+  var saved = null;
+  try { saved = localStorage.getItem('jjc-theme'); } catch (e) {}
+  if (saved) root.setAttribute('data-theme', saved);
+
+  function currentIsDark() {
+    var t = root.getAttribute('data-theme');
+    if (t === 'dark') return true;
+    if (t === 'light') return false;
+    return window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+  }
+
+  var themeBtn = document.getElementById('themeBtn');
+  if (themeBtn) {
+    themeBtn.addEventListener('click', function () {
+      var next = currentIsDark() ? 'light' : 'dark';
+      root.setAttribute('data-theme', next);
+      try { localStorage.setItem('jjc-theme', next); } catch (e) {}
+    });
+  }
+
+  /* ---- 移动端菜单 ---- */
+  var menuBtn = document.getElementById('menuBtn');
+  var nav = document.getElementById('nav');
+  if (menuBtn && nav) {
+    menuBtn.addEventListener('click', function (e) {
+      e.stopPropagation();
+      nav.classList.toggle('open');
+    });
+    document.addEventListener('click', function (e) {
+      if (nav.classList.contains('open') && !nav.contains(e.target)) nav.classList.remove('open');
+    });
+  }
+
+  /* ---- 列表搜索 / 分栏筛选 ---- */
+  var q = document.getElementById('q');
+  var list = document.getElementById('list');
+  var empty = document.getElementById('empty');
+  if (q && list) {
+    var rows = Array.prototype.slice.call(list.querySelectorAll('.row'));
+    var rowsByChannel = rows.map(function (r) {
+      var tag = r.querySelector('.tag');
+      var txt = tag ? tag.textContent.trim() : '';
+      return txt === '金渐成' ? 'jinjiancheng' : (txt === '天机奇谈' ? 'tianjiqitan' : '');
+    });
+    var channel = 'all';
+    var chips = Array.prototype.slice.call(document.querySelectorAll('.chip[data-ch]'));
+
+    function apply() {
+      var kw = (q.value || '').trim().toLowerCase();
+      var shown = 0;
+      var yearHeads = Array.prototype.slice.call(list.querySelectorAll('.year-head'));
+      rows.forEach(function (r, i) {
+        var hay = r.textContent.toLowerCase();
+        var okKw = !kw || hay.indexOf(kw) !== -1;
+        var okCh = channel === 'all' || rowsByChannel[i] === channel;
+        var ok = okKw && okCh;
+        r.style.display = ok ? '' : 'none';
+        if (ok) shown++;
+      });
+      // 年份标题在筛选时整体隐藏，避免出现空年份
+      yearHeads.forEach(function (h) { h.style.display = (kw || channel !== 'all') ? 'none' : ''; });
+      if (empty) empty.style.display = shown === 0 ? '' : 'none';
+    }
+
+    q.addEventListener('input', apply);
+    chips.forEach(function (c) {
+      c.addEventListener('click', function () {
+        chips.forEach(function (x) { x.classList.remove('on'); });
+        c.classList.add('on');
+        channel = c.getAttribute('data-ch');
+        apply();
+      });
+    });
+  }
+})();
+
+</script>
+</body>
+</html>

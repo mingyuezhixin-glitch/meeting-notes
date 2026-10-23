@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>建立自己的城邦 · 金渐成</title>
+<meta name="description" content="金渐成 2025-07-09 建立自己的城邦">
+<link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2064%2064'%3E%3Crect%20width='64'%20height='64'%20rx='16'%20fill='%23b45309'/%3E%3Ctext%20x='32'%20y='45'%20font-size='38'%20font-family='sans-serif'%20font-weight='700'%20fill='%23fff'%20text-anchor='middle'%3E%E7%8E%91%3C/text%3E%3C/svg%3E">
+<style>
+:root {--bg: #faf9f6;--bg-2: #f2efe9;--surface: #ffffff;--surface-2: #f6f4ef;--fg: #171614;--fg-2: #3d3a35;--muted: #7a7570;--line: #e7e3da;--line-2: #f0ece4;--accent: #b45309;--accent-2: #d98218;--accent-soft: rgba(180, 83, 9, .09);--accent-line: rgba(180, 83, 9, .22);--on-accent: #ffffff;--shadow-xs: 0 1px 2px rgba(23, 22, 20, .05);--shadow-sm: 0 1px 3px rgba(23, 22, 20, .06), 0 1px 2px rgba(23, 22, 20, .04);--shadow-md: 0 8px 24px -6px rgba(23, 22, 20, .10), 0 2px 6px rgba(23, 22, 20, .05);--shadow-lg: 0 20px 48px -12px rgba(23, 22, 20, .16);--radius: 18px;--radius-sm: 12px;--container: 68rem;}@media (prefers-color-scheme: dark) {:root:not([data-theme="light"]) {--bg: #0f0f10;--bg-2: #16161a;--surface: #17171b;--surface-2: #1d1d22;--fg: #f2f0ec;--fg-2: #d4d1cb;--muted: #918d87;--line: #29292f;--line-2: #212127;--accent: #f0972a;--accent-2: #f5b400;--accent-soft: rgba(240, 151, 42, .12);--accent-line: rgba(240, 151, 42, .3);--on-accent: #17120a;--shadow-xs: 0 1px 2px rgba(0, 0, 0, .45);--shadow-sm: 0 1px 3px rgba(0, 0, 0, .5);--shadow-md: 0 8px 24px -6px rgba(0, 0, 0, .6);--shadow-lg: 0 20px 48px -12px rgba(0, 0, 0, .7);}}html[data-theme="dark"] {--bg: #0f0f10; --bg-2: #16161a; --surface: #17171b; --surface-2: #1d1d22;--fg: #f2f0ec; --fg-2: #d4d1cb; --muted: #918d87; --line: #29292f; --line-2: #212127;--accent: #f0972a; --accent-2: #f5b400;--accent-soft: rgba(240, 151, 42, .12); --accent-line: rgba(240, 151, 42, .3);--on-accent: #17120a;--shadow-xs: 0 1px 2px rgba(0, 0, 0, .45);--shadow-sm: 0 1px 3px rgba(0, 0, 0, .5);--shadow-md: 0 8px 24px -6px rgba(0, 0, 0, .6);--shadow-lg: 0 20px 48px -12px rgba(0, 0, 0, .7);}* { box-sizing: border-box; margin: 0; padding: 0; border: 0 solid var(--line); }html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }body {background: var(--bg);background-image:radial-gradient(60rem 32rem at 12% -8%, var(--accent-soft), transparent 62%),radial-gradient(48rem 28rem at 92% 2%, rgba(217, 130, 24, .06), transparent 60%);background-repeat: no-repeat;background-attachment: fixed;color: var(--fg);font-family: Inter, -apple-system, BlinkMacSystemFont, "PingFang SC", "Hiragino Sans GB","Microsoft YaHei", "Helvetica Neue", Helvetica, Arial, sans-serif;-webkit-font-smoothing: antialiased;-moz-osx-font-smoothing: grayscale;line-height: 1.6;min-height: 100vh;display: flex;flex-direction: column;}a { color: inherit; text-decoration: none; }img { max-width: 100%; height: auto; display: block; border-radius: 10px; }button { font: inherit; color: inherit; background: none; cursor: pointer; }::selection { background: var(--accent-soft); }.site-header {position: sticky; top: 0; z-index: 50;background: color-mix(in srgb, var(--bg) 82%, transparent);backdrop-filter: saturate(180%) blur(14px);-webkit-backdrop-filter: saturate(180%) blur(14px);border-bottom: 1px solid var(--line);}.header-inner {max-width: var(--container); margin: 0 auto;padding: .85rem 1.5rem;display: flex; align-items: center; justify-content: space-between; gap: 1rem;}.brand { display: flex; align-items: center; gap: .7rem; transition: opacity .2s; flex: 0 0 auto; }.brand:hover { opacity: .82; }.brand-mark {width: 2.3rem; height: 2.3rem; border-radius: 12px; flex: 0 0 auto;background: linear-gradient(140deg, var(--accent-2), var(--accent) 70%);color: #fff; font-weight: 800; font-size: 1.08rem;display: flex; align-items: center; justify-content: center;box-shadow: 0 4px 12px -2px var(--accent-line), inset 0 1px 0 rgba(255,255,255,.28);}.brand-text { display: flex; flex-direction: column; line-height: 1.2; }.brand-text b { font-size: 1rem; font-weight: 750; letter-spacing: -.015em; }.brand-text span { font-size: .68rem; color: var(--muted); letter-spacing: .1em; margin-top: .1rem; }.nav { display: flex; align-items: center; gap: .15rem; font-size: .9rem; font-weight: 550; }.nav a {padding: .48rem .78rem; border-radius: 9px; color: var(--muted);transition: color .18s, background .18s; white-space: nowrap;}.nav a:hover { color: var(--fg); background: var(--surface-2); }.nav a.active { color: var(--accent); background: var(--accent-soft); font-weight: 700; }.nav-tools { display: flex; align-items: center; gap: .3rem; padding-left: .5rem; margin-left: .35rem; border-left: 1px solid var(--line); }.icon-btn {width: 2.1rem; height: 2.1rem; border-radius: 9px; color: var(--muted);display: flex; align-items: center; justify-content: center;transition: .18s; font-size: 1rem;}.icon-btn:hover { color: var(--accent); background: var(--accent-soft); }.menu-btn { display: none; }main { flex: 1; }.container {max-width: var(--container); margin: 0 auto;padding: 3rem 1.5rem 5.5rem;display: flex; flex-direction: column; gap: 3.75rem;}.hero { margin-bottom: 0; }.crumb {display: flex; flex-wrap: wrap; align-items: center; gap: .45rem;font-size: .85rem; font-weight: 550; color: var(--muted); margin-bottom: 1.1rem;}.crumb a:hover { color: var(--accent); }.crumb .sep { opacity: .35; }.hero h1 {font-size: clamp(2.1rem, 5.6vw, 3.15rem);font-weight: 830; line-height: 1.08; letter-spacing: -.035em;background: linear-gradient(180deg, var(--fg) 62%, color-mix(in srgb, var(--fg) 62%, var(--accent)));-webkit-background-clip: text; background-clip: text;-webkit-text-fill-color: transparent;}.hero .lead {margin-top: 1.35rem; max-width: 44rem;font-size: 1.06rem; line-height: 1.85; color: var(--muted);}.hero .lead strong { color: var(--fg); font-weight: 750; }.hero-actions { margin-top: 1.9rem; display: flex; flex-wrap: wrap; gap: .7rem; }.btn {padding: .72rem 1.55rem; border-radius: 999px;font-weight: 600; font-size: .95rem;transition: transform .18s, box-shadow .18s, background .18s, border-color .18s, color .18s;display: inline-flex; align-items: center; gap: .45rem;}.btn-primary {background: linear-gradient(140deg, var(--accent-2), var(--accent));color: #fff;box-shadow: 0 6px 18px -6px var(--accent-line), inset 0 1px 0 rgba(255,255,255,.22);}.btn-primary:hover { transform: translateY(-2px); box-shadow: 0 12px 26px -8px var(--accent-line); }.btn-ghost { border: 1px solid var(--line); background: var(--surface); color: var(--fg-2); }.btn-ghost:hover { background: var(--surface-2); border-color: var(--accent-line); color: var(--accent); }.stats { margin-top: 1.9rem; display: flex; flex-wrap: wrap; gap: .6rem; }.stat {display: flex; align-items: baseline; gap: .4rem;background: var(--surface); border: 1px solid var(--line);border-radius: 999px; padding: .42rem 1rem;box-shadow: var(--shadow-xs);}.stat b { font-size: 1rem; font-weight: 780; letter-spacing: -.02em; color: var(--fg); font-variant-numeric: tabular-nums; }.stat span { font-size: .8rem; color: var(--muted); }.section { display: flex; flex-direction: column; }.section-head {display: flex; align-items: baseline; justify-content: space-between;gap: 1rem; margin-bottom: 1.5rem; padding-bottom: .85rem;border-bottom: 1px solid var(--line);}.section-head h2 {position: relative; padding-left: .85rem;font-size: .92rem; font-weight: 780; text-transform: uppercase;letter-spacing: .17em; color: var(--fg);}.section-head h2::before {content: ""; position: absolute; left: 0; top: 50%; transform: translateY(-50%);width: 3px; height: 1.05em; border-radius: 2px;background: linear-gradient(180deg, var(--accent-2), var(--accent));}.section-head .more { font-size: .88rem; font-weight: 600; color: var(--muted); white-space: nowrap; transition: .18s; }.section-head .more:hover { color: var(--accent); }.grid { display: grid; gap: 1.05rem; }.grid-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }.grid-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }.grid-4 { grid-template-columns: repeat(4, minmax(0, 1fr)); }.card {position: relative; overflow: hidden;background: var(--surface);border: 1px solid var(--line);border-radius: var(--radius);padding: 1.3rem 1.4rem;box-shadow: var(--shadow-xs);transition: transform .2s cubic-bezier(.2,.7,.3,1), box-shadow .2s, border-color .2s;display: block;}.card::after {content: ""; position: absolute; inset: 0 0 auto 0; height: 2px;background: linear-gradient(90deg, var(--accent-2), var(--accent) 55%, transparent);opacity: 0; transition: opacity .2s;}a.card:hover {transform: translateY(-3px);box-shadow: var(--shadow-md);border-color: var(--accent-line);}a.card:hover::after { opacity: 1; }.card .kicker {font-size: .7rem; font-weight: 780; letter-spacing: .12em;color: var(--accent); text-transform: uppercase;}.card h3 { margin-top: .55rem; font-size: 1.04rem; font-weight: 730; line-height: 1.4; letter-spacing: -.015em; }.card p { margin-top: .55rem; font-size: .875rem; line-height: 1.72; color: var(--muted); }.card .count { font-size: .78rem; font-weight: 600; color: var(--muted); }.rows {display: flex; flex-direction: column;background: var(--surface); border: 1px solid var(--line);border-radius: var(--radius); overflow: hidden;box-shadow: var(--shadow-xs);}.row {display: flex; align-items: baseline; gap: 1.1rem;padding: .82rem 1.15rem;transition: background .16s;border-bottom: 1px solid var(--line-2);position: relative;}.row:last-child { border-bottom: 0; }.row::before {content: ""; position: absolute; left: 0; top: 0; bottom: 0; width: 3px;background: var(--accent); transform: scaleY(0); transition: transform .18s;}.row:hover { background: var(--surface-2); }.row:hover::before { transform: scaleY(1); }.row .date {flex: 0 0 auto; width: 5.1rem; font-size: .82rem; font-weight: 600;font-variant-numeric: tabular-nums; color: var(--muted); letter-spacing: -.01em;}.row .title { flex: 1 1 auto; font-size: .97rem; font-weight: 550; line-height: 1.55; color: var(--fg-2); }.row:hover .title { color: var(--accent); font-weight: 620; }.row .tags { flex: 0 0 auto; display: flex; gap: .35rem; }.tag {font-size: .7rem; font-weight: 620; padding: .2rem .6rem; border-radius: 999px;background: var(--surface-2); border: 1px solid var(--line);color: var(--muted); white-space: nowrap;}.year-head { display: flex; align-items: center; gap: .9rem; margin: 1.9rem 0 .75rem; }.year-head:first-child { margin-top: 0; }.year-head .y { font-size: 1.3rem; font-weight: 830; letter-spacing: -.03em; }.year-head .n { font-size: .78rem; font-weight: 600; color: var(--muted); background: var(--surface-2); border: 1px solid var(--line); padding: .12rem .55rem; border-radius: 999px; }.year-head .line { flex: 1; height: 1px; background: linear-gradient(90deg, var(--line), transparent); }.post-wrap { max-width: 46rem; margin: 0 auto; width: 100%; }.post-head { margin-bottom: 2.25rem; padding-bottom: 1.6rem; border-bottom: 1px solid var(--line); }.post-head h1 { font-size: clamp(1.55rem, 4.4vw, 2.05rem); font-weight: 760; line-height: 1.32; letter-spacing: -.028em; }.post-meta { margin-top: 1rem; display: flex; flex-wrap: wrap; gap: .5rem 1rem; font-size: .84rem; color: var(--muted); align-items: center; font-weight: 550; }.post-meta .dot { opacity: .35; }.prose { color: var(--fg-2); font-size: 1.06rem; line-height: 1.9; letter-spacing: .008em; max-width: 68ch; }.prose p { margin: 1.5em 0; }.prose h1, .prose h2, .prose h3 { color: var(--fg); letter-spacing: -.018em; font-weight: 730; line-height: 1.4; }.prose h1 { font-size: 1.65rem; margin: 2.1em 0 .8em; }.prose h2 {font-size: 1.28rem; margin: 2.3em 0 .85em; padding-bottom: .5em;border-bottom: 1px solid var(--line);}.prose h3 {font-size: 1.03rem; margin: 2.2em 0 .7em;letter-spacing: .16em; color: var(--accent); font-weight: 780;}.prose strong { color: var(--fg); font-weight: 700; }.prose em { font-style: italic; }.prose a { color: var(--accent); text-decoration: underline; text-underline-offset: 3px; text-decoration-thickness: 1px; }.prose a:hover { opacity: .8; }.prose blockquote {border-left: 3px solid var(--accent);background: var(--accent-soft);color: var(--fg-2); border-radius: 0 10px 10px 0;margin: 1.9em 0; padding: 1.05em 1.35em; font-style: italic;}.prose blockquote p { margin: 0; }.prose ul { margin: 1.3em 0; list-style: none; }.prose ul > li { margin: .55em 0; padding-left: 1.35em; position: relative; }.prose ul > li::before { content: ""; position: absolute; left: .15em; top: .72em; width: 5px; height: 5px; border-radius: 50%; background: var(--accent); opacity: .6; }.prose ol { margin: 1.3em 0; padding-left: 1.5em; list-style: decimal; }.prose ol > li { margin: .55em 0; }.prose img { margin: 2em 0; box-shadow: var(--shadow-md); }.prose hr { margin: 2.6em 0; border-top: 1px solid var(--line); height: 0; }.post-foot {margin-top: 3.2rem; padding-top: 1.6rem; border-top: 1px solid var(--line);display: flex; align-items: center; justify-content: space-between;gap: 1rem; flex-wrap: wrap; font-size: .88rem; font-weight: 550; color: var(--muted);}.post-foot a:hover { color: var(--accent); }.pager { display: flex; gap: .8rem; flex-wrap: wrap; }.pager a {background: var(--surface); border: 1px solid var(--line); border-radius: 12px;padding: .65rem 1rem; max-width: 17rem; font-size: .86rem;transition: .18s; box-shadow: var(--shadow-xs); line-height: 1.45;}.pager a:hover { background: var(--surface-2); border-color: var(--accent-line); color: var(--accent); transform: translateY(-2px); }.pager .lbl { display: block; font-size: .7rem; font-weight: 650; color: var(--muted); margin-bottom: .2rem; letter-spacing: .04em; }.comments {margin-top: 3rem; border-top: 1px solid var(--line); padding-top: 1.6rem;}.comments-head {display: flex; align-items: baseline; justify-content: space-between;gap: 1rem; flex-wrap: wrap; margin-bottom: 1.15rem;}.comments-head h2 {position: relative; padding-left: .8rem;font-size: .82rem; font-weight: 780; text-transform: uppercase;letter-spacing: .17em; color: var(--fg);}.comments-head h2::before {content: ""; position: absolute; left: 0; top: 50%; transform: translateY(-50%);width: 3px; height: 1.05em; border-radius: 2px;background: linear-gradient(180deg, var(--accent-2), var(--accent));}.comments-head span { font-size: .76rem; color: var(--muted); }.comments-body {background: var(--surface-2);border: 1px solid var(--line);border-radius: var(--radius-sm);padding: 1.15rem 1.35rem;font-size: .95rem; line-height: 1.8; color: var(--muted);max-width: 68ch;}.comments-body p { margin: .75em 0; }.comments-body p:first-child { margin-top: 0; }.comments-body p:last-child { margin-bottom: 0; }.comments-body strong { color: var(--fg-2); font-weight: 650; }.comments-body a { color: var(--accent); text-decoration: underline; text-underline-offset: 3px; }.comments-body ul { margin: .9em 0; list-style: none; }.comments-body ul > li { margin: .4em 0; padding-left: 1.15em; position: relative; }.comments-body ul > li::before { content: ""; position: absolute; left: .1em; top: .7em; width: 4px; height: 4px; border-radius: 50%; background: var(--muted); opacity: .5; }.comments-body blockquote {border-left: 3px solid var(--line); margin: 1em 0; padding: .4em 1em;color: var(--muted); font-style: italic;}.toolbar {display: flex; flex-wrap: wrap; gap: .6rem; align-items: center;margin-bottom: 1.35rem;}.search {flex: 1 1 17rem; min-width: 12rem;display: flex; align-items: center; gap: .55rem;background: var(--surface); border: 1px solid var(--line);border-radius: 999px; padding: .58rem 1.05rem;color: var(--muted); transition: border-color .18s, box-shadow .18s;box-shadow: var(--shadow-xs);}.search:focus-within { border-color: var(--accent); box-shadow: 0 0 0 3px var(--accent-soft); }.search input { flex: 1; background: none; border: none; outline: none; color: var(--fg); font-size: .93rem; }.chip {font-size: .84rem; font-weight: 600; padding: .5rem 1rem; border-radius: 999px;background: var(--surface); border: 1px solid var(--line);color: var(--muted); transition: .18s; box-shadow: var(--shadow-xs);}.chip:hover { border-color: var(--accent-line); color: var(--accent); }.chip.on {background: linear-gradient(140deg, var(--accent-2), var(--accent));color: #fff; border-color: transparent;box-shadow: 0 5px 14px -5px var(--accent-line);}.empty-note { padding: 3rem 0; text-align: center; color: var(--muted); font-size: .93rem; }.faq { display: flex; flex-direction: column; gap: .6rem; }.faq details {background: var(--surface); border: 1px solid var(--line);border-radius: var(--radius-sm); padding: 1.05rem 1.3rem;transition: border-color .18s, box-shadow .18s; box-shadow: var(--shadow-xs);}.faq details[open] { border-color: var(--accent-line); box-shadow: var(--shadow-sm); }.faq summary {cursor: pointer; font-weight: 650; font-size: .96rem; list-style: none;display: flex; justify-content: space-between; gap: 1rem; align-items: center;}.faq summary::-webkit-details-marker { display: none; }.faq summary::after {content: "+"; color: var(--accent); font-weight: 500; font-size: 1.1rem;width: 1.4rem; height: 1.4rem; border-radius: 50%;display: flex; align-items: center; justify-content: center;background: var(--accent-soft); flex: 0 0 auto;}.faq details[open] summary::after { content: "−"; }.faq .ans { margin-top: .85rem; font-size: .91rem; line-height: 1.82; color: var(--muted); }.site-footer { border-top: 1px solid var(--line); background: color-mix(in srgb, var(--bg-2) 60%, transparent); }.footer-inner {max-width: var(--container); margin: 0 auto; padding: 2.75rem 1.5rem;display: flex; flex-wrap: wrap; gap: 1.5rem 2.5rem; justify-content: space-between;font-size: .85rem; color: var(--muted);}.footer-inner a:hover { color: var(--accent); }.footer-links { display: flex; flex-wrap: wrap; gap: .55rem 1.15rem; font-weight: 600; }.footer-links a { color: var(--fg-2); }.disclaimer { font-size: .78rem; color: var(--muted); line-height: 1.75; max-width: 35rem; opacity: .9; }@media (max-width: 900px) {.grid-4, .grid-3 { grid-template-columns: repeat(2, minmax(0, 1fr)); }.nav { display: none; }.nav.open {display: flex; flex-direction: column; align-items: stretch;position: absolute; left: 1rem; right: 1rem; top: 4.35rem;background: var(--surface); border: 1px solid var(--line);border-radius: var(--radius); padding: .5rem; box-shadow: var(--shadow-lg); gap: .1rem;}.nav.open a { padding: .72rem .9rem; }.menu-btn { display: flex; }.nav-tools { border: none; padding: 0; margin: 0; padding-top: .35rem; }}@media (max-width: 620px) {.container { gap: 2.6rem; padding: 1.9rem 1.15rem 4rem; }.grid-4, .grid-3, .grid-2 { grid-template-columns: 1fr; }.rows { border-radius: var(--radius-sm); }.row { flex-wrap: wrap; gap: .3rem .8rem; padding: .8rem 1rem; }.row .date { width: auto; }.row .title { flex-basis: 100%; }.hero .lead { font-size: 1rem; }.header-inner { padding: .75rem 1.15rem; }}
+</style>
+</head>
+<body>
+<header class="site-header">
+  <div class="header-inner">
+    <a class="brand" href="index.html">
+      <span class="brand-mark">玑</span>
+      <span class="brand-text"><b>金渐成文章整理</b><span>美股 · 港股 · 加密 · 黄金 · 楼市</span></span>
+    </a>
+    <nav class="nav" id="nav"><a href="all.html" class="active">公众号文章</a><a href="topics.html">文章主题</a><a href="notes.html">学习笔记</a><a href="portfolio.html">账户持仓</a><a href="timeline.html">投资时间线</a><a href="tools.html">工具箱</a><a href="booklist.html">书单</a><a href="about.html">关于</a>
+      <span class="nav-tools"><button class="icon-btn" id="themeBtn" title="切换主题" aria-label="切换主题">◐</button></span>
+    </nav>
+    <button class="icon-btn menu-btn" id="menuBtn" aria-label="菜单">☰</button>
+  </div>
+</header>
+<main>
+<div class="container">
+  <article class="post-wrap">
+    <div class="post-head">
+      <div class="crumb"><a href="index.html">首页</a><span class="sep">/</span><a href="all.html">公众号文章</a><span class="sep">/</span><a href="jinjiancheng.html">金渐成</a></div>
+      <h1>建立自己的城邦</h1>
+      <div class="post-meta"><span>2025-07-09</span><span class="dot">·</span><span>金渐成</span><span class="dot">·</span><span>约 6 分钟读完</span></div>
+    </div>
+    <div class="prose">
+<p>这几天都在带娃旅行，慢慢走、慢慢看，去感受不一样的风景和人文。</p>
+<p>小儿子是第一次来伦敦，老二来的时候还小，已经没什么印象。老大有点印象，但也不多，毕竟也有六年多时间没来过这里。</p>
+<p>我给他们讲了英国的发展历史，从城邦到《大宪章》，从教会到资本主义，从航海时代到日不落帝国…</p>
+<p>历史在这里起了阵风，又在这里拐了个弯。</p>
+<p>带他们参观了几所学校，从中小学到大学，娃们很是喜欢，各有各的兴趣点。</p>
+<p>旅行挺好的，有机会让孩子们知道“是什么、为什么、怎么做”？怎么从历史映照自身。</p>
+<p>我总觉得，从小泡在钱堆里的孩子，总得去烟火气里磨一磨，所以会带他们去经历各种各样的事，仓库搬运卸货、街头摆摊、买米买菜…</p>
+<p>多经历总是好的，比纸上谈兵强得多，能看见人性美好和丑恶的不同面。</p>
+<p>和孩子们不同，我们这代人，在烟火气里磨久了，总有泡钱堆里的目标，这就是常说的“穷怕了，就想发财”。</p>
+<p>有目标总是好的，但绝大多数人并不知道怎么做。</p>
+<p>我自己正在实践和教导孩子们，做简单而正确的事，构筑、建立自己的城邦。</p>
+<p>简单而正确的事，一是发现什么是有效的，重复它，把它做到极致;二是发现什么是无效的，离开它，不要有任何的内耗。</p>
+<p>就像写公众号，我从来都是把好的情绪和素养留给好的读者，所以你们能觉得我心态平和，甚至有些如沐春风。</p>
+<p>但你们不知道的是，我也拉黑了很多人，大多数都是脑子不正常的，自己口袋里没几个钢镚却又动不动想指导我投资，还一上来攻击性就特别强。</p>
+<p>对于这类，我都是送到黑名单，心情不好就把它们拉出来骂一顿，怎么没素质怎么来，就一个目的:让它们离开，别再关注。</p>
+<p>由此，我能很好鉴别不同群体，哪些是受益和净值群体，哪些是无可救药群体，然后把时间和精力花在值得的人群中，丝毫不内耗。</p>
+<p>对此类的筛选，我很有耐心的，每天都在做，动动手指的事，被送进黑名单的基本上不会有误伤。</p>
+<p>对于投资而言，我有自己的一套体系，真金白银的投资，对于听取那些底层的意淫（即所谓的不同意见）没有任何兴趣。</p>
+<p>投资，不能依靠行情预测，而靠建立一个能反复做出正确决策的体系。</p>
+<p>体系的主要组成部分，分三部分。</p>
+<p>首先是决策原则:</p>
+<p>我买股票，现在有一点是很明确的，“不碰不懂的行业和企业”，不管它涨得如何凶猛，没把握的事不会去做;</p>
+<p>另外一点是“不买估值离谱的公司”，因为谁也不知道它什么时候回撤和崩塌，因此会错过一些收益，我也认。PLTR、CRCL这类，就是如此，降低特斯拉的仓位占比，也是这个原因;</p>
+<p>回顾这十几年的投资，其实还有一点也很重要，“不在市场情绪极端时做重大决策”。我一般都是提前有个判断，等跌或涨到那个节点就买或卖，几乎没有临时操作去做追涨或割肉的行为，是因为怕情绪上头决策/操作失误，造成损失。</p>
+<p>做低成本/负成本的好处，就是可以避免市场极端时处于被动境地，情绪波动小，把主动权掌握在自己手里。</p>
+<p>其次是思维模型:</p>
+<p>在微观层面上，要理解企业运作，知道它做什么、市场占有率如何、行业地位和前景如何、基本面如何等微观数据，这样才可以对企业有个最基础的了解和判断;</p>
+<p>在逆向思考层面，要基于对企业和行业的了解，做出相应的选择，知行合一，这样出错了也可以及时得到修正和校正，在市场狂热或恐慌时，有效避免从众、盲从;</p>
+<p>在机会成本层面，要建立起“投资的比较优势”，这是你相对于其他投资者所具有的独特优势，能够帮助你在投资过程中获得更高的收益或降低风险。</p>
+<p>这个比较优势，可以是知识与技能、信息获取、性格与心态等，也可以是行业特性与趋势、市场结构与竞争等等。</p>
+<p>我自身的比较优势，是在美股的科技股板块相对专业，投资专业出身具备一定的知识与技能，信息获取没有障碍，有耐心和纪律，有方法让自己在投资中不被外界所左右做出理性判断。</p>
+<p>在概率论与期望值层面，建立“下注框架”。</p>
+<p>在投资中，上涨或下跌的概率都存在，因此要基于价值做判断，在短期面临下跌或上涨时，知道自己要做什么，“价值投资+长期投资”这种通过时间去获取空间上的操作，无疑是最佳选择之一，多做长期概率上正确的事。</p>
+<p>期望值要设定好，达到预期值就操作，这样面对涨跌，就不恐慌、不贪多。跌到预期的范围内就分批买入，涨到预期的范围内就分批卖出。</p>
+<p>做好概率论和预期值管理，能更好地做好风险管控，只做最有把握的事，赚取最有把握部分的钱。</p>
+<p>要做好概率论和预期值管理，就要对风险有正确的评估，以及决策制定要正确。</p>
+<p>比如我做空或做多特斯拉、MSTR，以及VIX护仓，都是达到预期就撤，只做最有把握的部分，体现在之前的几次操作中是:</p>
+<p>MSTR在320以下买入做多，380以上卖出，430、460做空，365左右止盈;特斯拉460做空，325左右止盈;VIX护仓在大盘下跌超20%后止盈…</p>
+<p>往下其实还会继续跌，但随时面临反弹，所以在自己最有把握的部分做操作，赚取最有把握部分的钱。这是大多数人做不到的，他们总是贪多。</p>
+<p>当然，这也对资金和仓位管理有严格要求，机会来了才能有操作空间。</p>
+<p>我个人习惯7成仓位，3成资金。如果加仓消耗的资金太多，就会做T或从其他地方再调资金过来，维持7成仓位和3成资金的比例。</p>
+<p>偏爱这两个数字，是因为在我个人的认知层面:</p>
+<p>3和7象征数学中的“原子性”，均无法被其他整数整除;3维空间是现实世界的基础，7维是超弦理论中解释宇宙的最小维度;3是万物本源，7是周期循环;</p>
+<p>总之，3是构建现实的基石，7是超越现实的钥匙。数学上它们是不可分解的质数；哲学中3是认知框架，7是跃升阶梯。</p>
+<p>这或许是我偏爱它们的原因。</p>
+<p>最后是投资纪律，主要是情绪稳定性，涨不狂，跌不慌，明确自己的买卖节点;定期总结，纠偏自己的思维和操作误差。</p>
+<p>这样一来，体系初步建立和完善，有利于在信息不全时，避免草率判断;在情绪高涨时，坚持边界原则;在市场混乱时，自动过滤噪音;在认知模糊时，保留余地与安全边际。</p>
+<p>有些这些，就已经初步建立了自己的城邦，其他的点缀和完善，可以结合之前写过的《转眼二十年~》和《尽所能，敬所不能~》这两篇一起看看。</p>
+<p>对于投资来说，最重要的三要素是:资金、耐心和勇气。</p>
+<p>;坚持原则和纪律，等待机会来临，就用力抓住、敢于下手。</p>
+<p>赚钱其实挺容易的，方向对了（方向正确），认知和操作匹配上，吃饭喝水睡觉一样简单。</p>
+<p>现在美股是静淡期，及时复盘过去这一轮的操作，深刻剖析自己，多总结挺好的，为下一次机会来临提前做好功课和准备。</p>
+<p>只有在平静的日子里做好准备和积累，才能在风暴来袭时，拥有从容与安全。</p>
+<p>就这样吧。</p>
+    </div>
+    <section class="comments">
+      <div class="comments-head"><h2>读者留言</h2><span>原文评论区内容，与正文分开呈现</span></div>
+      <div class="comments-body">
+<p>\--《天幕红尘》，豆豆著，送给机哥。</p>
+<p>不要在需要钱的时候才去赚钱，那样大概率是赚不到钱的，要在不需要钱的时候去赚钱，往往很容易赚到钱。就像在不需要帮助的时候，别人往往会来帮助你[捂脸]</p>
+<p>总结：思想要正，心性要安</p>
+<p>有没有种可能，是我在说，机哥已经看重了思想看淡了钱[社会社会]</p>
+<p>为什么房子是三成首付，因为三成是基石，七成是周期，一旦出现变化，那么就是风向变了</p>
+<p>哈哈哈，这个我写的时候还真没想到，“3成首付，7成贷款”这个点[捂脸]，也对。</p>
+<p>“简单而正确的事，一是发现什么是有效的，重复它，把它做到极致；二是发现什么是无效的，离开它，不要有任何的内耗”[强] 再次受教了，记到小本本上[偷笑]</p>
+<p>我小儿子说的“把美好留给自己人和对自己好的人，不要浪费时间和精力在不值得的人身上”，有异曲同工之妙。</p>
+<p>管理的精髓是什么？机哥</p>
+<p>在企业层面，是分钱+预期管理。在投资层面，是掌握主动权，可进可退。</p>
+<p>机哥好像之前说过，新手现在的操作思路：要么等下一次大跌，要么定投指数。我是新手，我在等。</p>
+<p>高位时，面临走势不明朗，定投指数可以减少金额，等局势明朗了再加大定投。下一次大跌我也不知道什么时候，总觉得未来三五年内有个大的机会，但不确定，纯感觉。</p>
+<p>许多人讨厌美国的制度，文化，甚至素未蒙面的美国人，独独钟爱美元，这算不算是认知失调。</p>
+<p>很多人没有机会和渠道全面了解老美和自己国家的历史，有认知缺失很正常，畸形环境中发展的产物，自然也是畸形的，也不能怪他们，也是可怜人。</p>
+<p>感谢机哥，往往现实就是只有锦上添花，鲜有雪中送炭。人生就这样，做好自己的事情。投资真的是开了又一扇窗。其实个人这两年很痛苦，行业没有增长，公司不断降薪，监管持续加强，想变，想换工作，但是就怕失去稳定，毕竟上有老下有小。俩还在上国际学校，每年努力维持财务平衡，不动存款。明明觉得能力超出岗位要求太多，但就不敢动，40多岁的人可真迷惘。</p>
+<p>要留足家庭备用金，现在大环境不太理想，都先苟一苟，国内的投资相对谨慎些，海外有机会的可以看一看，有把握再下手。</p>
+<p>早上看一个博主说他的减仓行动把标普砸下去了[旺柴]，我狠狠怼了两句</p>
+<p>这博主多大脸噢，太平洋那么大嘛[捂脸]。美股80万亿美元的体量，除了政策制定者，在上行势头中得多少资金才能砸下去，心里没点数，常识都没有，越无知越自大[捂脸]</p>
+<p>苍蝇落在车轴上，以为马车的前进全靠它自己</p>
+<p>最近看到很多境外资本市场盈利需要补交税金的，肌哥有没有收到补税的通知</p>
+<p>我不会有这种烦恼，几个账户都是用离岸信托持有的投资公司去持有账户做投资操作，和我个人在法律层面上没有半毛钱关系。</p>
+<p>现在伦敦是深夜吧？ 七三比例不错，其实黄金分割比例是不是也可以？</p>
+<p>凌晨1点18分。按自己习惯的来就行，有些大师习惯五五分，比如《安全边际》的作者，有“小巴菲特”之称的赛斯·卡拉曼，以5成仓连续20年收益20%以上，很强。</p>
+<p>让我一个人偷偷关注就好[旺柴][旺柴][旺柴][旺柴]</p>
+<p>[旺柴][旺柴][旺柴]我估计很多人40米大刀收不住了[破涕为笑] 就翻到这了，我要睡觉去了，凌晨两点了[捂脸]</p>
+<p>flow，和投资相通[强]</p>
+<p>情绪稳定，本质上是因为有退路、有选择。所以低成本/负成本、不满仓这些做法，本质上就是为了让自己处于有选择的境地。</p>
+<p>机哥，斗胆提问下，资金量比较小，但是在美联储降息的预期下，20年长期美债未来走势您怎么看？</p>
+<p>这种主要是用来吃息的，不是用来赚价差的，主要给大资金用比较合适，利息在4%以上的，大资金都可以考虑。小资金就算了，没多大意义。</p>
+<p>像我这种只看不留言的 会不会被拉黑了</p>
+<p>你没有攻击我，我拉黑你干嘛？被拉黑的都是攻击性很强，一上来就咄咄逼人的那些二极管和杠精，所以自然也就被我喷了[捂脸]</p>
+<p>玑哥，可以多写写在外的见闻，对我这种出去不了的人是一种难得真实了解外面情况的窗口，感谢感恩(o^^o)</p>
+<p>写了，发不出来，所以文中简略成《大宪章》那些了。这篇还是让助理发的，他发就直接出发去了，我发就一直在“审核中”，可能海外发文审核更严？搞不懂…</p>
+<p>外向内传信息是最高级的审核力度吧</p>
+<p>有可能，暂时不知道，这些都只能自己摸索，没有明确规则可以了解…</p>
+<p>机哥，甲骨文公司最近有在关注，不知道您怎么看？</p>
+<p>这家公司不错的，120以内的价格我会果断买，高于160就不太考虑了。</p>
+<p>最近把穷查理宝典看了很多遍，机哥这篇里很多感悟和书里的理念有异曲同工之妙，这是因为这些思维都是最基本的普世智慧吗？[呲牙][呲牙]</p>
+<p>应该是吧，都是基于投资操作得来的结果，很多东西都有共通性，你可以看看《聪明的投资者》和《安全边际》等，一样会发现有很多共通点。</p>
+<p>请教一下，这边的中文版的书是不是会删改原著一些东西的，有时看这类书，脑子就会有这疑问[捂脸]</p>
+<p>会有一些，尽量找2012年之前的版本，或者香港那边的译本。</p>
+<p>感谢玑哥多年的高质量输出，关注公众号不久，一直在翻看前面的文章，有种看了就停不下来的感觉，营养太足了[抱拳]</p>
+<p>新读者阅读历史文章，会有一种上帝视角的感觉，很多东西都在反复应验，思维和认知、操作经得起时间考验，偶尔有点小瑕疵，但不影响整体正确度很高。</p>
+<p>大道至简，知易行难。感谢玑哥分享。</p>
+<p>知易行难，知难行易，知行合一，是一个逐步递进的过程，做到最后会发现，大道至简，真是这样。</p>
+<p>机哥有空多多写写海外见闻，透过你的视角看看外面启民智，感谢！</p>
+<p>今天写了，发不出去，后续我试试用缓和点的语气和国内的角度写一写，中立点的不太行，不知道敏感点具体在哪。</p>
+<p>请教一个问题~如果仓位从7成涨上去了，涨到8成或9成，机哥是会卖一部分控制在73的比例，还是会补充资金来控制73的比例呀。</p>
+<p>文中写了，做T或从别的地方调配资金过来，这轮加仓还能维持在73比例，就是从其他地方调配资金过来了，写过了。后续再观察一下，如果没有什么再加仓的机会，就要把地块抵押的钱还回去了，不然利息也是成本支出。</p>
+<p>浅挖是坑，深挖是井，投资做到极致便是艺术。十八年的时间淬炼，反人性的仓位调配，三七开的资金布局，莫不如此[旺柴]</p>
+<p>简单的事做到极致，就是大家/大师。</p>
+<p>最近在看格雷厄姆《聪明的投资者》；机哥确实在讲投资，不是投机[强]市场充满了投机者和交易者，只有投资者能活下去</p>
+<p>我习惯在投资中，通过做低成本，控制好自己的安全边际，让自己始终掌握主动权。你们要结合自己的情况，控制好自己的安全边际，不要盲目跟风抄我的操作，结合自己的情况很重要。</p>
+<p>我发现个有趣的事，某透下单没那么快速便捷，还各种提示，可以有更多时间思考。某富下单很方便快捷，常常容易冲动。而且某富很贵，它用隐晦的方式承包了我们的脑子，并收取高额费用，它业绩很好的</p>
+<p>我用盈透用习惯了，富途长桥这类现在都没用了，转向盈透+摩根两类账户。富途长桥这种就是比较适合国人的操作习惯，盈透+摩根这种国人比较用不来，需要时间适应。</p>
+<p>机哥，盈透是不是无法显示个股高抛低吸加分红扣手续费后的摊薄成本价啊，也就是无法显示负成本。好像只能显示买入均价，研究了好久。</p>
+<p>这个你要自己统计了，我是每次操作输入模型，模型会给我统计好结果。你们可以自己弄个表格或别的，做个统计。</p>
+<p>这个自己用AI写一个工具就好，我最近琢磨了一下，支持杠杆etf、期权盈亏、正股盈亏效果如下：</p>
+<p>周一的时候我在想玑哥正在英国，我也就和ChatGPT聊了聊英国的经济情况、产业结构还有与老美的关系，这样入手倒是解惑了原来不完全理解的英国的名校在QS排名为何总是那么靠前，毕竟教育这个产业是实打实给他们解决就业的。他们和老美的依附也是出于自身缺乏大平台和制造业空心的考虑。虽然这样的了解会比较糙，容易有误差，不过先给自己找到了去了解英国的入手点。</p>
+<p>嗯，这个方法不错，只要GPT的信息源没有问题，一般来说结果也不会有什么大的偏差。</p>
+<p>每次有些浮躁的时候就来看看文章，效果出奇的好，虽然之前都看过了，但每次回顾都有不一样的感觉，这段时间也是把文章整理打印了一部分，常看常新，精神食量✌️</p>
+<p>一个视角供参考，不一定对，结合自己的情况斟酌。</p>
+<p>玑哥，之前你说你有个交易的模型，是不是有做过多种交易策略（比如一直拿着不动）的收益率对比，阶段性减仓加仓最佳</p>
+<p>嗯，多种策略肯定是会做个对比的，然后选择最适合自己资金体量和情况的策略去执行。目前大饼在跑的量化就是从中衍生来的。</p>
+      </div>
+    </section>
+    <div class="post-foot"><a href="jinjiancheng.html">← 返回金渐成文章列表</a><div class="pager"><a href="jinjiancheng-2025-07-14.html"><span class="lbl">← 更新一篇</span>听见未来的回响</a><a href="jinjiancheng-2025-07-03.html"><span class="lbl">更早一篇 →</span>终局之战到来</a></div></div>
+  </article>
+</div>
+</main>
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div>
+      <div class="footer-links">
+        <a href="all.html">公众号文章</a>
+        <a href="topics.html">文章主题</a>
+        <a href="notes.html">学习笔记</a>
+        <a href="timeline.html">投资时间线</a>
+        <a href="about.html">关于</a>
+      </div>
+      <p class="disclaimer" style="margin-top:1rem">本站为个人阅读存档，收录金渐成 / 天机奇谈公开发表的公众号文章，便于按主题与时间线连续阅读。<br>内容仅供参考，<strong>不构成任何投资建议</strong>。投资有风险，决策需谨慎。</p>
+    </div>
+    <div>共 781 篇文章 · 静态存档<br><span style="opacity:.7">生成于 2026-10-09</span></div>
+  </div>
+</footer>
+<script>
+/* 金渐成文章整理 —— 交互脚本 */
+(function () {
+  'use strict';
+
+  /* ---- 主题切换 ---- */
+  var root = document.documentElement;
+  var saved = null;
+  try { saved = localStorage.getItem('jjc-theme'); } catch (e) {}
+  if (saved) root.setAttribute('data-theme', saved);
+
+  function currentIsDark() {
+    var t = root.getAttribute('data-theme');
+    if (t === 'dark') return true;
+    if (t === 'light') return false;
+    return window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+  }
+
+  var themeBtn = document.getElementById('themeBtn');
+  if (themeBtn) {
+    themeBtn.addEventListener('click', function () {
+      var next = currentIsDark() ? 'light' : 'dark';
+      root.setAttribute('data-theme', next);
+      try { localStorage.setItem('jjc-theme', next); } catch (e) {}
+    });
+  }
+
+  /* ---- 移动端菜单 ---- */
+  var menuBtn = document.getElementById('menuBtn');
+  var nav = document.getElementById('nav');
+  if (menuBtn && nav) {
+    menuBtn.addEventListener('click', function (e) {
+      e.stopPropagation();
+      nav.classList.toggle('open');
+    });
+    document.addEventListener('click', function (e) {
+      if (nav.classList.contains('open') && !nav.contains(e.target)) nav.classList.remove('open');
+    });
+  }
+
+  /* ---- 列表搜索 / 分栏筛选 ---- */
+  var q = document.getElementById('q');
+  var list = document.getElementById('list');
+  var empty = document.getElementById('empty');
+  if (q && list) {
+    var rows = Array.prototype.slice.call(list.querySelectorAll('.row'));
+    var rowsByChannel = rows.map(function (r) {
+      var tag = r.querySelector('.tag');
+      var txt = tag ? tag.textContent.trim() : '';
+      return txt === '金渐成' ? 'jinjiancheng' : (txt === '天机奇谈' ? 'tianjiqitan' : '');
+    });
+    var channel = 'all';
+    var chips = Array.prototype.slice.call(document.querySelectorAll('.chip[data-ch]'));
+
+    function apply() {
+      var kw = (q.value || '').trim().toLowerCase();
+      var shown = 0;
+      var yearHeads = Array.prototype.slice.call(list.querySelectorAll('.year-head'));
+      rows.forEach(function (r, i) {
+        var hay = r.textContent.toLowerCase();
+        var okKw = !kw || hay.indexOf(kw) !== -1;
+        var okCh = channel === 'all' || rowsByChannel[i] === channel;
+        var ok = okKw && okCh;
+        r.style.display = ok ? '' : 'none';
+        if (ok) shown++;
+      });
+      // 年份标题在筛选时整体隐藏，避免出现空年份
+      yearHeads.forEach(function (h) { h.style.display = (kw || channel !== 'all') ? 'none' : ''; });
+      if (empty) empty.style.display = shown === 0 ? '' : 'none';
+    }
+
+    q.addEventListener('input', apply);
+    chips.forEach(function (c) {
+      c.addEventListener('click', function () {
+        chips.forEach(function (x) { x.classList.remove('on'); });
+        c.classList.add('on');
+        channel = c.getAttribute('data-ch');
+        apply();
+      });
+    });
+  }
+})();
+
+</script>
+</body>
+</html>

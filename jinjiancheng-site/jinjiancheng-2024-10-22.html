@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>寻找下一张船票 · 金渐成</title>
+<meta name="description" content="金渐成 2024-10-22 寻找下一张船票">
+<link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2064%2064'%3E%3Crect%20width='64'%20height='64'%20rx='16'%20fill='%23b45309'/%3E%3Ctext%20x='32'%20y='45'%20font-size='38'%20font-family='sans-serif'%20font-weight='700'%20fill='%23fff'%20text-anchor='middle'%3E%E7%8E%91%3C/text%3E%3C/svg%3E">
+<style>
+:root {--bg: #faf9f6;--bg-2: #f2efe9;--surface: #ffffff;--surface-2: #f6f4ef;--fg: #171614;--fg-2: #3d3a35;--muted: #7a7570;--line: #e7e3da;--line-2: #f0ece4;--accent: #b45309;--accent-2: #d98218;--accent-soft: rgba(180, 83, 9, .09);--accent-line: rgba(180, 83, 9, .22);--on-accent: #ffffff;--shadow-xs: 0 1px 2px rgba(23, 22, 20, .05);--shadow-sm: 0 1px 3px rgba(23, 22, 20, .06), 0 1px 2px rgba(23, 22, 20, .04);--shadow-md: 0 8px 24px -6px rgba(23, 22, 20, .10), 0 2px 6px rgba(23, 22, 20, .05);--shadow-lg: 0 20px 48px -12px rgba(23, 22, 20, .16);--radius: 18px;--radius-sm: 12px;--container: 68rem;}@media (prefers-color-scheme: dark) {:root:not([data-theme="light"]) {--bg: #0f0f10;--bg-2: #16161a;--surface: #17171b;--surface-2: #1d1d22;--fg: #f2f0ec;--fg-2: #d4d1cb;--muted: #918d87;--line: #29292f;--line-2: #212127;--accent: #f0972a;--accent-2: #f5b400;--accent-soft: rgba(240, 151, 42, .12);--accent-line: rgba(240, 151, 42, .3);--on-accent: #17120a;--shadow-xs: 0 1px 2px rgba(0, 0, 0, .45);--shadow-sm: 0 1px 3px rgba(0, 0, 0, .5);--shadow-md: 0 8px 24px -6px rgba(0, 0, 0, .6);--shadow-lg: 0 20px 48px -12px rgba(0, 0, 0, .7);}}html[data-theme="dark"] {--bg: #0f0f10; --bg-2: #16161a; --surface: #17171b; --surface-2: #1d1d22;--fg: #f2f0ec; --fg-2: #d4d1cb; --muted: #918d87; --line: #29292f; --line-2: #212127;--accent: #f0972a; --accent-2: #f5b400;--accent-soft: rgba(240, 151, 42, .12); --accent-line: rgba(240, 151, 42, .3);--on-accent: #17120a;--shadow-xs: 0 1px 2px rgba(0, 0, 0, .45);--shadow-sm: 0 1px 3px rgba(0, 0, 0, .5);--shadow-md: 0 8px 24px -6px rgba(0, 0, 0, .6);--shadow-lg: 0 20px 48px -12px rgba(0, 0, 0, .7);}* { box-sizing: border-box; margin: 0; padding: 0; border: 0 solid var(--line); }html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }body {background: var(--bg);background-image:radial-gradient(60rem 32rem at 12% -8%, var(--accent-soft), transparent 62%),radial-gradient(48rem 28rem at 92% 2%, rgba(217, 130, 24, .06), transparent 60%);background-repeat: no-repeat;background-attachment: fixed;color: var(--fg);font-family: Inter, -apple-system, BlinkMacSystemFont, "PingFang SC", "Hiragino Sans GB","Microsoft YaHei", "Helvetica Neue", Helvetica, Arial, sans-serif;-webkit-font-smoothing: antialiased;-moz-osx-font-smoothing: grayscale;line-height: 1.6;min-height: 100vh;display: flex;flex-direction: column;}a { color: inherit; text-decoration: none; }img { max-width: 100%; height: auto; display: block; border-radius: 10px; }button { font: inherit; color: inherit; background: none; cursor: pointer; }::selection { background: var(--accent-soft); }.site-header {position: sticky; top: 0; z-index: 50;background: color-mix(in srgb, var(--bg) 82%, transparent);backdrop-filter: saturate(180%) blur(14px);-webkit-backdrop-filter: saturate(180%) blur(14px);border-bottom: 1px solid var(--line);}.header-inner {max-width: var(--container); margin: 0 auto;padding: .85rem 1.5rem;display: flex; align-items: center; justify-content: space-between; gap: 1rem;}.brand { display: flex; align-items: center; gap: .7rem; transition: opacity .2s; flex: 0 0 auto; }.brand:hover { opacity: .82; }.brand-mark {width: 2.3rem; height: 2.3rem; border-radius: 12px; flex: 0 0 auto;background: linear-gradient(140deg, var(--accent-2), var(--accent) 70%);color: #fff; font-weight: 800; font-size: 1.08rem;display: flex; align-items: center; justify-content: center;box-shadow: 0 4px 12px -2px var(--accent-line), inset 0 1px 0 rgba(255,255,255,.28);}.brand-text { display: flex; flex-direction: column; line-height: 1.2; }.brand-text b { font-size: 1rem; font-weight: 750; letter-spacing: -.015em; }.brand-text span { font-size: .68rem; color: var(--muted); letter-spacing: .1em; margin-top: .1rem; }.nav { display: flex; align-items: center; gap: .15rem; font-size: .9rem; font-weight: 550; }.nav a {padding: .48rem .78rem; border-radius: 9px; color: var(--muted);transition: color .18s, background .18s; white-space: nowrap;}.nav a:hover { color: var(--fg); background: var(--surface-2); }.nav a.active { color: var(--accent); background: var(--accent-soft); font-weight: 700; }.nav-tools { display: flex; align-items: center; gap: .3rem; padding-left: .5rem; margin-left: .35rem; border-left: 1px solid var(--line); }.icon-btn {width: 2.1rem; height: 2.1rem; border-radius: 9px; color: var(--muted);display: flex; align-items: center; justify-content: center;transition: .18s; font-size: 1rem;}.icon-btn:hover { color: var(--accent); background: var(--accent-soft); }.menu-btn { display: none; }main { flex: 1; }.container {max-width: var(--container); margin: 0 auto;padding: 3rem 1.5rem 5.5rem;display: flex; flex-direction: column; gap: 3.75rem;}.hero { margin-bottom: 0; }.crumb {display: flex; flex-wrap: wrap; align-items: center; gap: .45rem;font-size: .85rem; font-weight: 550; color: var(--muted); margin-bottom: 1.1rem;}.crumb a:hover { color: var(--accent); }.crumb .sep { opacity: .35; }.hero h1 {font-size: clamp(2.1rem, 5.6vw, 3.15rem);font-weight: 830; line-height: 1.08; letter-spacing: -.035em;background: linear-gradient(180deg, var(--fg) 62%, color-mix(in srgb, var(--fg) 62%, var(--accent)));-webkit-background-clip: text; background-clip: text;-webkit-text-fill-color: transparent;}.hero .lead {margin-top: 1.35rem; max-width: 44rem;font-size: 1.06rem; line-height: 1.85; color: var(--muted);}.hero .lead strong { color: var(--fg); font-weight: 750; }.hero-actions { margin-top: 1.9rem; display: flex; flex-wrap: wrap; gap: .7rem; }.btn {padding: .72rem 1.55rem; border-radius: 999px;font-weight: 600; font-size: .95rem;transition: transform .18s, box-shadow .18s, background .18s, border-color .18s, color .18s;display: inline-flex; align-items: center; gap: .45rem;}.btn-primary {background: linear-gradient(140deg, var(--accent-2), var(--accent));color: #fff;box-shadow: 0 6px 18px -6px var(--accent-line), inset 0 1px 0 rgba(255,255,255,.22);}.btn-primary:hover { transform: translateY(-2px); box-shadow: 0 12px 26px -8px var(--accent-line); }.btn-ghost { border: 1px solid var(--line); background: var(--surface); color: var(--fg-2); }.btn-ghost:hover { background: var(--surface-2); border-color: var(--accent-line); color: var(--accent); }.stats { margin-top: 1.9rem; display: flex; flex-wrap: wrap; gap: .6rem; }.stat {display: flex; align-items: baseline; gap: .4rem;background: var(--surface); border: 1px solid var(--line);border-radius: 999px; padding: .42rem 1rem;box-shadow: var(--shadow-xs);}.stat b { font-size: 1rem; font-weight: 780; letter-spacing: -.02em; color: var(--fg); font-variant-numeric: tabular-nums; }.stat span { font-size: .8rem; color: var(--muted); }.section { display: flex; flex-direction: column; }.section-head {display: flex; align-items: baseline; justify-content: space-between;gap: 1rem; margin-bottom: 1.5rem; padding-bottom: .85rem;border-bottom: 1px solid var(--line);}.section-head h2 {position: relative; padding-left: .85rem;font-size: .92rem; font-weight: 780; text-transform: uppercase;letter-spacing: .17em; color: var(--fg);}.section-head h2::before {content: ""; position: absolute; left: 0; top: 50%; transform: translateY(-50%);width: 3px; height: 1.05em; border-radius: 2px;background: linear-gradient(180deg, var(--accent-2), var(--accent));}.section-head .more { font-size: .88rem; font-weight: 600; color: var(--muted); white-space: nowrap; transition: .18s; }.section-head .more:hover { color: var(--accent); }.grid { display: grid; gap: 1.05rem; }.grid-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }.grid-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }.grid-4 { grid-template-columns: repeat(4, minmax(0, 1fr)); }.card {position: relative; overflow: hidden;background: var(--surface);border: 1px solid var(--line);border-radius: var(--radius);padding: 1.3rem 1.4rem;box-shadow: var(--shadow-xs);transition: transform .2s cubic-bezier(.2,.7,.3,1), box-shadow .2s, border-color .2s;display: block;}.card::after {content: ""; position: absolute; inset: 0 0 auto 0; height: 2px;background: linear-gradient(90deg, var(--accent-2), var(--accent) 55%, transparent);opacity: 0; transition: opacity .2s;}a.card:hover {transform: translateY(-3px);box-shadow: var(--shadow-md);border-color: var(--accent-line);}a.card:hover::after { opacity: 1; }.card .kicker {font-size: .7rem; font-weight: 780; letter-spacing: .12em;color: var(--accent); text-transform: uppercase;}.card h3 { margin-top: .55rem; font-size: 1.04rem; font-weight: 730; line-height: 1.4; letter-spacing: -.015em; }.card p { margin-top: .55rem; font-size: .875rem; line-height: 1.72; color: var(--muted); }.card .count { font-size: .78rem; font-weight: 600; color: var(--muted); }.rows {display: flex; flex-direction: column;background: var(--surface); border: 1px solid var(--line);border-radius: var(--radius); overflow: hidden;box-shadow: var(--shadow-xs);}.row {display: flex; align-items: baseline; gap: 1.1rem;padding: .82rem 1.15rem;transition: background .16s;border-bottom: 1px solid var(--line-2);position: relative;}.row:last-child { border-bottom: 0; }.row::before {content: ""; position: absolute; left: 0; top: 0; bottom: 0; width: 3px;background: var(--accent); transform: scaleY(0); transition: transform .18s;}.row:hover { background: var(--surface-2); }.row:hover::before { transform: scaleY(1); }.row .date {flex: 0 0 auto; width: 5.1rem; font-size: .82rem; font-weight: 600;font-variant-numeric: tabular-nums; color: var(--muted); letter-spacing: -.01em;}.row .title { flex: 1 1 auto; font-size: .97rem; font-weight: 550; line-height: 1.55; color: var(--fg-2); }.row:hover .title { color: var(--accent); font-weight: 620; }.row .tags { flex: 0 0 auto; display: flex; gap: .35rem; }.tag {font-size: .7rem; font-weight: 620; padding: .2rem .6rem; border-radius: 999px;background: var(--surface-2); border: 1px solid var(--line);color: var(--muted); white-space: nowrap;}.year-head { display: flex; align-items: center; gap: .9rem; margin: 1.9rem 0 .75rem; }.year-head:first-child { margin-top: 0; }.year-head .y { font-size: 1.3rem; font-weight: 830; letter-spacing: -.03em; }.year-head .n { font-size: .78rem; font-weight: 600; color: var(--muted); background: var(--surface-2); border: 1px solid var(--line); padding: .12rem .55rem; border-radius: 999px; }.year-head .line { flex: 1; height: 1px; background: linear-gradient(90deg, var(--line), transparent); }.post-wrap { max-width: 46rem; margin: 0 auto; width: 100%; }.post-head { margin-bottom: 2.25rem; padding-bottom: 1.6rem; border-bottom: 1px solid var(--line); }.post-head h1 { font-size: clamp(1.55rem, 4.4vw, 2.05rem); font-weight: 760; line-height: 1.32; letter-spacing: -.028em; }.post-meta { margin-top: 1rem; display: flex; flex-wrap: wrap; gap: .5rem 1rem; font-size: .84rem; color: var(--muted); align-items: center; font-weight: 550; }.post-meta .dot { opacity: .35; }.prose { color: var(--fg-2); font-size: 1.06rem; line-height: 1.9; letter-spacing: .008em; max-width: 68ch; }.prose p { margin: 1.5em 0; }.prose h1, .prose h2, .prose h3 { color: var(--fg); letter-spacing: -.018em; font-weight: 730; line-height: 1.4; }.prose h1 { font-size: 1.65rem; margin: 2.1em 0 .8em; }.prose h2 {font-size: 1.28rem; margin: 2.3em 0 .85em; padding-bottom: .5em;border-bottom: 1px solid var(--line);}.prose h3 {font-size: 1.03rem; margin: 2.2em 0 .7em;letter-spacing: .16em; color: var(--accent); font-weight: 780;}.prose strong { color: var(--fg); font-weight: 700; }.prose em { font-style: italic; }.prose a { color: var(--accent); text-decoration: underline; text-underline-offset: 3px; text-decoration-thickness: 1px; }.prose a:hover { opacity: .8; }.prose blockquote {border-left: 3px solid var(--accent);background: var(--accent-soft);color: var(--fg-2); border-radius: 0 10px 10px 0;margin: 1.9em 0; padding: 1.05em 1.35em; font-style: italic;}.prose blockquote p { margin: 0; }.prose ul { margin: 1.3em 0; list-style: none; }.prose ul > li { margin: .55em 0; padding-left: 1.35em; position: relative; }.prose ul > li::before { content: ""; position: absolute; left: .15em; top: .72em; width: 5px; height: 5px; border-radius: 50%; background: var(--accent); opacity: .6; }.prose ol { margin: 1.3em 0; padding-left: 1.5em; list-style: decimal; }.prose ol > li { margin: .55em 0; }.prose img { margin: 2em 0; box-shadow: var(--shadow-md); }.prose hr { margin: 2.6em 0; border-top: 1px solid var(--line); height: 0; }.post-foot {margin-top: 3.2rem; padding-top: 1.6rem; border-top: 1px solid var(--line);display: flex; align-items: center; justify-content: space-between;gap: 1rem; flex-wrap: wrap; font-size: .88rem; font-weight: 550; color: var(--muted);}.post-foot a:hover { color: var(--accent); }.pager { display: flex; gap: .8rem; flex-wrap: wrap; }.pager a {background: var(--surface); border: 1px solid var(--line); border-radius: 12px;padding: .65rem 1rem; max-width: 17rem; font-size: .86rem;transition: .18s; box-shadow: var(--shadow-xs); line-height: 1.45;}.pager a:hover { background: var(--surface-2); border-color: var(--accent-line); color: var(--accent); transform: translateY(-2px); }.pager .lbl { display: block; font-size: .7rem; font-weight: 650; color: var(--muted); margin-bottom: .2rem; letter-spacing: .04em; }.comments {margin-top: 3rem; border-top: 1px solid var(--line); padding-top: 1.6rem;}.comments-head {display: flex; align-items: baseline; justify-content: space-between;gap: 1rem; flex-wrap: wrap; margin-bottom: 1.15rem;}.comments-head h2 {position: relative; padding-left: .8rem;font-size: .82rem; font-weight: 780; text-transform: uppercase;letter-spacing: .17em; color: var(--fg);}.comments-head h2::before {content: ""; position: absolute; left: 0; top: 50%; transform: translateY(-50%);width: 3px; height: 1.05em; border-radius: 2px;background: linear-gradient(180deg, var(--accent-2), var(--accent));}.comments-head span { font-size: .76rem; color: var(--muted); }.comments-body {background: var(--surface-2);border: 1px solid var(--line);border-radius: var(--radius-sm);padding: 1.15rem 1.35rem;font-size: .95rem; line-height: 1.8; color: var(--muted);max-width: 68ch;}.comments-body p { margin: .75em 0; }.comments-body p:first-child { margin-top: 0; }.comments-body p:last-child { margin-bottom: 0; }.comments-body strong { color: var(--fg-2); font-weight: 650; }.comments-body a { color: var(--accent); text-decoration: underline; text-underline-offset: 3px; }.comments-body ul { margin: .9em 0; list-style: none; }.comments-body ul > li { margin: .4em 0; padding-left: 1.15em; position: relative; }.comments-body ul > li::before { content: ""; position: absolute; left: .1em; top: .7em; width: 4px; height: 4px; border-radius: 50%; background: var(--muted); opacity: .5; }.comments-body blockquote {border-left: 3px solid var(--line); margin: 1em 0; padding: .4em 1em;color: var(--muted); font-style: italic;}.toolbar {display: flex; flex-wrap: wrap; gap: .6rem; align-items: center;margin-bottom: 1.35rem;}.search {flex: 1 1 17rem; min-width: 12rem;display: flex; align-items: center; gap: .55rem;background: var(--surface); border: 1px solid var(--line);border-radius: 999px; padding: .58rem 1.05rem;color: var(--muted); transition: border-color .18s, box-shadow .18s;box-shadow: var(--shadow-xs);}.search:focus-within { border-color: var(--accent); box-shadow: 0 0 0 3px var(--accent-soft); }.search input { flex: 1; background: none; border: none; outline: none; color: var(--fg); font-size: .93rem; }.chip {font-size: .84rem; font-weight: 600; padding: .5rem 1rem; border-radius: 999px;background: var(--surface); border: 1px solid var(--line);color: var(--muted); transition: .18s; box-shadow: var(--shadow-xs);}.chip:hover { border-color: var(--accent-line); color: var(--accent); }.chip.on {background: linear-gradient(140deg, var(--accent-2), var(--accent));color: #fff; border-color: transparent;box-shadow: 0 5px 14px -5px var(--accent-line);}.empty-note { padding: 3rem 0; text-align: center; color: var(--muted); font-size: .93rem; }.faq { display: flex; flex-direction: column; gap: .6rem; }.faq details {background: var(--surface); border: 1px solid var(--line);border-radius: var(--radius-sm); padding: 1.05rem 1.3rem;transition: border-color .18s, box-shadow .18s; box-shadow: var(--shadow-xs);}.faq details[open] { border-color: var(--accent-line); box-shadow: var(--shadow-sm); }.faq summary {cursor: pointer; font-weight: 650; font-size: .96rem; list-style: none;display: flex; justify-content: space-between; gap: 1rem; align-items: center;}.faq summary::-webkit-details-marker { display: none; }.faq summary::after {content: "+"; color: var(--accent); font-weight: 500; font-size: 1.1rem;width: 1.4rem; height: 1.4rem; border-radius: 50%;display: flex; align-items: center; justify-content: center;background: var(--accent-soft); flex: 0 0 auto;}.faq details[open] summary::after { content: "−"; }.faq .ans { margin-top: .85rem; font-size: .91rem; line-height: 1.82; color: var(--muted); }.site-footer { border-top: 1px solid var(--line); background: color-mix(in srgb, var(--bg-2) 60%, transparent); }.footer-inner {max-width: var(--container); margin: 0 auto; padding: 2.75rem 1.5rem;display: flex; flex-wrap: wrap; gap: 1.5rem 2.5rem; justify-content: space-between;font-size: .85rem; color: var(--muted);}.footer-inner a:hover { color: var(--accent); }.footer-links { display: flex; flex-wrap: wrap; gap: .55rem 1.15rem; font-weight: 600; }.footer-links a { color: var(--fg-2); }.disclaimer { font-size: .78rem; color: var(--muted); line-height: 1.75; max-width: 35rem; opacity: .9; }@media (max-width: 900px) {.grid-4, .grid-3 { grid-template-columns: repeat(2, minmax(0, 1fr)); }.nav { display: none; }.nav.open {display: flex; flex-direction: column; align-items: stretch;position: absolute; left: 1rem; right: 1rem; top: 4.35rem;background: var(--surface); border: 1px solid var(--line);border-radius: var(--radius); padding: .5rem; box-shadow: var(--shadow-lg); gap: .1rem;}.nav.open a { padding: .72rem .9rem; }.menu-btn { display: flex; }.nav-tools { border: none; padding: 0; margin: 0; padding-top: .35rem; }}@media (max-width: 620px) {.container { gap: 2.6rem; padding: 1.9rem 1.15rem 4rem; }.grid-4, .grid-3, .grid-2 { grid-template-columns: 1fr; }.rows { border-radius: var(--radius-sm); }.row { flex-wrap: wrap; gap: .3rem .8rem; padding: .8rem 1rem; }.row .date { width: auto; }.row .title { flex-basis: 100%; }.hero .lead { font-size: 1rem; }.header-inner { padding: .75rem 1.15rem; }}
+</style>
+</head>
+<body>
+<header class="site-header">
+  <div class="header-inner">
+    <a class="brand" href="index.html">
+      <span class="brand-mark">玑</span>
+      <span class="brand-text"><b>金渐成文章整理</b><span>美股 · 港股 · 加密 · 黄金 · 楼市</span></span>
+    </a>
+    <nav class="nav" id="nav"><a href="all.html" class="active">公众号文章</a><a href="topics.html">文章主题</a><a href="notes.html">学习笔记</a><a href="portfolio.html">账户持仓</a><a href="timeline.html">投资时间线</a><a href="tools.html">工具箱</a><a href="booklist.html">书单</a><a href="about.html">关于</a>
+      <span class="nav-tools"><button class="icon-btn" id="themeBtn" title="切换主题" aria-label="切换主题">◐</button></span>
+    </nav>
+    <button class="icon-btn menu-btn" id="menuBtn" aria-label="菜单">☰</button>
+  </div>
+</header>
+<main>
+<div class="container">
+  <article class="post-wrap">
+    <div class="post-head">
+      <div class="crumb"><a href="index.html">首页</a><span class="sep">/</span><a href="all.html">公众号文章</a><span class="sep">/</span><a href="jinjiancheng.html">金渐成</a></div>
+      <h1>寻找下一张船票</h1>
+      <div class="post-meta"><span>2024-10-22</span><span class="dot">·</span><span>金渐成</span><span class="dot">·</span><span>约 5 分钟读完</span></div>
+    </div>
+    <div class="prose">
+<p>英伟达站上143.7美刀。</p>
+<p>两个月前，在市场刚要爬出低迷期时，我写过英伟达今年年内会站上140-145美元之间。</p>
+<p>那会刚经历过8月5号的暴跌不久，英伟达价格长期在100-120之间波动，很多人是没啥信心的。</p>
+<p>之前说过6.8-7.3万美金是当时大饼的阶段高位，相对难突破；后来也说过，6.5万美刀的大饼在那个时间段适合做空；最近又说，大饼要破7，需要利好落地支撑。</p>
+<p>回头看这些，在当时所属的时间点，去推测后来一段时间内将要发生的事，全都没有偏差，还算精准。</p>
+<p>所有的推演都是阶段性的，即在某个时间点内适用，超过这个时间点就不再合适。</p>
+<p>这是投资最基本的思维，一切事物都是动态变化发展的，而非一成不变，不能刻舟求剑。</p>
+<p>比如6.5万开始做空大饼，在当时合适，在现在，就不合适了。</p>
+<p>下一步英伟达会走到什么程度，我也不知道，因为只看到今年内。</p>
+<p>有些读者问，为什么不增加点对其他股票的看法？</p>
+<p>因为我没有持仓，没有实操，就没啥好写的。我是实操派，只专注写自己涉足的一些投资。</p>
+<p>今年嫌投资有点太广泛，所以砍掉了大A相关的，只剩港股的腾讯和美股七巨头+台积电+AMD+纳指100+标普500。</p>
+<p>股票之外的投资，也都在收缩，聚焦。</p>
+<p>以前想的是要多元化，要涉足各个领域，要大，要多。</p>
+<p>这几年我是想明白了，人的精力是有限的，能专注点做好一两项，就已经很好了。</p>
+<p>这两年运气也因此变得更好，选中了英伟达、大饼，今年又选中了台积电。大资金体量投入+高回报，收获自然颇丰。</p>
+<p>专注研究，寻线下一张船票。一年能选中一只好股票，做个重仓投资，有个好收益，就该知足了。</p>
+<p>而不是什么都想要，东捞一把，西抓一下，最后什么都得不到。</p>
+<p>当我全神贯注在做某件事，进入“忘我”的状态，感觉不到时间的流逝，得到了前所未有的满足感，这时是最幸福的。</p>
+<p>很庆幸自己这两年时常能处在这样的状态中。</p>
+<p>大儿子是跟着我从国内的第三次创业一路过来的，我经历过的很多东西，他从小也经历过，经历算比较完整，因此他的做事风格和为人处世，跟我很像。</p>
+<p>老二经历的是资产暴增期，15-16年期间，由于投资的很多项目在上市前转让（套现），或上市后陆续套现，为了对冲货币泡沫，又购入大量不动产。</p>
+<p>那段时间，来来往往的都是有需求的人，甜言蜜语没少听，所以老二智商和情商拔尖，察言观色和应对的能力很强，但抗压能力会差点。</p>
+<p>这两个都能做到专注做事，专注力强。</p>
+<p>小儿子就不一样了，18年后，我属于自己的时间开始增多，经常陪着各种玩。他从小就在蜜罐里泡着，啥都好，就是性子急，逆商较差，特别是耐心和韧性严重不足，抗压能力差。</p>
+<p>我也写过很多关于他的内容，包括克服的种种缺点等，尤其是逆商不足这点。</p>
+<p>为了锻炼他的耐心、韧性、专注，我没少发愁，钓鱼、下围棋…最后，是发现他喜欢做木工活，然后对症下药，才初步改善了这个缺点。</p>
+<p>抗压能力，目前还在想办法，挫折教育不太管用，哈哈，可能要带他多去户外运动，比如爬山等。后续有效果好的办法，我会写。</p>
+<p>不过他的专注力倒是培养起来了。一开始，我是让他找一个本子，把每天做的事情记录下来。</p>
+<p>然后再按“轻重缓急”来排序，重要的、急的先做。半年时间下来，效果不错，他在做事时能做到很投入。</p>
+<p>专注去做，去行动，至于结果，顺其自然；</p>
+<p>把注意力放在自己身上，专注自我，外界的东西别让它成为干扰项；</p>
+<p>做好规划后，就专注做好当下的事，做好当下的每一步，未来自然差不到哪去。</p>
+<p>今天跟朋友聊天，她说:</p>
+<p>如果在“一家企业一年利润1亿，能做两年”和“一家企业一年利润2000万，能做十年”做选择，很多人会选一年一个亿的，但我肯定会选一年2000万的。</p>
+<p>这挺正常的，“一年一个亿，只能做两年”的企业，大概率口碑和企业的品控、经营等有大问题；</p>
+<p>但一家能做十年，每年稳定2000万利润的企业，口碑、品控和经营不会差，属于可持续发展的类型。</p>
+<p>好的口碑能帮企业穿越周期和低谷，这需要靠平时长期踏踏实实做事和经营才能得来，最考验企业创始人的耐心和韧性，以及专注力。</p>
+<p>我挺怕沉迷宏大叙事和急躁的人，多半不咋地，连自己和当下都做不好，还想未来？能有什么未来？</p>
+<p>小时候常听长辈说，“头脑静者多富，心静者多贵，神静者多寿。三静俱全者人间龙凤。”，慢慢开始理解其中的含义。</p>
+<p>真正损伤注意力和专注力的，是经常不断进行切换，总是在低刺激、高价值到高刺激、低价值之间反复游离。</p>
+<p>在投资上，我这两年的一个变化，就是越来越聚焦，专注在某些行业和板块上。</p>
+<p>国内的业务只剩几项副业，分给老员工们去管理和运营，我平时也会看看，但不会花太多时间。</p>
+<p>海外对冲基金相关的业务，主要交给几位合伙人去做。</p>
+<p>我现在开始调整作息，开始不熬夜看盘，主打一个提前布局应对。</p>
+<p>然后开始锻炼身体，也调整好自己的心态和状态，准备再生对龙凤胎。</p>
+<p>陪娃，偶尔陪，现在大部分时间都在学校，有时还挺怀念他们小时候在身边的画面。</p>
+<p>现在这个世界，变化就是最大的不变，它给我什么，我尽可能去接住然后解决掉它；在规划和调整中继续前行，不断锻炼自己。</p>
+<p>保持专注，寻找下一张船票。</p>
+<p>就这样吧。</p>
+    </div>
+    <section class="comments">
+      <div class="comments-head"><h2>读者留言</h2><span>原文评论区内容，与正文分开呈现</span></div>
+      <div class="comments-body">
+<p>头脑静者多富，心静者多贵，神静者多寿。三静俱全者人间龙凤。不得不说家庭的重要以及基因的重要，一来一般家庭无人能说出这样的话，二来人小时候根本记不下这样的教诲</p>
+<p>据说是我曾祖母说过的。很有故事的一位老人家，曾经地主家的小姐，广施恩泽给百姓，后来帮家里躲过了抓壮丁和六七十年代的浩劫。可惜我出生前，她刚去世，没见过面。但从小听过很多人讲过她的故事，一位有大智慧的人。</p>
+<p>下一篇展开说说</p>
+<p>你们这么想听？我今天还跟我父亲打电话聊到了她老人家，她是我父亲的奶奶。</p>
+<p>超喜欢和一个奶奶聊天，她以前也是地主小姐，每次唠嗑都很受启发，眼界智慧和对社会的认知完全不是我家能比的</p>
+<p>羡慕财务自由的金总规划路径，等我有钱了也自由了，也争取挺直腰杆，不为五斗米折腰……</p>
+<p>有些自由不需要等有钱了才有，腰杆子也不需要等有钱了才能挺直。不然可能不为五斗米折腰，会为50斗米折腰，哈哈，最重要的，还是认识自己，知足，不贪。</p>
+<p>三个娃，还准备生龙凤胎哈，真心佩服</p>
+<p>哈哈，感觉三个娃还是少了点，再来个龙凤胎，刚好完美。主要是我媳妇自己想生，我也觉得可以试试。有条件就生。</p>
+<p>“一家企业一年利润2000万，能做十年” 可能从某一年开始，利润就不止2000万了</p>
+<p>这种积累和沉淀，不是一般可比的。一年1亿做两年和做10年每年2000万，这两类型的区别，就像卖假货的三只羊网络和注重口碑的胖东来的区别。</p>
+<p>哈哈，每次打开微信都是3分钟内的文章推送[旺柴]</p>
+<p>你这手速快得我都怀疑你是不是单身几十年了[旺柴]</p>
+<p>机哥，您觉得东印度有没可能实行简化版的埃尔多安经济学?</p>
+<p>有，现在动不动先修正往年GDP再说增长率，有点自欺欺人，哈哈。以后“以本币计算，GDP增长，以美元计算，GDP负增长”的情况，大概率能看得到。</p>
+<p>有一个传说不知真假，记者问比尔盖茨和巴菲特，一个人有所成就，最重要的品质是什么，他俩不约而同的回答，专注[呲牙]</p>
+<p>好像是真的，马斯克回答的也是专注[破涕为笑]</p>
+<p>机哥，找到下一张船票的时[破涕为笑]候，还能分享一下吗</p>
+<p>这两年一直都有分享，从大饼到英伟达，再到台积电这几只大船票，都写得很详细，反复写。其他零零碎碎的就更多了，集运欧线和大A、恒生科技指数等等，都写过。后续也一样，我买了就会说，你们自己甄别，不要盲目跟风就行，不然我会有压力。</p>
+<p>很多读者得益于机哥股票实操的分享，赚到了钱了。很想表达感谢的话。但是确实要注意措词，别不小心把公众号封了，大家就没有学习的地方了。我们大家要一起维护好这个公众号，跟着学习规划，理财，育儿的知识。赚钱了就去助农。</p>
+<p>你们投资是自己的行为，哈哈，我又啥也没有提供，只是说我自己的操作和看法，还好啦，我没有从中谋利，一分钱也没有，前段时间还被问这个，我直接打开账户给他们看，问他们“你觉得我需要吗？”，哈哈，他们直接说没事，就是提醒一下。就这样吧，大家都早点休息，晚安～</p>
+<p>“头脑静者多富，心静者多贵，神静者多寿。三静俱全者人间龙凤。”说的真好[强][强][强]，对比自己就挺浮躁的，之前入了英伟达，结果为了在大a搞点块钱抛了，现在还在等上车机会[苦涩]</p>
+<p>不要浮躁，专注点，往往能赚大钱，而不是小钱。很多人做事都浮于表面，专注去深扎根的，我目前没看到过得很差的，除非行业大暴雷，那没办法。</p>
+<p>绝了！俺也一样！卖了英伟达，上车港股，被挂东南枝了[捂脸]</p>
+<p>我和你的操作相反，我是卖了中芯国际，买了英伟达和台积电[呲牙]</p>
+<p>寻找下一张船票，登上的肯定不是破船而是航母，期待ing[得意]</p>
+<p>起码至今为止，我还没有过找破船的案例，哈哈，即便不是英伟达和大饼这样的航母，也是台积电这样的大型驱逐舰。[破涕为笑]</p>
+<p>跟着大机机买英伟达赚了1万多美元，可惜意志不够坚定少赚了好多</p>
+<p>会慌是很正常的。你们是自己买，可不是跟着我买，我啥也没提供，只说自己的一些操作和见解。跟着我买，那我不成黑投顾了嘛？那是要被封杀的[捂脸]</p>
+<p>也算是一个老读者了，虽然投资领域没任何长进(估计天赋和实操都不到），但是文章看多了之后，发现自己做事情能更加投入，心也更加静了。以前在职场，总会患得患失，比如升职加薪之类的。但现在更多聚焦于把事情做好，把技能提升。就算有一天离开了，仍对得起当下的时间。怎么说呢，潜移默化之中，自己的格局可能也慢慢打开一点了吧。感谢机哥！</p>
+<p>那是你自己心性修炼逐渐到位了，不用谢我，我没做啥，感谢你自己就行。</p>
+<p>找到自己喜欢做的事，还能从中挣点钱，这就是自由了。</p>
+<p>这何止是自由，已经是幸福了[偷笑]</p>
+<p>机哥平时聊美股比较多，可否分享下对腾讯的看法~</p>
+<p>写过的，我准备长期持有，主要是负成本阶段了，账面上都是浮盈。腾讯是“流量换收益”，跟阿里是反过来的，而且是国内的龙头，我准备一直持有着。前段时间缝高480的时候卖了点。</p>
+<p>挺佩服的，每次判断都准，关键还是做人做事的根本思想，包括日本核污水排放后的判断。 最后想问个问题，有用模型跑过印度、越南这些国家的股市吗</p>
+<p>因为别人看的都是表象，是情绪，我看的是本质，是内核。所以不容易出错。印度和越南这类，我个人没有涉及，精力有限，目前二级市场只在美股。对冲基金公司的反而有涉及一些，但比例很小。</p>
+<p>说是陪娃，其实是娃陪我们！随着他们逐渐长大离开，我们反而缺失了这部分感情。机哥打算再要一对龙凤胎大概也是这样吧</p>
+<p>是啊，小孩成长得飞快，一眨眼一个个都去学校了，陪我的时间都少了，这群小崽子[苦涩][捂脸]</p>
+<p>为什么现在不适合做空大饼呢？</p>
+<p>因为机构最近的加仓密集区在6-6.5左右，做空的话，对手盘摆在那。过段时间再看看。</p>
+<p>昨天夜里设置了英伟达143，就安睡去了。今早一看有惊喜，成功将成本降到两位数。感谢机哥的2332心法，慢慢摸索慢慢吸收。从缅a到这儿，心态平了不少。感恩</p>
+<p>我最近开始都不看美股盘了，睡醒再看一眼就行，反正成本低，随便都能扛得住，哈哈。2-3-3-2就是进可攻退可守的一种操作方式，但核心是领会其中的精髓，只要领会了内核，比例都是可以调整的。</p>
+<p>最近TLT和TMF跌麻了[捂脸][捂脸]十几个点浮盈吐出来了</p>
+<p>长期美债，说过了，刚开始降息那波利好，已经提前被吃了，现在11月的降息预期不佳，所以一直跌，先扛着吧，明年三月份再看，本来长期美债就不适合短线操作。</p>
+<p>你咋不买TMV对冲</p>
+<p>&amp; Ownership）、影响范围（Reach）和持续时间（Endurance），简称为CORE。</p>
+<p>嗯，放出来做个补充。</p>
+<p>我不懂股票，所以英伟达从22年的169拿到现在，期间加了几次仓，目前成本61，虽然买的不多，但挺知足的</p>
+<p>那你也很强了。61的成本，可以拿住很久，压根不怕震荡。</p>
+<p>我特斯拉-97的成本，可是持有不多，但是很高兴。 第二个负成本的股票[呲牙]</p>
+<p>养育孩子的快乐，莫过于此哈哈哈哈哈</p>
+<p>以彼之道还施彼身，哈哈哈[破涕为笑]</p>
+<p>茶叶确实可以</p>
+<p>助农项目，要求坚持“品质为王”路线，毕竟我不赚钱，但投入精力，一定要赚口碑的。这三年半下来，评价都很好，很有成就感，哈哈，身边亲戚、朋友、员工也都在喝。</p>
+<p>确实不错，周末来一泡神清气爽[呲牙]</p>
+<p>很搞笑的是我儿子下午去上学前，经常说泡杯天机的大红袍给我喝[捂脸]也不知道他会不会喝，就说很香[捂脸][呲牙]</p>
+<p>小朋友抗压能力锻炼，可以选择冲浪，相对安全。对抗型运动棒球其实很适合黄种人，有个人对抗和团队谋略</p>
+<p>现在在看网球这类运动，哈哈，他还挺感兴趣的，我准备从竞技体育这类入手试试看效果怎么样。</p>
+<p>平时也和孩子说的最多的就是做事要坚持，哪怕每天只做一点点，日积月累下来都很惊人。从小就给她读书，不知不觉她自己就会很多字了，现在根本不需要我们读她就看得懂了。2年前我开始自己辅导她英语，也是每天一点点，不敢说很优秀，目前听和说提升了很多。坚持就是胜利</p>
+<p>你这样做得很细致，孩子的自驱力和自控力慢慢也就培养出来了，挺好的。</p>
+<p>还真要生龙凤胎，也不知道该佩服还是该羡慕[偷笑]</p>
+<p>哈哈，我也不知道，还没生，有生的喜悦和憧憬，也会有生的烦恼，只不过看个人取舍了。</p>
+<p>我也再生对龙凤胎去[微笑]</p>
+<p>条件允许，家人和媳妇都同意，自己也愿意，那可以生。</p>
+<p>抗压能力锻炼，机哥也可以考虑你和娃两个人都感兴趣的竞技类运动，这样两个人就可以一起玩并交流心得了。 顺带一说，机哥是真喜欢孩子啊，再来个闺女吧[偷笑]</p>
+<p>我也是这么想的，最后的选择是网球，两个孩子也都很感兴趣，原本想足球的，想想还是算了，网球有现成的场地。</p>
+      </div>
+    </section>
+    <div class="post-foot"><a href="jinjiancheng.html">← 返回金渐成文章列表</a><div class="pager"><a href="jinjiancheng-2024-10-23.html"><span class="lbl">← 更新一篇</span>最平静的结局</a><a href="jinjiancheng-2024-10-21.html"><span class="lbl">更早一篇 →</span>错的是全世界</a></div></div>
+  </article>
+</div>
+</main>
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div>
+      <div class="footer-links">
+        <a href="all.html">公众号文章</a>
+        <a href="topics.html">文章主题</a>
+        <a href="notes.html">学习笔记</a>
+        <a href="timeline.html">投资时间线</a>
+        <a href="about.html">关于</a>
+      </div>
+      <p class="disclaimer" style="margin-top:1rem">本站为个人阅读存档，收录金渐成 / 天机奇谈公开发表的公众号文章，便于按主题与时间线连续阅读。<br>内容仅供参考，<strong>不构成任何投资建议</strong>。投资有风险，决策需谨慎。</p>
+    </div>
+    <div>共 781 篇文章 · 静态存档<br><span style="opacity:.7">生成于 2026-10-09</span></div>
+  </div>
+</footer>
+<script>
+/* 金渐成文章整理 —— 交互脚本 */
+(function () {
+  'use strict';
+
+  /* ---- 主题切换 ---- */
+  var root = document.documentElement;
+  var saved = null;
+  try { saved = localStorage.getItem('jjc-theme'); } catch (e) {}
+  if (saved) root.setAttribute('data-theme', saved);
+
+  function currentIsDark() {
+    var t = root.getAttribute('data-theme');
+    if (t === 'dark') return true;
+    if (t === 'light') return false;
+    return window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+  }
+
+  var themeBtn = document.getElementById('themeBtn');
+  if (themeBtn) {
+    themeBtn.addEventListener('click', function () {
+      var next = currentIsDark() ? 'light' : 'dark';
+      root.setAttribute('data-theme', next);
+      try { localStorage.setItem('jjc-theme', next); } catch (e) {}
+    });
+  }
+
+  /* ---- 移动端菜单 ---- */
+  var menuBtn = document.getElementById('menuBtn');
+  var nav = document.getElementById('nav');
+  if (menuBtn && nav) {
+    menuBtn.addEventListener('click', function (e) {
+      e.stopPropagation();
+      nav.classList.toggle('open');
+    });
+    document.addEventListener('click', function (e) {
+      if (nav.classList.contains('open') && !nav.contains(e.target)) nav.classList.remove('open');
+    });
+  }
+
+  /* ---- 列表搜索 / 分栏筛选 ---- */
+  var q = document.getElementById('q');
+  var list = document.getElementById('list');
+  var empty = document.getElementById('empty');
+  if (q && list) {
+    var rows = Array.prototype.slice.call(list.querySelectorAll('.row'));
+    var rowsByChannel = rows.map(function (r) {
+      var tag = r.querySelector('.tag');
+      var txt = tag ? tag.textContent.trim() : '';
+      return txt === '金渐成' ? 'jinjiancheng' : (txt === '天机奇谈' ? 'tianjiqitan' : '');
+    });
+    var channel = 'all';
+    var chips = Array.prototype.slice.call(document.querySelectorAll('.chip[data-ch]'));
+
+    function apply() {
+      var kw = (q.value || '').trim().toLowerCase();
+      var shown = 0;
+      var yearHeads = Array.prototype.slice.call(list.querySelectorAll('.year-head'));
+      rows.forEach(function (r, i) {
+        var hay = r.textContent.toLowerCase();
+        var okKw = !kw || hay.indexOf(kw) !== -1;
+        var okCh = channel === 'all' || rowsByChannel[i] === channel;
+        var ok = okKw && okCh;
+        r.style.display = ok ? '' : 'none';
+        if (ok) shown++;
+      });
+      // 年份标题在筛选时整体隐藏，避免出现空年份
+      yearHeads.forEach(function (h) { h.style.display = (kw || channel !== 'all') ? 'none' : ''; });
+      if (empty) empty.style.display = shown === 0 ? '' : 'none';
+    }
+
+    q.addEventListener('input', apply);
+    chips.forEach(function (c) {
+      c.addEventListener('click', function () {
+        chips.forEach(function (x) { x.classList.remove('on'); });
+        c.classList.add('on');
+        channel = c.getAttribute('data-ch');
+        apply();
+      });
+    });
+  }
+})();
+
+</script>
+</body>
+</html>

@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>虚脱了 · 金渐成</title>
+<meta name="description" content="金渐成 2023-08-13 虚脱了">
+<link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2064%2064'%3E%3Crect%20width='64'%20height='64'%20rx='16'%20fill='%23b45309'/%3E%3Ctext%20x='32'%20y='45'%20font-size='38'%20font-family='sans-serif'%20font-weight='700'%20fill='%23fff'%20text-anchor='middle'%3E%E7%8E%91%3C/text%3E%3C/svg%3E">
+<style>
+:root {--bg: #faf9f6;--bg-2: #f2efe9;--surface: #ffffff;--surface-2: #f6f4ef;--fg: #171614;--fg-2: #3d3a35;--muted: #7a7570;--line: #e7e3da;--line-2: #f0ece4;--accent: #b45309;--accent-2: #d98218;--accent-soft: rgba(180, 83, 9, .09);--accent-line: rgba(180, 83, 9, .22);--on-accent: #ffffff;--shadow-xs: 0 1px 2px rgba(23, 22, 20, .05);--shadow-sm: 0 1px 3px rgba(23, 22, 20, .06), 0 1px 2px rgba(23, 22, 20, .04);--shadow-md: 0 8px 24px -6px rgba(23, 22, 20, .10), 0 2px 6px rgba(23, 22, 20, .05);--shadow-lg: 0 20px 48px -12px rgba(23, 22, 20, .16);--radius: 18px;--radius-sm: 12px;--container: 68rem;}@media (prefers-color-scheme: dark) {:root:not([data-theme="light"]) {--bg: #0f0f10;--bg-2: #16161a;--surface: #17171b;--surface-2: #1d1d22;--fg: #f2f0ec;--fg-2: #d4d1cb;--muted: #918d87;--line: #29292f;--line-2: #212127;--accent: #f0972a;--accent-2: #f5b400;--accent-soft: rgba(240, 151, 42, .12);--accent-line: rgba(240, 151, 42, .3);--on-accent: #17120a;--shadow-xs: 0 1px 2px rgba(0, 0, 0, .45);--shadow-sm: 0 1px 3px rgba(0, 0, 0, .5);--shadow-md: 0 8px 24px -6px rgba(0, 0, 0, .6);--shadow-lg: 0 20px 48px -12px rgba(0, 0, 0, .7);}}html[data-theme="dark"] {--bg: #0f0f10; --bg-2: #16161a; --surface: #17171b; --surface-2: #1d1d22;--fg: #f2f0ec; --fg-2: #d4d1cb; --muted: #918d87; --line: #29292f; --line-2: #212127;--accent: #f0972a; --accent-2: #f5b400;--accent-soft: rgba(240, 151, 42, .12); --accent-line: rgba(240, 151, 42, .3);--on-accent: #17120a;--shadow-xs: 0 1px 2px rgba(0, 0, 0, .45);--shadow-sm: 0 1px 3px rgba(0, 0, 0, .5);--shadow-md: 0 8px 24px -6px rgba(0, 0, 0, .6);--shadow-lg: 0 20px 48px -12px rgba(0, 0, 0, .7);}* { box-sizing: border-box; margin: 0; padding: 0; border: 0 solid var(--line); }html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }body {background: var(--bg);background-image:radial-gradient(60rem 32rem at 12% -8%, var(--accent-soft), transparent 62%),radial-gradient(48rem 28rem at 92% 2%, rgba(217, 130, 24, .06), transparent 60%);background-repeat: no-repeat;background-attachment: fixed;color: var(--fg);font-family: Inter, -apple-system, BlinkMacSystemFont, "PingFang SC", "Hiragino Sans GB","Microsoft YaHei", "Helvetica Neue", Helvetica, Arial, sans-serif;-webkit-font-smoothing: antialiased;-moz-osx-font-smoothing: grayscale;line-height: 1.6;min-height: 100vh;display: flex;flex-direction: column;}a { color: inherit; text-decoration: none; }img { max-width: 100%; height: auto; display: block; border-radius: 10px; }button { font: inherit; color: inherit; background: none; cursor: pointer; }::selection { background: var(--accent-soft); }.site-header {position: sticky; top: 0; z-index: 50;background: color-mix(in srgb, var(--bg) 82%, transparent);backdrop-filter: saturate(180%) blur(14px);-webkit-backdrop-filter: saturate(180%) blur(14px);border-bottom: 1px solid var(--line);}.header-inner {max-width: var(--container); margin: 0 auto;padding: .85rem 1.5rem;display: flex; align-items: center; justify-content: space-between; gap: 1rem;}.brand { display: flex; align-items: center; gap: .7rem; transition: opacity .2s; flex: 0 0 auto; }.brand:hover { opacity: .82; }.brand-mark {width: 2.3rem; height: 2.3rem; border-radius: 12px; flex: 0 0 auto;background: linear-gradient(140deg, var(--accent-2), var(--accent) 70%);color: #fff; font-weight: 800; font-size: 1.08rem;display: flex; align-items: center; justify-content: center;box-shadow: 0 4px 12px -2px var(--accent-line), inset 0 1px 0 rgba(255,255,255,.28);}.brand-text { display: flex; flex-direction: column; line-height: 1.2; }.brand-text b { font-size: 1rem; font-weight: 750; letter-spacing: -.015em; }.brand-text span { font-size: .68rem; color: var(--muted); letter-spacing: .1em; margin-top: .1rem; }.nav { display: flex; align-items: center; gap: .15rem; font-size: .9rem; font-weight: 550; }.nav a {padding: .48rem .78rem; border-radius: 9px; color: var(--muted);transition: color .18s, background .18s; white-space: nowrap;}.nav a:hover { color: var(--fg); background: var(--surface-2); }.nav a.active { color: var(--accent); background: var(--accent-soft); font-weight: 700; }.nav-tools { display: flex; align-items: center; gap: .3rem; padding-left: .5rem; margin-left: .35rem; border-left: 1px solid var(--line); }.icon-btn {width: 2.1rem; height: 2.1rem; border-radius: 9px; color: var(--muted);display: flex; align-items: center; justify-content: center;transition: .18s; font-size: 1rem;}.icon-btn:hover { color: var(--accent); background: var(--accent-soft); }.menu-btn { display: none; }main { flex: 1; }.container {max-width: var(--container); margin: 0 auto;padding: 3rem 1.5rem 5.5rem;display: flex; flex-direction: column; gap: 3.75rem;}.hero { margin-bottom: 0; }.crumb {display: flex; flex-wrap: wrap; align-items: center; gap: .45rem;font-size: .85rem; font-weight: 550; color: var(--muted); margin-bottom: 1.1rem;}.crumb a:hover { color: var(--accent); }.crumb .sep { opacity: .35; }.hero h1 {font-size: clamp(2.1rem, 5.6vw, 3.15rem);font-weight: 830; line-height: 1.08; letter-spacing: -.035em;background: linear-gradient(180deg, var(--fg) 62%, color-mix(in srgb, var(--fg) 62%, var(--accent)));-webkit-background-clip: text; background-clip: text;-webkit-text-fill-color: transparent;}.hero .lead {margin-top: 1.35rem; max-width: 44rem;font-size: 1.06rem; line-height: 1.85; color: var(--muted);}.hero .lead strong { color: var(--fg); font-weight: 750; }.hero-actions { margin-top: 1.9rem; display: flex; flex-wrap: wrap; gap: .7rem; }.btn {padding: .72rem 1.55rem; border-radius: 999px;font-weight: 600; font-size: .95rem;transition: transform .18s, box-shadow .18s, background .18s, border-color .18s, color .18s;display: inline-flex; align-items: center; gap: .45rem;}.btn-primary {background: linear-gradient(140deg, var(--accent-2), var(--accent));color: #fff;box-shadow: 0 6px 18px -6px var(--accent-line), inset 0 1px 0 rgba(255,255,255,.22);}.btn-primary:hover { transform: translateY(-2px); box-shadow: 0 12px 26px -8px var(--accent-line); }.btn-ghost { border: 1px solid var(--line); background: var(--surface); color: var(--fg-2); }.btn-ghost:hover { background: var(--surface-2); border-color: var(--accent-line); color: var(--accent); }.stats { margin-top: 1.9rem; display: flex; flex-wrap: wrap; gap: .6rem; }.stat {display: flex; align-items: baseline; gap: .4rem;background: var(--surface); border: 1px solid var(--line);border-radius: 999px; padding: .42rem 1rem;box-shadow: var(--shadow-xs);}.stat b { font-size: 1rem; font-weight: 780; letter-spacing: -.02em; color: var(--fg); font-variant-numeric: tabular-nums; }.stat span { font-size: .8rem; color: var(--muted); }.section { display: flex; flex-direction: column; }.section-head {display: flex; align-items: baseline; justify-content: space-between;gap: 1rem; margin-bottom: 1.5rem; padding-bottom: .85rem;border-bottom: 1px solid var(--line);}.section-head h2 {position: relative; padding-left: .85rem;font-size: .92rem; font-weight: 780; text-transform: uppercase;letter-spacing: .17em; color: var(--fg);}.section-head h2::before {content: ""; position: absolute; left: 0; top: 50%; transform: translateY(-50%);width: 3px; height: 1.05em; border-radius: 2px;background: linear-gradient(180deg, var(--accent-2), var(--accent));}.section-head .more { font-size: .88rem; font-weight: 600; color: var(--muted); white-space: nowrap; transition: .18s; }.section-head .more:hover { color: var(--accent); }.grid { display: grid; gap: 1.05rem; }.grid-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }.grid-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }.grid-4 { grid-template-columns: repeat(4, minmax(0, 1fr)); }.card {position: relative; overflow: hidden;background: var(--surface);border: 1px solid var(--line);border-radius: var(--radius);padding: 1.3rem 1.4rem;box-shadow: var(--shadow-xs);transition: transform .2s cubic-bezier(.2,.7,.3,1), box-shadow .2s, border-color .2s;display: block;}.card::after {content: ""; position: absolute; inset: 0 0 auto 0; height: 2px;background: linear-gradient(90deg, var(--accent-2), var(--accent) 55%, transparent);opacity: 0; transition: opacity .2s;}a.card:hover {transform: translateY(-3px);box-shadow: var(--shadow-md);border-color: var(--accent-line);}a.card:hover::after { opacity: 1; }.card .kicker {font-size: .7rem; font-weight: 780; letter-spacing: .12em;color: var(--accent); text-transform: uppercase;}.card h3 { margin-top: .55rem; font-size: 1.04rem; font-weight: 730; line-height: 1.4; letter-spacing: -.015em; }.card p { margin-top: .55rem; font-size: .875rem; line-height: 1.72; color: var(--muted); }.card .count { font-size: .78rem; font-weight: 600; color: var(--muted); }.rows {display: flex; flex-direction: column;background: var(--surface); border: 1px solid var(--line);border-radius: var(--radius); overflow: hidden;box-shadow: var(--shadow-xs);}.row {display: flex; align-items: baseline; gap: 1.1rem;padding: .82rem 1.15rem;transition: background .16s;border-bottom: 1px solid var(--line-2);position: relative;}.row:last-child { border-bottom: 0; }.row::before {content: ""; position: absolute; left: 0; top: 0; bottom: 0; width: 3px;background: var(--accent); transform: scaleY(0); transition: transform .18s;}.row:hover { background: var(--surface-2); }.row:hover::before { transform: scaleY(1); }.row .date {flex: 0 0 auto; width: 5.1rem; font-size: .82rem; font-weight: 600;font-variant-numeric: tabular-nums; color: var(--muted); letter-spacing: -.01em;}.row .title { flex: 1 1 auto; font-size: .97rem; font-weight: 550; line-height: 1.55; color: var(--fg-2); }.row:hover .title { color: var(--accent); font-weight: 620; }.row .tags { flex: 0 0 auto; display: flex; gap: .35rem; }.tag {font-size: .7rem; font-weight: 620; padding: .2rem .6rem; border-radius: 999px;background: var(--surface-2); border: 1px solid var(--line);color: var(--muted); white-space: nowrap;}.year-head { display: flex; align-items: center; gap: .9rem; margin: 1.9rem 0 .75rem; }.year-head:first-child { margin-top: 0; }.year-head .y { font-size: 1.3rem; font-weight: 830; letter-spacing: -.03em; }.year-head .n { font-size: .78rem; font-weight: 600; color: var(--muted); background: var(--surface-2); border: 1px solid var(--line); padding: .12rem .55rem; border-radius: 999px; }.year-head .line { flex: 1; height: 1px; background: linear-gradient(90deg, var(--line), transparent); }.post-wrap { max-width: 46rem; margin: 0 auto; width: 100%; }.post-head { margin-bottom: 2.25rem; padding-bottom: 1.6rem; border-bottom: 1px solid var(--line); }.post-head h1 { font-size: clamp(1.55rem, 4.4vw, 2.05rem); font-weight: 760; line-height: 1.32; letter-spacing: -.028em; }.post-meta { margin-top: 1rem; display: flex; flex-wrap: wrap; gap: .5rem 1rem; font-size: .84rem; color: var(--muted); align-items: center; font-weight: 550; }.post-meta .dot { opacity: .35; }.prose { color: var(--fg-2); font-size: 1.06rem; line-height: 1.9; letter-spacing: .008em; max-width: 68ch; }.prose p { margin: 1.5em 0; }.prose h1, .prose h2, .prose h3 { color: var(--fg); letter-spacing: -.018em; font-weight: 730; line-height: 1.4; }.prose h1 { font-size: 1.65rem; margin: 2.1em 0 .8em; }.prose h2 {font-size: 1.28rem; margin: 2.3em 0 .85em; padding-bottom: .5em;border-bottom: 1px solid var(--line);}.prose h3 {font-size: 1.03rem; margin: 2.2em 0 .7em;letter-spacing: .16em; color: var(--accent); font-weight: 780;}.prose strong { color: var(--fg); font-weight: 700; }.prose em { font-style: italic; }.prose a { color: var(--accent); text-decoration: underline; text-underline-offset: 3px; text-decoration-thickness: 1px; }.prose a:hover { opacity: .8; }.prose blockquote {border-left: 3px solid var(--accent);background: var(--accent-soft);color: var(--fg-2); border-radius: 0 10px 10px 0;margin: 1.9em 0; padding: 1.05em 1.35em; font-style: italic;}.prose blockquote p { margin: 0; }.prose ul { margin: 1.3em 0; list-style: none; }.prose ul > li { margin: .55em 0; padding-left: 1.35em; position: relative; }.prose ul > li::before { content: ""; position: absolute; left: .15em; top: .72em; width: 5px; height: 5px; border-radius: 50%; background: var(--accent); opacity: .6; }.prose ol { margin: 1.3em 0; padding-left: 1.5em; list-style: decimal; }.prose ol > li { margin: .55em 0; }.prose img { margin: 2em 0; box-shadow: var(--shadow-md); }.prose hr { margin: 2.6em 0; border-top: 1px solid var(--line); height: 0; }.post-foot {margin-top: 3.2rem; padding-top: 1.6rem; border-top: 1px solid var(--line);display: flex; align-items: center; justify-content: space-between;gap: 1rem; flex-wrap: wrap; font-size: .88rem; font-weight: 550; color: var(--muted);}.post-foot a:hover { color: var(--accent); }.pager { display: flex; gap: .8rem; flex-wrap: wrap; }.pager a {background: var(--surface); border: 1px solid var(--line); border-radius: 12px;padding: .65rem 1rem; max-width: 17rem; font-size: .86rem;transition: .18s; box-shadow: var(--shadow-xs); line-height: 1.45;}.pager a:hover { background: var(--surface-2); border-color: var(--accent-line); color: var(--accent); transform: translateY(-2px); }.pager .lbl { display: block; font-size: .7rem; font-weight: 650; color: var(--muted); margin-bottom: .2rem; letter-spacing: .04em; }.comments {margin-top: 3rem; border-top: 1px solid var(--line); padding-top: 1.6rem;}.comments-head {display: flex; align-items: baseline; justify-content: space-between;gap: 1rem; flex-wrap: wrap; margin-bottom: 1.15rem;}.comments-head h2 {position: relative; padding-left: .8rem;font-size: .82rem; font-weight: 780; text-transform: uppercase;letter-spacing: .17em; color: var(--fg);}.comments-head h2::before {content: ""; position: absolute; left: 0; top: 50%; transform: translateY(-50%);width: 3px; height: 1.05em; border-radius: 2px;background: linear-gradient(180deg, var(--accent-2), var(--accent));}.comments-head span { font-size: .76rem; color: var(--muted); }.comments-body {background: var(--surface-2);border: 1px solid var(--line);border-radius: var(--radius-sm);padding: 1.15rem 1.35rem;font-size: .95rem; line-height: 1.8; color: var(--muted);max-width: 68ch;}.comments-body p { margin: .75em 0; }.comments-body p:first-child { margin-top: 0; }.comments-body p:last-child { margin-bottom: 0; }.comments-body strong { color: var(--fg-2); font-weight: 650; }.comments-body a { color: var(--accent); text-decoration: underline; text-underline-offset: 3px; }.comments-body ul { margin: .9em 0; list-style: none; }.comments-body ul > li { margin: .4em 0; padding-left: 1.15em; position: relative; }.comments-body ul > li::before { content: ""; position: absolute; left: .1em; top: .7em; width: 4px; height: 4px; border-radius: 50%; background: var(--muted); opacity: .5; }.comments-body blockquote {border-left: 3px solid var(--line); margin: 1em 0; padding: .4em 1em;color: var(--muted); font-style: italic;}.toolbar {display: flex; flex-wrap: wrap; gap: .6rem; align-items: center;margin-bottom: 1.35rem;}.search {flex: 1 1 17rem; min-width: 12rem;display: flex; align-items: center; gap: .55rem;background: var(--surface); border: 1px solid var(--line);border-radius: 999px; padding: .58rem 1.05rem;color: var(--muted); transition: border-color .18s, box-shadow .18s;box-shadow: var(--shadow-xs);}.search:focus-within { border-color: var(--accent); box-shadow: 0 0 0 3px var(--accent-soft); }.search input { flex: 1; background: none; border: none; outline: none; color: var(--fg); font-size: .93rem; }.chip {font-size: .84rem; font-weight: 600; padding: .5rem 1rem; border-radius: 999px;background: var(--surface); border: 1px solid var(--line);color: var(--muted); transition: .18s; box-shadow: var(--shadow-xs);}.chip:hover { border-color: var(--accent-line); color: var(--accent); }.chip.on {background: linear-gradient(140deg, var(--accent-2), var(--accent));color: #fff; border-color: transparent;box-shadow: 0 5px 14px -5px var(--accent-line);}.empty-note { padding: 3rem 0; text-align: center; color: var(--muted); font-size: .93rem; }.faq { display: flex; flex-direction: column; gap: .6rem; }.faq details {background: var(--surface); border: 1px solid var(--line);border-radius: var(--radius-sm); padding: 1.05rem 1.3rem;transition: border-color .18s, box-shadow .18s; box-shadow: var(--shadow-xs);}.faq details[open] { border-color: var(--accent-line); box-shadow: var(--shadow-sm); }.faq summary {cursor: pointer; font-weight: 650; font-size: .96rem; list-style: none;display: flex; justify-content: space-between; gap: 1rem; align-items: center;}.faq summary::-webkit-details-marker { display: none; }.faq summary::after {content: "+"; color: var(--accent); font-weight: 500; font-size: 1.1rem;width: 1.4rem; height: 1.4rem; border-radius: 50%;display: flex; align-items: center; justify-content: center;background: var(--accent-soft); flex: 0 0 auto;}.faq details[open] summary::after { content: "−"; }.faq .ans { margin-top: .85rem; font-size: .91rem; line-height: 1.82; color: var(--muted); }.site-footer { border-top: 1px solid var(--line); background: color-mix(in srgb, var(--bg-2) 60%, transparent); }.footer-inner {max-width: var(--container); margin: 0 auto; padding: 2.75rem 1.5rem;display: flex; flex-wrap: wrap; gap: 1.5rem 2.5rem; justify-content: space-between;font-size: .85rem; color: var(--muted);}.footer-inner a:hover { color: var(--accent); }.footer-links { display: flex; flex-wrap: wrap; gap: .55rem 1.15rem; font-weight: 600; }.footer-links a { color: var(--fg-2); }.disclaimer { font-size: .78rem; color: var(--muted); line-height: 1.75; max-width: 35rem; opacity: .9; }@media (max-width: 900px) {.grid-4, .grid-3 { grid-template-columns: repeat(2, minmax(0, 1fr)); }.nav { display: none; }.nav.open {display: flex; flex-direction: column; align-items: stretch;position: absolute; left: 1rem; right: 1rem; top: 4.35rem;background: var(--surface); border: 1px solid var(--line);border-radius: var(--radius); padding: .5rem; box-shadow: var(--shadow-lg); gap: .1rem;}.nav.open a { padding: .72rem .9rem; }.menu-btn { display: flex; }.nav-tools { border: none; padding: 0; margin: 0; padding-top: .35rem; }}@media (max-width: 620px) {.container { gap: 2.6rem; padding: 1.9rem 1.15rem 4rem; }.grid-4, .grid-3, .grid-2 { grid-template-columns: 1fr; }.rows { border-radius: var(--radius-sm); }.row { flex-wrap: wrap; gap: .3rem .8rem; padding: .8rem 1rem; }.row .date { width: auto; }.row .title { flex-basis: 100%; }.hero .lead { font-size: 1rem; }.header-inner { padding: .75rem 1.15rem; }}
+</style>
+</head>
+<body>
+<header class="site-header">
+  <div class="header-inner">
+    <a class="brand" href="index.html">
+      <span class="brand-mark">玑</span>
+      <span class="brand-text"><b>金渐成文章整理</b><span>美股 · 港股 · 加密 · 黄金 · 楼市</span></span>
+    </a>
+    <nav class="nav" id="nav"><a href="all.html" class="active">公众号文章</a><a href="topics.html">文章主题</a><a href="notes.html">学习笔记</a><a href="portfolio.html">账户持仓</a><a href="timeline.html">投资时间线</a><a href="tools.html">工具箱</a><a href="booklist.html">书单</a><a href="about.html">关于</a>
+      <span class="nav-tools"><button class="icon-btn" id="themeBtn" title="切换主题" aria-label="切换主题">◐</button></span>
+    </nav>
+    <button class="icon-btn menu-btn" id="menuBtn" aria-label="菜单">☰</button>
+  </div>
+</header>
+<main>
+<div class="container">
+  <article class="post-wrap">
+    <div class="post-head">
+      <div class="crumb"><a href="index.html">首页</a><span class="sep">/</span><a href="all.html">公众号文章</a><span class="sep">/</span><a href="jinjiancheng.html">金渐成</a></div>
+      <h1>虚脱了</h1>
+      <div class="post-meta"><span>2023-08-13</span><span class="dot">·</span><span>金渐成</span><span class="dot">·</span><span>约 3 分钟读完</span></div>
+    </div>
+    <div class="prose">
+<p>开始话题吧。</p>
+<p>十年前，我母亲过世，那段时间我事业上也处于旧事业停歇，新事业未开启，前路迷惘的阶段。说得好听点，叫自我调整的阶段。停停走走，走走停停，期间一度在一个月内去了两趟“海天佛国”普陀山。</p>
+<p>那时的时间对我来说是没有意义的，所以每次行程都安排很宽松，在岛上一呆就是七八天。看着众人来来往往，忙着求菩萨庇佑，我想菩萨肯定很忙，所以就没添乱。</p>
+<p>营收状况，好家伙，处理的硬币都是以吨为单位，每年的营收都在大幅度递增。</p>
+<p>下午时分，我站在梵音洞前，看着众人虔诚朝拜，掏出一袋袋硬币、纸币抛向梵音洞的各个角落，下落的纸币被崖边的海风卷起，往天上飞。那一刻，我突然意识到：</p>
+<p>每个人的一生，要是把生活的每一个细节都摊开摆明了给你看，相当于一部无微不至的纪录片，你会发现正常的甚至别人看来精彩的生活中，其实满目疮痍，要花好大的力气去填补那些热闹之后的空洞。</p>
+<p>中偶尔有些许禅意，可能跟那段时间的经历有关。</p>
+<p>寺庙道观这类的，但2012年开始，根据规定，企业和个人已经不能承包寺庙。</p>
+<p>就捐了一笔善款。捐赠这事我很佛系，当时也没多想，想着能力范围内，捐赠就捐赠吧。</p>
+<p>这笔捐赠后一年，又需要其他的修缮款，需要的总修缮款对当时四处投资把钱用到极致的我来说，也不是能闭着眼睛随便给的小数目，后来需要的资金变成了部分股份。</p>
+<p>当时还和寺庙方聊过运营的事，建议后续一律不收门票，广纳人流之类的。近五年，这个“项目”活了，成了每年都能稳定给我带来一笔收益的“现金奶牛”。我就用这些收益，来做“天叙”这个助农项目，身心上得到了很大满足。</p>
+<p>... ...</p>
+<p>第二个是去年初，朋友送了只蓝金渐层给我，“211出身/生”。原本我对猫挺无感的，养了2个月，变成每天家人都会陪猫玩，给它整各种好吃的。有天小孩双手抱着胸独自走开，嘴里念叨着：“你们爱金不换，都不爱我了！”。</p>
+<p>咦，我们是这种人嘛？好像是有点上头噢。那段时间天天被关着，每天核酸不间断，很烦躁。</p>
+<p>想到疫情后，人在精神层面的应激反应、自我觉醒后需要有个宣泄口的心理慰籍，且叠加已经迫近的“单身经济”。我联系了一位初创猫粮猫零食品牌的学弟，几次通话后，我们约了上海解封后见面谈。去年6月，我在杭州跟他碰了个面。</p>
+<p>然后，我就成了他的股东之一。截至7月份，今年他的品牌销量已经比去年的总销量多150%，据悉，几个同行的竞品也都处于增长的状态，同比增长30-50%左右。</p>
+<p>此外，我还投了一个空间美学的项目、一个户外项目，前者目前处于不温不火的状态，后者目前增长还不错。</p>
+<p>今天带娃去山里的河流，套上游泳圈，抱到河里教他游泳，折腾了一下午，筋疲力尽，我整个人虚脱了，手脚到现在都是酸的。娃在回家的路上直接睡着，到现在还在睡，晚饭都没吃。</p>
+<p>这会，我看到有人说不能唱衰，要正能量。我挺正能量的，如果你觉得我的文章里有唱衰的成分，要么你是低智儿，要么你的理解能力有问题。</p>
+<p>别动不动想扣个唱衰xxx的帽子，只有无脑的低智儿才当回事，如果就靠喊能起作用，A股早就到5000点了。</p>
+<p>现在有些论调越来越搞笑，不敢评判，不敢说真话，大家都能理解，但你别去洗地板，别去歌功颂德，别去跪舔，这是做人的底线。当然，做狗的除外。</p>
+    </div>
+    <section class="comments">
+      <div class="comments-head"><h2>读者留言</h2><span>原文评论区内容，与正文分开呈现</span></div>
+      <div class="comments-body">
+<p>钱在兜里说啥都对[呲牙]</p>
+<p>口袋里没有钞票，敢挺着腰板干许家印、黄其森、杨国强？[吃瓜]</p>
+<p>看您连续写了几期创业的经历，深有感触，一来佩服您敏锐的商业嗅觉，大部分机会都能敏锐捕捉到；二来佩服您的纠错适应能力，每每发现不对都能及时调整；三来佩服您对大势的把握，大部分都能踏准时点。最佩服的其实还是您的真诚，虽然文风戏谑，但是非常能感觉到您是一位真诚不浮夸的人，不吹牛逼，有一说一，实事求是，难得[强]</p>
+<p>改天说说我踩坑的事和债务化解的事，你们就知道VC这行有多离谱了，什么人都能见到，光怪陆离。[捂脸][捂脸][捂脸]</p>
+<p>听说，有些搞创业的核心不是怎么做好项目，而是讲好故事，从vc那里搞钱[旺柴]</p>
+<p>这种几年前也很多，什么鬼怪都有</p>
+<p>我最佩服天机的是在2019年年底，地产整个行业还算可以的情况下，就一一预言，结果全部命中。是真的好牛👍</p>
+<p>只要财报挖得深，就能对房企知底又知根[偷笑]</p>
+<p>大机机，最近打算投资婚姻、心理咨询方面的生意，自己也去自学了，也能拉得出人来做这个。但对于地产这个主业总是有些意难平，也不知道还要不要纠结了…</p>
+<p>地产的未来，肉眼可见地在缩窄，未来是国企央企的天下，这一轮出清会持续很久，你不妨先把准备做的事当个副业，等副业稳定了再从地产抽身出来，转成主业来做。</p>
+<p>天生投资脑，不赚钱都难。</p>
+<p>没有什么是天生的，但可以通过后天的经历和阅历，建立自己的认知体系，对环境和细节的变化，保持敏感度，会比普通人容易发现一些机会点。</p>
+<p>真敢写，我是第一次留言，我等只敢私下发牢骚，您是温文尔雅落落大方的说，不管什么方面都很佩服，受教良多。以前在事业上走了很多歧途，然后因为做的是地产链相关，现在也算是回到从前。不过看了您的文章感觉很清爽，就像看到了一丝曙光一样。其实我也不知道现在怎么办，怎么重新开始，不知道卧倒离开一段时间是否有用还是就此沉沦。确实大家都渴望精神层面的露水。谢谢！</p>
+<p>始终觉得言论自由是我应该享有的，至于这个度，我会根据心目中的尺度来把握。如果它们不让说，那于是它们的事，我负责实话实说，它们爱发胶带就发吧，看淡一些，不然会很痛苦。先把心态放平，不要有太大的精神和心理负担，负担太重了，很难重新出发。至于物质层面，不妨也先降低一些，等光景好再夺回来</p>
+<p>谢谢您回复。我是普通人但也曾经胸怀激荡、壮志凌云，但人生有起落，我也没有您那样的奇缘和机遇，现在唯有自己不放弃自己，就像您说的要减负减压。但从来不会放弃梦想，熬了。很喜欢您的分享和分享的方式。</p>
+<p>加油，善待家人，多陪伴，困难时期往往家人才是你的后盾。</p>
+<p>原本应该在昨晚那篇文章里留言的，不过也无所谓啦，机哥就当我在瞎扯吧！最近跟朋友打算搞电商当作副业，聊到了营销方式的事情，问了周边一圈的朋友，得到的回复都是搞擦边直播才能获得流量，但我很抗拒这种行为。难道现在真的只能跪着赚钱？是不是道德、节操、诚信在当今社会一文不值？</p>
+<p>我始终觉得，真诚是最好的武器，擦边这种事，不长久，即便做起来了，也是短期的快钱，还不一定能守得住，创富很重要，但守富更重要。把流量弄进来后，要考虑做留量，也就是品牌化，做精细运营管理。</p>
+<p>佛祖比我们村委靠谱。老家村委书记说便民点有缺口，微信叫我们在外的捐款，不少人捐了，踏马德就把地面硬化了一下，说捐的款就是用来硬化地面的，那什么篮球场之类的不了了之，场地还给自己兄弟在收花菜！</p>
+<p>对于这种渣，我想把最好的祝福送给它：祝愿它兄弟的花菜长在它们的JJ上。</p>
+<p>尖锐湿疣和梅毒不好治疗，终生有痕[捂脸][捂脸][捂脸]</p>
+<p>那天又拜读郑振铎的《猫》，竟让我一三旬老汉看的泪眼婆娑 ，我家的猫活了12年 陪伴了我整个童年，那个时候家里很苦 日子却很甜 有很多想要的 想做的……</p>
+<p>我小时候养过一只猫，黑白相间的，会抓麻雀，把蛇当辣条，还有一只狗，每次生崽7-9只，猫狗的崽也经常干架，那段童年时光，一直印刻在我记忆深处，宛如梦境。人是会有精神寄托的，或人，或物，或经历。</p>
+<p>能量都是守恒的，看见的所谓正能量要么是有人默默付出，要么就是吸星大法。</p>
+<p>有人岁月静好的背后，是更多的人在负重前行。然而，岁月静好的人不承认。</p>
+<p>这语言咋这么像天机？</p>
+<p>你猜[旺柴]</p>
+<p>这怕是个新粉</p>
+<p>人口生育率下降，铲屎官大幅增长，毕竟空虚寂寞冷总得找个东西来填补。[破涕为笑]</p>
+<p>是这么个意思，但希望在养猫前，一定要有负责到底的责任心，不能半路遗弃，现在被遗弃的猫狗实在太多了。</p>
+<p>哎，说出了心声。。。不知道什么时候开始，能分享的人和能说的话越来越少，真不是我想丧，毕竟自己也在泰坦尼克号上，我只想说扎到土里当鸵鸟世界就美好了么？</p>
+<p>其实很多人都这样，只是大家不敢说，或者不想说而已。</p>
+<p>从你的友人天机开始一直关注，前两个月转行成功，从地产基层变成政府基层，放弃了以前对职场生活的幻想，追求一份看得到头的平稳，不知是好是坏，路一步步走吧</p>
+<p>你这样的生活，现在已经是很多人羡慕的。先保住现有的，等以后有机会了，再争取更好的。</p>
+<p>人生经历是一笔财富，只是很多人看到了成功的一面而忽略了蹲着扎根的时期。</p>
+<p>经历是最好的老师，阅历是构建认知体系最好的佐料，耐心、韧性是最难得的逆商品质。</p>
+<p>“我等忙忙碌碌，求得无非是两：一个果腹，一个心安”。若是两者之中，则是名利！看似平淡千语，实则一颗向善的心。佛渡有缘人[合十]</p>
+<p>佛渡不了我，我只能自渡。</p>
+<p>同感！佛渡众生，而我生唯有自渡。</p>
+<p>有些是不得不狗，既是业绩也是生活，有些就真的是傻狗</p>
+<p>别说，后者还挺多的，他们的认知配得上他们的苦难，咱们也没啥好说的，每个人过好自己的人生就行了，无暇他顾。</p>
+<p>投寺庙这事有点那个了</p>
+<p>这事是很多年前在相关部门的牵线下做的，股权不是我的本意。</p>
+<p>嗯，可以接触心理疗愈的，最近在做这个事 结合商业联盟一起做。让中小企业真正走出困境支持</p>
+<p>心理疗愈这方面接下去几年会很火，越来越卷的环境，压力越来越大的学生和年轻人，还有被压得喘不过气来的中年人。</p>
+<p>我去普陀山，也看到很多人捐钱。就是没办法像机哥那样顺手搜了一番普陀山的营收状况[捂脸]，差距就在这。</p>
+<p>我这个可能是职业习惯，经常会看人家财报和运营情况[捂脸]</p>
+<p>能聊聊真实感受的地方和人不多了，和狗聊天你要学着他的叫法，要不然觉得你不是自己人。有的时候骗自己很容易，但是想回头太难，为了眼前的狗粮拼命地叫只是为了让主人看到它的努力看家护院。大机机加油我一直觉得你是荷花，和那些白莲花不是一个段位，继续输出，你的输出对我的帮助我认真的思考然后提高就是最好的价值</p>
+<p>那肯定会不会学狗的叫法，拉低自己的身段，我直接一顿打狗棒伺候过去。</p>
+<p>善捐得善报，无心得有心</p>
+<p>无心插柳柳成荫，随缘吧，这方面我看得还是比较淡的，所有的投资、捐赠，都在自己能力范围内，风险也在承受范围内，有最好，没了就没了。</p>
+<p>投资寺庙是极好的，我有朋友是警察，每年要集体生活训练一个星期半个月，我就很向往这样完全放空的日子，寺庙嘛可以住里面一段时日，饮茶吃素…也是同样道理和效果…</p>
+<p>寺庙投资很难做，一是个人和企业不能承包寺庙，只能参股；二是投入大，运营时间和周期长，回报见效慢；三是要合规；四是要有人流，有效果，这个更多考验的是运营能力。</p>
+<p>看你文章，可能其中的某句话就给人心灵慰藉。大多数人都是摸爬滚打出社会的，佩服你这折腾劲[强]</p>
+<p>看得懂的，大多社会经历和阅历差不到哪去。看不懂的，可能还比较年轻，也没啥好说的了，继续经历吧</p>
+<p>我的猫刚离开我去了喵星，我再也不用买猫粮了…</p>
+<p>猫主人最难过的应该就是这一刻了[拥抱]，原来如果有留后代的话，你可以考虑给它个葬礼，然后注意力转移到后代上吧</p>
+      </div>
+    </section>
+    <div class="post-foot"><a href="jinjiancheng.html">← 返回金渐成文章列表</a><div class="pager"><a href="jinjiancheng-2023-08-14.html"><span class="lbl">← 更新一篇</span>碧桂园还有救吗</a><a href="jinjiancheng-2023-08-12.html"><span class="lbl">更早一篇 →</span>三次创业</a></div></div>
+  </article>
+</div>
+</main>
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div>
+      <div class="footer-links">
+        <a href="all.html">公众号文章</a>
+        <a href="topics.html">文章主题</a>
+        <a href="notes.html">学习笔记</a>
+        <a href="timeline.html">投资时间线</a>
+        <a href="about.html">关于</a>
+      </div>
+      <p class="disclaimer" style="margin-top:1rem">本站为个人阅读存档，收录金渐成 / 天机奇谈公开发表的公众号文章，便于按主题与时间线连续阅读。<br>内容仅供参考，<strong>不构成任何投资建议</strong>。投资有风险，决策需谨慎。</p>
+    </div>
+    <div>共 781 篇文章 · 静态存档<br><span style="opacity:.7">生成于 2026-10-09</span></div>
+  </div>
+</footer>
+<script>
+/* 金渐成文章整理 —— 交互脚本 */
+(function () {
+  'use strict';
+
+  /* ---- 主题切换 ---- */
+  var root = document.documentElement;
+  var saved = null;
+  try { saved = localStorage.getItem('jjc-theme'); } catch (e) {}
+  if (saved) root.setAttribute('data-theme', saved);
+
+  function currentIsDark() {
+    var t = root.getAttribute('data-theme');
+    if (t === 'dark') return true;
+    if (t === 'light') return false;
+    return window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+  }
+
+  var themeBtn = document.getElementById('themeBtn');
+  if (themeBtn) {
+    themeBtn.addEventListener('click', function () {
+      var next = currentIsDark() ? 'light' : 'dark';
+      root.setAttribute('data-theme', next);
+      try { localStorage.setItem('jjc-theme', next); } catch (e) {}
+    });
+  }
+
+  /* ---- 移动端菜单 ---- */
+  var menuBtn = document.getElementById('menuBtn');
+  var nav = document.getElementById('nav');
+  if (menuBtn && nav) {
+    menuBtn.addEventListener('click', function (e) {
+      e.stopPropagation();
+      nav.classList.toggle('open');
+    });
+    document.addEventListener('click', function (e) {
+      if (nav.classList.contains('open') && !nav.contains(e.target)) nav.classList.remove('open');
+    });
+  }
+
+  /* ---- 列表搜索 / 分栏筛选 ---- */
+  var q = document.getElementById('q');
+  var list = document.getElementById('list');
+  var empty = document.getElementById('empty');
+  if (q && list) {
+    var rows = Array.prototype.slice.call(list.querySelectorAll('.row'));
+    var rowsByChannel = rows.map(function (r) {
+      var tag = r.querySelector('.tag');
+      var txt = tag ? tag.textContent.trim() : '';
+      return txt === '金渐成' ? 'jinjiancheng' : (txt === '天机奇谈' ? 'tianjiqitan' : '');
+    });
+    var channel = 'all';
+    var chips = Array.prototype.slice.call(document.querySelectorAll('.chip[data-ch]'));
+
+    function apply() {
+      var kw = (q.value || '').trim().toLowerCase();
+      var shown = 0;
+      var yearHeads = Array.prototype.slice.call(list.querySelectorAll('.year-head'));
+      rows.forEach(function (r, i) {
+        var hay = r.textContent.toLowerCase();
+        var okKw = !kw || hay.indexOf(kw) !== -1;
+        var okCh = channel === 'all' || rowsByChannel[i] === channel;
+        var ok = okKw && okCh;
+        r.style.display = ok ? '' : 'none';
+        if (ok) shown++;
+      });
+      // 年份标题在筛选时整体隐藏，避免出现空年份
+      yearHeads.forEach(function (h) { h.style.display = (kw || channel !== 'all') ? 'none' : ''; });
+      if (empty) empty.style.display = shown === 0 ? '' : 'none';
+    }
+
+    q.addEventListener('input', apply);
+    chips.forEach(function (c) {
+      c.addEventListener('click', function () {
+        chips.forEach(function (x) { x.classList.remove('on'); });
+        c.classList.add('on');
+        channel = c.getAttribute('data-ch');
+        apply();
+      });
+    });
+  }
+})();
+
+</script>
+</body>
+</html>

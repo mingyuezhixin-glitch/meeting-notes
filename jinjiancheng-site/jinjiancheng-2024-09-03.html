@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>思路打开了 · 金渐成</title>
+<meta name="description" content="金渐成 2024-09-03 思路打开了">
+<link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2064%2064'%3E%3Crect%20width='64'%20height='64'%20rx='16'%20fill='%23b45309'/%3E%3Ctext%20x='32'%20y='45'%20font-size='38'%20font-family='sans-serif'%20font-weight='700'%20fill='%23fff'%20text-anchor='middle'%3E%E7%8E%91%3C/text%3E%3C/svg%3E">
+<style>
+:root {--bg: #faf9f6;--bg-2: #f2efe9;--surface: #ffffff;--surface-2: #f6f4ef;--fg: #171614;--fg-2: #3d3a35;--muted: #7a7570;--line: #e7e3da;--line-2: #f0ece4;--accent: #b45309;--accent-2: #d98218;--accent-soft: rgba(180, 83, 9, .09);--accent-line: rgba(180, 83, 9, .22);--on-accent: #ffffff;--shadow-xs: 0 1px 2px rgba(23, 22, 20, .05);--shadow-sm: 0 1px 3px rgba(23, 22, 20, .06), 0 1px 2px rgba(23, 22, 20, .04);--shadow-md: 0 8px 24px -6px rgba(23, 22, 20, .10), 0 2px 6px rgba(23, 22, 20, .05);--shadow-lg: 0 20px 48px -12px rgba(23, 22, 20, .16);--radius: 18px;--radius-sm: 12px;--container: 68rem;}@media (prefers-color-scheme: dark) {:root:not([data-theme="light"]) {--bg: #0f0f10;--bg-2: #16161a;--surface: #17171b;--surface-2: #1d1d22;--fg: #f2f0ec;--fg-2: #d4d1cb;--muted: #918d87;--line: #29292f;--line-2: #212127;--accent: #f0972a;--accent-2: #f5b400;--accent-soft: rgba(240, 151, 42, .12);--accent-line: rgba(240, 151, 42, .3);--on-accent: #17120a;--shadow-xs: 0 1px 2px rgba(0, 0, 0, .45);--shadow-sm: 0 1px 3px rgba(0, 0, 0, .5);--shadow-md: 0 8px 24px -6px rgba(0, 0, 0, .6);--shadow-lg: 0 20px 48px -12px rgba(0, 0, 0, .7);}}html[data-theme="dark"] {--bg: #0f0f10; --bg-2: #16161a; --surface: #17171b; --surface-2: #1d1d22;--fg: #f2f0ec; --fg-2: #d4d1cb; --muted: #918d87; --line: #29292f; --line-2: #212127;--accent: #f0972a; --accent-2: #f5b400;--accent-soft: rgba(240, 151, 42, .12); --accent-line: rgba(240, 151, 42, .3);--on-accent: #17120a;--shadow-xs: 0 1px 2px rgba(0, 0, 0, .45);--shadow-sm: 0 1px 3px rgba(0, 0, 0, .5);--shadow-md: 0 8px 24px -6px rgba(0, 0, 0, .6);--shadow-lg: 0 20px 48px -12px rgba(0, 0, 0, .7);}* { box-sizing: border-box; margin: 0; padding: 0; border: 0 solid var(--line); }html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }body {background: var(--bg);background-image:radial-gradient(60rem 32rem at 12% -8%, var(--accent-soft), transparent 62%),radial-gradient(48rem 28rem at 92% 2%, rgba(217, 130, 24, .06), transparent 60%);background-repeat: no-repeat;background-attachment: fixed;color: var(--fg);font-family: Inter, -apple-system, BlinkMacSystemFont, "PingFang SC", "Hiragino Sans GB","Microsoft YaHei", "Helvetica Neue", Helvetica, Arial, sans-serif;-webkit-font-smoothing: antialiased;-moz-osx-font-smoothing: grayscale;line-height: 1.6;min-height: 100vh;display: flex;flex-direction: column;}a { color: inherit; text-decoration: none; }img { max-width: 100%; height: auto; display: block; border-radius: 10px; }button { font: inherit; color: inherit; background: none; cursor: pointer; }::selection { background: var(--accent-soft); }.site-header {position: sticky; top: 0; z-index: 50;background: color-mix(in srgb, var(--bg) 82%, transparent);backdrop-filter: saturate(180%) blur(14px);-webkit-backdrop-filter: saturate(180%) blur(14px);border-bottom: 1px solid var(--line);}.header-inner {max-width: var(--container); margin: 0 auto;padding: .85rem 1.5rem;display: flex; align-items: center; justify-content: space-between; gap: 1rem;}.brand { display: flex; align-items: center; gap: .7rem; transition: opacity .2s; flex: 0 0 auto; }.brand:hover { opacity: .82; }.brand-mark {width: 2.3rem; height: 2.3rem; border-radius: 12px; flex: 0 0 auto;background: linear-gradient(140deg, var(--accent-2), var(--accent) 70%);color: #fff; font-weight: 800; font-size: 1.08rem;display: flex; align-items: center; justify-content: center;box-shadow: 0 4px 12px -2px var(--accent-line), inset 0 1px 0 rgba(255,255,255,.28);}.brand-text { display: flex; flex-direction: column; line-height: 1.2; }.brand-text b { font-size: 1rem; font-weight: 750; letter-spacing: -.015em; }.brand-text span { font-size: .68rem; color: var(--muted); letter-spacing: .1em; margin-top: .1rem; }.nav { display: flex; align-items: center; gap: .15rem; font-size: .9rem; font-weight: 550; }.nav a {padding: .48rem .78rem; border-radius: 9px; color: var(--muted);transition: color .18s, background .18s; white-space: nowrap;}.nav a:hover { color: var(--fg); background: var(--surface-2); }.nav a.active { color: var(--accent); background: var(--accent-soft); font-weight: 700; }.nav-tools { display: flex; align-items: center; gap: .3rem; padding-left: .5rem; margin-left: .35rem; border-left: 1px solid var(--line); }.icon-btn {width: 2.1rem; height: 2.1rem; border-radius: 9px; color: var(--muted);display: flex; align-items: center; justify-content: center;transition: .18s; font-size: 1rem;}.icon-btn:hover { color: var(--accent); background: var(--accent-soft); }.menu-btn { display: none; }main { flex: 1; }.container {max-width: var(--container); margin: 0 auto;padding: 3rem 1.5rem 5.5rem;display: flex; flex-direction: column; gap: 3.75rem;}.hero { margin-bottom: 0; }.crumb {display: flex; flex-wrap: wrap; align-items: center; gap: .45rem;font-size: .85rem; font-weight: 550; color: var(--muted); margin-bottom: 1.1rem;}.crumb a:hover { color: var(--accent); }.crumb .sep { opacity: .35; }.hero h1 {font-size: clamp(2.1rem, 5.6vw, 3.15rem);font-weight: 830; line-height: 1.08; letter-spacing: -.035em;background: linear-gradient(180deg, var(--fg) 62%, color-mix(in srgb, var(--fg) 62%, var(--accent)));-webkit-background-clip: text; background-clip: text;-webkit-text-fill-color: transparent;}.hero .lead {margin-top: 1.35rem; max-width: 44rem;font-size: 1.06rem; line-height: 1.85; color: var(--muted);}.hero .lead strong { color: var(--fg); font-weight: 750; }.hero-actions { margin-top: 1.9rem; display: flex; flex-wrap: wrap; gap: .7rem; }.btn {padding: .72rem 1.55rem; border-radius: 999px;font-weight: 600; font-size: .95rem;transition: transform .18s, box-shadow .18s, background .18s, border-color .18s, color .18s;display: inline-flex; align-items: center; gap: .45rem;}.btn-primary {background: linear-gradient(140deg, var(--accent-2), var(--accent));color: #fff;box-shadow: 0 6px 18px -6px var(--accent-line), inset 0 1px 0 rgba(255,255,255,.22);}.btn-primary:hover { transform: translateY(-2px); box-shadow: 0 12px 26px -8px var(--accent-line); }.btn-ghost { border: 1px solid var(--line); background: var(--surface); color: var(--fg-2); }.btn-ghost:hover { background: var(--surface-2); border-color: var(--accent-line); color: var(--accent); }.stats { margin-top: 1.9rem; display: flex; flex-wrap: wrap; gap: .6rem; }.stat {display: flex; align-items: baseline; gap: .4rem;background: var(--surface); border: 1px solid var(--line);border-radius: 999px; padding: .42rem 1rem;box-shadow: var(--shadow-xs);}.stat b { font-size: 1rem; font-weight: 780; letter-spacing: -.02em; color: var(--fg); font-variant-numeric: tabular-nums; }.stat span { font-size: .8rem; color: var(--muted); }.section { display: flex; flex-direction: column; }.section-head {display: flex; align-items: baseline; justify-content: space-between;gap: 1rem; margin-bottom: 1.5rem; padding-bottom: .85rem;border-bottom: 1px solid var(--line);}.section-head h2 {position: relative; padding-left: .85rem;font-size: .92rem; font-weight: 780; text-transform: uppercase;letter-spacing: .17em; color: var(--fg);}.section-head h2::before {content: ""; position: absolute; left: 0; top: 50%; transform: translateY(-50%);width: 3px; height: 1.05em; border-radius: 2px;background: linear-gradient(180deg, var(--accent-2), var(--accent));}.section-head .more { font-size: .88rem; font-weight: 600; color: var(--muted); white-space: nowrap; transition: .18s; }.section-head .more:hover { color: var(--accent); }.grid { display: grid; gap: 1.05rem; }.grid-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }.grid-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }.grid-4 { grid-template-columns: repeat(4, minmax(0, 1fr)); }.card {position: relative; overflow: hidden;background: var(--surface);border: 1px solid var(--line);border-radius: var(--radius);padding: 1.3rem 1.4rem;box-shadow: var(--shadow-xs);transition: transform .2s cubic-bezier(.2,.7,.3,1), box-shadow .2s, border-color .2s;display: block;}.card::after {content: ""; position: absolute; inset: 0 0 auto 0; height: 2px;background: linear-gradient(90deg, var(--accent-2), var(--accent) 55%, transparent);opacity: 0; transition: opacity .2s;}a.card:hover {transform: translateY(-3px);box-shadow: var(--shadow-md);border-color: var(--accent-line);}a.card:hover::after { opacity: 1; }.card .kicker {font-size: .7rem; font-weight: 780; letter-spacing: .12em;color: var(--accent); text-transform: uppercase;}.card h3 { margin-top: .55rem; font-size: 1.04rem; font-weight: 730; line-height: 1.4; letter-spacing: -.015em; }.card p { margin-top: .55rem; font-size: .875rem; line-height: 1.72; color: var(--muted); }.card .count { font-size: .78rem; font-weight: 600; color: var(--muted); }.rows {display: flex; flex-direction: column;background: var(--surface); border: 1px solid var(--line);border-radius: var(--radius); overflow: hidden;box-shadow: var(--shadow-xs);}.row {display: flex; align-items: baseline; gap: 1.1rem;padding: .82rem 1.15rem;transition: background .16s;border-bottom: 1px solid var(--line-2);position: relative;}.row:last-child { border-bottom: 0; }.row::before {content: ""; position: absolute; left: 0; top: 0; bottom: 0; width: 3px;background: var(--accent); transform: scaleY(0); transition: transform .18s;}.row:hover { background: var(--surface-2); }.row:hover::before { transform: scaleY(1); }.row .date {flex: 0 0 auto; width: 5.1rem; font-size: .82rem; font-weight: 600;font-variant-numeric: tabular-nums; color: var(--muted); letter-spacing: -.01em;}.row .title { flex: 1 1 auto; font-size: .97rem; font-weight: 550; line-height: 1.55; color: var(--fg-2); }.row:hover .title { color: var(--accent); font-weight: 620; }.row .tags { flex: 0 0 auto; display: flex; gap: .35rem; }.tag {font-size: .7rem; font-weight: 620; padding: .2rem .6rem; border-radius: 999px;background: var(--surface-2); border: 1px solid var(--line);color: var(--muted); white-space: nowrap;}.year-head { display: flex; align-items: center; gap: .9rem; margin: 1.9rem 0 .75rem; }.year-head:first-child { margin-top: 0; }.year-head .y { font-size: 1.3rem; font-weight: 830; letter-spacing: -.03em; }.year-head .n { font-size: .78rem; font-weight: 600; color: var(--muted); background: var(--surface-2); border: 1px solid var(--line); padding: .12rem .55rem; border-radius: 999px; }.year-head .line { flex: 1; height: 1px; background: linear-gradient(90deg, var(--line), transparent); }.post-wrap { max-width: 46rem; margin: 0 auto; width: 100%; }.post-head { margin-bottom: 2.25rem; padding-bottom: 1.6rem; border-bottom: 1px solid var(--line); }.post-head h1 { font-size: clamp(1.55rem, 4.4vw, 2.05rem); font-weight: 760; line-height: 1.32; letter-spacing: -.028em; }.post-meta { margin-top: 1rem; display: flex; flex-wrap: wrap; gap: .5rem 1rem; font-size: .84rem; color: var(--muted); align-items: center; font-weight: 550; }.post-meta .dot { opacity: .35; }.prose { color: var(--fg-2); font-size: 1.06rem; line-height: 1.9; letter-spacing: .008em; max-width: 68ch; }.prose p { margin: 1.5em 0; }.prose h1, .prose h2, .prose h3 { color: var(--fg); letter-spacing: -.018em; font-weight: 730; line-height: 1.4; }.prose h1 { font-size: 1.65rem; margin: 2.1em 0 .8em; }.prose h2 {font-size: 1.28rem; margin: 2.3em 0 .85em; padding-bottom: .5em;border-bottom: 1px solid var(--line);}.prose h3 {font-size: 1.03rem; margin: 2.2em 0 .7em;letter-spacing: .16em; color: var(--accent); font-weight: 780;}.prose strong { color: var(--fg); font-weight: 700; }.prose em { font-style: italic; }.prose a { color: var(--accent); text-decoration: underline; text-underline-offset: 3px; text-decoration-thickness: 1px; }.prose a:hover { opacity: .8; }.prose blockquote {border-left: 3px solid var(--accent);background: var(--accent-soft);color: var(--fg-2); border-radius: 0 10px 10px 0;margin: 1.9em 0; padding: 1.05em 1.35em; font-style: italic;}.prose blockquote p { margin: 0; }.prose ul { margin: 1.3em 0; list-style: none; }.prose ul > li { margin: .55em 0; padding-left: 1.35em; position: relative; }.prose ul > li::before { content: ""; position: absolute; left: .15em; top: .72em; width: 5px; height: 5px; border-radius: 50%; background: var(--accent); opacity: .6; }.prose ol { margin: 1.3em 0; padding-left: 1.5em; list-style: decimal; }.prose ol > li { margin: .55em 0; }.prose img { margin: 2em 0; box-shadow: var(--shadow-md); }.prose hr { margin: 2.6em 0; border-top: 1px solid var(--line); height: 0; }.post-foot {margin-top: 3.2rem; padding-top: 1.6rem; border-top: 1px solid var(--line);display: flex; align-items: center; justify-content: space-between;gap: 1rem; flex-wrap: wrap; font-size: .88rem; font-weight: 550; color: var(--muted);}.post-foot a:hover { color: var(--accent); }.pager { display: flex; gap: .8rem; flex-wrap: wrap; }.pager a {background: var(--surface); border: 1px solid var(--line); border-radius: 12px;padding: .65rem 1rem; max-width: 17rem; font-size: .86rem;transition: .18s; box-shadow: var(--shadow-xs); line-height: 1.45;}.pager a:hover { background: var(--surface-2); border-color: var(--accent-line); color: var(--accent); transform: translateY(-2px); }.pager .lbl { display: block; font-size: .7rem; font-weight: 650; color: var(--muted); margin-bottom: .2rem; letter-spacing: .04em; }.comments {margin-top: 3rem; border-top: 1px solid var(--line); padding-top: 1.6rem;}.comments-head {display: flex; align-items: baseline; justify-content: space-between;gap: 1rem; flex-wrap: wrap; margin-bottom: 1.15rem;}.comments-head h2 {position: relative; padding-left: .8rem;font-size: .82rem; font-weight: 780; text-transform: uppercase;letter-spacing: .17em; color: var(--fg);}.comments-head h2::before {content: ""; position: absolute; left: 0; top: 50%; transform: translateY(-50%);width: 3px; height: 1.05em; border-radius: 2px;background: linear-gradient(180deg, var(--accent-2), var(--accent));}.comments-head span { font-size: .76rem; color: var(--muted); }.comments-body {background: var(--surface-2);border: 1px solid var(--line);border-radius: var(--radius-sm);padding: 1.15rem 1.35rem;font-size: .95rem; line-height: 1.8; color: var(--muted);max-width: 68ch;}.comments-body p { margin: .75em 0; }.comments-body p:first-child { margin-top: 0; }.comments-body p:last-child { margin-bottom: 0; }.comments-body strong { color: var(--fg-2); font-weight: 650; }.comments-body a { color: var(--accent); text-decoration: underline; text-underline-offset: 3px; }.comments-body ul { margin: .9em 0; list-style: none; }.comments-body ul > li { margin: .4em 0; padding-left: 1.15em; position: relative; }.comments-body ul > li::before { content: ""; position: absolute; left: .1em; top: .7em; width: 4px; height: 4px; border-radius: 50%; background: var(--muted); opacity: .5; }.comments-body blockquote {border-left: 3px solid var(--line); margin: 1em 0; padding: .4em 1em;color: var(--muted); font-style: italic;}.toolbar {display: flex; flex-wrap: wrap; gap: .6rem; align-items: center;margin-bottom: 1.35rem;}.search {flex: 1 1 17rem; min-width: 12rem;display: flex; align-items: center; gap: .55rem;background: var(--surface); border: 1px solid var(--line);border-radius: 999px; padding: .58rem 1.05rem;color: var(--muted); transition: border-color .18s, box-shadow .18s;box-shadow: var(--shadow-xs);}.search:focus-within { border-color: var(--accent); box-shadow: 0 0 0 3px var(--accent-soft); }.search input { flex: 1; background: none; border: none; outline: none; color: var(--fg); font-size: .93rem; }.chip {font-size: .84rem; font-weight: 600; padding: .5rem 1rem; border-radius: 999px;background: var(--surface); border: 1px solid var(--line);color: var(--muted); transition: .18s; box-shadow: var(--shadow-xs);}.chip:hover { border-color: var(--accent-line); color: var(--accent); }.chip.on {background: linear-gradient(140deg, var(--accent-2), var(--accent));color: #fff; border-color: transparent;box-shadow: 0 5px 14px -5px var(--accent-line);}.empty-note { padding: 3rem 0; text-align: center; color: var(--muted); font-size: .93rem; }.faq { display: flex; flex-direction: column; gap: .6rem; }.faq details {background: var(--surface); border: 1px solid var(--line);border-radius: var(--radius-sm); padding: 1.05rem 1.3rem;transition: border-color .18s, box-shadow .18s; box-shadow: var(--shadow-xs);}.faq details[open] { border-color: var(--accent-line); box-shadow: var(--shadow-sm); }.faq summary {cursor: pointer; font-weight: 650; font-size: .96rem; list-style: none;display: flex; justify-content: space-between; gap: 1rem; align-items: center;}.faq summary::-webkit-details-marker { display: none; }.faq summary::after {content: "+"; color: var(--accent); font-weight: 500; font-size: 1.1rem;width: 1.4rem; height: 1.4rem; border-radius: 50%;display: flex; align-items: center; justify-content: center;background: var(--accent-soft); flex: 0 0 auto;}.faq details[open] summary::after { content: "−"; }.faq .ans { margin-top: .85rem; font-size: .91rem; line-height: 1.82; color: var(--muted); }.site-footer { border-top: 1px solid var(--line); background: color-mix(in srgb, var(--bg-2) 60%, transparent); }.footer-inner {max-width: var(--container); margin: 0 auto; padding: 2.75rem 1.5rem;display: flex; flex-wrap: wrap; gap: 1.5rem 2.5rem; justify-content: space-between;font-size: .85rem; color: var(--muted);}.footer-inner a:hover { color: var(--accent); }.footer-links { display: flex; flex-wrap: wrap; gap: .55rem 1.15rem; font-weight: 600; }.footer-links a { color: var(--fg-2); }.disclaimer { font-size: .78rem; color: var(--muted); line-height: 1.75; max-width: 35rem; opacity: .9; }@media (max-width: 900px) {.grid-4, .grid-3 { grid-template-columns: repeat(2, minmax(0, 1fr)); }.nav { display: none; }.nav.open {display: flex; flex-direction: column; align-items: stretch;position: absolute; left: 1rem; right: 1rem; top: 4.35rem;background: var(--surface); border: 1px solid var(--line);border-radius: var(--radius); padding: .5rem; box-shadow: var(--shadow-lg); gap: .1rem;}.nav.open a { padding: .72rem .9rem; }.menu-btn { display: flex; }.nav-tools { border: none; padding: 0; margin: 0; padding-top: .35rem; }}@media (max-width: 620px) {.container { gap: 2.6rem; padding: 1.9rem 1.15rem 4rem; }.grid-4, .grid-3, .grid-2 { grid-template-columns: 1fr; }.rows { border-radius: var(--radius-sm); }.row { flex-wrap: wrap; gap: .3rem .8rem; padding: .8rem 1rem; }.row .date { width: auto; }.row .title { flex-basis: 100%; }.hero .lead { font-size: 1rem; }.header-inner { padding: .75rem 1.15rem; }}
+</style>
+</head>
+<body>
+<header class="site-header">
+  <div class="header-inner">
+    <a class="brand" href="index.html">
+      <span class="brand-mark">玑</span>
+      <span class="brand-text"><b>金渐成文章整理</b><span>美股 · 港股 · 加密 · 黄金 · 楼市</span></span>
+    </a>
+    <nav class="nav" id="nav"><a href="all.html" class="active">公众号文章</a><a href="topics.html">文章主题</a><a href="notes.html">学习笔记</a><a href="portfolio.html">账户持仓</a><a href="timeline.html">投资时间线</a><a href="tools.html">工具箱</a><a href="booklist.html">书单</a><a href="about.html">关于</a>
+      <span class="nav-tools"><button class="icon-btn" id="themeBtn" title="切换主题" aria-label="切换主题">◐</button></span>
+    </nav>
+    <button class="icon-btn menu-btn" id="menuBtn" aria-label="菜单">☰</button>
+  </div>
+</header>
+<main>
+<div class="container">
+  <article class="post-wrap">
+    <div class="post-head">
+      <div class="crumb"><a href="index.html">首页</a><span class="sep">/</span><a href="all.html">公众号文章</a><span class="sep">/</span><a href="jinjiancheng.html">金渐成</a></div>
+      <h1>思路打开了</h1>
+      <div class="post-meta"><span>2024-09-03</span><span class="dot">·</span><span>金渐成</span><span class="dot">·</span><span>约 4 分钟读完</span></div>
+    </div>
+    <div class="prose">
+<p>这两天娃陆续都去上学了。</p>
+<p>昨天我去接小儿子放学，被他班主任逮着就是一通猛夸。</p>
+<p>大意就是上课专注力强、社交强、记忆力好、脑袋瓜子转得快、自信等等，几位学科老师都在办公室讨论他，诸如此类的。</p>
+<p>有点吃不消这个，让我媳妇顶上去跟班主任聊，我溜之大吉。</p>
+<p>去上学的前一天，我们在吃饭时，举杯恭喜他正式从“幼儿园的小朋友”，跨越到小学的“同学”这一身份上的转变。</p>
+<p>然后跟他说到新的学校:去享受学习过程、去交新的朋友、去适应新的平台，以及不给老师和同学添麻烦。</p>
+<p>从三岁的学前班开始，我们就跟他谈好，每个人有自己的工作要做，爸妈的工作是去上班，他也知道自己的“工作”是去上学。</p>
+<p>相比家里，他似乎更喜欢去学校，看到谁都会打招呼，连门口的保安叔叔都不例外，每天都很开心去上学。</p>
+<p>在送他去上学时，就跟他约好去接他的具体时间。接他时提前5-10分钟到，等接到了，在言语上给他做心理按摩，让他有“爸爸妈妈说到做到了”的安全感。</p>
+<p>一周左右时间，他就已经没有任何分离焦虑，满满的安全感。</p>
+<p>后来一直延续下来，直到如今入小学。几年过程中偶尔会迟到去接他，但会跟他道个歉，然后详细说明是什么原因导致迟到的，他总是很开心地“原谅”了我们。</p>
+<p>三个小孩，我都是这么带过来的，效果也都挺不错的。</p>
+<p>跟他们的相处，总结大概是四个字:信任和尊重。很少命令式地用家长身份去压他们。</p>
+<p>结果是他们最爱我的同时，也最怕我。</p>
+<p>我鼓励他们，要勤奋地思考与行动。很多知识原本就是空的，除非把它付诸实践，实践出真知。</p>
+<p>大儿子最近一年从我手上接手走了属于他自己的账户，投资做得不错，分析得也很有道理。</p>
+<p>比如他做美元定存，比例比较低，而且3-6个月的短期为主。</p>
+<p>理由是方便需要时调配，而且美元定存后续的挑战，是美联储降息后，收益随之降低，越来越低。</p>
+<p>美债的话，他也是以短债为主，计划年底降低美债占比，并在近期增加港险的占比。</p>
+<p>理由是美债的收益，会随着美联储的降息被释放并稀释，因此需要增加港险等这类资产大厦“阻尼器”的配置，来让资产体量波动小，达到稳中有增的效果。</p>
+<p>美股和港股的配置，也是微软、苹果和腾讯等这类老牌科技巨头为主。他整体的配置以稳健为主。</p>
+<p>一年下来，嗯，思考得不错，行动不错，知识和实践结合得不错，效果也不错，整体可以给他评个90分+。</p>
+<p>接下来几年，老二和老三，也会经历这个从知识到实践结合的过程。</p>
+<p>前天，我在给他们做总结时，大儿子颇为感慨:知识和实践结合太重要了，知道和做到还是很不一样的。</p>
+<p>那是，单纯书上的知识和实践得出的知识（知识和实践的结合），这其中的差距，是吹牛逼和真牛逼之间的差距。</p>
+<p>比如书上知识形容一款武器厉害，就是列举各种数据，然后吹上天；实践得出的，是根据实战得出的结论总结去研发和改进。</p>
+<p>一个是理论上，一个是实践上，完全不一样。</p>
+<p>典型的，如大鹅吹上天的世界前列武器，被乌克兰拿着美制的近半个世纪前的阉割版武器打成了筛子。</p>
+<p>前者武器的厉害，更多停留在理论和概念层面；后者武器的厉害，诞生于实战中，经过实战检验。</p>
+<p>三个孩子去年在看世界地图时，说想去几个地方看看，看和书本上介绍的有什么不一样。</p>
+<p>于是我们开始计划一年内去哪些地方，然后今年出去几个国家走了近五个月。</p>
+<p>在他们心中，我一直都是说到做到、言出必行的人，无论大小事，都没有放过他们鸽子。</p>
+<p>所以很多时候，我跟他们沟通问题，没什么障碍，说话比较管用。</p>
+<p>他们也会跟我分享一些自己对一些事的看法和见解。</p>
+<p>比如去年初，大儿子他说班上的同学好些在挺俄，但他觉得，俄才是个坏东西:</p>
+<p>占领我们最多领土的就是它；各种搞小动作，一直掣肘我们；普公然撒谎，14年接受世界主流媒体说到期准备退休，结果食言……</p>
+<p>他认为，可以趁机吃掉广袤的西伯利亚。自己吃不下，可以联合几大强国一起吃，彻底拿回之前被侵占的领土等。</p>
+<p>这样一来，和主要发达国家搞好关系的同时，还能解决自身资源问题、战略纵深和出海口等问题。</p>
+<p>听完觉得，有点意思，有自己的想法，虽然有些稚嫩，但思路打开了。有人还不如小孩，只会杠</p>
+<p>对于他们，我更多是鼓励他们有自己的看法，保持自己的见解和创造性，这样对以后走向世界、融入世界会有大的帮助。</p>
+<p>今天到杭州办点事，下午要赶回上海。在高铁上，就先写到这。</p>
+<p>杭州的夏天是真热:夏天拉屎，用十张纸；九张擦汗，一张擦屎。</p>
+<p>就这样吧。</p>
+    </div>
+    <section class="comments">
+      <div class="comments-head"><h2>读者留言</h2><span>原文评论区内容，与正文分开呈现</span></div>
+      <div class="comments-body">
+<p>远交近攻。离的越近，越危险。从古至今，概莫能外。</p>
+<p>这个道理放在人际关系中也一样:只有身边人才最有机会捅刀子。</p>
+<p>这思路，想得很美好</p>
+<p>12周岁，你还能要求啥呢？鼓励他多思考才是最重要的，而不是否定。</p>
+<p>怕不是一大半的成年人都想不出来。所以小孩子的各种想法确实应该多鼓励去表达，对错不重要。</p>
+<p>我觉得12岁的孩子能有这样见解非常不错。对各国家的地理、历史以及当代的国际形势判断都比较准确。</p>
+<p>对于很调皮的小孩怎么调教，教训了几次，每次都后悔。[捂脸]</p>
+<p>引导，夸他优秀的地方，引导他往好的方向，然后让他学会同理心和换位思考，改掉或弱化缺点。平时也要给他创造释放体力和精力的活动空间。</p>
+<p>我觉得你大儿子的知识面和见解已经秒杀我这个中年人了</p>
+<p>他刚好出生在我事业上升期，所以从小带在身边，见识和经历会多一些，就是还需要历练和成长，我经常跟他讨论公司的事，他还不错。</p>
+<p>你自己有立场的，就是反俄</p>
+<p>不然还要支持吞并咱们诸多领土的不成？用正常的思路来想想，挺俄就是卖国贼。</p>
+<p>现在反俄就类似于二战反日[呲牙]</p>
+<p>机哥，小散户在美联储降息前还适合换美元？是不是等降以后再操作呀</p>
+<p>降息前后，美元为了输出，会相对弱势，人民币汇率会在这段时间拉升。往后，就要看我们国内经济的基本面了。</p>
+<p>机哥的育儿经验又学到了对小朋友在学到不好的习惯 比如骂人啥的 机哥怎么处理呀</p>
+<p>你也骂他一顿，然后问他感觉怎么样？如果你同学也这么骂你，你会是什么感受？让他学会换位思考，同理心。</p>
+<p>今天出去5个月？娃不用上学的吗[破涕为笑]</p>
+<p>没事，学校能教的就那些，娃自己早就学完了。</p>
+<p>学校学的，机哥是怎么做到让他早就学完的，请教</p>
+<p>他自学的，遇到不懂的会跑来问</p>
+<p>机哥，这个理念真不错。 跟他们的相处，总结大概是四个字:信任和尊重。很少命令式地用家长身份去压他们。</p>
+<p>我父母也差不多是这也对我们的，我有样学样[破涕为笑]</p>
+<p>再次学习育儿经验和在杭州拉屎经验[便便]</p>
+<p>我先来武夷山吃盘炒河螺，再去杭州受罪，不然杭州感觉啥可吃的也就算了，还热得要死[捂脸]</p>
+<p>吃西湖醋鱼不？</p>
+<p>杭州美食荒漠[脸红]</p>
+<p>那种本地人都不吃的，我傻了才吃[捂脸]</p>
+<p>本地人真的不吃西湖醋鱼。龙井虾仁和东坡肉会偶尔吃。</p>
+<p>我问我闺女第一天上小学咋样，她说小学的鸡腿可好吃了，要给我带，哈哈哈哈</p>
+<p>哈哈，贴心小棉袄，你上辈子的小情人[破涕为笑]</p>
+<p>最后那句绝了！</p>
+<p>以前杭州没这么热，现在越来越热了。我在想是不是高楼建多了，江风进不到市区无法散热，然后西湖的水蒸气又导致空气中湿度高，所以才让人觉得杭州夏天越来越难受[捂脸]</p>
+<p>热岛效应</p>
+<p>机哥教育孩子的经验让我很佩服，父母的威信确实是从守信用，有行动力这些地方来的。如果父母说的很多话自己都做不到，经常食言，也不怪孩子以后经常说谎，不听话</p>
+<p>这点确实是，我几个小孩表现都还不错，有担当，老师和同学都很喜欢，经常夸，我都怕他们飘了[捂脸]</p>
+<p>机哥家庭经济自由，但我发现把孩子教育的这么优秀，主要原因并不是因为机哥家物质条件优渥，确实是真正做到了对孩子尊重和理解，鼓励他自己思考和行动。这个社会无才无德的富二代太多了</p>
+<p>能做到知行合一的确很了不起</p>
+<p>这个知行合一，也有细节要处理好。去年说起1415年厦门小白鹭艺术中心对面的海滩上，有人在弹奏吉他唱歌，吹着海风，氛围很好。我儿子表示想去看看，然后我们当天就到了厦门，结果没看到，现在那边大变样了，我也挺尴尬的，所以有些事还是要提前了解，避免扑个空，孩子们也会有失落感。</p>
+<p>是的，就跟我前两天去湖州一家餐厅打卡一样，没提前打商家电话确认是否正常营业，结果到了店门口才发现贴了送小孩回家上学歇业5天，来回开了200公里啊，兴致勃勃的去，回来一边开车一边打瞌睡😪😪</p>
+<p>机哥今年哪里拉屎都热[笑脸]</p>
+<p>我不信，贵州的六盘水肯定不热，一堆浙江人跑去那边避暑[破涕为笑]</p>
+<p>我女儿9月份刚上幼儿园，在很早之前，每次和她玩游戏的时候，总是有意的引导她，如果遇到问题，首先要想办法去解决，而不是大喊大叫，她做的很好，总有一些出人意料的想法。</p>
+<p>这样挺好的，保持下去，慢慢会成为一个情绪稳定的小朋友，自信阳光。</p>
+<p>你赶紧分享一下育儿篇，孩子五岁了，我很着急想要你的育儿方法</p>
+<p>历史文章里也有，可以翻一翻，我最近也写一写，主要是他到了小学，新的环境，刚好我可以说的东西多[破涕为笑]</p>
+<p>机哥教育小孩跟老婆意见不一致怎么处理呢？感觉这个应该每个家庭都应该会遇见[破涕为笑]</p>
+<p>以前让她去试，我只是提供一种参考意见，后来发现还是我说的有效果，说的对，然后就听我的了[捂脸]</p>
+<p>杭州现在已经是全国夏季最热的城市了 比肩重庆 超越武汉南京福州</p>
+<p>杭州主要是湿热，太难受了[捂脸]</p>
+<p>湿热 蒸热 干晒集一身 杭州地势低 周围都是山 钱塘江 又没风 热气散不出去 冬天又非常湿冷</p>
+<p>每次都是默默看完，直到我看到杭州越来越热实在绷不住了。现在还能连带学习育儿经验实属受益良多[抱拳]</p>
+<p>先这样吧，我嗦螺去了，哈哈，晚点再看留言[破涕为笑]</p>
+<p>老母亲看了机哥教育理念，学习啦[抱拳][抱拳][抱拳]这也是书本上学不到的</p>
+<p>个人的一点实践，不一定对，仅供参考</p>
+      </div>
+    </section>
+    <div class="post-foot"><a href="jinjiancheng.html">← 返回金渐成文章列表</a><div class="pager"><a href="jinjiancheng-2024-09-04.html"><span class="lbl">← 更新一篇</span>自驱力</a><a href="tianjiqitan-2024-09-02.html"><span class="lbl">更早一篇 →</span>先做个人吧</a></div></div>
+  </article>
+</div>
+</main>
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div>
+      <div class="footer-links">
+        <a href="all.html">公众号文章</a>
+        <a href="topics.html">文章主题</a>
+        <a href="notes.html">学习笔记</a>
+        <a href="timeline.html">投资时间线</a>
+        <a href="about.html">关于</a>
+      </div>
+      <p class="disclaimer" style="margin-top:1rem">本站为个人阅读存档，收录金渐成 / 天机奇谈公开发表的公众号文章，便于按主题与时间线连续阅读。<br>内容仅供参考，<strong>不构成任何投资建议</strong>。投资有风险，决策需谨慎。</p>
+    </div>
+    <div>共 781 篇文章 · 静态存档<br><span style="opacity:.7">生成于 2026-10-09</span></div>
+  </div>
+</footer>
+<script>
+/* 金渐成文章整理 —— 交互脚本 */
+(function () {
+  'use strict';
+
+  /* ---- 主题切换 ---- */
+  var root = document.documentElement;
+  var saved = null;
+  try { saved = localStorage.getItem('jjc-theme'); } catch (e) {}
+  if (saved) root.setAttribute('data-theme', saved);
+
+  function currentIsDark() {
+    var t = root.getAttribute('data-theme');
+    if (t === 'dark') return true;
+    if (t === 'light') return false;
+    return window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+  }
+
+  var themeBtn = document.getElementById('themeBtn');
+  if (themeBtn) {
+    themeBtn.addEventListener('click', function () {
+      var next = currentIsDark() ? 'light' : 'dark';
+      root.setAttribute('data-theme', next);
+      try { localStorage.setItem('jjc-theme', next); } catch (e) {}
+    });
+  }
+
+  /* ---- 移动端菜单 ---- */
+  var menuBtn = document.getElementById('menuBtn');
+  var nav = document.getElementById('nav');
+  if (menuBtn && nav) {
+    menuBtn.addEventListener('click', function (e) {
+      e.stopPropagation();
+      nav.classList.toggle('open');
+    });
+    document.addEventListener('click', function (e) {
+      if (nav.classList.contains('open') && !nav.contains(e.target)) nav.classList.remove('open');
+    });
+  }
+
+  /* ---- 列表搜索 / 分栏筛选 ---- */
+  var q = document.getElementById('q');
+  var list = document.getElementById('list');
+  var empty = document.getElementById('empty');
+  if (q && list) {
+    var rows = Array.prototype.slice.call(list.querySelectorAll('.row'));
+    var rowsByChannel = rows.map(function (r) {
+      var tag = r.querySelector('.tag');
+      var txt = tag ? tag.textContent.trim() : '';
+      return txt === '金渐成' ? 'jinjiancheng' : (txt === '天机奇谈' ? 'tianjiqitan' : '');
+    });
+    var channel = 'all';
+    var chips = Array.prototype.slice.call(document.querySelectorAll('.chip[data-ch]'));
+
+    function apply() {
+      var kw = (q.value || '').trim().toLowerCase();
+      var shown = 0;
+      var yearHeads = Array.prototype.slice.call(list.querySelectorAll('.year-head'));
+      rows.forEach(function (r, i) {
+        var hay = r.textContent.toLowerCase();
+        var okKw = !kw || hay.indexOf(kw) !== -1;
+        var okCh = channel === 'all' || rowsByChannel[i] === channel;
+        var ok = okKw && okCh;
+        r.style.display = ok ? '' : 'none';
+        if (ok) shown++;
+      });
+      // 年份标题在筛选时整体隐藏，避免出现空年份
+      yearHeads.forEach(function (h) { h.style.display = (kw || channel !== 'all') ? 'none' : ''; });
+      if (empty) empty.style.display = shown === 0 ? '' : 'none';
+    }
+
+    q.addEventListener('input', apply);
+    chips.forEach(function (c) {
+      c.addEventListener('click', function () {
+        chips.forEach(function (x) { x.classList.remove('on'); });
+        c.classList.add('on');
+        channel = c.getAttribute('data-ch');
+        apply();
+      });
+    });
+  }
+})();
+
+</script>
+</body>
+</html>

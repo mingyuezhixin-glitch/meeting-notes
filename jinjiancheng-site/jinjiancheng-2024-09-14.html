@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>允许一切发生 · 金渐成</title>
+<meta name="description" content="金渐成 2024-09-14 允许一切发生">
+<link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2064%2064'%3E%3Crect%20width='64'%20height='64'%20rx='16'%20fill='%23b45309'/%3E%3Ctext%20x='32'%20y='45'%20font-size='38'%20font-family='sans-serif'%20font-weight='700'%20fill='%23fff'%20text-anchor='middle'%3E%E7%8E%91%3C/text%3E%3C/svg%3E">
+<style>
+:root {--bg: #faf9f6;--bg-2: #f2efe9;--surface: #ffffff;--surface-2: #f6f4ef;--fg: #171614;--fg-2: #3d3a35;--muted: #7a7570;--line: #e7e3da;--line-2: #f0ece4;--accent: #b45309;--accent-2: #d98218;--accent-soft: rgba(180, 83, 9, .09);--accent-line: rgba(180, 83, 9, .22);--on-accent: #ffffff;--shadow-xs: 0 1px 2px rgba(23, 22, 20, .05);--shadow-sm: 0 1px 3px rgba(23, 22, 20, .06), 0 1px 2px rgba(23, 22, 20, .04);--shadow-md: 0 8px 24px -6px rgba(23, 22, 20, .10), 0 2px 6px rgba(23, 22, 20, .05);--shadow-lg: 0 20px 48px -12px rgba(23, 22, 20, .16);--radius: 18px;--radius-sm: 12px;--container: 68rem;}@media (prefers-color-scheme: dark) {:root:not([data-theme="light"]) {--bg: #0f0f10;--bg-2: #16161a;--surface: #17171b;--surface-2: #1d1d22;--fg: #f2f0ec;--fg-2: #d4d1cb;--muted: #918d87;--line: #29292f;--line-2: #212127;--accent: #f0972a;--accent-2: #f5b400;--accent-soft: rgba(240, 151, 42, .12);--accent-line: rgba(240, 151, 42, .3);--on-accent: #17120a;--shadow-xs: 0 1px 2px rgba(0, 0, 0, .45);--shadow-sm: 0 1px 3px rgba(0, 0, 0, .5);--shadow-md: 0 8px 24px -6px rgba(0, 0, 0, .6);--shadow-lg: 0 20px 48px -12px rgba(0, 0, 0, .7);}}html[data-theme="dark"] {--bg: #0f0f10; --bg-2: #16161a; --surface: #17171b; --surface-2: #1d1d22;--fg: #f2f0ec; --fg-2: #d4d1cb; --muted: #918d87; --line: #29292f; --line-2: #212127;--accent: #f0972a; --accent-2: #f5b400;--accent-soft: rgba(240, 151, 42, .12); --accent-line: rgba(240, 151, 42, .3);--on-accent: #17120a;--shadow-xs: 0 1px 2px rgba(0, 0, 0, .45);--shadow-sm: 0 1px 3px rgba(0, 0, 0, .5);--shadow-md: 0 8px 24px -6px rgba(0, 0, 0, .6);--shadow-lg: 0 20px 48px -12px rgba(0, 0, 0, .7);}* { box-sizing: border-box; margin: 0; padding: 0; border: 0 solid var(--line); }html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }body {background: var(--bg);background-image:radial-gradient(60rem 32rem at 12% -8%, var(--accent-soft), transparent 62%),radial-gradient(48rem 28rem at 92% 2%, rgba(217, 130, 24, .06), transparent 60%);background-repeat: no-repeat;background-attachment: fixed;color: var(--fg);font-family: Inter, -apple-system, BlinkMacSystemFont, "PingFang SC", "Hiragino Sans GB","Microsoft YaHei", "Helvetica Neue", Helvetica, Arial, sans-serif;-webkit-font-smoothing: antialiased;-moz-osx-font-smoothing: grayscale;line-height: 1.6;min-height: 100vh;display: flex;flex-direction: column;}a { color: inherit; text-decoration: none; }img { max-width: 100%; height: auto; display: block; border-radius: 10px; }button { font: inherit; color: inherit; background: none; cursor: pointer; }::selection { background: var(--accent-soft); }.site-header {position: sticky; top: 0; z-index: 50;background: color-mix(in srgb, var(--bg) 82%, transparent);backdrop-filter: saturate(180%) blur(14px);-webkit-backdrop-filter: saturate(180%) blur(14px);border-bottom: 1px solid var(--line);}.header-inner {max-width: var(--container); margin: 0 auto;padding: .85rem 1.5rem;display: flex; align-items: center; justify-content: space-between; gap: 1rem;}.brand { display: flex; align-items: center; gap: .7rem; transition: opacity .2s; flex: 0 0 auto; }.brand:hover { opacity: .82; }.brand-mark {width: 2.3rem; height: 2.3rem; border-radius: 12px; flex: 0 0 auto;background: linear-gradient(140deg, var(--accent-2), var(--accent) 70%);color: #fff; font-weight: 800; font-size: 1.08rem;display: flex; align-items: center; justify-content: center;box-shadow: 0 4px 12px -2px var(--accent-line), inset 0 1px 0 rgba(255,255,255,.28);}.brand-text { display: flex; flex-direction: column; line-height: 1.2; }.brand-text b { font-size: 1rem; font-weight: 750; letter-spacing: -.015em; }.brand-text span { font-size: .68rem; color: var(--muted); letter-spacing: .1em; margin-top: .1rem; }.nav { display: flex; align-items: center; gap: .15rem; font-size: .9rem; font-weight: 550; }.nav a {padding: .48rem .78rem; border-radius: 9px; color: var(--muted);transition: color .18s, background .18s; white-space: nowrap;}.nav a:hover { color: var(--fg); background: var(--surface-2); }.nav a.active { color: var(--accent); background: var(--accent-soft); font-weight: 700; }.nav-tools { display: flex; align-items: center; gap: .3rem; padding-left: .5rem; margin-left: .35rem; border-left: 1px solid var(--line); }.icon-btn {width: 2.1rem; height: 2.1rem; border-radius: 9px; color: var(--muted);display: flex; align-items: center; justify-content: center;transition: .18s; font-size: 1rem;}.icon-btn:hover { color: var(--accent); background: var(--accent-soft); }.menu-btn { display: none; }main { flex: 1; }.container {max-width: var(--container); margin: 0 auto;padding: 3rem 1.5rem 5.5rem;display: flex; flex-direction: column; gap: 3.75rem;}.hero { margin-bottom: 0; }.crumb {display: flex; flex-wrap: wrap; align-items: center; gap: .45rem;font-size: .85rem; font-weight: 550; color: var(--muted); margin-bottom: 1.1rem;}.crumb a:hover { color: var(--accent); }.crumb .sep { opacity: .35; }.hero h1 {font-size: clamp(2.1rem, 5.6vw, 3.15rem);font-weight: 830; line-height: 1.08; letter-spacing: -.035em;background: linear-gradient(180deg, var(--fg) 62%, color-mix(in srgb, var(--fg) 62%, var(--accent)));-webkit-background-clip: text; background-clip: text;-webkit-text-fill-color: transparent;}.hero .lead {margin-top: 1.35rem; max-width: 44rem;font-size: 1.06rem; line-height: 1.85; color: var(--muted);}.hero .lead strong { color: var(--fg); font-weight: 750; }.hero-actions { margin-top: 1.9rem; display: flex; flex-wrap: wrap; gap: .7rem; }.btn {padding: .72rem 1.55rem; border-radius: 999px;font-weight: 600; font-size: .95rem;transition: transform .18s, box-shadow .18s, background .18s, border-color .18s, color .18s;display: inline-flex; align-items: center; gap: .45rem;}.btn-primary {background: linear-gradient(140deg, var(--accent-2), var(--accent));color: #fff;box-shadow: 0 6px 18px -6px var(--accent-line), inset 0 1px 0 rgba(255,255,255,.22);}.btn-primary:hover { transform: translateY(-2px); box-shadow: 0 12px 26px -8px var(--accent-line); }.btn-ghost { border: 1px solid var(--line); background: var(--surface); color: var(--fg-2); }.btn-ghost:hover { background: var(--surface-2); border-color: var(--accent-line); color: var(--accent); }.stats { margin-top: 1.9rem; display: flex; flex-wrap: wrap; gap: .6rem; }.stat {display: flex; align-items: baseline; gap: .4rem;background: var(--surface); border: 1px solid var(--line);border-radius: 999px; padding: .42rem 1rem;box-shadow: var(--shadow-xs);}.stat b { font-size: 1rem; font-weight: 780; letter-spacing: -.02em; color: var(--fg); font-variant-numeric: tabular-nums; }.stat span { font-size: .8rem; color: var(--muted); }.section { display: flex; flex-direction: column; }.section-head {display: flex; align-items: baseline; justify-content: space-between;gap: 1rem; margin-bottom: 1.5rem; padding-bottom: .85rem;border-bottom: 1px solid var(--line);}.section-head h2 {position: relative; padding-left: .85rem;font-size: .92rem; font-weight: 780; text-transform: uppercase;letter-spacing: .17em; color: var(--fg);}.section-head h2::before {content: ""; position: absolute; left: 0; top: 50%; transform: translateY(-50%);width: 3px; height: 1.05em; border-radius: 2px;background: linear-gradient(180deg, var(--accent-2), var(--accent));}.section-head .more { font-size: .88rem; font-weight: 600; color: var(--muted); white-space: nowrap; transition: .18s; }.section-head .more:hover { color: var(--accent); }.grid { display: grid; gap: 1.05rem; }.grid-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }.grid-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }.grid-4 { grid-template-columns: repeat(4, minmax(0, 1fr)); }.card {position: relative; overflow: hidden;background: var(--surface);border: 1px solid var(--line);border-radius: var(--radius);padding: 1.3rem 1.4rem;box-shadow: var(--shadow-xs);transition: transform .2s cubic-bezier(.2,.7,.3,1), box-shadow .2s, border-color .2s;display: block;}.card::after {content: ""; position: absolute; inset: 0 0 auto 0; height: 2px;background: linear-gradient(90deg, var(--accent-2), var(--accent) 55%, transparent);opacity: 0; transition: opacity .2s;}a.card:hover {transform: translateY(-3px);box-shadow: var(--shadow-md);border-color: var(--accent-line);}a.card:hover::after { opacity: 1; }.card .kicker {font-size: .7rem; font-weight: 780; letter-spacing: .12em;color: var(--accent); text-transform: uppercase;}.card h3 { margin-top: .55rem; font-size: 1.04rem; font-weight: 730; line-height: 1.4; letter-spacing: -.015em; }.card p { margin-top: .55rem; font-size: .875rem; line-height: 1.72; color: var(--muted); }.card .count { font-size: .78rem; font-weight: 600; color: var(--muted); }.rows {display: flex; flex-direction: column;background: var(--surface); border: 1px solid var(--line);border-radius: var(--radius); overflow: hidden;box-shadow: var(--shadow-xs);}.row {display: flex; align-items: baseline; gap: 1.1rem;padding: .82rem 1.15rem;transition: background .16s;border-bottom: 1px solid var(--line-2);position: relative;}.row:last-child { border-bottom: 0; }.row::before {content: ""; position: absolute; left: 0; top: 0; bottom: 0; width: 3px;background: var(--accent); transform: scaleY(0); transition: transform .18s;}.row:hover { background: var(--surface-2); }.row:hover::before { transform: scaleY(1); }.row .date {flex: 0 0 auto; width: 5.1rem; font-size: .82rem; font-weight: 600;font-variant-numeric: tabular-nums; color: var(--muted); letter-spacing: -.01em;}.row .title { flex: 1 1 auto; font-size: .97rem; font-weight: 550; line-height: 1.55; color: var(--fg-2); }.row:hover .title { color: var(--accent); font-weight: 620; }.row .tags { flex: 0 0 auto; display: flex; gap: .35rem; }.tag {font-size: .7rem; font-weight: 620; padding: .2rem .6rem; border-radius: 999px;background: var(--surface-2); border: 1px solid var(--line);color: var(--muted); white-space: nowrap;}.year-head { display: flex; align-items: center; gap: .9rem; margin: 1.9rem 0 .75rem; }.year-head:first-child { margin-top: 0; }.year-head .y { font-size: 1.3rem; font-weight: 830; letter-spacing: -.03em; }.year-head .n { font-size: .78rem; font-weight: 600; color: var(--muted); background: var(--surface-2); border: 1px solid var(--line); padding: .12rem .55rem; border-radius: 999px; }.year-head .line { flex: 1; height: 1px; background: linear-gradient(90deg, var(--line), transparent); }.post-wrap { max-width: 46rem; margin: 0 auto; width: 100%; }.post-head { margin-bottom: 2.25rem; padding-bottom: 1.6rem; border-bottom: 1px solid var(--line); }.post-head h1 { font-size: clamp(1.55rem, 4.4vw, 2.05rem); font-weight: 760; line-height: 1.32; letter-spacing: -.028em; }.post-meta { margin-top: 1rem; display: flex; flex-wrap: wrap; gap: .5rem 1rem; font-size: .84rem; color: var(--muted); align-items: center; font-weight: 550; }.post-meta .dot { opacity: .35; }.prose { color: var(--fg-2); font-size: 1.06rem; line-height: 1.9; letter-spacing: .008em; max-width: 68ch; }.prose p { margin: 1.5em 0; }.prose h1, .prose h2, .prose h3 { color: var(--fg); letter-spacing: -.018em; font-weight: 730; line-height: 1.4; }.prose h1 { font-size: 1.65rem; margin: 2.1em 0 .8em; }.prose h2 {font-size: 1.28rem; margin: 2.3em 0 .85em; padding-bottom: .5em;border-bottom: 1px solid var(--line);}.prose h3 {font-size: 1.03rem; margin: 2.2em 0 .7em;letter-spacing: .16em; color: var(--accent); font-weight: 780;}.prose strong { color: var(--fg); font-weight: 700; }.prose em { font-style: italic; }.prose a { color: var(--accent); text-decoration: underline; text-underline-offset: 3px; text-decoration-thickness: 1px; }.prose a:hover { opacity: .8; }.prose blockquote {border-left: 3px solid var(--accent);background: var(--accent-soft);color: var(--fg-2); border-radius: 0 10px 10px 0;margin: 1.9em 0; padding: 1.05em 1.35em; font-style: italic;}.prose blockquote p { margin: 0; }.prose ul { margin: 1.3em 0; list-style: none; }.prose ul > li { margin: .55em 0; padding-left: 1.35em; position: relative; }.prose ul > li::before { content: ""; position: absolute; left: .15em; top: .72em; width: 5px; height: 5px; border-radius: 50%; background: var(--accent); opacity: .6; }.prose ol { margin: 1.3em 0; padding-left: 1.5em; list-style: decimal; }.prose ol > li { margin: .55em 0; }.prose img { margin: 2em 0; box-shadow: var(--shadow-md); }.prose hr { margin: 2.6em 0; border-top: 1px solid var(--line); height: 0; }.post-foot {margin-top: 3.2rem; padding-top: 1.6rem; border-top: 1px solid var(--line);display: flex; align-items: center; justify-content: space-between;gap: 1rem; flex-wrap: wrap; font-size: .88rem; font-weight: 550; color: var(--muted);}.post-foot a:hover { color: var(--accent); }.pager { display: flex; gap: .8rem; flex-wrap: wrap; }.pager a {background: var(--surface); border: 1px solid var(--line); border-radius: 12px;padding: .65rem 1rem; max-width: 17rem; font-size: .86rem;transition: .18s; box-shadow: var(--shadow-xs); line-height: 1.45;}.pager a:hover { background: var(--surface-2); border-color: var(--accent-line); color: var(--accent); transform: translateY(-2px); }.pager .lbl { display: block; font-size: .7rem; font-weight: 650; color: var(--muted); margin-bottom: .2rem; letter-spacing: .04em; }.comments {margin-top: 3rem; border-top: 1px solid var(--line); padding-top: 1.6rem;}.comments-head {display: flex; align-items: baseline; justify-content: space-between;gap: 1rem; flex-wrap: wrap; margin-bottom: 1.15rem;}.comments-head h2 {position: relative; padding-left: .8rem;font-size: .82rem; font-weight: 780; text-transform: uppercase;letter-spacing: .17em; color: var(--fg);}.comments-head h2::before {content: ""; position: absolute; left: 0; top: 50%; transform: translateY(-50%);width: 3px; height: 1.05em; border-radius: 2px;background: linear-gradient(180deg, var(--accent-2), var(--accent));}.comments-head span { font-size: .76rem; color: var(--muted); }.comments-body {background: var(--surface-2);border: 1px solid var(--line);border-radius: var(--radius-sm);padding: 1.15rem 1.35rem;font-size: .95rem; line-height: 1.8; color: var(--muted);max-width: 68ch;}.comments-body p { margin: .75em 0; }.comments-body p:first-child { margin-top: 0; }.comments-body p:last-child { margin-bottom: 0; }.comments-body strong { color: var(--fg-2); font-weight: 650; }.comments-body a { color: var(--accent); text-decoration: underline; text-underline-offset: 3px; }.comments-body ul { margin: .9em 0; list-style: none; }.comments-body ul > li { margin: .4em 0; padding-left: 1.15em; position: relative; }.comments-body ul > li::before { content: ""; position: absolute; left: .1em; top: .7em; width: 4px; height: 4px; border-radius: 50%; background: var(--muted); opacity: .5; }.comments-body blockquote {border-left: 3px solid var(--line); margin: 1em 0; padding: .4em 1em;color: var(--muted); font-style: italic;}.toolbar {display: flex; flex-wrap: wrap; gap: .6rem; align-items: center;margin-bottom: 1.35rem;}.search {flex: 1 1 17rem; min-width: 12rem;display: flex; align-items: center; gap: .55rem;background: var(--surface); border: 1px solid var(--line);border-radius: 999px; padding: .58rem 1.05rem;color: var(--muted); transition: border-color .18s, box-shadow .18s;box-shadow: var(--shadow-xs);}.search:focus-within { border-color: var(--accent); box-shadow: 0 0 0 3px var(--accent-soft); }.search input { flex: 1; background: none; border: none; outline: none; color: var(--fg); font-size: .93rem; }.chip {font-size: .84rem; font-weight: 600; padding: .5rem 1rem; border-radius: 999px;background: var(--surface); border: 1px solid var(--line);color: var(--muted); transition: .18s; box-shadow: var(--shadow-xs);}.chip:hover { border-color: var(--accent-line); color: var(--accent); }.chip.on {background: linear-gradient(140deg, var(--accent-2), var(--accent));color: #fff; border-color: transparent;box-shadow: 0 5px 14px -5px var(--accent-line);}.empty-note { padding: 3rem 0; text-align: center; color: var(--muted); font-size: .93rem; }.faq { display: flex; flex-direction: column; gap: .6rem; }.faq details {background: var(--surface); border: 1px solid var(--line);border-radius: var(--radius-sm); padding: 1.05rem 1.3rem;transition: border-color .18s, box-shadow .18s; box-shadow: var(--shadow-xs);}.faq details[open] { border-color: var(--accent-line); box-shadow: var(--shadow-sm); }.faq summary {cursor: pointer; font-weight: 650; font-size: .96rem; list-style: none;display: flex; justify-content: space-between; gap: 1rem; align-items: center;}.faq summary::-webkit-details-marker { display: none; }.faq summary::after {content: "+"; color: var(--accent); font-weight: 500; font-size: 1.1rem;width: 1.4rem; height: 1.4rem; border-radius: 50%;display: flex; align-items: center; justify-content: center;background: var(--accent-soft); flex: 0 0 auto;}.faq details[open] summary::after { content: "−"; }.faq .ans { margin-top: .85rem; font-size: .91rem; line-height: 1.82; color: var(--muted); }.site-footer { border-top: 1px solid var(--line); background: color-mix(in srgb, var(--bg-2) 60%, transparent); }.footer-inner {max-width: var(--container); margin: 0 auto; padding: 2.75rem 1.5rem;display: flex; flex-wrap: wrap; gap: 1.5rem 2.5rem; justify-content: space-between;font-size: .85rem; color: var(--muted);}.footer-inner a:hover { color: var(--accent); }.footer-links { display: flex; flex-wrap: wrap; gap: .55rem 1.15rem; font-weight: 600; }.footer-links a { color: var(--fg-2); }.disclaimer { font-size: .78rem; color: var(--muted); line-height: 1.75; max-width: 35rem; opacity: .9; }@media (max-width: 900px) {.grid-4, .grid-3 { grid-template-columns: repeat(2, minmax(0, 1fr)); }.nav { display: none; }.nav.open {display: flex; flex-direction: column; align-items: stretch;position: absolute; left: 1rem; right: 1rem; top: 4.35rem;background: var(--surface); border: 1px solid var(--line);border-radius: var(--radius); padding: .5rem; box-shadow: var(--shadow-lg); gap: .1rem;}.nav.open a { padding: .72rem .9rem; }.menu-btn { display: flex; }.nav-tools { border: none; padding: 0; margin: 0; padding-top: .35rem; }}@media (max-width: 620px) {.container { gap: 2.6rem; padding: 1.9rem 1.15rem 4rem; }.grid-4, .grid-3, .grid-2 { grid-template-columns: 1fr; }.rows { border-radius: var(--radius-sm); }.row { flex-wrap: wrap; gap: .3rem .8rem; padding: .8rem 1rem; }.row .date { width: auto; }.row .title { flex-basis: 100%; }.hero .lead { font-size: 1rem; }.header-inner { padding: .75rem 1.15rem; }}
+</style>
+</head>
+<body>
+<header class="site-header">
+  <div class="header-inner">
+    <a class="brand" href="index.html">
+      <span class="brand-mark">玑</span>
+      <span class="brand-text"><b>金渐成文章整理</b><span>美股 · 港股 · 加密 · 黄金 · 楼市</span></span>
+    </a>
+    <nav class="nav" id="nav"><a href="all.html" class="active">公众号文章</a><a href="topics.html">文章主题</a><a href="notes.html">学习笔记</a><a href="portfolio.html">账户持仓</a><a href="timeline.html">投资时间线</a><a href="tools.html">工具箱</a><a href="booklist.html">书单</a><a href="about.html">关于</a>
+      <span class="nav-tools"><button class="icon-btn" id="themeBtn" title="切换主题" aria-label="切换主题">◐</button></span>
+    </nav>
+    <button class="icon-btn menu-btn" id="menuBtn" aria-label="菜单">☰</button>
+  </div>
+</header>
+<main>
+<div class="container">
+  <article class="post-wrap">
+    <div class="post-head">
+      <div class="crumb"><a href="index.html">首页</a><span class="sep">/</span><a href="all.html">公众号文章</a><span class="sep">/</span><a href="jinjiancheng.html">金渐成</a></div>
+      <h1>允许一切发生</h1>
+      <div class="post-meta"><span>2024-09-14</span><span class="dot">·</span><span>金渐成</span><span class="dot">·</span><span>约 5 分钟读完</span></div>
+    </div>
+    <div class="prose">
+<p>这周美股表现还不错，在一片“暴跌”声中，道指涨2.6%，标普500指数涨4.02%，纳指涨5.95%，挺有意思的。</p>
+<p>最近一年我都没有买入纳指和标普500指数，现在持有的大多是2020年3月到去年上半年买入的。</p>
+<p>延迟退休这事，其实没什么好聊的。昨天的文中说的“做我们能做的，接受我们不能改变的”，在这很适用。</p>
+<p>延迟退休已成定局，这是我们不能改变的，想再多也没用，所以去接受，这是现实。</p>
+<p>做我们能做的，就是应对这个现实问题的办法和方式，即方法论。</p>
+<p>昨天，今年初新入职“超级个体”那项的年轻小助理问我，现在延迟退休这种情况下，他应该怎么应对？</p>
+<p>我看了下，他每个月到手约1.8万，其中基础工资1万，其他的是补贴和福利，如果一直这个基础工资到退休的话，那情况如下:</p>
+<p>今年23岁，如果工作到63岁，那每个月社保根据个人承担三分一，公司承担三分二的情况来算，总缴纳约115万元出头，其中个人缴纳部分总额约38.4万元。</p>
+<p>退休后，如果他能活到80岁，总共能领取到约44.7万元；90岁，总共能领取到约71万元。</p>
+<p>虽然说“没领满缴纳的总额，会退钱”，但到时会不会有什么变化，我也不知道。</p>
+<p>大概是这样，可能会有一些小偏差，每个城市也有所不同。需要注意的是，女性退休比较早，寿命比男性长，所以整体上也会比男性划算。</p>
+<p>我是建议他配置一些养老保险或者储蓄险，给自己做个兜底，能力不够就选内地的，有能力的话，就配置高阶版的，即美元资产类的港险等。</p>
+<p>相信美元即将崩溃和大贬值的就算了，这话我听了四十年，耳朵都起茧子，美元还是一如既往地强势，反而是人民币，这三十年来...</p>
+<p>之前也写过自己给小孩配置的产品:旧事重提（戳），今年8月底又给他们增配了一些，家庭也在原有基础上增持了一部分。这类产品用来给自己做养老规划也很合适。</p>
+<p>很多东西，我们无法改变，但可以未雨绸缪提前给自己准备应对措施。</p>
+<p>有了应对措施并去做好，人就不会那么内耗。有些人常内耗，说到底，根本原因就三个:</p>
+<p>一是期望，即自己对自己的要求和期待之间有落差；二是对比，让自己陷入无限的焦虑；三是认知，即你对事件的看法才是导致你生气的原因。</p>
+<p>要摆脱内耗的方法，大概有五点:</p>
+<p>五是允许自己倾诉，将潜意识意识化，看见即疗愈，境随心生 心随境转。</p>
+<p>... ...</p>
+<p>前两天的文章被删了，应大家的要求，我把关于小孩教育的部分摘出来，放在下面:</p>
+<p>虽然说，小孩初三之前，我没打算干预他们，但平时很多东西也没瞒着他们。我也不觉得父母跟孩子之间有什么不能说的，不能谈的。</p>
+<p>经常带在身边，每天接触的人事物多了，他们自然会有自己的判断。</p>
+<p>要让孩子有独立的判断力之前，首先要给他足够多的信息，而且这些信息，不能是美化过的。这也是很多父母最容易忽略的。</p>
+<p>至于初三以后，只不过是捅破了最后一层纸，跟他们说到有些“教育”的本质和目的而已。</p>
+<p>老大现在做得挺不错的，有自己的看法，他懂得收敛锋芒，不让自己成为同学中的异类。</p>
+<p>而且他知道把成绩搞好，稳定年级前三，偶尔的一些锋芒，也成了“有个性”。</p>
+<p>我一直告诉孩子的，是学习这件事很重要，学习成绩只是检阅某件事某一阶段的成果，不太重要，重要的是持续学习的能力。</p>
+<p>在他们青春期前，抓住各种机会给他们进行三观的塑造，从家庭的、社会的、为人处世方面等方方面面。</p>
+<p>老大现在做得挺不错的，无论是学习能力，还是投资能力，我自认为同龄的我做不到他目前这个程度。</p>
+<p>老二的心很细，做事很有规划，就是有时容易较真。</p>
+<p>小的时候，被别人撞了，能追着人家一直要求道歉，别人不理睬，就把情绪带回家一脸不悦大半天。</p>
+<p>后来，慢慢改过来了，我是这么引导的:</p>
+<p>我们对自我的道德标准要高，要做个品行高洁的人。但对他人的道德标准要降低，要知道这世上什么人都有。</p>
+<p>就像我做助学（资助贫困生），就是当兴趣，事做完就行，对方最好不要认识我。可以帮助他人，但永远不要指望回报。</p>
+<p>至于老三，也就是小儿子，从小就心太大，对人不设防，在幼儿园里跟小朋友出去玩，背包能被人随便翻，拿走心爱的玩具。</p>
+<p>后来也是教导他，如何学会拒绝。慢慢地，他现在也知道，涉及到核心利益的东西，要永远牢牢得抓在自己手里。</p>
+<p>人格的塑造，远比学习成绩更重要。</p>
+<p>要完成好的人格塑造这点，需要的时间都比较漫长，要有高质量的陪伴，而不是低质无效的长时间陪伴。</p>
+<p>昨天小儿子说，从同学那学了个词，“屌丝”，他问我什么是屌丝？</p>
+<p>我想了想，告诉他:</p>
+<p>在我看来，不论富贵还是贫穷，真正的屌丝只有一种，就是需要拿物品来赋予人价值的人；是人来感知物品，不是物品来定义人。</p>
+<p>为人父后，越发深觉当年父母的不易，一眨眼，我的孩子也开始长大了。</p>
+<p>岁月不堪数，一晃又一秋。</p>
+<p>就这样吧。</p>
+    </div>
+    <section class="comments">
+      <div class="comments-head"><h2>读者留言</h2><span>原文评论区内容，与正文分开呈现</span></div>
+      <div class="comments-body">
+<p>"我看了下，他每个月到手约1.8万，其中基础工资1万，其他的是补贴和福利" 不是机哥，你们单位是公务员啊</p>
+<p>不是，薪资是对一个人能力的基本尊重和肯定，人家值那个钱，就该给那个额度。补贴的话，因为上海杭州这类城市，住房等生活成本很高，所以能给尽量给，现在年轻人很不容易的。</p>
+<p>先保存再看。债务违约，展期，就这样</p>
+<p>贴切。</p>
+<p>精辟，太恰当了</p>
+<p>机哥，你也是上班为了挣钱，挣钱为了不上班吧[偷笑]</p>
+<p>我两年前就退休了，现在是失业人员，噢，不，是灵活就业人员。[旺柴]</p>
+<p>灵就宫的总舵主</p>
+<p>50多岁的老男人，曾经在富力做，2020年回本土一房地产公司，一直不看好房地产，可惜没有机哥的表达能力和才华，只能劝劝身边的亲戚朋友同事，少踩坑。潜水两年多了，一直默默的看机哥的爽文，做了几本笔记了，儿子在广州搞软件开发，去年推荐公众号给他，要求他每篇都看，一遍看不懂，就多看几遍，包括评论，他现在做到了，赞不绝口，与君一席话胜读十年书，感恩，感激，感谢！尽在不言中！[抱拳][抱拳]</p>
+<p>不客气，我只是提供一种观点和角度，不一定对，让他学会辩证看待，希望能对他有用[抱拳]</p>
+<p>洞察认知，有的人像海绵，不断吸取，有些人和石头一样。</p>
+<p>石头可以用来砌茅坑，倔驴可以用来拉磨，就看怎么用了[破涕为笑]</p>
+<p>做助学，对方最好不要认识我。这个太明智了，本来就是自己想做的事情。对方也只是个学生，他如果太世故或者太不懂人情世故，或许都不太好。最好的就是不认识。</p>
+<p>我助学的那些学生，都不认识我，我只负责打钱，毕业后就主动断了联系。不给别人添精神压力，也不给自己添麻烦。</p>
+<p>自从我给老婆说了没事多看看机哥的公众号，现在感觉她比以前积极性提高了不少，而且也愿意主动的去做计划和读书啦。非常感谢机哥给我们这些在底层的人，提供了更多的认识和选择。</p>
+<p>让她看到不喜欢的内容不要骂我或者抬杠就行，不然被我拉黑了就看不了了[旺柴]</p>
+<p>机哥，刚刚发布金融数据，M1和M2的剪刀差又创新高了，可以理解市场上活钱更少了，资产价格还会继续下降吗？</p>
+<p>嗯，这类内容现在都属于敏感度很高的，不能写，写实话也发不出来，能发出来的都属于不痛不痒的。</p>
+<p>都是买保险，为啥一棵树上吊死</p>
+<p>一般都是鼓励买国内的，我个人跟你一样觉得不要在一棵树上吊死，可以先国内的配置好，有能力的就配置一些美元资产类的港险等，其实就是风控和对冲的兜底思维。</p>
+<p>机哥对内耗的描述很精准，自己身处建筑设计院每天都在焦虑内耗。最近在进行个人管理的总结，希望形成自己做人做事的方法论，机哥有什么建议？</p>
+<p>多看看什么对自己有效，然后往那个方向去，行程持续的正向反馈。</p>
+<p>领不完，退的只是个人部分哦</p>
+<p>对，这个我没说清楚，公司部分的不退。</p>
+<p>写的真好，像我们这样的老百姓面对大势确实无力改变什么，能改变的只有自己的认知，在顺应大势的浪潮中让自己活得通透一些。</p>
+<p>认知+方法论，基本上就没什么好内耗的了。</p>
+<p>既有认知行为疗法的观点又有阿德勒的痕迹，经济不好的时候，更要提升认知能力和心理调节能力[呲牙]</p>
+<p>嗯，还要锻炼，有个健康的身体。</p>
+<p>沪铜马上要破74了，恭喜机哥</p>
+<p>扛着，离高点8.8还好远，当初没卖掉一些，决策失误，还好现在离我将近7万的成本还有点空间，继续持有着，等降息后再看。</p>
+<p>发现喝茶以后午休睡不着，后面打算减少喝茶了，这意味着再次购买，就买贵的了……平时口粮改为喝花茶～</p>
+<p>哈哈哈，根据自己的习惯和适应性来就行，不过可以试试红茶（金骏眉和正山小种），可能就比较少会有睡不着这个问题[偷笑]</p>
+<p>近年来不知为何，喝绿茶会感觉很寡，还有点恶心。但喝红茶就完全没有这种感觉.....</p>
+<p>买了几种口粮茶，最爱金骏眉，强烈推荐</p>
+<p>你家的金俊眉和正山小种各个档次的都已经喝过了～</p>
+<p>绿茶性寒伤胃，红茶性温/性暖益肠胃。</p>
+<p>朋友圈都是调侃延迟退休的，“做我们能做的，接受我们不能改变的”，看了文章，接受起来容易一点了。提前祝中秋节快乐！</p>
+<p>同祝大家中秋节快乐，有个好的假期~</p>
+<p>听过同一个意思：培养接受事实的能力</p>
+<p>昨天的那篇文章就有写到这点。</p>
+<p>机哥，我记得你前段日子说港险不开放给大陆客户了是吗？</p>
+<p>不是，是现在开始严查了，可能什么时候我给的那个登记通道就会关闭。后续可能只能有存量客户，不能有新增客户，所以先登记，登记后如果后续有考虑，不容易受影响。</p>
+<p>机哥，国内的保险也可以写一下吗，搞不懂这些</p>
+<p>国内的，嗯，可以去公众号天机奇谈的菜单栏上看看，好像有整理了一版。</p>
+<p>香港保险能介绍一两个吗[偷笑]</p>
+<p>文中“旧事重提（戳）”那个链接里面有详细写我自己配置的两类。或者公众号菜单栏上也可以看到，做个借鉴，适合什么样的，要根据自己的情况斟酌</p>
+      </div>
+    </section>
+    <div class="post-foot"><a href="jinjiancheng.html">← 返回金渐成文章列表</a><div class="pager"><a href="tianjiqitan-2024-09-19.html"><span class="lbl">← 更新一篇</span>美联储降息利好中国楼市</a><a href="jinjiancheng-2024-09-13.html"><span class="lbl">更早一篇 →</span>新的纪元</a></div></div>
+  </article>
+</div>
+</main>
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div>
+      <div class="footer-links">
+        <a href="all.html">公众号文章</a>
+        <a href="topics.html">文章主题</a>
+        <a href="notes.html">学习笔记</a>
+        <a href="timeline.html">投资时间线</a>
+        <a href="about.html">关于</a>
+      </div>
+      <p class="disclaimer" style="margin-top:1rem">本站为个人阅读存档，收录金渐成 / 天机奇谈公开发表的公众号文章，便于按主题与时间线连续阅读。<br>内容仅供参考，<strong>不构成任何投资建议</strong>。投资有风险，决策需谨慎。</p>
+    </div>
+    <div>共 781 篇文章 · 静态存档<br><span style="opacity:.7">生成于 2026-10-09</span></div>
+  </div>
+</footer>
+<script>
+/* 金渐成文章整理 —— 交互脚本 */
+(function () {
+  'use strict';
+
+  /* ---- 主题切换 ---- */
+  var root = document.documentElement;
+  var saved = null;
+  try { saved = localStorage.getItem('jjc-theme'); } catch (e) {}
+  if (saved) root.setAttribute('data-theme', saved);
+
+  function currentIsDark() {
+    var t = root.getAttribute('data-theme');
+    if (t === 'dark') return true;
+    if (t === 'light') return false;
+    return window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+  }
+
+  var themeBtn = document.getElementById('themeBtn');
+  if (themeBtn) {
+    themeBtn.addEventListener('click', function () {
+      var next = currentIsDark() ? 'light' : 'dark';
+      root.setAttribute('data-theme', next);
+      try { localStorage.setItem('jjc-theme', next); } catch (e) {}
+    });
+  }
+
+  /* ---- 移动端菜单 ---- */
+  var menuBtn = document.getElementById('menuBtn');
+  var nav = document.getElementById('nav');
+  if (menuBtn && nav) {
+    menuBtn.addEventListener('click', function (e) {
+      e.stopPropagation();
+      nav.classList.toggle('open');
+    });
+    document.addEventListener('click', function (e) {
+      if (nav.classList.contains('open') && !nav.contains(e.target)) nav.classList.remove('open');
+    });
+  }
+
+  /* ---- 列表搜索 / 分栏筛选 ---- */
+  var q = document.getElementById('q');
+  var list = document.getElementById('list');
+  var empty = document.getElementById('empty');
+  if (q && list) {
+    var rows = Array.prototype.slice.call(list.querySelectorAll('.row'));
+    var rowsByChannel = rows.map(function (r) {
+      var tag = r.querySelector('.tag');
+      var txt = tag ? tag.textContent.trim() : '';
+      return txt === '金渐成' ? 'jinjiancheng' : (txt === '天机奇谈' ? 'tianjiqitan' : '');
+    });
+    var channel = 'all';
+    var chips = Array.prototype.slice.call(document.querySelectorAll('.chip[data-ch]'));
+
+    function apply() {
+      var kw = (q.value || '').trim().toLowerCase();
+      var shown = 0;
+      var yearHeads = Array.prototype.slice.call(list.querySelectorAll('.year-head'));
+      rows.forEach(function (r, i) {
+        var hay = r.textContent.toLowerCase();
+        var okKw = !kw || hay.indexOf(kw) !== -1;
+        var okCh = channel === 'all' || rowsByChannel[i] === channel;
+        var ok = okKw && okCh;
+        r.style.display = ok ? '' : 'none';
+        if (ok) shown++;
+      });
+      // 年份标题在筛选时整体隐藏，避免出现空年份
+      yearHeads.forEach(function (h) { h.style.display = (kw || channel !== 'all') ? 'none' : ''; });
+      if (empty) empty.style.display = shown === 0 ? '' : 'none';
+    }
+
+    q.addEventListener('input', apply);
+    chips.forEach(function (c) {
+      c.addEventListener('click', function () {
+        chips.forEach(function (x) { x.classList.remove('on'); });
+        c.classList.add('on');
+        channel = c.getAttribute('data-ch');
+        apply();
+      });
+    });
+  }
+})();
+
+</script>
+</body>
+</html>

@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>跃向未来 · 金渐成</title>
+<meta name="description" content="金渐成 2024-12-16 跃向未来">
+<link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2064%2064'%3E%3Crect%20width='64'%20height='64'%20rx='16'%20fill='%23b45309'/%3E%3Ctext%20x='32'%20y='45'%20font-size='38'%20font-family='sans-serif'%20font-weight='700'%20fill='%23fff'%20text-anchor='middle'%3E%E7%8E%91%3C/text%3E%3C/svg%3E">
+<style>
+:root {--bg: #faf9f6;--bg-2: #f2efe9;--surface: #ffffff;--surface-2: #f6f4ef;--fg: #171614;--fg-2: #3d3a35;--muted: #7a7570;--line: #e7e3da;--line-2: #f0ece4;--accent: #b45309;--accent-2: #d98218;--accent-soft: rgba(180, 83, 9, .09);--accent-line: rgba(180, 83, 9, .22);--on-accent: #ffffff;--shadow-xs: 0 1px 2px rgba(23, 22, 20, .05);--shadow-sm: 0 1px 3px rgba(23, 22, 20, .06), 0 1px 2px rgba(23, 22, 20, .04);--shadow-md: 0 8px 24px -6px rgba(23, 22, 20, .10), 0 2px 6px rgba(23, 22, 20, .05);--shadow-lg: 0 20px 48px -12px rgba(23, 22, 20, .16);--radius: 18px;--radius-sm: 12px;--container: 68rem;}@media (prefers-color-scheme: dark) {:root:not([data-theme="light"]) {--bg: #0f0f10;--bg-2: #16161a;--surface: #17171b;--surface-2: #1d1d22;--fg: #f2f0ec;--fg-2: #d4d1cb;--muted: #918d87;--line: #29292f;--line-2: #212127;--accent: #f0972a;--accent-2: #f5b400;--accent-soft: rgba(240, 151, 42, .12);--accent-line: rgba(240, 151, 42, .3);--on-accent: #17120a;--shadow-xs: 0 1px 2px rgba(0, 0, 0, .45);--shadow-sm: 0 1px 3px rgba(0, 0, 0, .5);--shadow-md: 0 8px 24px -6px rgba(0, 0, 0, .6);--shadow-lg: 0 20px 48px -12px rgba(0, 0, 0, .7);}}html[data-theme="dark"] {--bg: #0f0f10; --bg-2: #16161a; --surface: #17171b; --surface-2: #1d1d22;--fg: #f2f0ec; --fg-2: #d4d1cb; --muted: #918d87; --line: #29292f; --line-2: #212127;--accent: #f0972a; --accent-2: #f5b400;--accent-soft: rgba(240, 151, 42, .12); --accent-line: rgba(240, 151, 42, .3);--on-accent: #17120a;--shadow-xs: 0 1px 2px rgba(0, 0, 0, .45);--shadow-sm: 0 1px 3px rgba(0, 0, 0, .5);--shadow-md: 0 8px 24px -6px rgba(0, 0, 0, .6);--shadow-lg: 0 20px 48px -12px rgba(0, 0, 0, .7);}* { box-sizing: border-box; margin: 0; padding: 0; border: 0 solid var(--line); }html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }body {background: var(--bg);background-image:radial-gradient(60rem 32rem at 12% -8%, var(--accent-soft), transparent 62%),radial-gradient(48rem 28rem at 92% 2%, rgba(217, 130, 24, .06), transparent 60%);background-repeat: no-repeat;background-attachment: fixed;color: var(--fg);font-family: Inter, -apple-system, BlinkMacSystemFont, "PingFang SC", "Hiragino Sans GB","Microsoft YaHei", "Helvetica Neue", Helvetica, Arial, sans-serif;-webkit-font-smoothing: antialiased;-moz-osx-font-smoothing: grayscale;line-height: 1.6;min-height: 100vh;display: flex;flex-direction: column;}a { color: inherit; text-decoration: none; }img { max-width: 100%; height: auto; display: block; border-radius: 10px; }button { font: inherit; color: inherit; background: none; cursor: pointer; }::selection { background: var(--accent-soft); }.site-header {position: sticky; top: 0; z-index: 50;background: color-mix(in srgb, var(--bg) 82%, transparent);backdrop-filter: saturate(180%) blur(14px);-webkit-backdrop-filter: saturate(180%) blur(14px);border-bottom: 1px solid var(--line);}.header-inner {max-width: var(--container); margin: 0 auto;padding: .85rem 1.5rem;display: flex; align-items: center; justify-content: space-between; gap: 1rem;}.brand { display: flex; align-items: center; gap: .7rem; transition: opacity .2s; flex: 0 0 auto; }.brand:hover { opacity: .82; }.brand-mark {width: 2.3rem; height: 2.3rem; border-radius: 12px; flex: 0 0 auto;background: linear-gradient(140deg, var(--accent-2), var(--accent) 70%);color: #fff; font-weight: 800; font-size: 1.08rem;display: flex; align-items: center; justify-content: center;box-shadow: 0 4px 12px -2px var(--accent-line), inset 0 1px 0 rgba(255,255,255,.28);}.brand-text { display: flex; flex-direction: column; line-height: 1.2; }.brand-text b { font-size: 1rem; font-weight: 750; letter-spacing: -.015em; }.brand-text span { font-size: .68rem; color: var(--muted); letter-spacing: .1em; margin-top: .1rem; }.nav { display: flex; align-items: center; gap: .15rem; font-size: .9rem; font-weight: 550; }.nav a {padding: .48rem .78rem; border-radius: 9px; color: var(--muted);transition: color .18s, background .18s; white-space: nowrap;}.nav a:hover { color: var(--fg); background: var(--surface-2); }.nav a.active { color: var(--accent); background: var(--accent-soft); font-weight: 700; }.nav-tools { display: flex; align-items: center; gap: .3rem; padding-left: .5rem; margin-left: .35rem; border-left: 1px solid var(--line); }.icon-btn {width: 2.1rem; height: 2.1rem; border-radius: 9px; color: var(--muted);display: flex; align-items: center; justify-content: center;transition: .18s; font-size: 1rem;}.icon-btn:hover { color: var(--accent); background: var(--accent-soft); }.menu-btn { display: none; }main { flex: 1; }.container {max-width: var(--container); margin: 0 auto;padding: 3rem 1.5rem 5.5rem;display: flex; flex-direction: column; gap: 3.75rem;}.hero { margin-bottom: 0; }.crumb {display: flex; flex-wrap: wrap; align-items: center; gap: .45rem;font-size: .85rem; font-weight: 550; color: var(--muted); margin-bottom: 1.1rem;}.crumb a:hover { color: var(--accent); }.crumb .sep { opacity: .35; }.hero h1 {font-size: clamp(2.1rem, 5.6vw, 3.15rem);font-weight: 830; line-height: 1.08; letter-spacing: -.035em;background: linear-gradient(180deg, var(--fg) 62%, color-mix(in srgb, var(--fg) 62%, var(--accent)));-webkit-background-clip: text; background-clip: text;-webkit-text-fill-color: transparent;}.hero .lead {margin-top: 1.35rem; max-width: 44rem;font-size: 1.06rem; line-height: 1.85; color: var(--muted);}.hero .lead strong { color: var(--fg); font-weight: 750; }.hero-actions { margin-top: 1.9rem; display: flex; flex-wrap: wrap; gap: .7rem; }.btn {padding: .72rem 1.55rem; border-radius: 999px;font-weight: 600; font-size: .95rem;transition: transform .18s, box-shadow .18s, background .18s, border-color .18s, color .18s;display: inline-flex; align-items: center; gap: .45rem;}.btn-primary {background: linear-gradient(140deg, var(--accent-2), var(--accent));color: #fff;box-shadow: 0 6px 18px -6px var(--accent-line), inset 0 1px 0 rgba(255,255,255,.22);}.btn-primary:hover { transform: translateY(-2px); box-shadow: 0 12px 26px -8px var(--accent-line); }.btn-ghost { border: 1px solid var(--line); background: var(--surface); color: var(--fg-2); }.btn-ghost:hover { background: var(--surface-2); border-color: var(--accent-line); color: var(--accent); }.stats { margin-top: 1.9rem; display: flex; flex-wrap: wrap; gap: .6rem; }.stat {display: flex; align-items: baseline; gap: .4rem;background: var(--surface); border: 1px solid var(--line);border-radius: 999px; padding: .42rem 1rem;box-shadow: var(--shadow-xs);}.stat b { font-size: 1rem; font-weight: 780; letter-spacing: -.02em; color: var(--fg); font-variant-numeric: tabular-nums; }.stat span { font-size: .8rem; color: var(--muted); }.section { display: flex; flex-direction: column; }.section-head {display: flex; align-items: baseline; justify-content: space-between;gap: 1rem; margin-bottom: 1.5rem; padding-bottom: .85rem;border-bottom: 1px solid var(--line);}.section-head h2 {position: relative; padding-left: .85rem;font-size: .92rem; font-weight: 780; text-transform: uppercase;letter-spacing: .17em; color: var(--fg);}.section-head h2::before {content: ""; position: absolute; left: 0; top: 50%; transform: translateY(-50%);width: 3px; height: 1.05em; border-radius: 2px;background: linear-gradient(180deg, var(--accent-2), var(--accent));}.section-head .more { font-size: .88rem; font-weight: 600; color: var(--muted); white-space: nowrap; transition: .18s; }.section-head .more:hover { color: var(--accent); }.grid { display: grid; gap: 1.05rem; }.grid-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }.grid-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }.grid-4 { grid-template-columns: repeat(4, minmax(0, 1fr)); }.card {position: relative; overflow: hidden;background: var(--surface);border: 1px solid var(--line);border-radius: var(--radius);padding: 1.3rem 1.4rem;box-shadow: var(--shadow-xs);transition: transform .2s cubic-bezier(.2,.7,.3,1), box-shadow .2s, border-color .2s;display: block;}.card::after {content: ""; position: absolute; inset: 0 0 auto 0; height: 2px;background: linear-gradient(90deg, var(--accent-2), var(--accent) 55%, transparent);opacity: 0; transition: opacity .2s;}a.card:hover {transform: translateY(-3px);box-shadow: var(--shadow-md);border-color: var(--accent-line);}a.card:hover::after { opacity: 1; }.card .kicker {font-size: .7rem; font-weight: 780; letter-spacing: .12em;color: var(--accent); text-transform: uppercase;}.card h3 { margin-top: .55rem; font-size: 1.04rem; font-weight: 730; line-height: 1.4; letter-spacing: -.015em; }.card p { margin-top: .55rem; font-size: .875rem; line-height: 1.72; color: var(--muted); }.card .count { font-size: .78rem; font-weight: 600; color: var(--muted); }.rows {display: flex; flex-direction: column;background: var(--surface); border: 1px solid var(--line);border-radius: var(--radius); overflow: hidden;box-shadow: var(--shadow-xs);}.row {display: flex; align-items: baseline; gap: 1.1rem;padding: .82rem 1.15rem;transition: background .16s;border-bottom: 1px solid var(--line-2);position: relative;}.row:last-child { border-bottom: 0; }.row::before {content: ""; position: absolute; left: 0; top: 0; bottom: 0; width: 3px;background: var(--accent); transform: scaleY(0); transition: transform .18s;}.row:hover { background: var(--surface-2); }.row:hover::before { transform: scaleY(1); }.row .date {flex: 0 0 auto; width: 5.1rem; font-size: .82rem; font-weight: 600;font-variant-numeric: tabular-nums; color: var(--muted); letter-spacing: -.01em;}.row .title { flex: 1 1 auto; font-size: .97rem; font-weight: 550; line-height: 1.55; color: var(--fg-2); }.row:hover .title { color: var(--accent); font-weight: 620; }.row .tags { flex: 0 0 auto; display: flex; gap: .35rem; }.tag {font-size: .7rem; font-weight: 620; padding: .2rem .6rem; border-radius: 999px;background: var(--surface-2); border: 1px solid var(--line);color: var(--muted); white-space: nowrap;}.year-head { display: flex; align-items: center; gap: .9rem; margin: 1.9rem 0 .75rem; }.year-head:first-child { margin-top: 0; }.year-head .y { font-size: 1.3rem; font-weight: 830; letter-spacing: -.03em; }.year-head .n { font-size: .78rem; font-weight: 600; color: var(--muted); background: var(--surface-2); border: 1px solid var(--line); padding: .12rem .55rem; border-radius: 999px; }.year-head .line { flex: 1; height: 1px; background: linear-gradient(90deg, var(--line), transparent); }.post-wrap { max-width: 46rem; margin: 0 auto; width: 100%; }.post-head { margin-bottom: 2.25rem; padding-bottom: 1.6rem; border-bottom: 1px solid var(--line); }.post-head h1 { font-size: clamp(1.55rem, 4.4vw, 2.05rem); font-weight: 760; line-height: 1.32; letter-spacing: -.028em; }.post-meta { margin-top: 1rem; display: flex; flex-wrap: wrap; gap: .5rem 1rem; font-size: .84rem; color: var(--muted); align-items: center; font-weight: 550; }.post-meta .dot { opacity: .35; }.prose { color: var(--fg-2); font-size: 1.06rem; line-height: 1.9; letter-spacing: .008em; max-width: 68ch; }.prose p { margin: 1.5em 0; }.prose h1, .prose h2, .prose h3 { color: var(--fg); letter-spacing: -.018em; font-weight: 730; line-height: 1.4; }.prose h1 { font-size: 1.65rem; margin: 2.1em 0 .8em; }.prose h2 {font-size: 1.28rem; margin: 2.3em 0 .85em; padding-bottom: .5em;border-bottom: 1px solid var(--line);}.prose h3 {font-size: 1.03rem; margin: 2.2em 0 .7em;letter-spacing: .16em; color: var(--accent); font-weight: 780;}.prose strong { color: var(--fg); font-weight: 700; }.prose em { font-style: italic; }.prose a { color: var(--accent); text-decoration: underline; text-underline-offset: 3px; text-decoration-thickness: 1px; }.prose a:hover { opacity: .8; }.prose blockquote {border-left: 3px solid var(--accent);background: var(--accent-soft);color: var(--fg-2); border-radius: 0 10px 10px 0;margin: 1.9em 0; padding: 1.05em 1.35em; font-style: italic;}.prose blockquote p { margin: 0; }.prose ul { margin: 1.3em 0; list-style: none; }.prose ul > li { margin: .55em 0; padding-left: 1.35em; position: relative; }.prose ul > li::before { content: ""; position: absolute; left: .15em; top: .72em; width: 5px; height: 5px; border-radius: 50%; background: var(--accent); opacity: .6; }.prose ol { margin: 1.3em 0; padding-left: 1.5em; list-style: decimal; }.prose ol > li { margin: .55em 0; }.prose img { margin: 2em 0; box-shadow: var(--shadow-md); }.prose hr { margin: 2.6em 0; border-top: 1px solid var(--line); height: 0; }.post-foot {margin-top: 3.2rem; padding-top: 1.6rem; border-top: 1px solid var(--line);display: flex; align-items: center; justify-content: space-between;gap: 1rem; flex-wrap: wrap; font-size: .88rem; font-weight: 550; color: var(--muted);}.post-foot a:hover { color: var(--accent); }.pager { display: flex; gap: .8rem; flex-wrap: wrap; }.pager a {background: var(--surface); border: 1px solid var(--line); border-radius: 12px;padding: .65rem 1rem; max-width: 17rem; font-size: .86rem;transition: .18s; box-shadow: var(--shadow-xs); line-height: 1.45;}.pager a:hover { background: var(--surface-2); border-color: var(--accent-line); color: var(--accent); transform: translateY(-2px); }.pager .lbl { display: block; font-size: .7rem; font-weight: 650; color: var(--muted); margin-bottom: .2rem; letter-spacing: .04em; }.comments {margin-top: 3rem; border-top: 1px solid var(--line); padding-top: 1.6rem;}.comments-head {display: flex; align-items: baseline; justify-content: space-between;gap: 1rem; flex-wrap: wrap; margin-bottom: 1.15rem;}.comments-head h2 {position: relative; padding-left: .8rem;font-size: .82rem; font-weight: 780; text-transform: uppercase;letter-spacing: .17em; color: var(--fg);}.comments-head h2::before {content: ""; position: absolute; left: 0; top: 50%; transform: translateY(-50%);width: 3px; height: 1.05em; border-radius: 2px;background: linear-gradient(180deg, var(--accent-2), var(--accent));}.comments-head span { font-size: .76rem; color: var(--muted); }.comments-body {background: var(--surface-2);border: 1px solid var(--line);border-radius: var(--radius-sm);padding: 1.15rem 1.35rem;font-size: .95rem; line-height: 1.8; color: var(--muted);max-width: 68ch;}.comments-body p { margin: .75em 0; }.comments-body p:first-child { margin-top: 0; }.comments-body p:last-child { margin-bottom: 0; }.comments-body strong { color: var(--fg-2); font-weight: 650; }.comments-body a { color: var(--accent); text-decoration: underline; text-underline-offset: 3px; }.comments-body ul { margin: .9em 0; list-style: none; }.comments-body ul > li { margin: .4em 0; padding-left: 1.15em; position: relative; }.comments-body ul > li::before { content: ""; position: absolute; left: .1em; top: .7em; width: 4px; height: 4px; border-radius: 50%; background: var(--muted); opacity: .5; }.comments-body blockquote {border-left: 3px solid var(--line); margin: 1em 0; padding: .4em 1em;color: var(--muted); font-style: italic;}.toolbar {display: flex; flex-wrap: wrap; gap: .6rem; align-items: center;margin-bottom: 1.35rem;}.search {flex: 1 1 17rem; min-width: 12rem;display: flex; align-items: center; gap: .55rem;background: var(--surface); border: 1px solid var(--line);border-radius: 999px; padding: .58rem 1.05rem;color: var(--muted); transition: border-color .18s, box-shadow .18s;box-shadow: var(--shadow-xs);}.search:focus-within { border-color: var(--accent); box-shadow: 0 0 0 3px var(--accent-soft); }.search input { flex: 1; background: none; border: none; outline: none; color: var(--fg); font-size: .93rem; }.chip {font-size: .84rem; font-weight: 600; padding: .5rem 1rem; border-radius: 999px;background: var(--surface); border: 1px solid var(--line);color: var(--muted); transition: .18s; box-shadow: var(--shadow-xs);}.chip:hover { border-color: var(--accent-line); color: var(--accent); }.chip.on {background: linear-gradient(140deg, var(--accent-2), var(--accent));color: #fff; border-color: transparent;box-shadow: 0 5px 14px -5px var(--accent-line);}.empty-note { padding: 3rem 0; text-align: center; color: var(--muted); font-size: .93rem; }.faq { display: flex; flex-direction: column; gap: .6rem; }.faq details {background: var(--surface); border: 1px solid var(--line);border-radius: var(--radius-sm); padding: 1.05rem 1.3rem;transition: border-color .18s, box-shadow .18s; box-shadow: var(--shadow-xs);}.faq details[open] { border-color: var(--accent-line); box-shadow: var(--shadow-sm); }.faq summary {cursor: pointer; font-weight: 650; font-size: .96rem; list-style: none;display: flex; justify-content: space-between; gap: 1rem; align-items: center;}.faq summary::-webkit-details-marker { display: none; }.faq summary::after {content: "+"; color: var(--accent); font-weight: 500; font-size: 1.1rem;width: 1.4rem; height: 1.4rem; border-radius: 50%;display: flex; align-items: center; justify-content: center;background: var(--accent-soft); flex: 0 0 auto;}.faq details[open] summary::after { content: "−"; }.faq .ans { margin-top: .85rem; font-size: .91rem; line-height: 1.82; color: var(--muted); }.site-footer { border-top: 1px solid var(--line); background: color-mix(in srgb, var(--bg-2) 60%, transparent); }.footer-inner {max-width: var(--container); margin: 0 auto; padding: 2.75rem 1.5rem;display: flex; flex-wrap: wrap; gap: 1.5rem 2.5rem; justify-content: space-between;font-size: .85rem; color: var(--muted);}.footer-inner a:hover { color: var(--accent); }.footer-links { display: flex; flex-wrap: wrap; gap: .55rem 1.15rem; font-weight: 600; }.footer-links a { color: var(--fg-2); }.disclaimer { font-size: .78rem; color: var(--muted); line-height: 1.75; max-width: 35rem; opacity: .9; }@media (max-width: 900px) {.grid-4, .grid-3 { grid-template-columns: repeat(2, minmax(0, 1fr)); }.nav { display: none; }.nav.open {display: flex; flex-direction: column; align-items: stretch;position: absolute; left: 1rem; right: 1rem; top: 4.35rem;background: var(--surface); border: 1px solid var(--line);border-radius: var(--radius); padding: .5rem; box-shadow: var(--shadow-lg); gap: .1rem;}.nav.open a { padding: .72rem .9rem; }.menu-btn { display: flex; }.nav-tools { border: none; padding: 0; margin: 0; padding-top: .35rem; }}@media (max-width: 620px) {.container { gap: 2.6rem; padding: 1.9rem 1.15rem 4rem; }.grid-4, .grid-3, .grid-2 { grid-template-columns: 1fr; }.rows { border-radius: var(--radius-sm); }.row { flex-wrap: wrap; gap: .3rem .8rem; padding: .8rem 1rem; }.row .date { width: auto; }.row .title { flex-basis: 100%; }.hero .lead { font-size: 1rem; }.header-inner { padding: .75rem 1.15rem; }}
+</style>
+</head>
+<body>
+<header class="site-header">
+  <div class="header-inner">
+    <a class="brand" href="index.html">
+      <span class="brand-mark">玑</span>
+      <span class="brand-text"><b>金渐成文章整理</b><span>美股 · 港股 · 加密 · 黄金 · 楼市</span></span>
+    </a>
+    <nav class="nav" id="nav"><a href="all.html" class="active">公众号文章</a><a href="topics.html">文章主题</a><a href="notes.html">学习笔记</a><a href="portfolio.html">账户持仓</a><a href="timeline.html">投资时间线</a><a href="tools.html">工具箱</a><a href="booklist.html">书单</a><a href="about.html">关于</a>
+      <span class="nav-tools"><button class="icon-btn" id="themeBtn" title="切换主题" aria-label="切换主题">◐</button></span>
+    </nav>
+    <button class="icon-btn menu-btn" id="menuBtn" aria-label="菜单">☰</button>
+  </div>
+</header>
+<main>
+<div class="container">
+  <article class="post-wrap">
+    <div class="post-head">
+      <div class="crumb"><a href="index.html">首页</a><span class="sep">/</span><a href="all.html">公众号文章</a><span class="sep">/</span><a href="jinjiancheng.html">金渐成</a></div>
+      <h1>跃向未来</h1>
+      <div class="post-meta"><span>2024-12-16</span><span class="dot">·</span><span>金渐成</span><span class="dot">·</span><span>约 5 分钟读完</span></div>
+    </div>
+    <div class="prose">
+<p>AMD又跌了2.83%，收盘价126.9美元。</p>
+<p>盘中跌破125美元时，我加了些，目前仓位占比0.65%，设置好在120和115加仓，仓位占比控制在0.85%左右，为后续可能出现的大跌预留空间。</p>
+<p>AMD我之前计划130以下买入，所以从135一路高涨到170+的时候，我都没有追。</p>
+<p>后来跌下来了，139买了点，135加仓，130加仓，整体来说，还是比预期的阈值和节奏快了些。</p>
+<p>给英伟达做备胎用的，防御型，所以仓位占比控制在1%以内，没打算重仓。</p>
+<p>另一个原本在看的是芯片的另一个巨头博通，没买。</p>
+<p>博通上一个交易日暴涨24.43%，收盘价224.8美元。市值突破万亿美元，成为美股第9家市值破万亿美元的公司。</p>
+<p>暴涨的原因，主要是发布的第四季财报，AI收入同比增长220%达到122亿美元，且预计AI产品收入将在2025财年第一财季同比增长65%，远超市场预期。</p>
+<p>人工智能方面，目前最赚钱的是卖铲子的，即以英伟达为代表的GPU通用芯片、以博通为代表的ASIC定制化专用芯片，以及以FPGA为代表的半定制化芯片。</p>
+<p>英伟达GPU目前在推理市场中市占率约80%，大型科技公司定制化ASIC芯片则不断涌现。</p>
+<p>我个人认为以英伟达为代表的GPU更有前景，所以一直没有对博通为代表的ASIC定制化专用芯片进行针对性布防，也就是没买，后续也没打算买。</p>
+<p>英伟达则跌了2.25%，资本市场上的散户资金一般是轮动地，炒不同的个股和板块，不着急，股价过两日就会修复回来。</p>
+<p>台积电和特斯拉都涨了4%+，前者修复200.99美元，后者再创新高。</p>
+<p>和之前说的一样，在靠近权力和拥抱科技之间，我选择了拥抱科技，资产配置和布局多元化的同时，重仓科技股。</p>
+<p>因此也在这两年实现了资产翻倍和腾飞，目前的情况，我个人挺满意的，能看得见自己在跃向未来。</p>
+<p>周末带娃外出玩耍，选了个河边有沙有草地、风景秀丽的地方。</p>
+<p>小儿子想结交新的玩伴，被我叫住，带着他一起在河边沙滩上挖个大坑。</p>
+<p>由于淤泥沙子混合层的存在，越往下挖越坚固，很难挖，他小手挖得红通通，说快起泡了。</p>
+<p>最终花了1小时40分钟，我们挖了个直径1.6米，深约1.5米的大坑，直到出水层近在咫尺，才收工，两个人热得直冒汗。</p>
+<p>附近的小朋友们都被吸引过来，他很自豪地带着所有小朋友玩跳坑、爬坑的游戏，最后更是结合西游记，玩起了打不过妖怪就躲进洞府的游戏。</p>
+<p>趁着他们玩的功夫，火锅也煮好了，大冬天的，在户外有热腾腾的火锅暖暖胃，确实很舒服。</p>
+<p>小儿子吃饭的时候，我问他:自己努力做的洞府，吸引小朋友们都来跟你玩，是不是很有成就感？</p>
+<p>他说只要把自己做好，就会吸引来其他的人和资源，像磁铁一样。</p>
+<p>老二说，这叫:依靠自身努力，用心种下鲜花，想要的蝴蝶蜜蜂自然来。</p>
+<p>平日里，我会通过生活的点滴，让他们意识到问题并愿意去改正，很少讲大道理，小孩子听不进去。</p>
+<p>以身作则，言传身教，就是最好的教育。</p>
+<p>饭后，小儿子和老二又跟小朋友们跑去玩了，大儿子坐一边跟我们聊天。</p>
+<p>我们聊很多事，未来的规划、历史等，他是个很不错的参与者。</p>
+<p>聊到了1978年改革开放的成功。改革开放，即对内改革，对外开放。</p>
+<p>改革方面，总设计师改终身制为任期制，党政分离，权力下放，即减少权力对市场的干预；</p>
+<p>开放，即引进外资，利用外资，发展经济和产业。</p>
+<p>后来，有了中国经济的腾飞。</p>
+<p>我们常感叹，历史是个轮回。嗯，还真是。</p>
+<p>最近半年，我开始让他从全球史观的角度看历史，而不仅仅局限于国内的中国史观。</p>
+<p>过去，我们一直受传统文化思维的教育，思维定势。如今，反而更应该跳出这种思维，学会用对方的思维和视角去看我们的问题。</p>
+<p>大儿子说，他在现在的环境中也时常想一个问题:到底什么是真正的爱国主义？</p>
+<p>我告诉他:一种是走向民族主义，或者孤立主义的爱国主义；一种是对国家负责任的爱国主义。</p>
+<p>让这个国家更好，对这个国家负有责任，这个是一个前提。</p>
+<p>没有这个前提的话，单纯的去抽离出来，去谈爱国主义，它就变成会走向非常狭隘的民族主义。</p>
+<p>如果没有分清楚几个界限，听不得人家批评，听不得人任何的非议，那就很难有效地针对性去改进问题和提升。</p>
+<p>一味地鼓吹，而不实事求是，那叫捧杀、愚民。</p>
+<p>有些人，总是在最安全的地方最勇敢，说到底，还是搞民粹那套。</p>
+<p>我们往往会高估自己的勇敢，也会低估时间的力量。看这几年的遭遇和变化，如果还醒不来，那确实没救了。</p>
+<p>值得警醒的，是平时再寻常不过的事，如今成为新闻，那恰恰是不正常的。</p>
+<p>我印象中今年比较典型的，是自媒体狂嗨的“city不city”。</p>
+<p>有些人在担心“孤岛化”，这方面，我也不好说什么，但自己一直比较关注几个数据:</p>
+<p>航班是否减少、外商直接投资资金、来华外国人数据等。</p>
+<p>回家前在沙滩边上坐了会，想了很多问题，冬风悄然地吹过了岁月山海，静静地掠过了闹市，携一枚枯叶落在了这片山间原野。</p>
+<p>不远处是充满生机活力的孩子，脚下是沙地里扎根的野草…</p>
+<p>这样的环境，少了几分城市的纷繁与热闹，多了几许雀鸟归廊的悠然。</p>
+<p>但愿我们经历过后留下的，不是感慨时代的脆弱，而是庆幸自己坚定不移的选择。</p>
+<p>就这样吧。</p>
+    </div>
+    <section class="comments">
+      <div class="comments-head"><h2>读者留言</h2><span>原文评论区内容，与正文分开呈现</span></div>
+      <div class="comments-body">
+<p>机哥，孩子表现好的时候，总夸她说乖。现在弄的每件小事，她总问：爸爸我乖吗？（比如一天说好玩20分钟手机或睡前去尿尿）[捂脸]</p>
+<p>不要总是夸乖，要具体化。比如她帮你拿了东西，你要夸她有责任感，很有担当，很棒，懂得帮爸爸妈妈了。这样具体化以后，孩子获得具体的正向反馈后，才会慢慢培养起内驱力。</p>
+<p>航班，外来资金，来华人数。说个感觉，大概2010年前后.我在我们县城有幸有外教老师，我们市都是西部小市没有Gdp，我很诧异能看到很多外国人。最近几年，肉眼可见的少.黑神话悟空就像博物馆一样，凡间不可见</p>
+<p>这三样，都是断崖式下跌。黑神话悟空能爆火，有一个很重要的原因是官媒在捧，那么问题来了，以前官媒最喜欢踩游戏了，现在为什么会捧呢？本质上还是因为经济。</p>
+<p>[强][强][强]年轻时，我以为别人尊重我，是因为我很优秀，后来才明白别人尊重我，是因为别人很优秀。优秀的人对谁都尊重，尊重强者是一种欣赏，尊重弱者是一种慈善，尊重所有的人是一种基本教养。</p>
+<p>适用于很多关系中。</p>
+<p>现在的确是民粹主义抬头，很多人在钻流量的空子，作为吃到这波流量红利的人，为了自己的利益完全没有实事求是的态度，我爱我的祖国，但是有不足，不好的地方，不能因为我爱她就不管，反而是要及时调整改正。而不是在网上到处煽动情绪。</p>
+<p>现在魔怔了，你要敢说一句不好的，立马给你扣上1450，50万、汉奸、间谍之类的帽子，很可怕……我们做好自己就行了，少去跟这些脑细胞凑一块还没花生米大的玩意扯，没意义。</p>
+<p>这次去日本看到满大街的都是外国人，连北海道函馆这种冷门都地方，基本上十个游客里面台湾同胞占了六到七个。我们现在单方面的免签更像是单相思。</p>
+<p>其实我是建议有条件的读者，可以去日本走走看看，不要活在信息茧房里，很多东西，自己经历一遍，就能开悟。</p>
+<p>天玑哥，前段时间飞深圳，晚上住在南航大兴机场的酒店，跟保安小哥聊天，一问来的外国人，基本上都是俄国人[破涕为笑][捂脸]</p>
+<p>还有非洲的也很多，欧美发达国家的反而少，这不，现在单方面免签，也没啥效果。门都打开了，人家也不进来[裂开]</p>
+<p>我家所在的小区，以前欧美人和韩国人不少，现在欧美人几乎没了，韩国人也少了一半了，只有印度人还多一点(也少了不少)。</p>
+<p>机哥，这两年内的刚需是看看今年底还是看明年五一好呢</p>
+<p>楼市除了北上深这三个城市，其他的城市能晚则晚，明年的价格大概率会比今年好。北上深三个城市，还要再看两个月，看是不是真的稳住了，我从各方面数据和未来的趋势来看，总觉得没那么快。</p>
+<p>其实像深圳，火的是价格比前年低得多的新房，便宜当然日光；但二手市场仍然是卖房压力很大的，返价并不普遍。随着时间渐长，再看是不是真的回暖了</p>
+<p>是的，二手房还要交中介费，一手房新还返佣，都去买新房了，二手房跌的历害。感觉跌到2017年的价格了</p>
+<p>机机，你应该是理科生吧，为啥这么了解历史，文笔也这么好</p>
+<p>文理都不偏科，最终以文科生的身份，考上了偏理科的经济学专业。不过兴趣广泛，啥书都会看看，古今中外，阅读量一直维持在比较高的一个水准，工作再忙也没有落下。</p>
+<p>现在是真正理解了“难得糊涂”这四个字</p>
+<p>今天这篇审核了好久，我一直在想有些内容太敏感，已经尽可能含蓄了写，不知道能不能通过。还好最后过了[破涕为笑]</p>
+<p>机哥早，人工智能后续如果没有进一步产业化的落地，是不是会经理前期的泡沫破裂估值回归</p>
+<p>已经在逐步落地了，我今年去老美呆了大概45-50天，感受挺深的。不要信息茧房了。</p>
+<p>我家孩子北大信科，科研方向是AI方向，医疗行业的机器学习、算法这些，学长在跟北医三院，北大肿瘤，协和医院做这方面的项目，说是未来主流方向。</p>
+<p>现在网上很多事上观念冲突两极分化严重，感觉撕裂越来越严重。</p>
+<p>机哥：之前您说到12.18，那普通人是不是就在看到机会的时候，把人民币换成美元，放在家里？</p>
+<p>有机会就弄美元资产，放在离岸吃收益。没机会，就弄点美元、黄金、USDT这类放着。</p>
+<p>实在不行的话，这边银行有美元理财产品。但你的换汇理由只能写旅游。而且听说最近挺严，金额大点可能会被拒绝。</p>
+<p>相信国运，满仓纳指！</p>
+<p>你这帝都的居然也这样[吃瓜]</p>
+<p>sz这两三个月房市行情不错</p>
+<p>嗯，全国各地的房产博主都在往那带客户赚分销/团购佣金，一套六位数的佣金，能不好才怪。</p>
+<p>诚问玑哥，小孩(小学低龄)去香港读书拿身份和去新加坡读书拿身份，哪个好呢？这两个地方如何选</p>
+<p>新加坡的缺点，就是太早分流，小学五年级好像，这样一来，孩子的压力会比较大。香港整体不错，就是有一些东西不太可控，比如会不会增加像国内一样的思政课。</p>
+<p>机哥，资本主义的券商羊毛真多，薅完港券的后继续薅新加坡的。</p>
+<p>万恶的资本主义，居然给大众发福利[破涕为笑][旺柴]</p>
+<p>每一次转机都换一个机场✈️，惋惜和无奈，于年中清空上海机场</p>
+<p>挺可惜的，曾经的络绎不绝，如今的门可罗雀。</p>
+<p>敢问天机 交易美股用什么软件？[害羞]</p>
+<p>我和我媳妇主要用盈透，另外就是富途、长桥，主要是给孩子用。</p>
+<p>盈透普通人觉得好难用</p>
+<p>现在没得选，其他的都要存量证明，只有盈透不需要[捂脸]</p>
+<p>领域：支持AI硬件的设备，如智能手机和PC。• 重点公司：$AAPL, $AMD等。 就前面两个阶段的观点，玑总怎么看？</p>
+<p>整体靠谱，比较认同，后续主要是集中在应用上，所以AI应用板块的会有机会，但这个需要时间，现在更多的是概念。</p>
+<p>看到玑哥教育孩子的方式感慨啊！您的孩子能不优秀吗，从小潜移默化培养的见识见解，自己分析能力。对比之下，唉，收益！</p>
+<p>言传身教，以身作则，孩子更能学进去，不然只靠讲，很难听进去。</p>
+<p>玑哥，从天机奇谈开始关注到现在，这段时间一直在想：你是不是从未来穿越回来的，很多观点和操作总给人一种回望历史的感受。对我个人而言，很多文字也确实在某一些时刻平复了心中绝大的不忿，感谢。</p>
+<p>不是穿越者，顶多是先知先觉罢了。哈哈，没有任何物理物体能穿越，我认为即便有所谓的穿越者，也只能是信息，信息可以穿越于时间长河。</p>
+<p>玑哥早上好、MSTR被纳入纳指了、会不会大涨？[呲牙]</p>
+<p>是个利好，预计情绪助推会拉升一些，但这股我总觉得价格过高，还不如直接买大饼，反正有机会有就要做空它，哈哈，尝到甜头了，做空的收益都不错[偷笑]</p>
+<p>啊啊啊，很开心我和玑哥的观点一致。我在mstr的收益上做空占了七成多点。正打算夜盘待会开了冲进去吃一口多然后跑</p>
+<p>请问您是觉得股票投资有意思，还是做VC有意思？</p>
+<p>B，暂时没有下手。炒股，其实没多大意思，哈哈，更多是数字上的变化。</p>
+<p>最近还是看起了学区房，一方面最近学区房巨降，感觉好学区还是有机会，另一方面身边的还是在卷娃，我虽然不想卷，但是还是觉得小时候一个好的学习环境受益终生。不过现在的经济环境是真的差，别人看我在看学区房，有的问我是做什么工作的，我都只能回复我是做父母工作的[捂脸]，毕业后就没啃老了，但是现在有孩子后，无论是经济上还是生活上真的是越来越依靠父母的帮助了，就这种环境真的没资格和心气再考虑第二个了[捂脸]</p>
+<p>在自己能成承受范围内（包括风险）做事就行，给娃用的，出发点和初心是好的。</p>
+<p>机哥现在已经有明显变化了[呲牙]，好多粉红自媒体评论下面全都是冷嘲热讽的比以前多多了</p>
+<p>人只会痛醒，继续痛吧，没那么快好。</p>
+<p>玑哥，周五晚上英伟达AMD跌了，博通、迈威尔、Arista这种定制AI芯片的却大涨，它们会不会挤占英伟达的份额，成长为英伟达的对手盘。</p>
+<p>肯定会，但未来我还是更看好英伟达。</p>
+<p>我也加了AMD，紧跟机哥步伐。</p>
+<p>这货的持股体验感不好，谨慎，只能往中长期看。我是买来做备胎的，用于战略防御的。</p>
+<p>体验感太差，上次财报前没出，一直亏到现在，仓位有点重，只能等了</p>
+<p>嗯，那会提示过了，趁财报出来前后，市场情绪拉高股价，达到预期后就抓紧撤，可惜有的人没撤，只能往中长期看了。</p>
+<p>玑哥，您带孩子玩耍的地方在上海哪里呀，好不惬意，我下次也带娃去逛逛户外吃个火锅。</p>
+<p>崇明前卫村，往启东方向的，不太好找，都是土路，底盘低的车进不去。</p>
+<p>作为一个机场圈的酒店从业者，对航班减少确实深有体会，看天吃饭只能饿一顿饥一顿。</p>
+<p>慢慢熬吧，没办法。先这样，今天评论盾得厉害，大家都知道悠着点。</p>
+<p>哈哈哈挖坑那一段深有体会，每次外出沙滩拍摄，我会挖个坑把三角架埋进去，降低视角，这个时候就是最吸引小朋友的时候[捂脸]</p>
+<p>挖沙坑还挺累的，沙子太松了不行，容易塌；和淤泥混合的也不行，太坚固，累趴。不过挺解压的，哈哈，我也喜欢挖[捂脸]</p>
+<p>机机可以说一下12月15号全面铺开的个人养老金么？</p>
+<p>看上一篇。</p>
+      </div>
+    </section>
+    <div class="post-foot"><a href="jinjiancheng.html">← 返回金渐成文章列表</a><div class="pager"><a href="jinjiancheng-2024-12-18.html"><span class="lbl">← 更新一篇</span>梦回2008</a><a href="jinjiancheng-2024-12-13.html"><span class="lbl">更早一篇 →</span>贤者时刻</a></div></div>
+  </article>
+</div>
+</main>
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div>
+      <div class="footer-links">
+        <a href="all.html">公众号文章</a>
+        <a href="topics.html">文章主题</a>
+        <a href="notes.html">学习笔记</a>
+        <a href="timeline.html">投资时间线</a>
+        <a href="about.html">关于</a>
+      </div>
+      <p class="disclaimer" style="margin-top:1rem">本站为个人阅读存档，收录金渐成 / 天机奇谈公开发表的公众号文章，便于按主题与时间线连续阅读。<br>内容仅供参考，<strong>不构成任何投资建议</strong>。投资有风险，决策需谨慎。</p>
+    </div>
+    <div>共 781 篇文章 · 静态存档<br><span style="opacity:.7">生成于 2026-10-09</span></div>
+  </div>
+</footer>
+<script>
+/* 金渐成文章整理 —— 交互脚本 */
+(function () {
+  'use strict';
+
+  /* ---- 主题切换 ---- */
+  var root = document.documentElement;
+  var saved = null;
+  try { saved = localStorage.getItem('jjc-theme'); } catch (e) {}
+  if (saved) root.setAttribute('data-theme', saved);
+
+  function currentIsDark() {
+    var t = root.getAttribute('data-theme');
+    if (t === 'dark') return true;
+    if (t === 'light') return false;
+    return window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+  }
+
+  var themeBtn = document.getElementById('themeBtn');
+  if (themeBtn) {
+    themeBtn.addEventListener('click', function () {
+      var next = currentIsDark() ? 'light' : 'dark';
+      root.setAttribute('data-theme', next);
+      try { localStorage.setItem('jjc-theme', next); } catch (e) {}
+    });
+  }
+
+  /* ---- 移动端菜单 ---- */
+  var menuBtn = document.getElementById('menuBtn');
+  var nav = document.getElementById('nav');
+  if (menuBtn && nav) {
+    menuBtn.addEventListener('click', function (e) {
+      e.stopPropagation();
+      nav.classList.toggle('open');
+    });
+    document.addEventListener('click', function (e) {
+      if (nav.classList.contains('open') && !nav.contains(e.target)) nav.classList.remove('open');
+    });
+  }
+
+  /* ---- 列表搜索 / 分栏筛选 ---- */
+  var q = document.getElementById('q');
+  var list = document.getElementById('list');
+  var empty = document.getElementById('empty');
+  if (q && list) {
+    var rows = Array.prototype.slice.call(list.querySelectorAll('.row'));
+    var rowsByChannel = rows.map(function (r) {
+      var tag = r.querySelector('.tag');
+      var txt = tag ? tag.textContent.trim() : '';
+      return txt === '金渐成' ? 'jinjiancheng' : (txt === '天机奇谈' ? 'tianjiqitan' : '');
+    });
+    var channel = 'all';
+    var chips = Array.prototype.slice.call(document.querySelectorAll('.chip[data-ch]'));
+
+    function apply() {
+      var kw = (q.value || '').trim().toLowerCase();
+      var shown = 0;
+      var yearHeads = Array.prototype.slice.call(list.querySelectorAll('.year-head'));
+      rows.forEach(function (r, i) {
+        var hay = r.textContent.toLowerCase();
+        var okKw = !kw || hay.indexOf(kw) !== -1;
+        var okCh = channel === 'all' || rowsByChannel[i] === channel;
+        var ok = okKw && okCh;
+        r.style.display = ok ? '' : 'none';
+        if (ok) shown++;
+      });
+      // 年份标题在筛选时整体隐藏，避免出现空年份
+      yearHeads.forEach(function (h) { h.style.display = (kw || channel !== 'all') ? 'none' : ''; });
+      if (empty) empty.style.display = shown === 0 ? '' : 'none';
+    }
+
+    q.addEventListener('input', apply);
+    chips.forEach(function (c) {
+      c.addEventListener('click', function () {
+        chips.forEach(function (x) { x.classList.remove('on'); });
+        c.classList.add('on');
+        channel = c.getAttribute('data-ch');
+        apply();
+      });
+    });
+  }
+})();
+
+</script>
+</body>
+</html>
