@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>如果你会写React，其实已经掌握了70%的LangChain开发 · 汤姆喵的奇妙旅行</title>
+<meta name="description" content="汤姆喵的奇妙旅行 2026-02-23 如果你会写React，其实已经掌握了70%的LangChain开发">
+<link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2064%2064'%3E%3Crect%20width='64'%20height='64'%20rx='16'%20fill='%23b45309'/%3E%3Ctext%20x='32'%20y='45'%20font-size='38'%20font-family='sans-serif'%20font-weight='700'%20fill='%23fff'%20text-anchor='middle'%3E%E7%8E%91%3C/text%3E%3C/svg%3E">
+<style>
+:root {--bg: #faf9f6;--bg-2: #f2efe9;--surface: #ffffff;--surface-2: #f6f4ef;--fg: #171614;--fg-2: #3d3a35;--muted: #7a7570;--line: #e7e3da;--line-2: #f0ece4;--accent: #b45309;--accent-2: #d98218;--accent-soft: rgba(180, 83, 9, .09);--accent-line: rgba(180, 83, 9, .22);--on-accent: #ffffff;--shadow-xs: 0 1px 2px rgba(23, 22, 20, .05);--shadow-sm: 0 1px 3px rgba(23, 22, 20, .06), 0 1px 2px rgba(23, 22, 20, .04);--shadow-md: 0 8px 24px -6px rgba(23, 22, 20, .10), 0 2px 6px rgba(23, 22, 20, .05);--shadow-lg: 0 20px 48px -12px rgba(23, 22, 20, .16);--radius: 18px;--radius-sm: 12px;--container: 68rem;}@media (prefers-color-scheme: dark) {:root:not([data-theme="light"]) {--bg: #0f0f10;--bg-2: #16161a;--surface: #17171b;--surface-2: #1d1d22;--fg: #f2f0ec;--fg-2: #d4d1cb;--muted: #918d87;--line: #29292f;--line-2: #212127;--accent: #f0972a;--accent-2: #f5b400;--accent-soft: rgba(240, 151, 42, .12);--accent-line: rgba(240, 151, 42, .3);--on-accent: #17120a;--shadow-xs: 0 1px 2px rgba(0, 0, 0, .45);--shadow-sm: 0 1px 3px rgba(0, 0, 0, .5);--shadow-md: 0 8px 24px -6px rgba(0, 0, 0, .6);--shadow-lg: 0 20px 48px -12px rgba(0, 0, 0, .7);}}html[data-theme="dark"] {--bg: #0f0f10; --bg-2: #16161a; --surface: #17171b; --surface-2: #1d1d22;--fg: #f2f0ec; --fg-2: #d4d1cb; --muted: #918d87; --line: #29292f; --line-2: #212127;--accent: #f0972a; --accent-2: #f5b400;--accent-soft: rgba(240, 151, 42, .12); --accent-line: rgba(240, 151, 42, .3);--on-accent: #17120a;--shadow-xs: 0 1px 2px rgba(0, 0, 0, .45);--shadow-sm: 0 1px 3px rgba(0, 0, 0, .5);--shadow-md: 0 8px 24px -6px rgba(0, 0, 0, .6);--shadow-lg: 0 20px 48px -12px rgba(0, 0, 0, .7);}* { box-sizing: border-box; margin: 0; padding: 0; border: 0 solid var(--line); }html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }body {background: var(--bg);background-image:radial-gradient(60rem 32rem at 12% -8%, var(--accent-soft), transparent 62%),radial-gradient(48rem 28rem at 92% 2%, rgba(217, 130, 24, .06), transparent 60%);background-repeat: no-repeat;background-attachment: fixed;color: var(--fg);font-family: Inter, -apple-system, BlinkMacSystemFont, "PingFang SC", "Hiragino Sans GB","Microsoft YaHei", "Helvetica Neue", Helvetica, Arial, sans-serif;-webkit-font-smoothing: antialiased;-moz-osx-font-smoothing: grayscale;line-height: 1.6;min-height: 100vh;display: flex;flex-direction: column;}a { color: inherit; text-decoration: none; }img { max-width: 100%; height: auto; display: block; border-radius: 10px; }button { font: inherit; color: inherit; background: none; cursor: pointer; }::selection { background: var(--accent-soft); }.site-header {position: sticky; top: 0; z-index: 50;background: color-mix(in srgb, var(--bg) 82%, transparent);backdrop-filter: saturate(180%) blur(14px);-webkit-backdrop-filter: saturate(180%) blur(14px);border-bottom: 1px solid var(--line);}.header-inner {max-width: var(--container); margin: 0 auto;padding: .85rem 1.5rem;display: flex; align-items: center; justify-content: space-between; gap: 1rem;}.brand { display: flex; align-items: center; gap: .7rem; transition: opacity .2s; flex: 0 0 auto; }.brand:hover { opacity: .82; }.brand-mark {width: 2.3rem; height: 2.3rem; border-radius: 12px; flex: 0 0 auto;background: linear-gradient(140deg, var(--accent-2), var(--accent) 70%);color: #fff; font-weight: 800; font-size: 1.08rem;display: flex; align-items: center; justify-content: center;box-shadow: 0 4px 12px -2px var(--accent-line), inset 0 1px 0 rgba(255,255,255,.28);}.brand-text { display: flex; flex-direction: column; line-height: 1.2; }.brand-text b { font-size: 1rem; font-weight: 750; letter-spacing: -.015em; }.brand-text span { font-size: .68rem; color: var(--muted); letter-spacing: .1em; margin-top: .1rem; }.nav { display: flex; align-items: center; gap: .15rem; font-size: .9rem; font-weight: 550; }.nav a {padding: .48rem .78rem; border-radius: 9px; color: var(--muted);transition: color .18s, background .18s; white-space: nowrap;}.nav a:hover { color: var(--fg); background: var(--surface-2); }.nav a.active { color: var(--accent); background: var(--accent-soft); font-weight: 700; }.nav-tools { display: flex; align-items: center; gap: .3rem; padding-left: .5rem; margin-left: .35rem; border-left: 1px solid var(--line); }.icon-btn {width: 2.1rem; height: 2.1rem; border-radius: 9px; color: var(--muted);display: flex; align-items: center; justify-content: center;transition: .18s; font-size: 1rem;}.icon-btn:hover { color: var(--accent); background: var(--accent-soft); }.menu-btn { display: none; }main { flex: 1; }.container {max-width: var(--container); margin: 0 auto;padding: 3rem 1.5rem 5.5rem;display: flex; flex-direction: column; gap: 3.75rem;}.hero { margin-bottom: 0; }.crumb {display: flex; flex-wrap: wrap; align-items: center; gap: .45rem;font-size: .85rem; font-weight: 550; color: var(--muted); margin-bottom: 1.1rem;}.crumb a:hover { color: var(--accent); }.crumb .sep { opacity: .35; }.hero h1 {font-size: clamp(2.1rem, 5.6vw, 3.15rem);font-weight: 830; line-height: 1.08; letter-spacing: -.035em;background: linear-gradient(180deg, var(--fg) 62%, color-mix(in srgb, var(--fg) 62%, var(--accent)));-webkit-background-clip: text; background-clip: text;-webkit-text-fill-color: transparent;}.hero .lead {margin-top: 1.35rem; max-width: 44rem;font-size: 1.06rem; line-height: 1.85; color: var(--muted);}.hero .lead strong { color: var(--fg); font-weight: 750; }.hero-actions { margin-top: 1.9rem; display: flex; flex-wrap: wrap; gap: .7rem; }.btn {padding: .72rem 1.55rem; border-radius: 999px;font-weight: 600; font-size: .95rem;transition: transform .18s, box-shadow .18s, background .18s, border-color .18s, color .18s;display: inline-flex; align-items: center; gap: .45rem;}.btn-primary {background: linear-gradient(140deg, var(--accent-2), var(--accent));color: #fff;box-shadow: 0 6px 18px -6px var(--accent-line), inset 0 1px 0 rgba(255,255,255,.22);}.btn-primary:hover { transform: translateY(-2px); box-shadow: 0 12px 26px -8px var(--accent-line); }.btn-ghost { border: 1px solid var(--line); background: var(--surface); color: var(--fg-2); }.btn-ghost:hover { background: var(--surface-2); border-color: var(--accent-line); color: var(--accent); }.stats { margin-top: 1.9rem; display: flex; flex-wrap: wrap; gap: .6rem; }.stat {display: flex; align-items: baseline; gap: .4rem;background: var(--surface); border: 1px solid var(--line);border-radius: 999px; padding: .42rem 1rem;box-shadow: var(--shadow-xs);}.stat b { font-size: 1rem; font-weight: 780; letter-spacing: -.02em; color: var(--fg); font-variant-numeric: tabular-nums; }.stat span { font-size: .8rem; color: var(--muted); }.section { display: flex; flex-direction: column; }.section-head {display: flex; align-items: baseline; justify-content: space-between;gap: 1rem; margin-bottom: 1.5rem; padding-bottom: .85rem;border-bottom: 1px solid var(--line);}.section-head h2 {position: relative; padding-left: .85rem;font-size: .92rem; font-weight: 780; text-transform: uppercase;letter-spacing: .17em; color: var(--fg);}.section-head h2::before {content: ""; position: absolute; left: 0; top: 50%; transform: translateY(-50%);width: 3px; height: 1.05em; border-radius: 2px;background: linear-gradient(180deg, var(--accent-2), var(--accent));}.section-head .more { font-size: .88rem; font-weight: 600; color: var(--muted); white-space: nowrap; transition: .18s; }.section-head .more:hover { color: var(--accent); }.grid { display: grid; gap: 1.05rem; }.grid-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }.grid-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }.grid-4 { grid-template-columns: repeat(4, minmax(0, 1fr)); }.card {position: relative; overflow: hidden;background: var(--surface);border: 1px solid var(--line);border-radius: var(--radius);padding: 1.3rem 1.4rem;box-shadow: var(--shadow-xs);transition: transform .2s cubic-bezier(.2,.7,.3,1), box-shadow .2s, border-color .2s;display: block;}.card::after {content: ""; position: absolute; inset: 0 0 auto 0; height: 2px;background: linear-gradient(90deg, var(--accent-2), var(--accent) 55%, transparent);opacity: 0; transition: opacity .2s;}a.card:hover {transform: translateY(-3px);box-shadow: var(--shadow-md);border-color: var(--accent-line);}a.card:hover::after { opacity: 1; }.card .kicker {font-size: .7rem; font-weight: 780; letter-spacing: .12em;color: var(--accent); text-transform: uppercase;}.card h3 { margin-top: .55rem; font-size: 1.04rem; font-weight: 730; line-height: 1.4; letter-spacing: -.015em; }.card p { margin-top: .55rem; font-size: .875rem; line-height: 1.72; color: var(--muted); }.card .count { font-size: .78rem; font-weight: 600; color: var(--muted); }.rows {display: flex; flex-direction: column;background: var(--surface); border: 1px solid var(--line);border-radius: var(--radius); overflow: hidden;box-shadow: var(--shadow-xs);}.row {display: flex; align-items: baseline; gap: 1.1rem;padding: .82rem 1.15rem;transition: background .16s;border-bottom: 1px solid var(--line-2);position: relative;}.row:last-child { border-bottom: 0; }.row::before {content: ""; position: absolute; left: 0; top: 0; bottom: 0; width: 3px;background: var(--accent); transform: scaleY(0); transition: transform .18s;}.row:hover { background: var(--surface-2); }.row:hover::before { transform: scaleY(1); }.row .date {flex: 0 0 auto; width: 5.1rem; font-size: .82rem; font-weight: 600;font-variant-numeric: tabular-nums; color: var(--muted); letter-spacing: -.01em;}.row .title { flex: 1 1 auto; font-size: .97rem; font-weight: 550; line-height: 1.55; color: var(--fg-2); }.row:hover .title { color: var(--accent); font-weight: 620; }.row .tags { flex: 0 0 auto; display: flex; gap: .35rem; }.tag {font-size: .7rem; font-weight: 620; padding: .2rem .6rem; border-radius: 999px;background: var(--surface-2); border: 1px solid var(--line);color: var(--muted); white-space: nowrap;}.year-head { display: flex; align-items: center; gap: .9rem; margin: 1.9rem 0 .75rem; }.year-head:first-child { margin-top: 0; }.year-head .y { font-size: 1.3rem; font-weight: 830; letter-spacing: -.03em; }.year-head .n { font-size: .78rem; font-weight: 600; color: var(--muted); background: var(--surface-2); border: 1px solid var(--line); padding: .12rem .55rem; border-radius: 999px; }.year-head .line { flex: 1; height: 1px; background: linear-gradient(90deg, var(--line), transparent); }.post-wrap { max-width: 46rem; margin: 0 auto; width: 100%; }.post-head { margin-bottom: 2.25rem; padding-bottom: 1.6rem; border-bottom: 1px solid var(--line); }.post-head h1 { font-size: clamp(1.55rem, 4.4vw, 2.05rem); font-weight: 760; line-height: 1.32; letter-spacing: -.028em; }.post-meta { margin-top: 1rem; display: flex; flex-wrap: wrap; gap: .5rem 1rem; font-size: .84rem; color: var(--muted); align-items: center; font-weight: 550; }.post-meta .dot { opacity: .35; }.prose { color: var(--fg-2); font-size: 1.06rem; line-height: 1.9; letter-spacing: .008em; max-width: 68ch; }.prose p { margin: 1.5em 0; }.prose h1, .prose h2, .prose h3 { color: var(--fg); letter-spacing: -.018em; font-weight: 730; line-height: 1.4; }.prose h1 { font-size: 1.65rem; margin: 2.1em 0 .8em; }.prose h2 {font-size: 1.28rem; margin: 2.3em 0 .85em; padding-bottom: .5em;border-bottom: 1px solid var(--line);}.prose h3 {font-size: 1.03rem; margin: 2.2em 0 .7em;letter-spacing: .16em; color: var(--accent); font-weight: 780;}.prose strong { color: var(--fg); font-weight: 700; }.prose em { font-style: italic; }.prose a { color: var(--accent); text-decoration: underline; text-underline-offset: 3px; text-decoration-thickness: 1px; }.prose a:hover { opacity: .8; }.prose blockquote {border-left: 3px solid var(--accent);background: var(--accent-soft);color: var(--fg-2); border-radius: 0 10px 10px 0;margin: 1.9em 0; padding: 1.05em 1.35em; font-style: italic;}.prose blockquote p { margin: 0; }.prose ul { margin: 1.3em 0; list-style: none; }.prose ul > li { margin: .55em 0; padding-left: 1.35em; position: relative; }.prose ul > li::before { content: ""; position: absolute; left: .15em; top: .72em; width: 5px; height: 5px; border-radius: 50%; background: var(--accent); opacity: .6; }.prose ol { margin: 1.3em 0; padding-left: 1.5em; list-style: decimal; }.prose ol > li { margin: .55em 0; }.prose img { margin: 2em 0; box-shadow: var(--shadow-md); }.prose hr { margin: 2.6em 0; border-top: 1px solid var(--line); height: 0; }.post-foot {margin-top: 3.2rem; padding-top: 1.6rem; border-top: 1px solid var(--line);display: flex; align-items: center; justify-content: space-between;gap: 1rem; flex-wrap: wrap; font-size: .88rem; font-weight: 550; color: var(--muted);}.post-foot a:hover { color: var(--accent); }.pager-bar {display: flex; align-items: stretch; justify-content: space-between;gap: .9rem; margin: 0 0 1.6rem;}.post-back ~ .pager-bar { margin-top: 0; }.pg {display: flex; flex-direction: column; gap: .18rem;max-width: 47%; min-width: 0;background: var(--surface); border: 1px solid var(--line); border-radius: 13px;padding: .7rem 1rem; box-shadow: var(--shadow-xs);transition: border-color .18s, background .18s, transform .18s, box-shadow .18s;}.pg:hover {background: var(--surface-2); border-color: var(--accent-line);transform: translateY(-2px); box-shadow: var(--shadow-sm);}.pg-next { text-align: right; margin-left: auto; }.pg-lbl {font-size: .69rem; font-weight: 700; letter-spacing: .06em;color: var(--accent); white-space: nowrap;}.pg-title {font-size: .9rem; font-weight: 620; line-height: 1.4; color: var(--fg-2);overflow: hidden; text-overflow: ellipsis; display: -webkit-box;-webkit-line-clamp: 1; -webkit-box-orient: vertical;}.pg:hover .pg-title { color: var(--accent); }.pg-date { font-size: .72rem; color: var(--muted); font-variant-numeric: tabular-nums; }.pg-empty { flex: 1 1 0; max-width: 47%; }.pager-bar.is-bottom { margin: 2rem 0 0; padding-top: 1.5rem; border-top: 1px solid var(--line); }.toc-fab {position: fixed; right: 1.25rem; bottom: 1.5rem; z-index: 60;display: inline-flex; align-items: center; gap: .45rem;padding: .62rem 1.1rem; border-radius: 999px;background: linear-gradient(140deg, var(--accent-2), var(--accent));color: #fff; font-size: .88rem; font-weight: 650; letter-spacing: .02em;box-shadow: 0 10px 26px -8px var(--accent-line), 0 2px 8px rgba(0, 0, 0, .12);transition: transform .18s, box-shadow .18s;}.toc-fab:hover { transform: translateY(-2px); box-shadow: 0 14px 32px -8px var(--accent-line); }.toc-fab svg { width: 15px; height: 15px; }.toc-mask {position: fixed; inset: 0; z-index: 70;background: rgba(12, 10, 8, .38); backdrop-filter: blur(2px);opacity: 0; pointer-events: none; transition: opacity .22s;}.toc-mask.on { opacity: 1; pointer-events: auto; }.toc-panel {position: fixed; top: 0; right: 0; bottom: 0; z-index: 80;width: 22rem; max-width: 88vw;display: flex; flex-direction: column;background: var(--bg);border-left: 1px solid var(--line);box-shadow: -18px 0 48px -18px rgba(0, 0, 0, .28);transform: translateX(102%); transition: transform .26s cubic-bezier(.3, .8, .3, 1);}.toc-panel.on { transform: none; }.toc-head {display: flex; align-items: center; justify-content: space-between; gap: .75rem;padding: 1rem 1.1rem .85rem; border-bottom: 1px solid var(--line);}.toc-head h3 {font-size: .92rem; font-weight: 780; letter-spacing: .01em;display: flex; align-items: baseline; gap: .5rem;}.toc-head h3 em {font-style: normal; font-size: .72rem; font-weight: 600;color: var(--muted); letter-spacing: .04em;}.toc-close {width: 1.9rem; height: 1.9rem; border-radius: 8px; color: var(--muted);display: flex; align-items: center; justify-content: center; font-size: .95rem;transition: .15s; flex: 0 0 auto;}.toc-close:hover { color: var(--accent); background: var(--accent-soft); }.toc-search-wrap { padding: .75rem 1.1rem .55rem; }.toc-search {width: 100%; background: var(--surface); border: 1px solid var(--line);border-radius: 999px; padding: .5rem .95rem; font-size: .86rem;color: var(--fg); outline: none; transition: border-color .15s, box-shadow .15s;}.toc-search::placeholder { color: var(--muted); }.toc-search:focus { border-color: var(--accent); box-shadow: 0 0 0 3px var(--accent-soft); }.toc-body {flex: 1; overflow-y: auto; overscroll-behavior: contain;padding: .2rem .7rem 1rem;scrollbar-width: thin;}.toc-body::-webkit-scrollbar { width: 8px; }.toc-body::-webkit-scrollbar-thumb { background: var(--line); border-radius: 4px; }.toc-year { margin-bottom: .1rem; }.toc-y-btn {width: 100%; display: flex; align-items: center; gap: .55rem;padding: .5rem .5rem; border-radius: 8px;font-size: .84rem; font-weight: 750; color: var(--fg); text-align: left;transition: background .15s;}.toc-y-btn:hover { background: var(--surface-2); }.toc-y-btn::before {content: "▸"; font-size: .68rem; color: var(--muted); transition: transform .18s;display: inline-block; width: .8rem;}.toc-year.open .toc-y-btn::before { transform: rotate(90deg); }.toc-y-btn span {margin-left: auto; font-size: .7rem; font-weight: 600; color: var(--muted);background: var(--surface-2); border: 1px solid var(--line);padding: .05rem .42rem; border-radius: 999px;}.toc-items { display: none; padding: 0 0 .3rem .55rem; }.toc-year.open .toc-items { display: block; }.toc-item {display: flex; align-items: baseline; gap: .5rem;padding: .36rem .5rem; border-radius: 7px;font-size: .82rem; line-height: 1.45; color: var(--fg-2);border-left: 2px solid transparent; transition: background .14s, color .14s, border-color .14s;}.toc-item:hover { background: var(--surface-2); color: var(--accent); }.toc-item .ti-date {flex: 0 0 auto; font-size: .72rem; color: var(--muted);font-variant-numeric: tabular-nums; letter-spacing: -.01em;}.toc-item .ti-title { flex: 1 1 auto; min-width: 0; }.toc-item.is-cur {background: var(--accent-soft); color: var(--accent);font-weight: 700; border-left-color: var(--accent);}.toc-item.is-cur .ti-date { color: var(--accent); }.toc-none { padding: 1.5rem .8rem; text-align: center; font-size: .85rem; color: var(--muted); }.toc-foot {border-top: 1px solid var(--line); padding: .75rem 1.1rem;display: flex; align-items: center; justify-content: space-between; gap: .6rem;font-size: .8rem; color: var(--muted);}.toc-foot a { font-weight: 650; color: var(--accent); }.toc-foot a:hover { opacity: .8; }body.toc-open { overflow: hidden; }@media (max-width: 620px) {.pager-bar { gap: .55rem; }.pg { max-width: 48%; padding: .6rem .75rem; }.pg-title { font-size: .84rem; -webkit-line-clamp: 2; }.toc-panel { width: 90vw; }.toc-fab { right: .9rem; bottom: 1rem; padding: .55rem .95rem; font-size: .82rem; }}.comments {margin-top: 3rem; border-top: 1px solid var(--line); padding-top: 1.6rem;}.comments-head {display: flex; align-items: baseline; justify-content: space-between;gap: 1rem; flex-wrap: wrap; margin-bottom: 1.15rem;}.comments-head h2 {position: relative; padding-left: .8rem;font-size: .82rem; font-weight: 780; text-transform: uppercase;letter-spacing: .17em; color: var(--fg);}.comments-head h2::before {content: ""; position: absolute; left: 0; top: 50%; transform: translateY(-50%);width: 3px; height: 1.05em; border-radius: 2px;background: linear-gradient(180deg, var(--accent-2), var(--accent));}.comments-head span { font-size: .76rem; color: var(--muted); }.cmt-list { display: flex; flex-direction: column; gap: .55rem; }.cmt {background: var(--surface);border: 1px solid var(--line);border-radius: var(--radius-sm);padding: .85rem 1.05rem;transition: border-color .15s, background .15s;}.cmt:hover { border-color: var(--accent-line); }.cmt.is-author {background: color-mix(in srgb, var(--accent) 4%, var(--surface));border-color: var(--accent-line);}.cmt-head {display: flex; align-items: center; flex-wrap: wrap; gap: .5rem;font-size: .8rem; margin-bottom: .4rem;}.cmt-name { font-weight: 700; color: var(--fg-2); }.cmt-name.is-author { color: var(--accent); }.cmt-name.is-author::after {content: "作者"; margin-left: .35rem; font-size: .64rem; font-weight: 700;padding: .1rem .35rem; border-radius: 999px;background: var(--accent-soft); color: var(--accent);vertical-align: middle;}.cmt-region {font-size: .7rem; color: var(--muted);background: var(--surface-2); border: 1px solid var(--line);padding: .08rem .4rem; border-radius: 999px;}.cmt-time { font-size: .72rem; color: var(--muted); font-variant-numeric: tabular-nums; }.cmt-like { font-size: .72rem; color: var(--muted); margin-left: auto; }.cmt-badge {font-size: .64rem; font-weight: 700; padding: .1rem .4rem; border-radius: 999px;background: var(--surface-2); border: 1px solid var(--line); color: var(--muted);}.cmt-text {font-size: .93rem; line-height: 1.78; color: var(--fg-2);overflow-wrap: anywhere;}.cmt-text p { margin: .5em 0; }.cmt-text p:first-child { margin-top: 0; }.cmt-text p:last-child { margin-bottom: 0; }.cmt-text a { color: var(--accent); text-decoration: underline; text-underline-offset: 2px; }.cmt-text img { margin: .6em 0; border-radius: 8px; max-width: 16rem; }.cmt-blocked-wrap {margin-bottom: .9rem; border: 1px dashed var(--accent-line);border-radius: var(--radius-sm); padding: .8rem 1rem;background: color-mix(in srgb, var(--accent) 3%, transparent);}.cmt-blocked-wrap summary {cursor: pointer; font-size: .82rem; font-weight: 700; color: var(--accent);list-style: none; display: flex; align-items: center; gap: .6rem; flex-wrap: wrap;}.cmt-blocked-wrap summary::-webkit-details-marker { display: none; }.cmt-blocked-wrap summary::before { content: "▸"; font-size: .8rem; }.cmt-blocked-wrap[open] summary::before { content: "▾"; }.cmt-hint { font-weight: 400; font-size: .72rem; color: var(--muted); }.cmt-blocked-wrap .cmt { margin-top: .6rem; }.cmt-blocked { border-style: dashed; }.cmt-reply { margin-top: .5rem; margin-left: 1.2rem; }.tag-cmt {background: var(--accent-soft) !important;border-color: var(--accent-line) !important;color: var(--accent) !important;}.toolbar {display: flex; flex-wrap: wrap; gap: .6rem; align-items: center;margin-bottom: 1.35rem;}.search {flex: 1 1 17rem; min-width: 12rem;display: flex; align-items: center; gap: .55rem;background: var(--surface); border: 1px solid var(--line);border-radius: 999px; padding: .58rem 1.05rem;color: var(--muted); transition: border-color .18s, box-shadow .18s;box-shadow: var(--shadow-xs);}.search:focus-within { border-color: var(--accent); box-shadow: 0 0 0 3px var(--accent-soft); }.search input { flex: 1; background: none; border: none; outline: none; color: var(--fg); font-size: .93rem; }.chip {font-size: .84rem; font-weight: 600; padding: .5rem 1rem; border-radius: 999px;background: var(--surface); border: 1px solid var(--line);color: var(--muted); transition: .18s; box-shadow: var(--shadow-xs);}.chip:hover { border-color: var(--accent-line); color: var(--accent); }.chip.on {background: linear-gradient(140deg, var(--accent-2), var(--accent));color: #fff; border-color: transparent;box-shadow: 0 5px 14px -5px var(--accent-line);}.empty-note { padding: 3rem 0; text-align: center; color: var(--muted); font-size: .93rem; }.faq { display: flex; flex-direction: column; gap: .6rem; }.faq details {background: var(--surface); border: 1px solid var(--line);border-radius: var(--radius-sm); padding: 1.05rem 1.3rem;transition: border-color .18s, box-shadow .18s; box-shadow: var(--shadow-xs);}.faq details[open] { border-color: var(--accent-line); box-shadow: var(--shadow-sm); }.faq summary {cursor: pointer; font-weight: 650; font-size: .96rem; list-style: none;display: flex; justify-content: space-between; gap: 1rem; align-items: center;}.faq summary::-webkit-details-marker { display: none; }.faq summary::after {content: "+"; color: var(--accent); font-weight: 500; font-size: 1.1rem;width: 1.4rem; height: 1.4rem; border-radius: 50%;display: flex; align-items: center; justify-content: center;background: var(--accent-soft); flex: 0 0 auto;}.faq details[open] summary::after { content: "−"; }.faq .ans { margin-top: .85rem; font-size: .91rem; line-height: 1.82; color: var(--muted); }.site-footer { border-top: 1px solid var(--line); background: color-mix(in srgb, var(--bg-2) 60%, transparent); }.footer-inner {max-width: var(--container); margin: 0 auto; padding: 2.75rem 1.5rem;display: flex; flex-wrap: wrap; gap: 1.5rem 2.5rem; justify-content: space-between;font-size: .85rem; color: var(--muted);}.footer-inner a:hover { color: var(--accent); }.footer-links { display: flex; flex-wrap: wrap; gap: .55rem 1.15rem; font-weight: 600; }.footer-links a { color: var(--fg-2); }.disclaimer { font-size: .78rem; color: var(--muted); line-height: 1.75; max-width: 35rem; opacity: .9; }@media (max-width: 900px) {.grid-4, .grid-3 { grid-template-columns: repeat(2, minmax(0, 1fr)); }.nav { display: none; }.nav.open {display: flex; flex-direction: column; align-items: stretch;position: absolute; left: 1rem; right: 1rem; top: 4.35rem;background: var(--surface); border: 1px solid var(--line);border-radius: var(--radius); padding: .5rem; box-shadow: var(--shadow-lg); gap: .1rem;}.nav.open a { padding: .72rem .9rem; }.menu-btn { display: flex; }.nav-tools { border: none; padding: 0; margin: 0; padding-top: .35rem; }}@media (max-width: 620px) {.container { gap: 2.6rem; padding: 1.9rem 1.15rem 4rem; }.grid-4, .grid-3, .grid-2 { grid-template-columns: 1fr; }.rows { border-radius: var(--radius-sm); }.row { flex-wrap: wrap; gap: .3rem .8rem; padding: .8rem 1rem; }.row .date { width: auto; }.row .title { flex-basis: 100%; }.hero .lead { font-size: 1rem; }.header-inner { padding: .75rem 1.15rem; }}
+</style>
+</head>
+<body>
+<header class="site-header">
+  <div class="header-inner">
+    <a class="brand" href="index.html">
+      <span class="brand-mark">玑</span>
+      <span class="brand-text"><b>金渐成文章整理</b><span>美股 · 港股 · 加密 · 黄金 · 楼市</span></span>
+    </a>
+    <nav class="nav" id="nav"><a href="all.html" class="active">公众号文章</a><a href="topics.html">文章主题</a><a href="notes.html">学习笔记</a><a href="portfolio.html">账户持仓</a><a href="timeline.html">投资时间线</a><a href="tools.html">工具箱</a><a href="booklist.html">书单</a><a href="about.html">关于</a>
+      <span class="nav-tools"><button class="icon-btn" id="themeBtn" title="切换主题" aria-label="切换主题">◐</button></span>
+    </nav>
+    <button class="icon-btn menu-btn" id="menuBtn" aria-label="菜单">☰</button>
+  </div>
+</header>
+<main>
+<div class="container">
+  <article class="post-wrap">
+    <div class="post-head">
+      <div class="crumb"><a href="index.html">首页</a><span class="sep">/</span><a href="all.html">公众号文章</a><span class="sep">/</span><a href="tangmumiao.html">汤姆喵的奇妙旅行</a></div>
+      <h1>如果你会写React，其实已经掌握了70%的LangChain开发</h1>
+      <div class="post-meta"><span>2026-02-23</span><span class="dot">·</span><span>汤姆喵的奇妙旅行</span><span class="dot">·</span><span>约 52 分钟读完</span><span class="dot">·</span><a href="https://mp.weixin.qq.com/s/zX-SUgkWBiOfmD00fTqN1A" target="_blank" rel="noopener">原文链接 ↗</a></div>
+    </div>
+<nav class="pager-bar"><a class="pg pg-prev" href="tangmumiao-2026-02-11.html"><span class="pg-lbl">← 上一篇</span><span class="pg-title">术法势道：以金渐成为例，构建个人投资体系的四层结构</span><span class="pg-date">2026-02-11</span></a><a class="pg pg-next" href="tangmumiao-2026-02-26.html"><span class="pg-lbl">下一篇 →</span><span class="pg-title">从巴菲特/金渐成看做T的时机选择</span><span class="pg-date">2026-02-26</span></a></nav>
+    <div class="prose">
+<p>原创 汤姆喵 汤姆喵的奇妙旅行 2026-02-23 23:11</p>
+<p>大家好，我是汤姆喵。</p>
+<p>如果你会写React，你已经掌握了70%的LangChain开发。</p>
+<p>先别惊讶，React和LangChain真的很相似。用React类比的方法来学习和理解LangChain，可以取得事半功倍的效果。本系列是成为AI Agent全栈开发系列的第二篇，感兴趣的可以点个赞和关注，后续会持续更新前端转型AI Agent全栈开发相关内容。</p>
+<p>很多前端同学第一次接触 LangChain 时，会被一堆新概念劝退：Runnable、LCEL、Tool、OutputParser、AgentExecutor、LangGraph...</p>
+<p>如果用纯AI的术语解释，会显得抽象且不好理解。但如果你换一个视角——用React的方式去理解它。你会发现：LangChain不仅仅是一个“AI框架”，更像是一个面向大模型的React。</p>
+<p>不信你看：</p>
+<p>*在React中，UI被抽象成组件。在LangChain中，通用运行单元被抽象成 Runnable。</p>
+<p>*在React中，我们用 JSX 组合组件。在LangChain中，我们用 LCEL 组合推理链。</p>
+<p>*在React中，数据沿着组件树中自上而下流动。在LangChain中，数据按沿着Runnable DAG向前推进。</p>
+<p>*在React中，Redux维护整个页面的全局状态。在LangChain中，LangGraph State 管理整个对话周期中的上下文。</p>
+<p>概念</p>
+<p>前端</p>
+<p>Agent</p>
+<p>模块化</p>
+<p>组件</p>
+<p>Runnable</p>
+<p>声明式编程</p>
+<p>TSX</p>
+<p>LCEL</p>
+<p>数据流转</p>
+<p>组件树</p>
+<p>RAG</p>
+<p>状态机</p>
+<p>Redux Store</p>
+<p>LangGraph State</p>
+<p>世界上没有新鲜事。如果你已经习惯了，</p>
+<p>*单一职责</p>
+<p>*模块化拆分</p>
+<p>*声明式表达</p>
+<p>*中央状态机</p>
+<p>那么你离写好Agent，真的只差一个认知的迁移。下面我通过一个“股票模糊查询”的例子，带你用React的思维，重新理解：</p>
+<p>*Runnable到底是什么</p>
+<p>*LCEL究竟解决了什么问题</p>
+<p>*Agent工程的最佳实践</p>
+<h2>一、Agent开发的起点：把一切塞进Prompt</h2>
+<p>假设我们要实现一个功能，用户输入股票的部分名称或股票代码，例如：</p>
+<p>“腾讯”、“腾讯控股”、“Tencent”、“0700”</p>
+<blockquote><p></p></blockquote>
+<p>系统需要完成几件事：</p>
+<p>*判断输入是股票名称还是股票代码</p>
+<p>*匹配最可能的股票</p>
+<p>*返回结构化基础信息，包括股票代码、英文名、中文名、上市地区、交易货币</p>
+<p>如果你刚接触Agent开发，写出来的代码大概率会是这样：</p>
+<p>``import { initChatModel } from"langchain";import { SystemMessage, HumanMessage } from"@langchain/core/messages";import"dotenv/config";asyncfunction main() {    const model = await initChatModel("gemini-2.5-flash", {        modelProvider: "google-genai",        temperature: 0,    });    const SYSTEM_PROMPT = `你是一个股票识别助手。用户会输入一个模糊的股票查询（可能是中文名、英文名、简称、代码等），你需要从美股、港股、A股中找到最可能匹配的股票。    返回一个 JSON 数组，每个元素包含：    - ticker: 股票代码（美股如 "AAPL"，港股如 "0700.HK"，A股上交所如 "600519.SS"，深交所如 "000858.SZ"）    - name: 英文全称    - nameCN: 中文名称    - region: 地区（如 "US", "HK", "CN"）    - type: 类型（如 "CS" 表示普通股, "ETF" 表示指数基金）    - currencyName: 交易货币（如 "USD", "HKD", "CNY"）    规则：    1. 最多返回 5 个最相关的结果    2. 优先返回最知名、市值最大的匹配    3. 如果查询明确指向某只股票，只返回该股票    4. 如果同一公司在多个市场上市（如阿里巴巴 BABA + 9988.HK），都列出    5. 只返回 JSON 数组，不要任何解释文字`;    const prompt = [        new SystemMessage(SYSTEM_PROMPT),        new HumanMessage('帮我找一下腾讯公司股票'),    ];    const result = await model.invoke(prompt);    console.log(result.content);}main();``</p>
+<p>所有逻辑都写进一个巨大的Prompt。Prompt里既包含：</p>
+<p>*判断是代码还是名称的逻辑</p>
+<p>*决定如何查询的规则</p>
+<p>*结构化输出格式的定义</p>
+<p>模型像一个“万能函数”，把所有规则丢进去，它帮你完成一切。</p>
+<p>从某种角度看，这确实是Agent开发的本质：</p>
+<p>把输入组织成Prompt，交给LLM推理，再解析结构化结果。</p>
+<blockquote><p></p></blockquote>
+<p>但问题也很明显。当所有逻辑都耦合在一个Prompt里时，这个Prompt就变成了一个“巨型组件”。它既负责路由判断，又负责数据查询，还负责格式转换。就好像写了一个1000行的大文件，维护的时候眉头一皱，扑面而来的屎山味。</p>
+<p>既然React可以通过组件拆分来降低耦合，那 Agent 开发能不能也用模块化的思路来重构？把判断逻辑拆成一个Router，把查询逻辑拆成一个Tool，把结构化输出拆成一个Parser。</p>
+<p>当然可以。</p>
+<h2>二、Agent的模块化：像拆React组件一样拆Prompt</h2>
+<p>可以将Agent拆解为四个最常见的模块：PromptTemplate / Router / Tool / Parser。</p>
+<h4>PromptTemplate：将Prompt从拼接字符串变成了“可变模版”</h4>
+<p>类似于前端组件的props，只需要传入不同的参数，就能得到不同的prompt。同一个模板可以喂不同的输入，方便复用和调试。</p>
+<h4>Router：把“路由层”从 Prompt 里拆出来</h4>
+<p>很多巨型Prompt的第一段都在判断用户到底想要干什么，需要把它抽离为意图路由。顾名思义，类比于前端的路由层，应该单独抽离出来，让这一部分职责单一。</p>
+<h4>Tool：把“API”从 Prompt 里拆出来</h4>
+<p>需要事实正确的，就不要只用 prompt。大模型有幻觉，查股票等涉及到具体数据的，都不应该靠模型在文本中猜。Tool类比前端的API请求/Service层。最好能直接用tool来获得数据，让model单纯来消费数据。</p>
+<h4>Parser：把“结构化输出”从 Prompt 里拆出来</h4>
+<p>巨型Prompt的最后一段往往都在规定输出格式。这件事放在Prompt中，会出现输出不稳定的情况（字段丢失、类型错误等）。Parser的意义是，把结构化的输出变成一个独立的模块，确保返回的结构是有保证的。类比于前端typescript的返回类型声明。</p>
+<p>模块化之后，现在上面的代码变成了：</p>
+<p>``/<strong> <em> LangChain 模块化示例：Router + Tools + OutputParser </em> <em> 架构：用户输入 → Router（意图判断） → Tool（Mock查询） → OutputParser（结构化输出） </em> 全部使用 async/await 串联，不使用 Runnable <em>/import { initChatModel } from"langchain";import { SystemMessage, HumanMessage } from"@langchain/core/messages";import { tool } from"@langchain/core/tools";import { z } from"zod";import"dotenv/config";const MOCK_STOCKS = [  { ticker: "AAPL",     name: "Apple Inc.",               nameCN: "苹果公司",   region: "US", type: "CS", currencyName: "USD" },  { ticker: "GOOGL",    name: "Alphabet Inc.",            nameCN: "谷歌",       region: "US", type: "CS", currencyName: "USD" },  { ticker: "0700.HK",  name: "Tencent Holdings Ltd.",    nameCN: "腾讯控股",   region: "HK", type: "CS", currencyName: "HKD" },  { ticker: "9988.HK",  name: "Alibaba Group Holding",    nameCN: "阿里巴巴",   region: "HK", type: "CS", currencyName: "HKD" },  { ticker: "BABA",     name: "Alibaba Group Holding",    nameCN: "阿里巴巴",   region: "US", type: "CS", currencyName: "USD" },  { ticker: "600519.SS",name: "Kweichow Moutai Co.",      nameCN: "贵州茅台",   region: "CN", type: "CS", currencyName: "CNY" },  { ticker: "TSLA",     name: "Tesla Inc.",               nameCN: "特斯拉",     region: "US", type: "CS", currencyName: "USD" },];/</strong> Tool 1: 按名称模糊搜索 </em>/const searchByNameTool = tool(async ({ name }) =&gt; {    const q = name.toLowerCase();    const results = MOCK_STOCKS.filter(s =&gt;      s.name.toLowerCase().includes(q) || s.nameCN.includes(name)    );    returnJSON.stringify(results.length ? { found: true, results } : { found: false, results: [] });  },  {    name: "search_stock_by_name",    description: "根据股票名称（中文或英文）模糊搜索股票信息",    schema: z.object({ name: z.string().describe("股票名称") }),  });/** Tool 2: 按代码精确查找 */const searchByCodeTool = tool(async ({ code }) =&gt; {    const result = MOCK_STOCKS.find(s =&gt; s.ticker.toUpperCase() === code.toUpperCase());    returnJSON.stringify(result ? { found: true, results: [result] } : { found: false, results: [] });  },  {    name: "search_stock_by_code",    description: "根据股票代码精确查找股票信息",    schema: z.object({ code: z.string().describe("股票代码，如 AAPL、0700.HK") }),  });const RouteSchema = z.object({tool:   z.enum(["search_by_name", "search_by_code"]).describe("名称搜索 or 代码搜索"),query:  z.string().describe("提取出的搜索关键词"),reason: z.string().describe("判断理由"),});asyncfunction route(model, question) {const routerModel = model.withStructuredOutput(RouteSchema);const res = await routerModel.invoke([    new SystemMessage(      "判断用户想通过股票名称还是代码查找。公司名称(中英文) → search_by_name；股票代码(如 AAPL、0700.HK) → search_by_code"    ),    new HumanMessage(question),  ]);return res;}asyncfunction executeTool(routeResult) {const raw = routeResult.tool === "search_by_code"    ? await searchByCodeTool.invoke({ code: routeResult.query })    : await searchByNameTool.invoke({ name: routeResult.query });const parsed = JSON.parse(raw);return parsed;}const StockOutputSchema = z.object({ticker:       z.string().describe("股票代码"),name:         z.string().describe("英文全称"),nameCN:       z.string().describe("中文名称"),region:       z.string().describe("地区: US / HK / CN"),type:         z.string().describe("类型: CS / ETF"),currencyName: z.string().describe("交易货币: USD / HKD / CNY"),});asyncfunction parseOutput(model, question, toolResult) {if (!toolResult.found) returnnull;const outputModel = model.withStructuredOutput(StockOutputSchema);const res = await outputModel.invoke([    new SystemMessage("根据搜索结果输出最匹配的一只股票信息。"),    new HumanMessage(`查询: "${question}"\n结果:\n${JSON.stringify(toolResult.results[0])}`),  ]);return res;}asyncfunction main() {const model = await initChatModel("gemini-2.5-flash-lite", {    modelProvider: "google-genai",    temperature: 0,  });const question = "帮我找一下腾讯公司股票";// Step 1: Routerconst routeResult = await route(model, question);// Step 2: Toolconst toolResult = await executeTool(routeResult);// Step 3: OutputParserconst result = await parseOutput(model, question, toolResult);// 输出console.log(result);}main();``</p>
+<p>代码已经清晰了很多。先关注最后几行的Step，我们可以清晰的看到分成了路由、工具调用、格式化输出三层。</p>
+<p>但是又有问题了：假设现在想添加一个自动记录耗时的能力，我需要在3个Step前后都添加时间打点，平白让代码中添加了很多样板代码，导致我的代码又不好复用了。</p>
+<p>而且LLM返回很慢，我想让这条chain做流式输出，就得进入Step3改动其内部的逻辑，因为目前它是await的但做不了。如果改造完成后还有个链也用到了Step3，但是希望直接完整返回呢？</p>
+<p>随着链路变复杂，纯手写 await 会逐渐暴露出一堆“编排层”的工程痛点：</p>
+<p><strong>*统一观测很难</strong>：想要每一步自动打点、记录耗时、token usage、错误栈、trace id……最后会变成每个函数里塞一堆重复样板代码。</p>
+<p><strong>*重试/超时/取消很难做成一致语义</strong>：路由失败重试几次？tool 超时怎么 fallback？用户断开连接怎么把整条链取消？靠手写逻辑很快就会散落在各处。</p>
+<p><strong>*并行与分支会把代码写爆</strong>：比如同时按“名称”和“代码”两路搜，取更置信的结果；或者先并行召回多个检索器再汇总——Promise.all 能写，但一旦再叠加 tracing、限流、缓存、stream 透传，复杂度会指数级上升。</p>
+<p><strong>*复用与组合变差</strong>：当你想把“Router + Tools + Parser”这套能力抽出来给别的业务复用，你会发现你复用的是一堆函数 + 一堆约定，而不是一个“可插拔、可配置、可观测的执行单元”。</p>
+<p>要解决这些问题，LangChain给出的答案就是Runnable。</p>
+<h2>三、Runnable：可组合的通用执行单元</h2>
+<p>第二部分遇到的问题，在前端领域也曾经存在过。还记得我们刚学习React的时候，开篇明义说的是什么吗？</p>
+<p><strong>React是一个MVVM模型</strong>。</p>
+<blockquote><p></p></blockquote>
+<p>在React之前，前端都是直接通过MVC来操作DOM的，会有状态混乱、更新顺序难以控制，错误边界缺失等一系列的问题。</p>
+<p>React是怎么解决这个问题的？React 定义了组件的概念，给组件定义了一系列的生命周期和方法。之后，组件之间的组合，我们就不需要思考：</p>
+<p>*组件什么时候被挂载、什么时候被销毁</p>
+<p>*手动管理父子组件之间的更新顺序</p>
+<p>*自己实现状态变更后的脏检查与重渲染</p>
+<p>*手写 DOM diff 与节点复用逻辑</p>
+<p>*关心事件如何在组件树中冒泡与绑定</p>
+<p>*为每个组件单独实现日志、错误边界与调试钩子</p>
+<p>我们只需要关注：<strong>组件接收什么props，产出什么UI</strong>。底层的生命周期调度、更新队列、批处理策略、异常捕获、渲染优化，都由React框架统一管理。</p>
+<p>把这个类比放回Agent开发上：如果没有统一的执行单元，我们就像在手写 DOM 操作一样，用await一段段把控制流拼起来。</p>
+<p>代码当然能跑，但一旦希望“增加点通用能力”，问题就来了：流式、透传、取消、重试、超时、并行调度、缓存、Tracing——这些切面能力会被迫散落在每个await节点周围，最后变成一堆难以复用的样板代码。</p>
+<p>因此在模块化之后，LangChain还需要引入Runnable，为了让框架能在不侵入你业务代码的情况下，提供流式、并发、异步等多种运行形态，并提供并行、分支、重试、超时、缓存、回调/Tracing 等“默认能力”。</p>
+<p><strong>Runnable：LangChain中可组合的通用执行单元</strong></p>
+<blockquote><p></p></blockquote>
+<p>在React中，UI和交互被抽象为函数式组件。然后，小组件组合成大组件，大组件组合成页面，页面组合成系统UI。</p>
+<p><strong>在LangChain中，可执行模块被被抽象为Runnable。然后，不同Runnable组合成一条执行链（子Agent），不同的子Agent又组合成Multi Agent（LangGraph的部分）。</strong></p>
+<p>LangChain中把自己的核心区块都设计为了Runnable：ChatOpenAI 是 Runnable，OutputParser 是 Runnable，自定义逻辑也是 Runnable。</p>
+<p>这样大家的默认能力就统一了，可以在不侵入业务代码的情况下，完成不同的逻辑工作。所以，我们现在简单改造一下上面的代码，就可以在不影响每个节点的情况下，让链做流式输出；也可以轻松的就给节点记录耗时、让节点重试等。</p>
+<p>``/** <em> LangChain Runnable 示例：Router + Tools + OutputParser </em> <em> 架构：用户输入 → Router → Tool → BuildPrompt → Model（流式输出） </em> 使用 RunnableLambda.pipe() 串联各节点，最终节点为 model 以支持流式输出 */import { initChatModel } from"langchain";import { SystemMessage, HumanMessage } from"@langchain/core/messages";import { RunnableLambda } from"@langchain/core/runnables";import { tool } from"@langchain/core/tools";import { z } from"zod";import"dotenv/config";const MOCK_STOCKS = [  { ticker: "AAPL",     name: "Apple Inc.",               nameCN: "苹果公司",   region: "US", type: "CS", currencyName: "USD" },  { ticker: "GOOGL",    name: "Alphabet Inc.",            nameCN: "谷歌",       region: "US", type: "CS", currencyName: "USD" },  { ticker: "0700.HK",  name: "Tencent Holdings Ltd.",    nameCN: "腾讯控股（腾讯公司）", region: "HK", type: "CS", currencyName: "HKD" },  { ticker: "9988.HK",  name: "Alibaba Group Holding",    nameCN: "阿里巴巴",   region: "HK", type: "CS", currencyName: "HKD" },  { ticker: "BABA",     name: "Alibaba Group Holding",    nameCN: "阿里巴巴",   region: "US", type: "CS", currencyName: "USD" },  { ticker: "600519.SS",name: "Kweichow Moutai Co.",      nameCN: "贵州茅台",   region: "CN", type: "CS", currencyName: "CNY" },  { ticker: "TSLA",     name: "Tesla Inc.",               nameCN: "特斯拉",     region: "US", type: "CS", currencyName: "USD" },];const searchByNameTool = tool(async ({ name }) =&gt; {    const q = name.toLowerCase();    const bigrams = [];    for (let i = 0; i &lt; name.length - 1; i++) bigrams.push(name.slice(i, i + 2));    const scored = MOCK_STOCKS.map(s =&gt; {      let score = 0;      if (s.name.toLowerCase().includes(q)) score += 10;      if (s.nameCN.includes(name) || name.includes(s.nameCN)) score += 10;      score += bigrams.filter(bg =&gt; s.nameCN.includes(bg)).length;      return { ...s, _score: score };    });    const results = scored.filter(s =&gt; s._score &gt; 0).sort((a, b) =&gt; b._score - a._score);    returnJSON.stringify(results.length ? { found: true, results } : { found: false, results: [] });  },  {    name: "search_stock_by_name",    description: "根据股票名称模糊搜索",    schema: z.object({ name: z.string() }),  });const searchByCodeTool = tool(async ({ code }) =&gt; {    const result = MOCK_STOCKS.find(s =&gt; s.ticker.toUpperCase() === code.toUpperCase());    returnJSON.stringify(result ? { found: true, results: [result] } : { found: false, results: [] });  },  {    name: "search_stock_by_code",    description: "根据股票代码精确查找",    schema: z.object({ code: z.string() }),  });const RouteSchema = z.object({tool:   z.enum(["search_by_name", "search_by_code"]),query:  z.string().describe("提取出的搜索关键词"),reason: z.string().describe("判断理由"),});asyncfunction main() {const model = await initChatModel("gemini-2.5-flash-lite", {    modelProvider: "google-genai",    temperature: 0,  });// Node 1: Router — 意图判断，输出附带 routeResultconst routeStep = RunnableLambda.from(async (input) =&gt; {    const routerModel = model.withStructuredOutput(RouteSchema);    const res = await routerModel.invoke([      new SystemMessage(        "判断用户想通过股票名称还是代码查找。公司名称(中英文) → search_by_name；股票代码(如 AAPL、0700.HK) → search_by_code"      ),      new HumanMessage(input.question),    ]);    return { ...input, routeResult: res };  });// Node 2: Tool — 根据路由调用对应 Toolconst toolStep = RunnableLambda.from(async (input) =&gt; {    const { routeResult } = input;    const raw = routeResult.tool === "search_by_code"      ? await searchByCodeTool.invoke({ code: routeResult.query })      : await searchByNameTool.invoke({ name: routeResult.query });    const toolResult = JSON.parse(raw);    return { ...input, toolResult };  });// Node 3: BuildPrompt — 将 Tool 结果组装为 LLM messagesconst buildPromptStep = RunnableLambda.from((input) =&gt; {    const { question, toolResult } = input;    if (!toolResult.found || !toolResult.results.length) {      return [        new SystemMessage("用户查询未找到匹配股票，请礼貌告知并给出建议。"),        new HumanMessage(question),      ];    }    return [      new SystemMessage(        `根据搜索结果，以简洁的格式输出最匹配的股票信息，包含：代码、英文名、中文名、地区、类型、交易货币。`      ),      new HumanMessage(        `查询: "${question}"\n搜索结果:\n${JSON.stringify(toolResult.results[0], null, 2)}`      ),    ];  });// pipe 串联: route → tool → buildPrompt → model（流式输出）// 上一段代码Step1~Step3的部分const chain = routeStep    .pipe(toolStep)    .pipe(buildPromptStep)    .pipe(model);const question = "帮我找一下腾讯公司股票";const stream = await chain.stream({ question });  process.stdout.write("\n✅ 流式输出: ");forawait (const chunk of stream) {    // chunk 是 AIMessageChunk，内容在 .content 中    const text = typeof chunk.content === "string"      ? chunk.content      : chunk.text ?? "";    process.stdout.write(text);  }}main();``</p>
+<p>回过头来看我们的代码，</p>
+<p>`const chain = routeStep    .pipe(toolStep)    .pipe(buildPromptStep)    .pipe(model);`</p>
+<p>但是可以看到各个Runnable是通过pipe串联到一起的。而在实际的应用中，Agent开发编排的控制链是一个复杂的系统，必然涉及到条件分支、并行串行、循环嵌套这些操作。那怎么办呢？</p>
+<p>这个时候就得引出LCEL（LangChain Expression Language）——LangChain的声明式表达。</p>
+<h2>四、LECL：Runnable的数据流图</h2>
+<p>LCEL可以类比为前端的JSX。</p>
+<p>想象一下，在前端中，我们定义了很多Component，这些组件是如何拼接起来的呢？</p>
+<p>`function Page() {   // 一些逻辑   const [loading, setloaing] = useState(false);   return (       &lt;A&gt;           &lt;B /&gt;           &lt;C /&gt;           {loading &amp;&amp; &lt;D /&gt;}       &lt;/A&gt;   )}`</p>
+<p>JSX是前端组件树的声明式表达。声明式表达是一个Schema，它核心关注的是结构定义，描述了数据如何流动、哪些步骤并行、哪些步骤串联、哪些步骤属于同一层。</p>
+<p>当系统复杂度上升时，使用声明式表达有三个好处：</p>
+<h3>数据流链路足够清晰</h3>
+<p>例如，我们用代码逻辑包裹Runnable，就没有直接将逻辑抽象为一个Schema清晰。下面的Schama，一眼就知道链上各个节点的串并行依赖关系。</p>
+<p>`// 命令式代码逻辑包裹Runnableif (input.flag) {  RunnableA;} else {  RunnableB;}const results = awaitPromise.all([  RunnableC,   RunnableD,   RunnableE,]);try {   RunnableF;} catch {   RunnableG;}// 声明式代码抽象为Schemaconst chain = RunnableSequence.from([// ① if / else  RunnableBranch.from([    [      RunnableLambda.from((input) =&gt; input.flag === true),      RunnableLambda.from(() =&gt;"A")    ],    RunnableLambda.from(() =&gt;"B")  ]),// ② Promise.all  RunnableParallel.from({    c: RunnableLambda.from(() =&gt;"C"),    d: RunnableLambda.from(() =&gt;"D"),    e: RunnableLambda.from(() =&gt;"E")  }),// ③ try / catch  RunnableLambda.from((input) =&gt; {    if (!input.ok) {      thrownewError("fail")    }    return"F"  }).withFallbacks({    fallbacks: [      RunnableLambda.from(() =&gt;"G")    ]  })])`</p>
+<h3>执行策略可以独立演进</h3>
+<p>在命令式代码中，结构和执行策略耦合在一起。如果需要将链改动为流式输出，就要改动其中的Runnable子节点。但是在声明式结构中，我们可以自动修改chain上或者某个节点的执行策略，举个例子：</p>
+<p>`// 不使用LCEL的基础版const a = await stepA(input);const b = await stepB(a);const c = await stepC(b);return c;// 使用LCEL可以自由添加Chain的执行策略const chain = RunnableSequence.from([    // 给不同Runnable添加个性化的策略且不影响业务代码    stepA.withRetry(),    stepB.assign(),    stepC.withFallbacks()// 整体流式输出]).stream(input);`</p>
+<h3>可组合性大大提升</h3>
+<p>命令式写法复用的是函数，声明式写法复用的是“结构”。声明式代码天生就容易支持复杂的组合逻辑嵌套，例如嵌套、子图复用等，这为我们后续实现更加复杂的chain打下了基础。</p>
+<p>其实也好理解，没有JSX的抽象，我们如何把一个个组件拼接在一起呢？那简直就是噩梦。</p>
+<p>为了实现声明化表达，langchain除了提供了runnable基类之外，还提供了各种子类供我们使用，具体如下：</p>
+<p>所以我们现在可以使用Runnable的各种类重写我们的代码，这也是我们以后日常进行<strong>Agent开发的最佳实践</strong>：</p>
+<p><strong>先拆分Runnable，然后实现Runnable，最后用各种流程和包装api拼装为一个chain</strong></p>
+<blockquote><p></p></blockquote>
+<p>`/** <em> LangChain LCEL 示例：Router + Tools + OutputParser </em> <em> 使用 LCEL 原语重写： </em>   RunnableSequence  — 显式定义执行序列 <em>   RunnablePassthrough.assign — 保留上下文并追加新字段 </em>   RunnableBranch    — 条件分支（Tool 路由） <em>   RunnableLambda    — 轻量转换节点 </em>   ChatPromptTemplate — 声明式 Prompt */import { initChatModel } from"langchain";import { ChatPromptTemplate } from"@langchain/core/prompts";import {  RunnableSequence,  RunnableLambda,  RunnablePassthrough,  RunnableBranch,} from"@langchain/core/runnables";import { tool } from"@langchain/core/tools";import { z } from"zod";import"dotenv/config";const MOCK_STOCKS = [  { ticker: "AAPL",      name: "Apple Inc.",            nameCN: "苹果公司",           region: "US", type: "CS", currencyName: "USD" },  { ticker: "GOOGL",     name: "Alphabet Inc.",         nameCN: "谷歌",               region: "US", type: "CS", currencyName: "USD" },  { ticker: "0700.HK",   name: "Tencent Holdings Ltd.", nameCN: "腾讯控股（腾讯公司）", region: "HK", type: "CS", currencyName: "HKD" },  { ticker: "9988.HK",   name: "Alibaba Group Holding", nameCN: "阿里巴巴",           region: "HK", type: "CS", currencyName: "HKD" },  { ticker: "BABA",      name: "Alibaba Group Holding", nameCN: "阿里巴巴",           region: "US", type: "CS", currencyName: "USD" },  { ticker: "600519.SS", name: "Kweichow Moutai Co.",   nameCN: "贵州茅台",           region: "CN", type: "CS", currencyName: "CNY" },  { ticker: "TSLA",      name: "Tesla Inc.",            nameCN: "特斯拉",             region: "US", type: "CS", currencyName: "USD" },];const searchByNameTool = tool(async ({ name }) =&gt; {    const q = name.toLowerCase();    const bigrams = [];    for (let i = 0; i &lt; name.length - 1; i++) bigrams.push(name.slice(i, i + 2));    const scored = MOCK_STOCKS.map(s =&gt; {      let score = 0;      if (s.name.toLowerCase().includes(q)) score += 10;      if (s.nameCN.includes(name) || name.includes(s.nameCN)) score += 10;      score += bigrams.filter(bg =&gt; s.nameCN.includes(bg)).length;      return { ...s, _score: score };    });    const results = scored.filter(s =&gt; s._score &gt; 0).sort((a, b) =&gt; b._score - a._score);    returnJSON.stringify(results.length ? { found: true, results } : { found: false, results: [] });  },  { name: "search_stock_by_name", description: "按名称模糊搜索", schema: z.object({ name: z.string() }) });const searchByCodeTool = tool(async ({ code }) =&gt; {    const result = MOCK_STOCKS.find(s =&gt; s.ticker.toUpperCase() === code.toUpperCase());    returnJSON.stringify(result ? { found: true, results: [result] } : { found: false, results: [] });  },  { name: "search_stock_by_code", description: "按代码精确查找", schema: z.object({ code: z.string() }) });const RouteSchema = z.object({tool:   z.enum(["search_by_name", "search_by_code"]),query:  z.string().describe("提取出的搜索关键词"),reason: z.string().describe("判断理由"),});asyncfunction main() {const model = await initChatModel("gemini-2.5-flash-lite", {    modelProvider: "google-genai",    temperature: 0,  });// ---- ChatPromptTemplate: Router Prompt ----const routerPrompt = ChatPromptTemplate.fromMessages([    ["system", "判断用户想通过股票名称还是代码查找。公司名称(中英文) → search_by_name；股票代码(如 AAPL、0700.HK) → search_by_code"],    ["human", "{question}"],  ]);const routerChain = routerPrompt.pipe(model.withStructuredOutput(RouteSchema));// ---- ChatPromptTemplate: Output Prompt ----const outputPrompt = ChatPromptTemplate.fromMessages([    ["system", "根据搜索结果，以简洁的格式输出最匹配的股票信息，包含：代码、英文名、中文名、地区、类型、交易货币。"],    ["human", "查询: \"{question}\"\n搜索结果:\n{searchResult}"],  ]);// ---- RunnableSequence: 主链 ----const chain = RunnableSequence.from([    // Step 1: RunnablePassthrough.assign — 保留 question，追加 routeResult    RunnablePassthrough.assign({      routeResult: routerChain,    }),    // Step 2: RunnablePassthrough.assign + RunnableBranch — 条件分支调用 Tool，追加 toolResult    RunnablePassthrough.assign({      toolResult: RunnableBranch.from([        [          (x) =&gt; x.routeResult.tool === "search_by_code",          RunnableLambda.from(async (x) =&gt; {            const raw = await searchByCodeTool.invoke({ code: x.routeResult.query });            returnJSON.parse(raw);          }),        ],        // default branch: search by name        RunnableLambda.from(async (x) =&gt; {          const raw = await searchByNameTool.invoke({ name: x.routeResult.query });          returnJSON.parse(raw);        }),      ]),    }),    // Step 3: RunnableLambda — 转换为 outputPrompt 所需变量    RunnableLambda.from((x) =&gt; ({      question: x.question,      searchResult: x.toolResult.found        ? JSON.stringify(x.toolResult.results[0], null, 2)        : "未找到匹配的股票",    })),    // Step 4: ChatPromptTemplate → Model（流式输出）    outputPrompt,    model,  ]);const question = "帮我找一下腾讯公司股票";const stream = await chain.stream({ question });  process.stdout.write("✅ 流式输出: ");forawait (const chunk of stream) {    const text = typeof chunk.content === "string" ? chunk.content : chunk.text ?? "";    process.stdout.write(text);  }  process.stdout.write("\n");}main();`</p>
+<p>代码上传了仓库：https://github.com/tomczhang/ai-study</p>
+<blockquote><p></p></blockquote>
+<h2>五、总结</h2>
+<p>React 解决的是 UI 执行调度问题；LangChain 解决的是 LLM 编排执行调度问题。但抽象层面，它们处理的是同一类问题：<strong>如何管理复杂系统的执行结构</strong>。</p>
+<p>使用React来类比学习LangChain，可以取得事半功倍的效果。</p>
+<p>尽管名字不同、实现不同，底层原则却高度一致：</p>
+<p>*单一职责：让每个模块只做一件事</p>
+<p>*模块化拆分：把复杂系统拆成可复用的单元</p>
+<p>*声明式表达：描述结构，而不是堆砌控制流</p>
+<p>*统一调度：由框架接管执行策略，而不是让业务代码承担调度复杂度</p>
+<p><strong>大道殊途同归，这才是架构的魅力啊</strong>。</p>
+<p><strong>AI时代，编程原理不是不重要了，而是更重要了</strong>。架构的品味之于程序员，就像是拳法之于拳师，决定了一个人能用AI提升效能的上限。</p>
+<p>不懂原理，也能用 AI 抡出一堆“能跑”的代码，但真正的可扩展系统、可演进结构、可维护工程，永远建立在对抽象的理解之上。</p>
+    </div>
+    <section class="comments">
+      <div class="comments-head"><h2>读者留言</h2><span>共 1 条 · 累计 1 赞</span></div>
+            <div class="cmt-list">
+<div class="cmt"><div class="cmt-head"><span class="cmt-name">汤姆喵的奇妙旅行</span><span class="cmt-region">浙江</span><span class="cmt-time">02-26 16:00</span><span class="cmt-like">赞 1</span></div><div class="cmt-text"><p><img src="http://mmbiz.qpic.cn/sz_mmbiz_jpg/dx4Y70y9XcvZfIGSOdqhPRwPsmAUHMA0XicA9g4PDicQ5bDicicsJADItJTeUbfmZQv7jUXEOibrqNoAHicDVGJVcZOgWulVhcToF8X85bNNJV5Io/640" alt="" loading="lazy" referrerpolicy="no-referrer"></p></div></div>
+      </div>
+    </section>
+<nav class="pager-bar is-bottom"><a class="pg pg-prev" href="tangmumiao-2026-02-11.html"><span class="pg-lbl">← 上一篇</span><span class="pg-title">术法势道：以金渐成为例，构建个人投资体系的四层结构</span><span class="pg-date">2026-02-11</span></a><a class="pg pg-next" href="tangmumiao-2026-02-26.html"><span class="pg-lbl">下一篇 →</span><span class="pg-title">从巴菲特/金渐成看做T的时机选择</span><span class="pg-date">2026-02-26</span></a></nav>
+    <div class="post-foot"><a href="tangmumiao.html">← 返回汤姆喵的奇妙旅行文章列表</a><span>28 / 63</span></div>
+  </article>
+</div>
+  <button class="toc-fab" id="tocBtn" aria-label="打开目录"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="17" x2="14" y2="17"/></svg>目录</button>
+  <div class="toc-mask" id="tocMask"></div>
+  <aside class="toc-panel" id="tocPanel" aria-hidden="true">
+    <div class="toc-head"><h3>目录 <em>《汤姆喵的奇妙旅行》63 篇</em></h3><button class="toc-close" id="tocClose" aria-label="关闭">✕</button></div>
+    <div class="toc-search-wrap"><input class="toc-search" id="tocSearch" type="search" placeholder="搜索标题或日期，如：英伟达 / 10-22"></div>
+    <div class="toc-body" id="tocBody"></div>
+    <div class="toc-foot"><span>共 63 篇</span><a href="all.html">全部文章 ↗</a></div>
+  </aside>
+  <script id="tocData" type="text/plain" data-ch="tangmumiao" data-cur="tangmumiao-2026-02-23.html">2026
+09-30|金渐成文章全集（实时版）正式上线|
+09-11|37岁，终于明白了亏欠才是人生的常态|
+09-10|我 2 岁的宝宝，正用她 16W 的压岁钱，“帮”中美化债|
+09-04|10 块就能购买顶级 .com 域名，续费还是 10 块|
+08-31|宽指购买补充：没有最好的方案，只有更适合的方案|
+08-27|明明已经不追求绩效了，为什么工作还是这么累？|
+08-22|惭愧，我就是玑哥文章里提到的当事人|
+08-16|父母之爱子则为之计深远：我给我家宝宝建了一个终身账户|
+08-12|重仓宽基，没那么容易：一份能真正执行的宽指配置说明书|
+08-03|改变一生的决定，为什么我不能重仓宽指|
+07-27|从融资满仓到30%仓位，我究竟想明白了什么|
+07-06|成为十年的朋友～|
+07-03|写在阿里全面禁用 Claude Code 之际，A / 终将反噬其身|
+06-26|如果挖金子赚不到钱，为什么还要买铲子？|
+04-26|投资体系构建：现金流，一切的起点，也是一切的终点|
+04-25|投资体系构建：从祈求自由，到走向自由|
+04-24|我只知道有消失的评论，我没想到有3条之多|
+04-23|嘘，机哥那些消失的评论被我搞到了～|
+04-14|史诗级更新！金渐成数字分身迎来终极完全体版本|
+04-06|读书笔记《富爸爸穷爸爸》里最重要的三个财富真相|
+04-02|不用翻墙了，机哥AI分身迎来人人能用的版本！|
+03-31|机哥怒了，可真正宝贵的从来不是加仓节点|
+03-29|给生产队的驴累吐了，金渐成AI分身终于成了！|
+03-26|简单高效，怎么看机哥被盾的文章|
+03-23|hi，我是汤姆喵，欢迎各位机友～|
+03-14|告别Token焦虑！这套“白嫖”Claude Code组合拳，让架构师重获代码掌控力|
+02-26|从巴菲特/金渐成看做T的时机选择|
+02-23|如果你会写React，其实已经掌握了70%的LangChain开发|
+02-11|术法势道：以金渐成为例，构建个人投资体系的四层结构|
+02-02|第一次破坏纪律&反思——附带理智人纪律执行手册|
+02-01|成为AI Agent全栈开发系列——开篇|
+01-21|学金渐成做仓位管理：真正的核心是管控现金流|
+01-20|第二次纪律操作和大跌预演|
+01-15|\[干货\] 宽指ETF定投 + 逢低加仓策略|
+01-13|第一次纪律操作|
+01-09|有些亏损，早在下单前就已经确定了——在决定出手之前，别忽略了一件更重要的事|
+01-08|港股打新真香：我靠它在2025年把投资亏损全部打回来了|
+2025
+12-31|2025年，这一年我给自己打3.75|
+12-28|我把这一年的AI聊天记录，让AI做人生总结，发现AI是最了解我的那个人|
+12-27|2025年我悟到的10个人生Tips|
+12-25|面对浮亏，我是怎么走过Q4下跌期的|
+12-07|35岁才明白：跟谁混，决定了你能赚多少钱|
+12-06|成为AI研发工程师之路|
+11-17|“贪婪”价值投资者的6个信条|
+11-08|阿里程序员眼中的AI世界|
+11-04|市场不言峰底，智者不判涨跌|
+10-30|投资是场奇妙修行|
+10-25|揭开世界的帷幕|
+08-13|亏也难受，赚也难受|
+08-04|突破纪律的首月|
+07-24|美股/港股/A股？该怎么选择交易市场|
+07-23|震荡周期下加仓的复盘|
+07-22|“干货”！怎么建仓/加仓/减仓|
+07-21|美国盈透证券免资本利得税？我建议你好好想想|
+07-19|公司认知+价值判断+操作策略：投资的黄金三角|
+07-18|仓位管理和情景预演才是情绪管理的最佳良药|
+07-16|克服投资中人性的弱点|
+07-10|投资的诀窍|
+07-07|投资美股/港股，税到底是怎么算的，如何合理避税|
+07-04|暴涨了19%之后，恒生低波红利还能买吗|
+07-02|什么样的投资配置才是好的配置|
+06-30|靠理财能实现阶级跃迁吗|
+06-29|从零开始理财&学习理财|</script>
+</main>
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div>
+      <div class="footer-links">
+        <a href="all.html">公众号文章</a>
+        <a href="topics.html">文章主题</a>
+        <a href="notes.html">学习笔记</a>
+        <a href="timeline.html">投资时间线</a>
+        <a href="about.html">关于</a>
+      </div>
+      <p class="disclaimer" style="margin-top:1rem">本站为个人阅读存档，收录金渐成 / 天机奇谈公开发表的公众号文章，便于按主题与时间线连续阅读。<br>内容仅供参考，<strong>不构成任何投资建议</strong>。投资有风险，决策需谨慎。</p>
+    </div>
+    <div>共 906 篇文章 · 静态存档<br><span style="opacity:.7">生成于 2026-10-24</span></div>
+  </div>
+</footer>
+<script>
+/* 金渐成文章整理 —— 交互脚本 */
+(function () {
+  'use strict';
+
+  /* ---- 主题切换 ---- */
+  var root = document.documentElement;
+  var saved = null;
+  try { saved = localStorage.getItem('jjc-theme'); } catch (e) {}
+  if (saved) root.setAttribute('data-theme', saved);
+
+  function currentIsDark() {
+    var t = root.getAttribute('data-theme');
+    if (t === 'dark') return true;
+    if (t === 'light') return false;
+    return window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+  }
+
+  var themeBtn = document.getElementById('themeBtn');
+  if (themeBtn) {
+    themeBtn.addEventListener('click', function () {
+      var next = currentIsDark() ? 'light' : 'dark';
+      root.setAttribute('data-theme', next);
+      try { localStorage.setItem('jjc-theme', next); } catch (e) {}
+    });
+  }
+
+  /* ---- 移动端菜单 ---- */
+  var menuBtn = document.getElementById('menuBtn');
+  var nav = document.getElementById('nav');
+  if (menuBtn && nav) {
+    menuBtn.addEventListener('click', function (e) {
+      e.stopPropagation();
+      nav.classList.toggle('open');
+    });
+    document.addEventListener('click', function (e) {
+      if (nav.classList.contains('open') && !nav.contains(e.target)) nav.classList.remove('open');
+    });
+  }
+
+  /* ---- 列表搜索 / 分栏筛选 ---- */
+  var q = document.getElementById('q');
+  var list = document.getElementById('list');
+  var empty = document.getElementById('empty');
+  if (q && list) {
+    var rows = Array.prototype.slice.call(list.querySelectorAll('.row'));
+    var channel = 'all';
+    var chips = Array.prototype.slice.call(document.querySelectorAll('.chip[data-ch]'));
+
+    function apply() {
+      var kw = (q.value || '').trim().toLowerCase();
+      var shown = 0;
+      var yearHeads = Array.prototype.slice.call(list.querySelectorAll('.year-head'));
+      rows.forEach(function (r) {
+        var hay = r.textContent.toLowerCase();
+        var okKw = !kw || hay.indexOf(kw) !== -1;
+        var okCh = channel === 'all' || r.getAttribute('data-ch') === channel;
+        var ok = okKw && okCh;
+        r.style.display = ok ? '' : 'none';
+        if (ok) shown++;
+      });
+      // 年份标题在筛选时整体隐藏，避免出现空年份
+      yearHeads.forEach(function (h) { h.style.display = (kw || channel !== 'all') ? 'none' : ''; });
+      if (empty) empty.style.display = shown === 0 ? '' : 'none';
+    }
+
+    q.addEventListener('input', apply);
+    chips.forEach(function (c) {
+      c.addEventListener('click', function () {
+        chips.forEach(function (x) { x.classList.remove('on'); });
+        c.classList.add('on');
+        channel = c.getAttribute('data-ch');
+        apply();
+      });
+    });
+  }
+
+  /* ---- 目录抽屉 ---- */
+  var tocData = document.getElementById('tocData');
+  var tocBtn = document.getElementById('tocBtn');
+  var tocPanel = document.getElementById('tocPanel');
+  var tocMask = document.getElementById('tocMask');
+  var tocClose = document.getElementById('tocClose');
+  var tocBody = document.getElementById('tocBody');
+  var tocSearch = document.getElementById('tocSearch');
+
+  if (tocData && tocBtn && tocPanel && tocBody) {
+    var channel = tocData.getAttribute('data-ch') || '';
+    var cur = tocData.getAttribute('data-cur') || '';
+    var raw = (tocData.textContent || '').trim();
+
+    // 解析紧凑数据：年份单独成行，其余为「MM-DD|标题|后缀」
+    var years = [];
+    var curYear = null;
+    raw.split('\n').forEach(function (line) {
+      line = line.replace(/\r$/, '');
+      if (!line) return;
+      if (/^\d{4}$/.test(line)) {
+        curYear = { year: line, items: [] };
+        years.push(curYear);
+        return;
+      }
+      var parts = line.split('|');
+      if (!curYear || parts.length < 2) return;
+      var md = parts[0];
+      var title = parts[1];
+      var suffix = parts[2] || '';
+      var file = channel + '-' + curYear.year + '-' + md + (suffix ? '-' + suffix : '') + '.html';
+      curYear.items.push({ date: md, title: title, url: file });
+    });
+
+    // 渲染
+    var frag = document.createDocumentFragment();
+    years.forEach(function (g) {
+      var wrap = document.createElement('div');
+      wrap.className = 'toc-year';
+      var btn = document.createElement('button');
+      btn.className = 'toc-y-btn';
+      btn.innerHTML = g.year + '<span>' + g.items.length + ' 篇</span>';
+      var box = document.createElement('div');
+      box.className = 'toc-items';
+
+      g.items.forEach(function (it) {
+        var a = document.createElement('a');
+        a.className = 'toc-item';
+        a.href = it.url;
+        a.setAttribute('data-hay', (it.date + ' ' + it.title).toLowerCase());
+        if (it.url === cur) a.classList.add('is-cur');
+        var d = document.createElement('span');
+        d.className = 'ti-date';
+        d.textContent = it.date;
+        var t = document.createElement('span');
+        t.className = 'ti-title';
+        t.textContent = it.title;
+        a.appendChild(d);
+        a.appendChild(t);
+        box.appendChild(a);
+      });
+
+      btn.addEventListener('click', function () { wrap.classList.toggle('open'); });
+      wrap.appendChild(btn);
+      wrap.appendChild(box);
+      frag.appendChild(wrap);
+    });
+
+    var none = document.createElement('div');
+    none.className = 'toc-none';
+    none.textContent = '没有找到匹配的文章';
+    none.style.display = 'none';
+    frag.appendChild(none);
+    tocBody.appendChild(frag);
+
+    // 定位当前文章：默认展开它所在的年份
+    var curItem = tocBody.querySelector('.toc-item.is-cur');
+    if (curItem) {
+      var y = curItem.closest('.toc-year');
+      if (y) y.classList.add('open');
+    } else if (years.length) {
+      tocBody.querySelector('.toc-year').classList.add('open');
+    }
+
+    function openToc() {
+      tocPanel.classList.add('on');
+      tocMask.classList.add('on');
+      tocPanel.setAttribute('aria-hidden', 'false');
+      document.body.classList.add('toc-open');
+      if (curItem) {
+        window.setTimeout(function () {
+          try { curItem.scrollIntoView({ block: 'center' }); } catch (e) { }
+        }, 260);
+      } else if (tocSearch) {
+        tocSearch.focus();
+      }
+    }
+    function closeToc() {
+      tocPanel.classList.remove('on');
+      tocMask.classList.remove('on');
+      tocPanel.setAttribute('aria-hidden', 'true');
+      document.body.classList.remove('toc-open');
+    }
+
+    tocBtn.addEventListener('click', openToc);
+    if (tocClose) tocClose.addEventListener('click', closeToc);
+    if (tocMask) tocMask.addEventListener('click', closeToc);
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && tocPanel.classList.contains('on')) closeToc();
+    });
+
+    // 搜索：命中即展开全部年份
+    if (tocSearch) {
+      tocSearch.addEventListener('input', function () {
+        var kw = tocSearch.value.trim().toLowerCase();
+        var shown = 0;
+        Array.prototype.forEach.call(tocBody.querySelectorAll('.toc-year'), function (g) {
+          var hit = 0;
+          Array.prototype.forEach.call(g.querySelectorAll('.toc-item'), function (a) {
+            var ok = !kw || (a.getAttribute('data-hay') || '').indexOf(kw) !== -1;
+            a.style.display = ok ? '' : 'none';
+            if (ok) hit++;
+          });
+          g.style.display = hit ? '' : 'none';
+          if (kw) { if (hit) g.classList.add('open'); }
+          else { g.classList.remove('open'); }
+          shown += hit;
+        });
+        none.style.display = shown ? 'none' : '';
+        if (!kw && curItem) {
+          var y2 = curItem.closest('.toc-year');
+          if (y2) y2.classList.add('open');
+        }
+      });
+    }
+  }
+})();
+
+</script>
+</body>
+</html>

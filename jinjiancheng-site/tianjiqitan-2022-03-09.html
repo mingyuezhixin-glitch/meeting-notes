@@ -7,7 +7,7 @@
 <meta name="description" content="天机奇谈 2022-03-09 癞蛤蟆装青蛙">
 <link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2064%2064'%3E%3Crect%20width='64'%20height='64'%20rx='16'%20fill='%23b45309'/%3E%3Ctext%20x='32'%20y='45'%20font-size='38'%20font-family='sans-serif'%20font-weight='700'%20fill='%23fff'%20text-anchor='middle'%3E%E7%8E%91%3C/text%3E%3C/svg%3E">
 <style>
-:root {--bg: #faf9f6;--bg-2: #f2efe9;--surface: #ffffff;--surface-2: #f6f4ef;--fg: #171614;--fg-2: #3d3a35;--muted: #7a7570;--line: #e7e3da;--line-2: #f0ece4;--accent: #b45309;--accent-2: #d98218;--accent-soft: rgba(180, 83, 9, .09);--accent-line: rgba(180, 83, 9, .22);--on-accent: #ffffff;--shadow-xs: 0 1px 2px rgba(23, 22, 20, .05);--shadow-sm: 0 1px 3px rgba(23, 22, 20, .06), 0 1px 2px rgba(23, 22, 20, .04);--shadow-md: 0 8px 24px -6px rgba(23, 22, 20, .10), 0 2px 6px rgba(23, 22, 20, .05);--shadow-lg: 0 20px 48px -12px rgba(23, 22, 20, .16);--radius: 18px;--radius-sm: 12px;--container: 68rem;}@media (prefers-color-scheme: dark) {:root:not([data-theme="light"]) {--bg: #0f0f10;--bg-2: #16161a;--surface: #17171b;--surface-2: #1d1d22;--fg: #f2f0ec;--fg-2: #d4d1cb;--muted: #918d87;--line: #29292f;--line-2: #212127;--accent: #f0972a;--accent-2: #f5b400;--accent-soft: rgba(240, 151, 42, .12);--accent-line: rgba(240, 151, 42, .3);--on-accent: #17120a;--shadow-xs: 0 1px 2px rgba(0, 0, 0, .45);--shadow-sm: 0 1px 3px rgba(0, 0, 0, .5);--shadow-md: 0 8px 24px -6px rgba(0, 0, 0, .6);--shadow-lg: 0 20px 48px -12px rgba(0, 0, 0, .7);}}html[data-theme="dark"] {--bg: #0f0f10; --bg-2: #16161a; --surface: #17171b; --surface-2: #1d1d22;--fg: #f2f0ec; --fg-2: #d4d1cb; --muted: #918d87; --line: #29292f; --line-2: #212127;--accent: #f0972a; --accent-2: #f5b400;--accent-soft: rgba(240, 151, 42, .12); --accent-line: rgba(240, 151, 42, .3);--on-accent: #17120a;--shadow-xs: 0 1px 2px rgba(0, 0, 0, .45);--shadow-sm: 0 1px 3px rgba(0, 0, 0, .5);--shadow-md: 0 8px 24px -6px rgba(0, 0, 0, .6);--shadow-lg: 0 20px 48px -12px rgba(0, 0, 0, .7);}* { box-sizing: border-box; margin: 0; padding: 0; border: 0 solid var(--line); }html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }body {background: var(--bg);background-image:radial-gradient(60rem 32rem at 12% -8%, var(--accent-soft), transparent 62%),radial-gradient(48rem 28rem at 92% 2%, rgba(217, 130, 24, .06), transparent 60%);background-repeat: no-repeat;background-attachment: fixed;color: var(--fg);font-family: Inter, -apple-system, BlinkMacSystemFont, "PingFang SC", "Hiragino Sans GB","Microsoft YaHei", "Helvetica Neue", Helvetica, Arial, sans-serif;-webkit-font-smoothing: antialiased;-moz-osx-font-smoothing: grayscale;line-height: 1.6;min-height: 100vh;display: flex;flex-direction: column;}a { color: inherit; text-decoration: none; }img { max-width: 100%; height: auto; display: block; border-radius: 10px; }button { font: inherit; color: inherit; background: none; cursor: pointer; }::selection { background: var(--accent-soft); }.site-header {position: sticky; top: 0; z-index: 50;background: color-mix(in srgb, var(--bg) 82%, transparent);backdrop-filter: saturate(180%) blur(14px);-webkit-backdrop-filter: saturate(180%) blur(14px);border-bottom: 1px solid var(--line);}.header-inner {max-width: var(--container); margin: 0 auto;padding: .85rem 1.5rem;display: flex; align-items: center; justify-content: space-between; gap: 1rem;}.brand { display: flex; align-items: center; gap: .7rem; transition: opacity .2s; flex: 0 0 auto; }.brand:hover { opacity: .82; }.brand-mark {width: 2.3rem; height: 2.3rem; border-radius: 12px; flex: 0 0 auto;background: linear-gradient(140deg, var(--accent-2), var(--accent) 70%);color: #fff; font-weight: 800; font-size: 1.08rem;display: flex; align-items: center; justify-content: center;box-shadow: 0 4px 12px -2px var(--accent-line), inset 0 1px 0 rgba(255,255,255,.28);}.brand-text { display: flex; flex-direction: column; line-height: 1.2; }.brand-text b { font-size: 1rem; font-weight: 750; letter-spacing: -.015em; }.brand-text span { font-size: .68rem; color: var(--muted); letter-spacing: .1em; margin-top: .1rem; }.nav { display: flex; align-items: center; gap: .15rem; font-size: .9rem; font-weight: 550; }.nav a {padding: .48rem .78rem; border-radius: 9px; color: var(--muted);transition: color .18s, background .18s; white-space: nowrap;}.nav a:hover { color: var(--fg); background: var(--surface-2); }.nav a.active { color: var(--accent); background: var(--accent-soft); font-weight: 700; }.nav-tools { display: flex; align-items: center; gap: .3rem; padding-left: .5rem; margin-left: .35rem; border-left: 1px solid var(--line); }.icon-btn {width: 2.1rem; height: 2.1rem; border-radius: 9px; color: var(--muted);display: flex; align-items: center; justify-content: center;transition: .18s; font-size: 1rem;}.icon-btn:hover { color: var(--accent); background: var(--accent-soft); }.menu-btn { display: none; }main { flex: 1; }.container {max-width: var(--container); margin: 0 auto;padding: 3rem 1.5rem 5.5rem;display: flex; flex-direction: column; gap: 3.75rem;}.hero { margin-bottom: 0; }.crumb {display: flex; flex-wrap: wrap; align-items: center; gap: .45rem;font-size: .85rem; font-weight: 550; color: var(--muted); margin-bottom: 1.1rem;}.crumb a:hover { color: var(--accent); }.crumb .sep { opacity: .35; }.hero h1 {font-size: clamp(2.1rem, 5.6vw, 3.15rem);font-weight: 830; line-height: 1.08; letter-spacing: -.035em;background: linear-gradient(180deg, var(--fg) 62%, color-mix(in srgb, var(--fg) 62%, var(--accent)));-webkit-background-clip: text; background-clip: text;-webkit-text-fill-color: transparent;}.hero .lead {margin-top: 1.35rem; max-width: 44rem;font-size: 1.06rem; line-height: 1.85; color: var(--muted);}.hero .lead strong { color: var(--fg); font-weight: 750; }.hero-actions { margin-top: 1.9rem; display: flex; flex-wrap: wrap; gap: .7rem; }.btn {padding: .72rem 1.55rem; border-radius: 999px;font-weight: 600; font-size: .95rem;transition: transform .18s, box-shadow .18s, background .18s, border-color .18s, color .18s;display: inline-flex; align-items: center; gap: .45rem;}.btn-primary {background: linear-gradient(140deg, var(--accent-2), var(--accent));color: #fff;box-shadow: 0 6px 18px -6px var(--accent-line), inset 0 1px 0 rgba(255,255,255,.22);}.btn-primary:hover { transform: translateY(-2px); box-shadow: 0 12px 26px -8px var(--accent-line); }.btn-ghost { border: 1px solid var(--line); background: var(--surface); color: var(--fg-2); }.btn-ghost:hover { background: var(--surface-2); border-color: var(--accent-line); color: var(--accent); }.stats { margin-top: 1.9rem; display: flex; flex-wrap: wrap; gap: .6rem; }.stat {display: flex; align-items: baseline; gap: .4rem;background: var(--surface); border: 1px solid var(--line);border-radius: 999px; padding: .42rem 1rem;box-shadow: var(--shadow-xs);}.stat b { font-size: 1rem; font-weight: 780; letter-spacing: -.02em; color: var(--fg); font-variant-numeric: tabular-nums; }.stat span { font-size: .8rem; color: var(--muted); }.section { display: flex; flex-direction: column; }.section-head {display: flex; align-items: baseline; justify-content: space-between;gap: 1rem; margin-bottom: 1.5rem; padding-bottom: .85rem;border-bottom: 1px solid var(--line);}.section-head h2 {position: relative; padding-left: .85rem;font-size: .92rem; font-weight: 780; text-transform: uppercase;letter-spacing: .17em; color: var(--fg);}.section-head h2::before {content: ""; position: absolute; left: 0; top: 50%; transform: translateY(-50%);width: 3px; height: 1.05em; border-radius: 2px;background: linear-gradient(180deg, var(--accent-2), var(--accent));}.section-head .more { font-size: .88rem; font-weight: 600; color: var(--muted); white-space: nowrap; transition: .18s; }.section-head .more:hover { color: var(--accent); }.grid { display: grid; gap: 1.05rem; }.grid-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }.grid-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }.grid-4 { grid-template-columns: repeat(4, minmax(0, 1fr)); }.card {position: relative; overflow: hidden;background: var(--surface);border: 1px solid var(--line);border-radius: var(--radius);padding: 1.3rem 1.4rem;box-shadow: var(--shadow-xs);transition: transform .2s cubic-bezier(.2,.7,.3,1), box-shadow .2s, border-color .2s;display: block;}.card::after {content: ""; position: absolute; inset: 0 0 auto 0; height: 2px;background: linear-gradient(90deg, var(--accent-2), var(--accent) 55%, transparent);opacity: 0; transition: opacity .2s;}a.card:hover {transform: translateY(-3px);box-shadow: var(--shadow-md);border-color: var(--accent-line);}a.card:hover::after { opacity: 1; }.card .kicker {font-size: .7rem; font-weight: 780; letter-spacing: .12em;color: var(--accent); text-transform: uppercase;}.card h3 { margin-top: .55rem; font-size: 1.04rem; font-weight: 730; line-height: 1.4; letter-spacing: -.015em; }.card p { margin-top: .55rem; font-size: .875rem; line-height: 1.72; color: var(--muted); }.card .count { font-size: .78rem; font-weight: 600; color: var(--muted); }.rows {display: flex; flex-direction: column;background: var(--surface); border: 1px solid var(--line);border-radius: var(--radius); overflow: hidden;box-shadow: var(--shadow-xs);}.row {display: flex; align-items: baseline; gap: 1.1rem;padding: .82rem 1.15rem;transition: background .16s;border-bottom: 1px solid var(--line-2);position: relative;}.row:last-child { border-bottom: 0; }.row::before {content: ""; position: absolute; left: 0; top: 0; bottom: 0; width: 3px;background: var(--accent); transform: scaleY(0); transition: transform .18s;}.row:hover { background: var(--surface-2); }.row:hover::before { transform: scaleY(1); }.row .date {flex: 0 0 auto; width: 5.1rem; font-size: .82rem; font-weight: 600;font-variant-numeric: tabular-nums; color: var(--muted); letter-spacing: -.01em;}.row .title { flex: 1 1 auto; font-size: .97rem; font-weight: 550; line-height: 1.55; color: var(--fg-2); }.row:hover .title { color: var(--accent); font-weight: 620; }.row .tags { flex: 0 0 auto; display: flex; gap: .35rem; }.tag {font-size: .7rem; font-weight: 620; padding: .2rem .6rem; border-radius: 999px;background: var(--surface-2); border: 1px solid var(--line);color: var(--muted); white-space: nowrap;}.year-head { display: flex; align-items: center; gap: .9rem; margin: 1.9rem 0 .75rem; }.year-head:first-child { margin-top: 0; }.year-head .y { font-size: 1.3rem; font-weight: 830; letter-spacing: -.03em; }.year-head .n { font-size: .78rem; font-weight: 600; color: var(--muted); background: var(--surface-2); border: 1px solid var(--line); padding: .12rem .55rem; border-radius: 999px; }.year-head .line { flex: 1; height: 1px; background: linear-gradient(90deg, var(--line), transparent); }.post-wrap { max-width: 46rem; margin: 0 auto; width: 100%; }.post-head { margin-bottom: 2.25rem; padding-bottom: 1.6rem; border-bottom: 1px solid var(--line); }.post-head h1 { font-size: clamp(1.55rem, 4.4vw, 2.05rem); font-weight: 760; line-height: 1.32; letter-spacing: -.028em; }.post-meta { margin-top: 1rem; display: flex; flex-wrap: wrap; gap: .5rem 1rem; font-size: .84rem; color: var(--muted); align-items: center; font-weight: 550; }.post-meta .dot { opacity: .35; }.prose { color: var(--fg-2); font-size: 1.06rem; line-height: 1.9; letter-spacing: .008em; max-width: 68ch; }.prose p { margin: 1.5em 0; }.prose h1, .prose h2, .prose h3 { color: var(--fg); letter-spacing: -.018em; font-weight: 730; line-height: 1.4; }.prose h1 { font-size: 1.65rem; margin: 2.1em 0 .8em; }.prose h2 {font-size: 1.28rem; margin: 2.3em 0 .85em; padding-bottom: .5em;border-bottom: 1px solid var(--line);}.prose h3 {font-size: 1.03rem; margin: 2.2em 0 .7em;letter-spacing: .16em; color: var(--accent); font-weight: 780;}.prose strong { color: var(--fg); font-weight: 700; }.prose em { font-style: italic; }.prose a { color: var(--accent); text-decoration: underline; text-underline-offset: 3px; text-decoration-thickness: 1px; }.prose a:hover { opacity: .8; }.prose blockquote {border-left: 3px solid var(--accent);background: var(--accent-soft);color: var(--fg-2); border-radius: 0 10px 10px 0;margin: 1.9em 0; padding: 1.05em 1.35em; font-style: italic;}.prose blockquote p { margin: 0; }.prose ul { margin: 1.3em 0; list-style: none; }.prose ul > li { margin: .55em 0; padding-left: 1.35em; position: relative; }.prose ul > li::before { content: ""; position: absolute; left: .15em; top: .72em; width: 5px; height: 5px; border-radius: 50%; background: var(--accent); opacity: .6; }.prose ol { margin: 1.3em 0; padding-left: 1.5em; list-style: decimal; }.prose ol > li { margin: .55em 0; }.prose img { margin: 2em 0; box-shadow: var(--shadow-md); }.prose hr { margin: 2.6em 0; border-top: 1px solid var(--line); height: 0; }.post-foot {margin-top: 3.2rem; padding-top: 1.6rem; border-top: 1px solid var(--line);display: flex; align-items: center; justify-content: space-between;gap: 1rem; flex-wrap: wrap; font-size: .88rem; font-weight: 550; color: var(--muted);}.post-foot a:hover { color: var(--accent); }.pager { display: flex; gap: .8rem; flex-wrap: wrap; }.pager a {background: var(--surface); border: 1px solid var(--line); border-radius: 12px;padding: .65rem 1rem; max-width: 17rem; font-size: .86rem;transition: .18s; box-shadow: var(--shadow-xs); line-height: 1.45;}.pager a:hover { background: var(--surface-2); border-color: var(--accent-line); color: var(--accent); transform: translateY(-2px); }.pager .lbl { display: block; font-size: .7rem; font-weight: 650; color: var(--muted); margin-bottom: .2rem; letter-spacing: .04em; }.comments {margin-top: 3rem; border-top: 1px solid var(--line); padding-top: 1.6rem;}.comments-head {display: flex; align-items: baseline; justify-content: space-between;gap: 1rem; flex-wrap: wrap; margin-bottom: 1.15rem;}.comments-head h2 {position: relative; padding-left: .8rem;font-size: .82rem; font-weight: 780; text-transform: uppercase;letter-spacing: .17em; color: var(--fg);}.comments-head h2::before {content: ""; position: absolute; left: 0; top: 50%; transform: translateY(-50%);width: 3px; height: 1.05em; border-radius: 2px;background: linear-gradient(180deg, var(--accent-2), var(--accent));}.comments-head span { font-size: .76rem; color: var(--muted); }.comments-body {background: var(--surface-2);border: 1px solid var(--line);border-radius: var(--radius-sm);padding: 1.15rem 1.35rem;font-size: .95rem; line-height: 1.8; color: var(--muted);max-width: 68ch;}.comments-body p { margin: .75em 0; }.comments-body p:first-child { margin-top: 0; }.comments-body p:last-child { margin-bottom: 0; }.comments-body strong { color: var(--fg-2); font-weight: 650; }.comments-body a { color: var(--accent); text-decoration: underline; text-underline-offset: 3px; }.comments-body ul { margin: .9em 0; list-style: none; }.comments-body ul > li { margin: .4em 0; padding-left: 1.15em; position: relative; }.comments-body ul > li::before { content: ""; position: absolute; left: .1em; top: .7em; width: 4px; height: 4px; border-radius: 50%; background: var(--muted); opacity: .5; }.comments-body blockquote {border-left: 3px solid var(--line); margin: 1em 0; padding: .4em 1em;color: var(--muted); font-style: italic;}.toolbar {display: flex; flex-wrap: wrap; gap: .6rem; align-items: center;margin-bottom: 1.35rem;}.search {flex: 1 1 17rem; min-width: 12rem;display: flex; align-items: center; gap: .55rem;background: var(--surface); border: 1px solid var(--line);border-radius: 999px; padding: .58rem 1.05rem;color: var(--muted); transition: border-color .18s, box-shadow .18s;box-shadow: var(--shadow-xs);}.search:focus-within { border-color: var(--accent); box-shadow: 0 0 0 3px var(--accent-soft); }.search input { flex: 1; background: none; border: none; outline: none; color: var(--fg); font-size: .93rem; }.chip {font-size: .84rem; font-weight: 600; padding: .5rem 1rem; border-radius: 999px;background: var(--surface); border: 1px solid var(--line);color: var(--muted); transition: .18s; box-shadow: var(--shadow-xs);}.chip:hover { border-color: var(--accent-line); color: var(--accent); }.chip.on {background: linear-gradient(140deg, var(--accent-2), var(--accent));color: #fff; border-color: transparent;box-shadow: 0 5px 14px -5px var(--accent-line);}.empty-note { padding: 3rem 0; text-align: center; color: var(--muted); font-size: .93rem; }.faq { display: flex; flex-direction: column; gap: .6rem; }.faq details {background: var(--surface); border: 1px solid var(--line);border-radius: var(--radius-sm); padding: 1.05rem 1.3rem;transition: border-color .18s, box-shadow .18s; box-shadow: var(--shadow-xs);}.faq details[open] { border-color: var(--accent-line); box-shadow: var(--shadow-sm); }.faq summary {cursor: pointer; font-weight: 650; font-size: .96rem; list-style: none;display: flex; justify-content: space-between; gap: 1rem; align-items: center;}.faq summary::-webkit-details-marker { display: none; }.faq summary::after {content: "+"; color: var(--accent); font-weight: 500; font-size: 1.1rem;width: 1.4rem; height: 1.4rem; border-radius: 50%;display: flex; align-items: center; justify-content: center;background: var(--accent-soft); flex: 0 0 auto;}.faq details[open] summary::after { content: "−"; }.faq .ans { margin-top: .85rem; font-size: .91rem; line-height: 1.82; color: var(--muted); }.site-footer { border-top: 1px solid var(--line); background: color-mix(in srgb, var(--bg-2) 60%, transparent); }.footer-inner {max-width: var(--container); margin: 0 auto; padding: 2.75rem 1.5rem;display: flex; flex-wrap: wrap; gap: 1.5rem 2.5rem; justify-content: space-between;font-size: .85rem; color: var(--muted);}.footer-inner a:hover { color: var(--accent); }.footer-links { display: flex; flex-wrap: wrap; gap: .55rem 1.15rem; font-weight: 600; }.footer-links a { color: var(--fg-2); }.disclaimer { font-size: .78rem; color: var(--muted); line-height: 1.75; max-width: 35rem; opacity: .9; }@media (max-width: 900px) {.grid-4, .grid-3 { grid-template-columns: repeat(2, minmax(0, 1fr)); }.nav { display: none; }.nav.open {display: flex; flex-direction: column; align-items: stretch;position: absolute; left: 1rem; right: 1rem; top: 4.35rem;background: var(--surface); border: 1px solid var(--line);border-radius: var(--radius); padding: .5rem; box-shadow: var(--shadow-lg); gap: .1rem;}.nav.open a { padding: .72rem .9rem; }.menu-btn { display: flex; }.nav-tools { border: none; padding: 0; margin: 0; padding-top: .35rem; }}@media (max-width: 620px) {.container { gap: 2.6rem; padding: 1.9rem 1.15rem 4rem; }.grid-4, .grid-3, .grid-2 { grid-template-columns: 1fr; }.rows { border-radius: var(--radius-sm); }.row { flex-wrap: wrap; gap: .3rem .8rem; padding: .8rem 1rem; }.row .date { width: auto; }.row .title { flex-basis: 100%; }.hero .lead { font-size: 1rem; }.header-inner { padding: .75rem 1.15rem; }}
+:root {--bg: #faf9f6;--bg-2: #f2efe9;--surface: #ffffff;--surface-2: #f6f4ef;--fg: #171614;--fg-2: #3d3a35;--muted: #7a7570;--line: #e7e3da;--line-2: #f0ece4;--accent: #b45309;--accent-2: #d98218;--accent-soft: rgba(180, 83, 9, .09);--accent-line: rgba(180, 83, 9, .22);--on-accent: #ffffff;--shadow-xs: 0 1px 2px rgba(23, 22, 20, .05);--shadow-sm: 0 1px 3px rgba(23, 22, 20, .06), 0 1px 2px rgba(23, 22, 20, .04);--shadow-md: 0 8px 24px -6px rgba(23, 22, 20, .10), 0 2px 6px rgba(23, 22, 20, .05);--shadow-lg: 0 20px 48px -12px rgba(23, 22, 20, .16);--radius: 18px;--radius-sm: 12px;--container: 68rem;}@media (prefers-color-scheme: dark) {:root:not([data-theme="light"]) {--bg: #0f0f10;--bg-2: #16161a;--surface: #17171b;--surface-2: #1d1d22;--fg: #f2f0ec;--fg-2: #d4d1cb;--muted: #918d87;--line: #29292f;--line-2: #212127;--accent: #f0972a;--accent-2: #f5b400;--accent-soft: rgba(240, 151, 42, .12);--accent-line: rgba(240, 151, 42, .3);--on-accent: #17120a;--shadow-xs: 0 1px 2px rgba(0, 0, 0, .45);--shadow-sm: 0 1px 3px rgba(0, 0, 0, .5);--shadow-md: 0 8px 24px -6px rgba(0, 0, 0, .6);--shadow-lg: 0 20px 48px -12px rgba(0, 0, 0, .7);}}html[data-theme="dark"] {--bg: #0f0f10; --bg-2: #16161a; --surface: #17171b; --surface-2: #1d1d22;--fg: #f2f0ec; --fg-2: #d4d1cb; --muted: #918d87; --line: #29292f; --line-2: #212127;--accent: #f0972a; --accent-2: #f5b400;--accent-soft: rgba(240, 151, 42, .12); --accent-line: rgba(240, 151, 42, .3);--on-accent: #17120a;--shadow-xs: 0 1px 2px rgba(0, 0, 0, .45);--shadow-sm: 0 1px 3px rgba(0, 0, 0, .5);--shadow-md: 0 8px 24px -6px rgba(0, 0, 0, .6);--shadow-lg: 0 20px 48px -12px rgba(0, 0, 0, .7);}* { box-sizing: border-box; margin: 0; padding: 0; border: 0 solid var(--line); }html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }body {background: var(--bg);background-image:radial-gradient(60rem 32rem at 12% -8%, var(--accent-soft), transparent 62%),radial-gradient(48rem 28rem at 92% 2%, rgba(217, 130, 24, .06), transparent 60%);background-repeat: no-repeat;background-attachment: fixed;color: var(--fg);font-family: Inter, -apple-system, BlinkMacSystemFont, "PingFang SC", "Hiragino Sans GB","Microsoft YaHei", "Helvetica Neue", Helvetica, Arial, sans-serif;-webkit-font-smoothing: antialiased;-moz-osx-font-smoothing: grayscale;line-height: 1.6;min-height: 100vh;display: flex;flex-direction: column;}a { color: inherit; text-decoration: none; }img { max-width: 100%; height: auto; display: block; border-radius: 10px; }button { font: inherit; color: inherit; background: none; cursor: pointer; }::selection { background: var(--accent-soft); }.site-header {position: sticky; top: 0; z-index: 50;background: color-mix(in srgb, var(--bg) 82%, transparent);backdrop-filter: saturate(180%) blur(14px);-webkit-backdrop-filter: saturate(180%) blur(14px);border-bottom: 1px solid var(--line);}.header-inner {max-width: var(--container); margin: 0 auto;padding: .85rem 1.5rem;display: flex; align-items: center; justify-content: space-between; gap: 1rem;}.brand { display: flex; align-items: center; gap: .7rem; transition: opacity .2s; flex: 0 0 auto; }.brand:hover { opacity: .82; }.brand-mark {width: 2.3rem; height: 2.3rem; border-radius: 12px; flex: 0 0 auto;background: linear-gradient(140deg, var(--accent-2), var(--accent) 70%);color: #fff; font-weight: 800; font-size: 1.08rem;display: flex; align-items: center; justify-content: center;box-shadow: 0 4px 12px -2px var(--accent-line), inset 0 1px 0 rgba(255,255,255,.28);}.brand-text { display: flex; flex-direction: column; line-height: 1.2; }.brand-text b { font-size: 1rem; font-weight: 750; letter-spacing: -.015em; }.brand-text span { font-size: .68rem; color: var(--muted); letter-spacing: .1em; margin-top: .1rem; }.nav { display: flex; align-items: center; gap: .15rem; font-size: .9rem; font-weight: 550; }.nav a {padding: .48rem .78rem; border-radius: 9px; color: var(--muted);transition: color .18s, background .18s; white-space: nowrap;}.nav a:hover { color: var(--fg); background: var(--surface-2); }.nav a.active { color: var(--accent); background: var(--accent-soft); font-weight: 700; }.nav-tools { display: flex; align-items: center; gap: .3rem; padding-left: .5rem; margin-left: .35rem; border-left: 1px solid var(--line); }.icon-btn {width: 2.1rem; height: 2.1rem; border-radius: 9px; color: var(--muted);display: flex; align-items: center; justify-content: center;transition: .18s; font-size: 1rem;}.icon-btn:hover { color: var(--accent); background: var(--accent-soft); }.menu-btn { display: none; }main { flex: 1; }.container {max-width: var(--container); margin: 0 auto;padding: 3rem 1.5rem 5.5rem;display: flex; flex-direction: column; gap: 3.75rem;}.hero { margin-bottom: 0; }.crumb {display: flex; flex-wrap: wrap; align-items: center; gap: .45rem;font-size: .85rem; font-weight: 550; color: var(--muted); margin-bottom: 1.1rem;}.crumb a:hover { color: var(--accent); }.crumb .sep { opacity: .35; }.hero h1 {font-size: clamp(2.1rem, 5.6vw, 3.15rem);font-weight: 830; line-height: 1.08; letter-spacing: -.035em;background: linear-gradient(180deg, var(--fg) 62%, color-mix(in srgb, var(--fg) 62%, var(--accent)));-webkit-background-clip: text; background-clip: text;-webkit-text-fill-color: transparent;}.hero .lead {margin-top: 1.35rem; max-width: 44rem;font-size: 1.06rem; line-height: 1.85; color: var(--muted);}.hero .lead strong { color: var(--fg); font-weight: 750; }.hero-actions { margin-top: 1.9rem; display: flex; flex-wrap: wrap; gap: .7rem; }.btn {padding: .72rem 1.55rem; border-radius: 999px;font-weight: 600; font-size: .95rem;transition: transform .18s, box-shadow .18s, background .18s, border-color .18s, color .18s;display: inline-flex; align-items: center; gap: .45rem;}.btn-primary {background: linear-gradient(140deg, var(--accent-2), var(--accent));color: #fff;box-shadow: 0 6px 18px -6px var(--accent-line), inset 0 1px 0 rgba(255,255,255,.22);}.btn-primary:hover { transform: translateY(-2px); box-shadow: 0 12px 26px -8px var(--accent-line); }.btn-ghost { border: 1px solid var(--line); background: var(--surface); color: var(--fg-2); }.btn-ghost:hover { background: var(--surface-2); border-color: var(--accent-line); color: var(--accent); }.stats { margin-top: 1.9rem; display: flex; flex-wrap: wrap; gap: .6rem; }.stat {display: flex; align-items: baseline; gap: .4rem;background: var(--surface); border: 1px solid var(--line);border-radius: 999px; padding: .42rem 1rem;box-shadow: var(--shadow-xs);}.stat b { font-size: 1rem; font-weight: 780; letter-spacing: -.02em; color: var(--fg); font-variant-numeric: tabular-nums; }.stat span { font-size: .8rem; color: var(--muted); }.section { display: flex; flex-direction: column; }.section-head {display: flex; align-items: baseline; justify-content: space-between;gap: 1rem; margin-bottom: 1.5rem; padding-bottom: .85rem;border-bottom: 1px solid var(--line);}.section-head h2 {position: relative; padding-left: .85rem;font-size: .92rem; font-weight: 780; text-transform: uppercase;letter-spacing: .17em; color: var(--fg);}.section-head h2::before {content: ""; position: absolute; left: 0; top: 50%; transform: translateY(-50%);width: 3px; height: 1.05em; border-radius: 2px;background: linear-gradient(180deg, var(--accent-2), var(--accent));}.section-head .more { font-size: .88rem; font-weight: 600; color: var(--muted); white-space: nowrap; transition: .18s; }.section-head .more:hover { color: var(--accent); }.grid { display: grid; gap: 1.05rem; }.grid-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }.grid-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }.grid-4 { grid-template-columns: repeat(4, minmax(0, 1fr)); }.card {position: relative; overflow: hidden;background: var(--surface);border: 1px solid var(--line);border-radius: var(--radius);padding: 1.3rem 1.4rem;box-shadow: var(--shadow-xs);transition: transform .2s cubic-bezier(.2,.7,.3,1), box-shadow .2s, border-color .2s;display: block;}.card::after {content: ""; position: absolute; inset: 0 0 auto 0; height: 2px;background: linear-gradient(90deg, var(--accent-2), var(--accent) 55%, transparent);opacity: 0; transition: opacity .2s;}a.card:hover {transform: translateY(-3px);box-shadow: var(--shadow-md);border-color: var(--accent-line);}a.card:hover::after { opacity: 1; }.card .kicker {font-size: .7rem; font-weight: 780; letter-spacing: .12em;color: var(--accent); text-transform: uppercase;}.card h3 { margin-top: .55rem; font-size: 1.04rem; font-weight: 730; line-height: 1.4; letter-spacing: -.015em; }.card p { margin-top: .55rem; font-size: .875rem; line-height: 1.72; color: var(--muted); }.card .count { font-size: .78rem; font-weight: 600; color: var(--muted); }.rows {display: flex; flex-direction: column;background: var(--surface); border: 1px solid var(--line);border-radius: var(--radius); overflow: hidden;box-shadow: var(--shadow-xs);}.row {display: flex; align-items: baseline; gap: 1.1rem;padding: .82rem 1.15rem;transition: background .16s;border-bottom: 1px solid var(--line-2);position: relative;}.row:last-child { border-bottom: 0; }.row::before {content: ""; position: absolute; left: 0; top: 0; bottom: 0; width: 3px;background: var(--accent); transform: scaleY(0); transition: transform .18s;}.row:hover { background: var(--surface-2); }.row:hover::before { transform: scaleY(1); }.row .date {flex: 0 0 auto; width: 5.1rem; font-size: .82rem; font-weight: 600;font-variant-numeric: tabular-nums; color: var(--muted); letter-spacing: -.01em;}.row .title { flex: 1 1 auto; font-size: .97rem; font-weight: 550; line-height: 1.55; color: var(--fg-2); }.row:hover .title { color: var(--accent); font-weight: 620; }.row .tags { flex: 0 0 auto; display: flex; gap: .35rem; }.tag {font-size: .7rem; font-weight: 620; padding: .2rem .6rem; border-radius: 999px;background: var(--surface-2); border: 1px solid var(--line);color: var(--muted); white-space: nowrap;}.year-head { display: flex; align-items: center; gap: .9rem; margin: 1.9rem 0 .75rem; }.year-head:first-child { margin-top: 0; }.year-head .y { font-size: 1.3rem; font-weight: 830; letter-spacing: -.03em; }.year-head .n { font-size: .78rem; font-weight: 600; color: var(--muted); background: var(--surface-2); border: 1px solid var(--line); padding: .12rem .55rem; border-radius: 999px; }.year-head .line { flex: 1; height: 1px; background: linear-gradient(90deg, var(--line), transparent); }.post-wrap { max-width: 46rem; margin: 0 auto; width: 100%; }.post-head { margin-bottom: 2.25rem; padding-bottom: 1.6rem; border-bottom: 1px solid var(--line); }.post-head h1 { font-size: clamp(1.55rem, 4.4vw, 2.05rem); font-weight: 760; line-height: 1.32; letter-spacing: -.028em; }.post-meta { margin-top: 1rem; display: flex; flex-wrap: wrap; gap: .5rem 1rem; font-size: .84rem; color: var(--muted); align-items: center; font-weight: 550; }.post-meta .dot { opacity: .35; }.prose { color: var(--fg-2); font-size: 1.06rem; line-height: 1.9; letter-spacing: .008em; max-width: 68ch; }.prose p { margin: 1.5em 0; }.prose h1, .prose h2, .prose h3 { color: var(--fg); letter-spacing: -.018em; font-weight: 730; line-height: 1.4; }.prose h1 { font-size: 1.65rem; margin: 2.1em 0 .8em; }.prose h2 {font-size: 1.28rem; margin: 2.3em 0 .85em; padding-bottom: .5em;border-bottom: 1px solid var(--line);}.prose h3 {font-size: 1.03rem; margin: 2.2em 0 .7em;letter-spacing: .16em; color: var(--accent); font-weight: 780;}.prose strong { color: var(--fg); font-weight: 700; }.prose em { font-style: italic; }.prose a { color: var(--accent); text-decoration: underline; text-underline-offset: 3px; text-decoration-thickness: 1px; }.prose a:hover { opacity: .8; }.prose blockquote {border-left: 3px solid var(--accent);background: var(--accent-soft);color: var(--fg-2); border-radius: 0 10px 10px 0;margin: 1.9em 0; padding: 1.05em 1.35em; font-style: italic;}.prose blockquote p { margin: 0; }.prose ul { margin: 1.3em 0; list-style: none; }.prose ul > li { margin: .55em 0; padding-left: 1.35em; position: relative; }.prose ul > li::before { content: ""; position: absolute; left: .15em; top: .72em; width: 5px; height: 5px; border-radius: 50%; background: var(--accent); opacity: .6; }.prose ol { margin: 1.3em 0; padding-left: 1.5em; list-style: decimal; }.prose ol > li { margin: .55em 0; }.prose img { margin: 2em 0; box-shadow: var(--shadow-md); }.prose hr { margin: 2.6em 0; border-top: 1px solid var(--line); height: 0; }.post-foot {margin-top: 3.2rem; padding-top: 1.6rem; border-top: 1px solid var(--line);display: flex; align-items: center; justify-content: space-between;gap: 1rem; flex-wrap: wrap; font-size: .88rem; font-weight: 550; color: var(--muted);}.post-foot a:hover { color: var(--accent); }.pager-bar {display: flex; align-items: stretch; justify-content: space-between;gap: .9rem; margin: 0 0 1.6rem;}.post-back ~ .pager-bar { margin-top: 0; }.pg {display: flex; flex-direction: column; gap: .18rem;max-width: 47%; min-width: 0;background: var(--surface); border: 1px solid var(--line); border-radius: 13px;padding: .7rem 1rem; box-shadow: var(--shadow-xs);transition: border-color .18s, background .18s, transform .18s, box-shadow .18s;}.pg:hover {background: var(--surface-2); border-color: var(--accent-line);transform: translateY(-2px); box-shadow: var(--shadow-sm);}.pg-next { text-align: right; margin-left: auto; }.pg-lbl {font-size: .69rem; font-weight: 700; letter-spacing: .06em;color: var(--accent); white-space: nowrap;}.pg-title {font-size: .9rem; font-weight: 620; line-height: 1.4; color: var(--fg-2);overflow: hidden; text-overflow: ellipsis; display: -webkit-box;-webkit-line-clamp: 1; -webkit-box-orient: vertical;}.pg:hover .pg-title { color: var(--accent); }.pg-date { font-size: .72rem; color: var(--muted); font-variant-numeric: tabular-nums; }.pg-empty { flex: 1 1 0; max-width: 47%; }.pager-bar.is-bottom { margin: 2rem 0 0; padding-top: 1.5rem; border-top: 1px solid var(--line); }.toc-fab {position: fixed; right: 1.25rem; bottom: 1.5rem; z-index: 60;display: inline-flex; align-items: center; gap: .45rem;padding: .62rem 1.1rem; border-radius: 999px;background: linear-gradient(140deg, var(--accent-2), var(--accent));color: #fff; font-size: .88rem; font-weight: 650; letter-spacing: .02em;box-shadow: 0 10px 26px -8px var(--accent-line), 0 2px 8px rgba(0, 0, 0, .12);transition: transform .18s, box-shadow .18s;}.toc-fab:hover { transform: translateY(-2px); box-shadow: 0 14px 32px -8px var(--accent-line); }.toc-fab svg { width: 15px; height: 15px; }.toc-mask {position: fixed; inset: 0; z-index: 70;background: rgba(12, 10, 8, .38); backdrop-filter: blur(2px);opacity: 0; pointer-events: none; transition: opacity .22s;}.toc-mask.on { opacity: 1; pointer-events: auto; }.toc-panel {position: fixed; top: 0; right: 0; bottom: 0; z-index: 80;width: 22rem; max-width: 88vw;display: flex; flex-direction: column;background: var(--bg);border-left: 1px solid var(--line);box-shadow: -18px 0 48px -18px rgba(0, 0, 0, .28);transform: translateX(102%); transition: transform .26s cubic-bezier(.3, .8, .3, 1);}.toc-panel.on { transform: none; }.toc-head {display: flex; align-items: center; justify-content: space-between; gap: .75rem;padding: 1rem 1.1rem .85rem; border-bottom: 1px solid var(--line);}.toc-head h3 {font-size: .92rem; font-weight: 780; letter-spacing: .01em;display: flex; align-items: baseline; gap: .5rem;}.toc-head h3 em {font-style: normal; font-size: .72rem; font-weight: 600;color: var(--muted); letter-spacing: .04em;}.toc-close {width: 1.9rem; height: 1.9rem; border-radius: 8px; color: var(--muted);display: flex; align-items: center; justify-content: center; font-size: .95rem;transition: .15s; flex: 0 0 auto;}.toc-close:hover { color: var(--accent); background: var(--accent-soft); }.toc-search-wrap { padding: .75rem 1.1rem .55rem; }.toc-search {width: 100%; background: var(--surface); border: 1px solid var(--line);border-radius: 999px; padding: .5rem .95rem; font-size: .86rem;color: var(--fg); outline: none; transition: border-color .15s, box-shadow .15s;}.toc-search::placeholder { color: var(--muted); }.toc-search:focus { border-color: var(--accent); box-shadow: 0 0 0 3px var(--accent-soft); }.toc-body {flex: 1; overflow-y: auto; overscroll-behavior: contain;padding: .2rem .7rem 1rem;scrollbar-width: thin;}.toc-body::-webkit-scrollbar { width: 8px; }.toc-body::-webkit-scrollbar-thumb { background: var(--line); border-radius: 4px; }.toc-year { margin-bottom: .1rem; }.toc-y-btn {width: 100%; display: flex; align-items: center; gap: .55rem;padding: .5rem .5rem; border-radius: 8px;font-size: .84rem; font-weight: 750; color: var(--fg); text-align: left;transition: background .15s;}.toc-y-btn:hover { background: var(--surface-2); }.toc-y-btn::before {content: "▸"; font-size: .68rem; color: var(--muted); transition: transform .18s;display: inline-block; width: .8rem;}.toc-year.open .toc-y-btn::before { transform: rotate(90deg); }.toc-y-btn span {margin-left: auto; font-size: .7rem; font-weight: 600; color: var(--muted);background: var(--surface-2); border: 1px solid var(--line);padding: .05rem .42rem; border-radius: 999px;}.toc-items { display: none; padding: 0 0 .3rem .55rem; }.toc-year.open .toc-items { display: block; }.toc-item {display: flex; align-items: baseline; gap: .5rem;padding: .36rem .5rem; border-radius: 7px;font-size: .82rem; line-height: 1.45; color: var(--fg-2);border-left: 2px solid transparent; transition: background .14s, color .14s, border-color .14s;}.toc-item:hover { background: var(--surface-2); color: var(--accent); }.toc-item .ti-date {flex: 0 0 auto; font-size: .72rem; color: var(--muted);font-variant-numeric: tabular-nums; letter-spacing: -.01em;}.toc-item .ti-title { flex: 1 1 auto; min-width: 0; }.toc-item.is-cur {background: var(--accent-soft); color: var(--accent);font-weight: 700; border-left-color: var(--accent);}.toc-item.is-cur .ti-date { color: var(--accent); }.toc-none { padding: 1.5rem .8rem; text-align: center; font-size: .85rem; color: var(--muted); }.toc-foot {border-top: 1px solid var(--line); padding: .75rem 1.1rem;display: flex; align-items: center; justify-content: space-between; gap: .6rem;font-size: .8rem; color: var(--muted);}.toc-foot a { font-weight: 650; color: var(--accent); }.toc-foot a:hover { opacity: .8; }body.toc-open { overflow: hidden; }@media (max-width: 620px) {.pager-bar { gap: .55rem; }.pg { max-width: 48%; padding: .6rem .75rem; }.pg-title { font-size: .84rem; -webkit-line-clamp: 2; }.toc-panel { width: 90vw; }.toc-fab { right: .9rem; bottom: 1rem; padding: .55rem .95rem; font-size: .82rem; }}.comments {margin-top: 3rem; border-top: 1px solid var(--line); padding-top: 1.6rem;}.comments-head {display: flex; align-items: baseline; justify-content: space-between;gap: 1rem; flex-wrap: wrap; margin-bottom: 1.15rem;}.comments-head h2 {position: relative; padding-left: .8rem;font-size: .82rem; font-weight: 780; text-transform: uppercase;letter-spacing: .17em; color: var(--fg);}.comments-head h2::before {content: ""; position: absolute; left: 0; top: 50%; transform: translateY(-50%);width: 3px; height: 1.05em; border-radius: 2px;background: linear-gradient(180deg, var(--accent-2), var(--accent));}.comments-head span { font-size: .76rem; color: var(--muted); }.cmt-list { display: flex; flex-direction: column; gap: .55rem; }.cmt {background: var(--surface);border: 1px solid var(--line);border-radius: var(--radius-sm);padding: .85rem 1.05rem;transition: border-color .15s, background .15s;}.cmt:hover { border-color: var(--accent-line); }.cmt.is-author {background: color-mix(in srgb, var(--accent) 4%, var(--surface));border-color: var(--accent-line);}.cmt-head {display: flex; align-items: center; flex-wrap: wrap; gap: .5rem;font-size: .8rem; margin-bottom: .4rem;}.cmt-name { font-weight: 700; color: var(--fg-2); }.cmt-name.is-author { color: var(--accent); }.cmt-name.is-author::after {content: "作者"; margin-left: .35rem; font-size: .64rem; font-weight: 700;padding: .1rem .35rem; border-radius: 999px;background: var(--accent-soft); color: var(--accent);vertical-align: middle;}.cmt-region {font-size: .7rem; color: var(--muted);background: var(--surface-2); border: 1px solid var(--line);padding: .08rem .4rem; border-radius: 999px;}.cmt-time { font-size: .72rem; color: var(--muted); font-variant-numeric: tabular-nums; }.cmt-like { font-size: .72rem; color: var(--muted); margin-left: auto; }.cmt-badge {font-size: .64rem; font-weight: 700; padding: .1rem .4rem; border-radius: 999px;background: var(--surface-2); border: 1px solid var(--line); color: var(--muted);}.cmt-text {font-size: .93rem; line-height: 1.78; color: var(--fg-2);overflow-wrap: anywhere;}.cmt-text p { margin: .5em 0; }.cmt-text p:first-child { margin-top: 0; }.cmt-text p:last-child { margin-bottom: 0; }.cmt-text a { color: var(--accent); text-decoration: underline; text-underline-offset: 2px; }.cmt-text img { margin: .6em 0; border-radius: 8px; max-width: 16rem; }.cmt-blocked-wrap {margin-bottom: .9rem; border: 1px dashed var(--accent-line);border-radius: var(--radius-sm); padding: .8rem 1rem;background: color-mix(in srgb, var(--accent) 3%, transparent);}.cmt-blocked-wrap summary {cursor: pointer; font-size: .82rem; font-weight: 700; color: var(--accent);list-style: none; display: flex; align-items: center; gap: .6rem; flex-wrap: wrap;}.cmt-blocked-wrap summary::-webkit-details-marker { display: none; }.cmt-blocked-wrap summary::before { content: "▸"; font-size: .8rem; }.cmt-blocked-wrap[open] summary::before { content: "▾"; }.cmt-hint { font-weight: 400; font-size: .72rem; color: var(--muted); }.cmt-blocked-wrap .cmt { margin-top: .6rem; }.cmt-blocked { border-style: dashed; }.cmt-reply { margin-top: .5rem; margin-left: 1.2rem; }.tag-cmt {background: var(--accent-soft) !important;border-color: var(--accent-line) !important;color: var(--accent) !important;}.toolbar {display: flex; flex-wrap: wrap; gap: .6rem; align-items: center;margin-bottom: 1.35rem;}.search {flex: 1 1 17rem; min-width: 12rem;display: flex; align-items: center; gap: .55rem;background: var(--surface); border: 1px solid var(--line);border-radius: 999px; padding: .58rem 1.05rem;color: var(--muted); transition: border-color .18s, box-shadow .18s;box-shadow: var(--shadow-xs);}.search:focus-within { border-color: var(--accent); box-shadow: 0 0 0 3px var(--accent-soft); }.search input { flex: 1; background: none; border: none; outline: none; color: var(--fg); font-size: .93rem; }.chip {font-size: .84rem; font-weight: 600; padding: .5rem 1rem; border-radius: 999px;background: var(--surface); border: 1px solid var(--line);color: var(--muted); transition: .18s; box-shadow: var(--shadow-xs);}.chip:hover { border-color: var(--accent-line); color: var(--accent); }.chip.on {background: linear-gradient(140deg, var(--accent-2), var(--accent));color: #fff; border-color: transparent;box-shadow: 0 5px 14px -5px var(--accent-line);}.empty-note { padding: 3rem 0; text-align: center; color: var(--muted); font-size: .93rem; }.faq { display: flex; flex-direction: column; gap: .6rem; }.faq details {background: var(--surface); border: 1px solid var(--line);border-radius: var(--radius-sm); padding: 1.05rem 1.3rem;transition: border-color .18s, box-shadow .18s; box-shadow: var(--shadow-xs);}.faq details[open] { border-color: var(--accent-line); box-shadow: var(--shadow-sm); }.faq summary {cursor: pointer; font-weight: 650; font-size: .96rem; list-style: none;display: flex; justify-content: space-between; gap: 1rem; align-items: center;}.faq summary::-webkit-details-marker { display: none; }.faq summary::after {content: "+"; color: var(--accent); font-weight: 500; font-size: 1.1rem;width: 1.4rem; height: 1.4rem; border-radius: 50%;display: flex; align-items: center; justify-content: center;background: var(--accent-soft); flex: 0 0 auto;}.faq details[open] summary::after { content: "−"; }.faq .ans { margin-top: .85rem; font-size: .91rem; line-height: 1.82; color: var(--muted); }.site-footer { border-top: 1px solid var(--line); background: color-mix(in srgb, var(--bg-2) 60%, transparent); }.footer-inner {max-width: var(--container); margin: 0 auto; padding: 2.75rem 1.5rem;display: flex; flex-wrap: wrap; gap: 1.5rem 2.5rem; justify-content: space-between;font-size: .85rem; color: var(--muted);}.footer-inner a:hover { color: var(--accent); }.footer-links { display: flex; flex-wrap: wrap; gap: .55rem 1.15rem; font-weight: 600; }.footer-links a { color: var(--fg-2); }.disclaimer { font-size: .78rem; color: var(--muted); line-height: 1.75; max-width: 35rem; opacity: .9; }@media (max-width: 900px) {.grid-4, .grid-3 { grid-template-columns: repeat(2, minmax(0, 1fr)); }.nav { display: none; }.nav.open {display: flex; flex-direction: column; align-items: stretch;position: absolute; left: 1rem; right: 1rem; top: 4.35rem;background: var(--surface); border: 1px solid var(--line);border-radius: var(--radius); padding: .5rem; box-shadow: var(--shadow-lg); gap: .1rem;}.nav.open a { padding: .72rem .9rem; }.menu-btn { display: flex; }.nav-tools { border: none; padding: 0; margin: 0; padding-top: .35rem; }}@media (max-width: 620px) {.container { gap: 2.6rem; padding: 1.9rem 1.15rem 4rem; }.grid-4, .grid-3, .grid-2 { grid-template-columns: 1fr; }.rows { border-radius: var(--radius-sm); }.row { flex-wrap: wrap; gap: .3rem .8rem; padding: .8rem 1rem; }.row .date { width: auto; }.row .title { flex-basis: 100%; }.hero .lead { font-size: 1rem; }.header-inner { padding: .75rem 1.15rem; }}
 </style>
 </head>
 <body>
@@ -29,68 +29,552 @@
     <div class="post-head">
       <div class="crumb"><a href="index.html">首页</a><span class="sep">/</span><a href="all.html">公众号文章</a><span class="sep">/</span><a href="tianjiqitan.html">天机奇谈</a></div>
       <h1>癞蛤蟆装青蛙</h1>
-      <div class="post-meta"><span>2022-03-09</span><span class="dot">·</span><span>天机奇谈</span><span class="dot">·</span><span>约 6 分钟读完</span></div>
+      <div class="post-meta"><span>2022-03-09</span><span class="dot">·</span><span>天机奇谈</span><span class="dot">·</span><span>约 6 分钟读完</span><span class="dot">·</span><a href="https://mp.weixin.qq.com/s/35a92yzkHmf_pdmtKl9Bqg" target="_blank" rel="noopener">原文链接 ↗</a></div>
     </div>
+<nav class="pager-bar"><a class="pg pg-prev" href="tianjiqitan-2022-03-07.html"><span class="pg-lbl">← 上一篇</span><span class="pg-title">端起夜壶，一饮而尽</span><span class="pg-date">2022-03-07</span></a><a class="pg pg-next" href="tianjiqitan-2022-03-10.html"><span class="pg-lbl">下一篇 →</span><span class="pg-title">富了方丈，跑了和尚</span><span class="pg-date">2022-03-10</span></a></nav>
     <div class="prose">
 <p>昨天有事没能更新，周六补上。</p>
 <p>今天的内容点比较多，尽量控制篇幅。</p>
 <p>NO. 1｜壹</p>
-<p>碧桂园集团发了一份文件，内容是关于区域总每3年定期休岗一个月，期间有审计介入。</p>
+<p>碧桂园集团发了一份文件，内容是关于<strong>区域总每3年定期休岗一个月</strong>，期间有<strong>审计介入</strong>。</p>
 <p>看到这个，第一反应是回想：有多少区域总能在碧桂园做满三年。多数有点关系，没关系的基本上被清理出局了。</p>
 <p>这文件出得太晚，2015-2019年，有区域总捞得盆满钵满，捞完跑了。要警惕这份文件实施后，成为某些人权斗的工具，比如将一些“不是自己人”的区域总干掉。</p>
 <p>老油条的区域总，对付审计监察和排挤他人，向来很擅长：打不过敌人，就努力把敌人变成自己人；利用审计监察，巧妙地将敌人变故人。</p>
 <p>... ...</p>
-<p><strong> 正荣地产</strong> <strong> 3月份到期的2亿元美元债</strong> ，在3月7日的展期议案中获得通过，获1年展期。</p>
+<p><strong>正荣地产</strong><strong>3月份到期的2亿元美元债</strong>，在3月7日的展期议案中获得通过，<strong>获1年展期</strong>。</p>
 <p>正荣今年3、4、6、8、9月到期的债券，未兑付本金分别为5000万美元、2.18亿美元、16亿人民币、2.93亿美元及2.36亿美元，合计约66亿人民币。</p>
 <p>正荣的销售额注水和表外负债之多，感兴趣的可以挖掘一下，并不像表面那么简单。这也是去年中旬，天机多次提及正荣存在暴雷风险的原因及依据。</p>
-<p>如今正荣已很难从资本市场获得融资，可以说通过融资借新还旧这条路已断；而销售回款端，市场尚未回暖，负面舆论的发酵将致使正荣的销售回款进一步下探，很容易陷入可动用资金枯竭的境地。</p>
+<p>如今正荣已<strong>很难从资本市场获得融资</strong>，可以说通过融资借新还旧这条路已断；而销售回款端，<strong>市场尚未回暖，负面舆论的发酵将致使正荣的销售回款进一步下探</strong>，很容易陷入可动用资金枯竭的境地。</p>
 <p>曾几何时，闽系三甲（假），财报粉饰大户阳光城、正荣、世茂，像抖音美女一样，开着十级美颜，被捧上天。如今滤镜一关，榜一大哥被吓得连夜扛着高铁跑了。</p>
-<p><strong> 人在地上躺，债在心中涨</strong> 。表外负债也是负债，也要兑付，但又不能说出来，只能在心中默默盘点。</p>
+<p><strong>人在地上躺，债在心中涨</strong>。表外负债也是负债，也要兑付，但又不能说出来，只能在心中默默盘点。</p>
 <p>... ...</p>
-<p>禹洲集团公告称，2022年2月4日一笔未偿还本金为5亿美元的到期应付利息2125万美元，在30天宽限期内并未支付利息，构成违约事件。</p>
+<p><strong>禹洲集团</strong>公告称，2022年2月4日一笔<strong>未偿还本金为5亿美元的到期应付利息2125万美元</strong>，在30天宽限期内并未支付利息，构成<strong>违约</strong>事件。</p>
 <p>禹洲的难关才刚开始。除了两笔尚未偿还的5.82亿美元境外债，还有12笔本金合计约49.15亿美元的债券，表外负债未知。</p>
 <p>去年9月，和一位朋友吃饭时，我告诉他，复盘完禹洲的所有财务数据，我个人认为，禹洲半年内必定出问题。</p>
 <p>老读者比较清楚，两年前因销售额注水和债务隐藏等原因，天机曾看衰禹洲。当初有多疯，如今就有多惨，显然不能把锅都甩给调控政策。</p>
-<p><strong> 掩盖错误，才是最大的错误</strong> 。</p>
+<p><strong>掩盖错误，才是最大的错误</strong>。</p>
 <p>NO. 2｜贰</p>
 <p>龙光控股称，附属子公司向平安信托申请的一笔抵押融资，目前融资余额11.8亿元，双方仍在按照合同条款和双方约定推进中。</p>
-<p>此外，公司没有发行过任何私募理财产品，也没有外部商票类融资。</p>
-<p>投资人电话会议上，龙光亲口承认，有不超过10亿美元的担保私募债。嗯，文字游戏。</p>
-<p>龙光控股3月到期及回售期债券等到期规模合计52.99亿元；一年内到期或行权的境内债余额124.39亿元；6笔今年9月到期的关联ABS，存续规模40.51亿元。</p>
-<p>龙光针对3月22日到期的一笔余额为18.26亿元的债券，提出展期方案，分为本金+利息两部分，其中本金展期18个月。该方案最终能否被通过还是未知数。</p>
+<p>此外，公司<strong>没有发行过任何私募理财产品，也没有外部商票类融资</strong>。</p>
+<p>龙光的话，我信个标点符号。几天前写过：春节前，龙光辟谣称未披露的美元私募债一事，并斥资2000万进行债券回购。几天后，投资人电话会议上，龙光亲口承认，有不超过10亿美元的担保私募债。嗯，文字游戏。</p>
+<p>龙光控股<strong>3月到期</strong>及回售期债券等<strong>到期规模合计52.99亿元</strong>；<strong>一年内到期</strong>或行权的<strong>境内债余额124.39亿元</strong>；<strong>6笔今年9月到期的关联ABS，存续规模40.51亿元</strong>。</p>
+<p>龙光针对3月22日到期的一笔余额为<strong>18.26亿元的债券，</strong>提出<strong>展期方案，分为本金+利息两部分，其中本金展期18个月</strong>。该方案最终能否被通过还是未知数。</p>
 <p>龙光控股称，为应对短期流动性压力，已与国企、金融机构对接，开展资产处置工作。据悉，龙光将旗下子公司在两年前14.91亿元拿下的汕头一项目，以10.24亿元的总代价卖给中海宏洋。</p>
 <p>根据手头掌握的资料，盘点了一番，龙光的表外负债，大约在750-800亿元左右。城市更新业务是表外负债庞大的主要原因。</p>
 <p>龙光除了通过表外子公司输血，龙光的大金主中，还有一家总部位于深圳的银行。</p>
 <p>从目前来看，去年9月的天机榜和今年初的天机榜，准确率极高，目前命中率已达90%以上，这是最耗费时间和精力的一份总结。</p>
 <p>还是那句话：越是有问题的房企，越爱宣传软广满天飞，把自己夸得顶呱呱。遇到这类现象，大家要多警惕：</p>
-<p><strong> 癞蛤蟆装青蛙，长得丑，玩得花</strong> 。</p>
+<p><strong>癞蛤蟆装青蛙，长得丑，玩得花</strong>。</p>
 <p>... ...</p>
 <p>据官方消息，刚做完区域调整的金科，在江苏镇江的“金科祥生·悦园”项目发生火灾，造成7死4伤。</p>
 <p>读者中有不少项目负责人，提醒一下，在建项目和复工项目要做好生产安全措施和消防检查等，爱别人，也是爱自己。</p>
 <p>NO. 3｜叁</p>
-<p>中国东方资产计划发行100亿债券，主要用于重点房地产企业优质项目的风险化解及处置，房地产行业不良资产纾困，房地产金融风险化解等相关不良资产主营业务。</p>
+<p>中国<strong>东方资产计划发行100亿债券，</strong>主要用于<strong>重点房地产企业优质项目的风险化解及处置</strong>，房地产行业不良资产纾困，房地产金融风险化解等相关不良资产主营业务。</p>
 <p>中国目前有5家全国性AMC公司，包括中国华融、中国信达、中国东方资产管理、中国长城资产和银河资产。</p>
 <p>资产管理公司及早介入，将有望加速出险房企资产处置进度，促进风险化解和市场出清。</p>
 <p>AMC介入恒大和接洽融创，都意味着房企化解流动性风险进入更深层次。</p>
 <p>看了看西游记，唐僧师徒西天取经，越靠近天竺，出现的妖怪越是有背景的。</p>
 <p>... ...</p>
-<p>原定于3月17日进行的荣盛发展1.51亿股股票、拍卖价为5.66亿元的拍卖被撤回。</p>
+<p>原定于3月17日进行的<strong>荣盛发展1.51亿股股票、拍卖价为5.66亿元</strong>的拍卖被撤回。</p>
 <p>这笔拍卖资产此前已经被冻结，拍卖被撤回原因是当事人达成了和解协议。</p>
 <p>截至目前，荣盛大股东荣盛发展股份数量为27.56亿股，持股比例为63.38%，目前质押数占其持股数的56.57%，最近一笔股权质押发生在3月7日，质押数量4487.73万股。</p>
 <p>除了大规模股权质押存在风险隐患外，荣盛的大规模担保也值得关注。表外负债也不可小觑：荣盛发展应付票据及账款达326.99亿元，拒付商票达7600多笔，总金额25亿多。</p>
 <p>卖凉粉的对黄四郎抱有幻想，相信了他的许诺，最终除了死什么都没得到。</p>
 <p>... ...</p>
 <p>同样被摆上拍卖的，还有泰禾集团。</p>
-<p>北京第二中院将在3月24-25日，对泰禾集团无限售流通A股8804万股，进行第一次拍卖，起拍价约1.845亿元。</p>
+<p>北京第二中院将在3月24-25日，对<strong>泰禾集团无限售流通A股8804万股，进行第一次拍卖，起拍价约1.845亿元</strong>。</p>
 <p>不吹就难受的”喜剧演员“黄其森，脚下是数十万家庭的悲剧。有业主许愿说，虚假复工一次，黄短1cm。估计现在已成黄豆。</p>
 <p>不要总是喊口号，实事求是、脚踏实地多好。奈何就是做不到，满嘴跑火车。一个真正有韧性的人，他的姿态一定是谦卑的。</p>
 <p>但泰禾集团和黄其森呈现的呢？是骄傲和傲慢，总是以自我为中心。</p>
 <p>把房子做好交付给业主是最要紧的。口号除了能自我感动，啥屁用没有，本末倒置，还不如做好切实可行的复工计划：</p>
-<p>给你只鸭子，你可以做出白切鸡吗？</p>
+<p><strong>给你只鸭子，你可以做出白切鸡吗</strong>？</p>
+<h3>全文完，如果喜欢，就点个“赞”或者“在看”吧****。</h3>
     </div>
-    <div class="post-foot"><a href="tianjiqitan.html">← 返回天机奇谈文章列表</a><div class="pager"><a href="tianjiqitan-2022-03-10.html"><span class="lbl">← 更新一篇</span>富了方丈跑了和尚</a><a href="tianjiqitan-2022-03-07.html"><span class="lbl">更早一篇 →</span>端起夜壶一饮而尽</a></div></div>
+    <section class="comments">
+      <div class="comments-head"><h2>读者留言</h2><span>共 137 条 · 累计 10684 赞</span></div>
+            <div class="cmt-list">
+<div class="cmt is-author"><div class="cmt-head"><span class="cmt-name is-author">刘波</span><span class="cmt-time">03-09 20:41</span><span class="cmt-like">赞 293</span></div><div class="cmt-text"><p>BGY的消息你向来都是拿到的很早[偷笑][偷笑][偷笑]</p></div></div>
+<div class="cmt is-author"><div class="cmt-head"><span class="cmt-name is-author">天机奇谈</span><span class="cmt-time">03-09 20:42</span><span class="cmt-like">赞 529</span></div><div class="cmt-text"><p>杨老板什么时候拿到，我差不多就什么时候拿到[666]，有时候是比较懒，不想写</p></div></div>
+<div class="cmt is-author"><div class="cmt-head"><span class="cmt-name is-author">颖～</span><span class="cmt-time">03-09 20:39</span><span class="cmt-like">赞 427</span></div><div class="cmt-text"><p>亲爱的天机，你已经46小时没有更新了，生产队的驴都没有你这么歇的[旺柴]</p></div></div>
+<div class="cmt is-author"><div class="cmt-head"><span class="cmt-name is-author">天机奇谈</span><span class="cmt-time">03-09 20:39</span><span class="cmt-like">赞 327</span></div><div class="cmt-text"><p>好家伙，我绷不住了，我一定会代替生产队的驴，好好更新[捂脸]</p></div></div>
+<div class="cmt is-author"><div class="cmt-head"><span class="cmt-name is-author">颖～</span><span class="cmt-time">03-09 20:40</span><span class="cmt-like">赞 248</span></div><div class="cmt-text"><p>传下去，天机绷不住要拉了[旺柴]</p></div></div>
+<div class="cmt is-author"><div class="cmt-head"><span class="cmt-name is-author">钢钢好的设计\*陽</span><span class="cmt-time">03-09 20:43</span><span class="cmt-like">赞 187</span></div><div class="cmt-text"><p>昆明恒大玖珑湾假复工中。都是演员</p></div></div>
+<div class="cmt is-author"><div class="cmt-head"><span class="cmt-name is-author">天机奇谈</span><span class="cmt-time">03-09 20:45</span><span class="cmt-like">赞 388</span></div><div class="cmt-text"><p>恒大还总结出了复工16式😂，明天我写一写</p></div></div>
+<div class="cmt is-author"><div class="cmt-head"><span class="cmt-name is-author">邝毅飞</span><span class="cmt-time">03-09 20:51</span><span class="cmt-like">赞 313</span></div><div class="cmt-text"><p>被置顶那位笑死了😂😂😂</p></div></div>
+<div class="cmt is-author"><div class="cmt-head"><span class="cmt-name is-author">天机奇谈</span><span class="cmt-time">03-09 20:59</span><span class="cmt-like">赞 241</span></div><div class="cmt-text"><p>真不知道他脑袋瓜里装的是啥，逻辑感人[捂脸]</p></div></div>
+<div class="cmt is-author"><div class="cmt-head"><span class="cmt-name is-author">邝毅飞</span><span class="cmt-time">03-09 21:00</span><span class="cmt-like">赞 267</span></div><div class="cmt-text"><p>他的意思是，那些企业都是被你唱衰的，你的嘴被开过光，法力无边，他应该就是利益受损方</p></div></div>
+<div class="cmt is-author"><div class="cmt-head"><span class="cmt-name is-author">虾</span><span class="cmt-time">03-09 20:52</span><span class="cmt-like">赞 167</span></div><div class="cmt-text"><p>碧桂园论官僚主义真的没看到超过的[发呆]</p></div></div>
+<div class="cmt is-author"><div class="cmt-head"><span class="cmt-name is-author">天机奇谈</span><span class="cmt-time">03-09 20:57</span><span class="cmt-like">赞 312</span></div><div class="cmt-text"><p>恒大表示不服。</p></div></div>
+<div class="cmt is-author"><div class="cmt-head"><span class="cmt-name is-author">莫少任</span><span class="cmt-time">03-09 20:42</span><span class="cmt-like">赞 104</span></div><div class="cmt-text"><p>为啥这么喜欢写某司，开年后连写6篇[吃瓜]</p></div></div>
+<div class="cmt is-author"><div class="cmt-head"><span class="cmt-name is-author">天机奇谈</span><span class="cmt-time">03-09 20:47</span><span class="cmt-like">赞 297</span></div><div class="cmt-text"><p>因为最近信息确实比较多，读者中碧桂园的基数又大，我就写了，想到哪写到哪，没有想那么多</p></div></div>
+<div class="cmt is-author"><div class="cmt-head"><span class="cmt-name is-author">Eric</span><span class="cmt-time">03-09 21:00</span><span class="cmt-like">赞 89</span></div><div class="cmt-text"><p>天机，之前我预测bgy今年国庆左右爆雷，会实现不？口碑在所有地级市几乎崩塌，现在bgy在三四五线城市不是最贵而是最便宜，在这种情况下，感觉迟早要跪啊！</p></div></div>
+<div class="cmt is-author"><div class="cmt-head"><span class="cmt-name is-author">天机奇谈</span><span class="cmt-time">03-09 21:04</span><span class="cmt-like">赞 245</span></div><div class="cmt-text"><p>目前来看，暂时不会，而且碧后有大洋，大洋藏王。</p></div></div>
+<div class="cmt is-author"><div class="cmt-head"><span class="cmt-name is-author">🍉</span><span class="cmt-time">03-09 20:53</span><span class="cmt-like">赞 237</span></div><div class="cmt-text"><p>这不是黑化，只是给大家提个醒啊，公司突然没了让你出去找工作，这种做法有责任感吗？把你当人了吗？</p></div></div>
+<div class="cmt is-author"><div class="cmt-head"><span class="cmt-name is-author">伟大的三明哥</span><span class="cmt-time">03-09 20:41</span><span class="cmt-like">赞 215</span></div><div class="cmt-text"><p>今天听同事说的（某禾期房“业主“），太原泰某楼盘，要求准业主们每平补交3000作为复工基金[发呆]</p></div></div>
+<div class="cmt is-author"><div class="cmt-head"><span class="cmt-name is-author">Mike. T</span><span class="cmt-time">03-09 20:47</span><span class="cmt-like">赞 189</span></div><div class="cmt-text"><p>农民工出身的杨老板玩起资本家和政治家的手段，真是老母猪戴胸罩 一套又一套啊[捂脸]  机大抽空讲讲有商业地产的公司，龙湖，万达中骏啥的…</p></div></div>
+<div class="cmt is-author"><div class="cmt-head"><span class="cmt-name is-author">对自己坏点吧</span><span class="cmt-time">03-09 20:42</span><span class="cmt-like">赞 88</span></div><div class="cmt-text"><p>机哥现在对融创还有信心么？看机哥最近对融创的表态跟以前不一样了啊[发呆]</p></div></div>
+<div class="cmt is-author"><div class="cmt-head"><span class="cmt-name is-author">天机奇谈</span><span class="cmt-time">03-09 20:46</span><span class="cmt-like">赞 187</span></div><div class="cmt-text"><p>一直都一样啊，融创最终能度过，但是伤筋动骨是肯定的。</p></div></div>
+<div class="cmt is-author"><div class="cmt-head"><span class="cmt-name is-author">评论找我</span><span class="cmt-time">03-09 20:59</span><span class="cmt-like">赞 167</span></div><div class="cmt-text"><p>我被降薪了，不通知降薪，杨老板真的不是农民，员工才是农民！</p></div></div>
+<div class="cmt is-author"><div class="cmt-head"><span class="cmt-name is-author">Danwen</span><span class="cmt-time">03-09 20:41</span><span class="cmt-like">赞 147</span></div><div class="cmt-text"><p>离开房企，真的松了口大气哈哈哈</p></div></div>
+<div class="cmt is-author"><div class="cmt-head"><span class="cmt-name is-author">二手车（问就精品）</span><span class="cmt-time">03-09 20:47</span><span class="cmt-like">赞 131</span></div><div class="cmt-text"><p>自从关注了天机老师，我已经帮助朋友避了好几次雷了。</p></div></div>
+<div class="cmt is-author"><div class="cmt-head"><span class="cmt-name is-author">天机奇谈</span><span class="cmt-time">03-09 20:50</span><span class="cmt-like">赞 141</span></div><div class="cmt-text"><p>信息对大家有价值，我就很开心了，一如既往。</p></div></div>
+<div class="cmt is-author"><div class="cmt-head"><span class="cmt-name is-author">方颖</span><span class="cmt-time">03-09 21:41</span><span class="cmt-like">赞 37</span></div><div class="cmt-text"><p>现在房企都这样，要么破产，要么赖账，那楼主你说这些企业的老板们到底有没有通过房地产赚到钱啊？要是赚到了，那钱呢？钱在哪呢？</p></div></div>
+<div class="cmt is-author"><div class="cmt-head"><span class="cmt-name is-author">天机奇谈</span><span class="cmt-time">03-09 21:42</span><span class="cmt-like">赞 137</span></div><div class="cmt-text"><p>赚到了，落袋为安了，在境外了，在家人口袋里了，在豪宅和私人飞机中了~</p></div></div>
+<div class="cmt is-author"><div class="cmt-head"><span class="cmt-name is-author">紫色风铃</span><span class="cmt-time">03-09 20:45</span><span class="cmt-like">赞 85</span></div><div class="cmt-text"><p>现在重庆恒大轨道时代是什么情况？几千名业主天天焦虑，夜夜不安，难道真的要烂尾吗？每月按时还贷几千块，可总看不到希望，心里焦虑啊！天机，你有这方面的信息吗？[流泪]</p></div></div>
+<div class="cmt is-author"><div class="cmt-head"><span class="cmt-name is-author">天机奇谈</span><span class="cmt-time">03-09 20:52</span><span class="cmt-like">赞 136</span></div><div class="cmt-text"><p>明天吧，我明天总结一下恒大的一些复工和交房方式，大家可以自己对应判断一下。</p></div></div>
+<div class="cmt is-author"><div class="cmt-head"><span class="cmt-name is-author">我真的爱工作</span><span class="cmt-time">03-09 22:40</span><span class="cmt-like">赞 13</span></div><div class="cmt-text"><p>天机，最近没有金科的消息呢，是因为还算健康吗[旺柴]</p></div></div>
+<div class="cmt is-author"><div class="cmt-head"><span class="cmt-name is-author">天机奇谈</span><span class="cmt-time">03-09 22:43</span><span class="cmt-like">赞 121</span></div><div class="cmt-text"><p>金科健康的话，我能逆风尿30米[旺柴]</p></div></div>
+<div class="cmt is-author"><div class="cmt-head"><span class="cmt-name is-author">玉冰寒清</span><span class="cmt-time">03-09 21:26</span><span class="cmt-like">赞 121</span></div><div class="cmt-text"><p>置顶的那位不知道怎么想的，这个提醒，不光是给职业经理人，同时也是给购房者的一个提醒、判断分析；毕竟万家灯火是老百姓心之向往，辛苦一辈子再踩坑，那才是给社畜最猛烈的一刀； 企业是可悲，但相比较员工和购房者他们就不可悲了。毕竟他们风光的时候从未想到过这些给予他们“生命之源”的这些人。 加油大天机！</p></div></div>
+<div class="cmt is-author"><div class="cmt-head"><span class="cmt-name is-author">天机奇谈</span><span class="cmt-time">03-09 21:28</span><span class="cmt-like">赞 55</span></div><div class="cmt-text"><p>每个人的立场不同，思考的自然也就不同，求同存异吧</p></div></div>
+<div class="cmt is-author"><div class="cmt-head"><span class="cmt-name is-author">路</span><span class="cmt-time">03-09 21:07</span><span class="cmt-like">赞 113</span></div><div class="cmt-text"><p>总有那种被强奸还叫床的，然后还想让强奸犯娶回家的，擦，说点真话也叫黑化，自己白就不怕太阳晒。</p></div></div>
+<div class="cmt is-author"><div class="cmt-head"><span class="cmt-name is-author">房产黄菊香 13349208810</span><span class="cmt-time">03-09 20:56</span><span class="cmt-like">赞 98</span></div><div class="cmt-text"><p>离开了房地产，感觉一身轻松，法定节假日全休，不说别的，就这个休息，我就觉得来对了[笑脸]</p></div></div>
+<div class="cmt is-author"><div class="cmt-head"><span class="cmt-name is-author">根号三</span><span class="cmt-time">03-09 20:51</span><span class="cmt-like">赞 92</span></div><div class="cmt-text"><p>易居要崩了，说是美元债还不上，部分区域已经准备遣散员工了</p></div></div>
+<div class="cmt is-author"><div class="cmt-head"><span class="cmt-name is-author">天机奇谈</span><span class="cmt-time">03-09 20:58</span><span class="cmt-like">赞 98</span></div><div class="cmt-text"><p>易居最终：解散易、安居难[捂脸]</p></div></div>
+<div class="cmt is-author"><div class="cmt-head"><span class="cmt-name is-author">Heisenburg</span><span class="cmt-time">03-09 20:45</span><span class="cmt-like">赞 96</span></div><div class="cmt-text"><p>庙穷富方丈，老黄可不差钱</p></div></div>
+<div class="cmt is-author"><div class="cmt-head"><span class="cmt-name is-author">FFF</span><span class="cmt-time">03-09 20:40</span><span class="cmt-like">赞 88</span></div><div class="cmt-text"><p>比喻成抖音美女天机绝绝子</p></div></div>
+<div class="cmt is-author"><div class="cmt-head"><span class="cmt-name is-author">天机奇谈</span><span class="cmt-time">03-09 20:41</span><span class="cmt-like">赞 58</span></div><div class="cmt-text"><p>很像啊，本质上是一回事。</p></div></div>
+<div class="cmt is-author"><div class="cmt-head"><span class="cmt-name is-author">吾空℡</span><span class="cmt-time">03-09 21:22</span><span class="cmt-like">赞 85</span></div><div class="cmt-text"><p>希望老东家RS能安然度过吧，毕竟一个呆了6年的公司，所在城市所有项目都经手过，还是有感情的。不过这两年来了一群鸟厂的鸟人一切都越来越差了，唉</p></div></div>
+<div class="cmt is-author"><div class="cmt-head"><span class="cmt-name is-author">Daniel.jiang</span><span class="cmt-time">03-09 20:41</span><span class="cmt-like">赞 83</span></div><div class="cmt-text"><p>17块买了正荣的美元债，能还30块不</p></div></div>
+<div class="cmt is-author"><div class="cmt-head"><span class="cmt-name is-author">天机奇谈</span><span class="cmt-time">03-09 20:42</span><span class="cmt-like">赞 81</span></div><div class="cmt-text"><p>好家伙，你胆子很肥啊[旺柴]~</p></div></div>
+<div class="cmt is-author"><div class="cmt-head"><span class="cmt-name is-author">John Zhang</span><span class="cmt-time">03-09 21:01</span><span class="cmt-like">赞 62</span></div><div class="cmt-text"><p>我都怀疑你是BGY杨老板的小号[旺柴]</p></div></div>
+<div class="cmt is-author"><div class="cmt-head"><span class="cmt-name is-author">天机奇谈</span><span class="cmt-time">03-09 21:02</span><span class="cmt-like">赞 80</span></div><div class="cmt-text"><p>不用怀疑，肯定不是啊，不过碧桂园很熟就是了，几乎没有秘密的那种。</p></div></div>
+<div class="cmt is-author"><div class="cmt-head"><span class="cmt-name is-author">赵乐</span><span class="cmt-time">03-09 20:41</span><span class="cmt-like">赞 79</span></div><div class="cmt-text"><p>龙光的投票：革命队伍里会出叛徒的</p></div></div>
+<div class="cmt is-author"><div class="cmt-head"><span class="cmt-name is-author">中建前滩元境·刘晓倩</span><span class="cmt-time">03-09 20:40</span><span class="cmt-like">赞 79</span></div><div class="cmt-text"><p>把房子做好交付给业主这点的确是</p></div></div>
+<div class="cmt is-author"><div class="cmt-head"><span class="cmt-name is-author">Another刘洪涛</span><span class="cmt-time">03-09 20:47</span><span class="cmt-like">赞 77</span></div><div class="cmt-text"><p>看你文章几年，我们都有成长，我终于相信同事有诬陷这件事，而你的文笔，也日渐骚气蓬勃[悠闲][咒骂]</p></div></div>
+<div class="cmt is-author"><div class="cmt-head"><span class="cmt-name is-author">Johncesc🔱</span><span class="cmt-time">03-09 20:40</span><span class="cmt-like">赞 66</span></div><div class="cmt-text"><p>预测精度极高的天机老师[社会社会][社会社会][社会社会]</p></div></div>
+<div class="cmt is-author"><div class="cmt-head"><span class="cmt-name is-author">天机奇谈</span><span class="cmt-time">03-09 20:44</span><span class="cmt-like">赞 76</span></div><div class="cmt-text"><p>我根据材料来说是，一般偏差不会大，就是整合庞大的资料会很累[捂脸]，这很大程度上影响了我的更新频率和速度</p></div></div>
+<div class="cmt is-author"><div class="cmt-head"><span class="cmt-name is-author">ElaineH</span><span class="cmt-time">03-09 20:46</span><span class="cmt-like">赞 75</span></div><div class="cmt-text"><p>在全国三四线城市销售悬崖式下跌的同时，碧桂园自己公告的销售数据甚至小于同行平均跌幅，这是什么样的魔法？另外，好奇他们表外的规模如何？</p></div></div>
+<div class="cmt is-author"><div class="cmt-head"><span class="cmt-name is-author">耿介</span><span class="cmt-time">03-09 20:47</span><span class="cmt-like">赞 71</span></div><div class="cmt-text"><p>鸭子是鸭子，鸡是鸡，用途不同，价钱不同[合十]</p></div></div>
+<div class="cmt is-author"><div class="cmt-head"><span class="cmt-name is-author">卡车</span><span class="cmt-time">03-09 21:09</span><span class="cmt-like">赞 41</span></div><div class="cmt-text"><p>机兄，置顶这位在《让子弹飞》里啥角色？</p></div></div>
+<div class="cmt is-author"><div class="cmt-head"><span class="cmt-name is-author">天机奇谈</span><span class="cmt-time">03-09 21:12</span><span class="cmt-like">赞 67</span></div><div class="cmt-text"><p>很像卖凉粉的。</p></div></div>
+<div class="cmt is-author"><div class="cmt-head"><span class="cmt-name is-author">Lyon Payne</span><span class="cmt-time">03-09 20:52</span><span class="cmt-like">赞 57</span></div><div class="cmt-text"><p>看你回复觉得你好牛逼啊</p></div></div>
+<div class="cmt is-author"><div class="cmt-head"><span class="cmt-name is-author">天机奇谈</span><span class="cmt-time">03-09 20:55</span><span class="cmt-like">赞 66</span></div><div class="cmt-text"><p>每个人都有情绪，很正常，我也是实事求是。</p></div></div>
+<div class="cmt is-author"><div class="cmt-head"><span class="cmt-name is-author">张凯｜携程旅游Trip</span><span class="cmt-time">03-09 20:39</span><span class="cmt-like">赞 66</span></div><div class="cmt-text"><p>沙发沙发，听机一席话 胜读十年书</p></div></div>
+<div class="cmt is-author"><div class="cmt-head"><span class="cmt-name is-author">天机奇谈</span><span class="cmt-time">03-09 20:41</span><span class="cmt-like">赞 50</span></div><div class="cmt-text"><p>听机一席话，胜似一席话[旺柴]</p></div></div>
+<div class="cmt is-author"><div class="cmt-head"><span class="cmt-name is-author">王炫平</span><span class="cmt-time">03-09 20:46</span><span class="cmt-like">赞 54</span></div><div class="cmt-text"><p>看到机机的文章先靠右停车[旺柴][旺柴][旺柴]</p></div></div>
+<div class="cmt is-author"><div class="cmt-head"><span class="cmt-name is-author">天机奇谈</span><span class="cmt-time">03-09 20:51</span><span class="cmt-like">赞 65</span></div><div class="cmt-text"><p>开车注意安全，文章可以改天再看。我很希望所有的读者都平平安安，身体健康[玫瑰]</p></div></div>
+<div class="cmt is-author"><div class="cmt-head"><span class="cmt-name is-author">青林</span><span class="cmt-time">03-09 20:37</span><span class="cmt-like">赞 61</span></div><div class="cmt-text"><p>绝对沙发🛋️</p></div></div>
+<div class="cmt is-author"><div class="cmt-head"><span class="cmt-name is-author">zhangzh</span><span class="cmt-time">03-09 20:54</span><span class="cmt-like">赞 59</span></div><div class="cmt-text"><p>随便负债是几百亿，谁在借钱给他们？他们借的是谁的钱？为什么要借给他们？他们会不会还？能不能还？</p></div></div>
+<div class="cmt is-author"><div class="cmt-head"><span class="cmt-name is-author">天机奇谈</span><span class="cmt-time">03-09 20:54</span><span class="cmt-like">赞 49</span></div><div class="cmt-text"><p>之前说过，本质是债务转移。这个过程中，房企的风控没做好。</p></div></div>
+<div class="cmt is-author"><div class="cmt-head"><span class="cmt-name is-author">平淡是福</span><span class="cmt-time">03-09 20:45</span><span class="cmt-like">赞 58</span></div><div class="cmt-text"><p>每天刷新大机机的文章，没更新，心里老不得劲了[害羞][害羞][害羞]</p></div></div>
+<div class="cmt is-author"><div class="cmt-head"><span class="cmt-name is-author">陈</span><span class="cmt-time">03-09 21:21</span><span class="cmt-like">赞 34</span></div><div class="cmt-text"><p>买二手房吧，虽然是二手的，但是购房款不会打水漂，好好装修一下，一样住</p></div></div>
+<div class="cmt is-author"><div class="cmt-head"><span class="cmt-name is-author">天机奇谈</span><span class="cmt-time">03-09 21:22</span><span class="cmt-like">赞 57</span></div><div class="cmt-text"><p>二手房首付高，占用的资金多，做好交易过户过程中的风控，其他的没啥弊病。</p></div></div>
+<div class="cmt is-author"><div class="cmt-head"><span class="cmt-name is-author">尼克·福克斯</span><span class="cmt-time">03-09 20:54</span><span class="cmt-like">赞 53</span></div><div class="cmt-text"><p>扛着高铁跑也是没谁了。。。</p></div></div>
+<div class="cmt is-author"><div class="cmt-head"><span class="cmt-name is-author">FLY</span><span class="cmt-time">03-09 20:47</span><span class="cmt-like">赞 53</span></div><div class="cmt-text"><p>看着榜单的排名和美颜中的自己 要价就越来越高了</p></div></div>
+<div class="cmt is-author"><div class="cmt-head"><span class="cmt-name is-author">穆公</span><span class="cmt-time">03-09 21:03</span><span class="cmt-like">赞 33</span></div><div class="cmt-text"><p>泰禾还是可以的，算是良心企业了，目前交付的几个项目品质还是保证了</p></div></div>
+<div class="cmt is-author"><div class="cmt-head"><span class="cmt-name is-author">天机奇谈</span><span class="cmt-time">03-09 21:15</span><span class="cmt-like">赞 51</span></div><div class="cmt-text"><p>看了一下关注时间，应该不是水军，那就放出来吧。可以看看其他交付的，质量拉跨的也很多</p></div></div>
+<div class="cmt is-author"><div class="cmt-head"><span class="cmt-name is-author">南方ෆ南</span><span class="cmt-time">03-09 21:01</span><span class="cmt-like">赞 50</span></div><div class="cmt-text"><p>我生平有限的“颜色段子”，有一半都是看着机哥壮大然后顺便看的～😂😂还有，黄豆犯了什么错，要背这么大的黑锅。</p></div></div>
+<div class="cmt is-author"><div class="cmt-head"><span class="cmt-name is-author">🥕Corda.\_彡</span><span class="cmt-time">03-09 20:54</span><span class="cmt-like">赞 49</span></div><div class="cmt-text"><p>所以AMC接洽的公司，到底是来救火的，还是说明火势已经不可控，就快跟躺平的差不多了？毕竟股价一路下跌，也快见底了，但是欠的一堆下游债都还没给～[微笑]</p></div></div>
+<div class="cmt is-author"><div class="cmt-head"><span class="cmt-name is-author">贝壳德佑I陈艳华🏠新房+二手房</span><span class="cmt-time">03-09 21:22</span><span class="cmt-like">赞 48</span></div><div class="cmt-text"><p>说点小事儿，也是上千户业主的大事：郑州永威金桥西棠，永威要退出，今天上了小莉帮忙，没有负责人出面，每平方高隔壁楼盘五千的溢价买的永威品质，难道要变成金桥锅炉家属院？存在欺诈！更存在烂尾风险！</p></div></div>
+<div class="cmt is-author"><div class="cmt-head"><span class="cmt-name is-author">李芳辉</span><span class="cmt-time">03-09 21:05</span><span class="cmt-like">赞 46</span></div><div class="cmt-text"><p>房企玩高杠杆玩嗨了，我不相信这么多企业都没有考虑过系统性风险。从骨子里渗透出来的赌性，就是打着空手套白狼的吃法一直玩四两拨千斤的杠杆游戏，只是这回，谁是鱼肉，谁又是食客呢？</p></div></div>
+<div class="cmt is-author"><div class="cmt-head"><span class="cmt-name is-author">廖</span><span class="cmt-time">03-09 21:17</span><span class="cmt-like">赞 36</span></div><div class="cmt-text"><p>金地会有问题不，要下定了</p></div></div>
+<div class="cmt is-author"><div class="cmt-head"><span class="cmt-name is-author">天机奇谈</span><span class="cmt-time">03-09 21:20</span><span class="cmt-like">赞 45</span></div><div class="cmt-text"><p>金地问题不大，就是险资股东和管理层的矛盾，于是生出了金地商置，不过矛盾也在可控范围内。</p></div></div>
+<div class="cmt is-author"><div class="cmt-head"><span class="cmt-name is-author">Cornelia</span><span class="cmt-time">03-09 21:01</span><span class="cmt-like">赞 42</span></div><div class="cmt-text"><p>今天刚看到舜鸿地产（禹洲地产子公司）成都高新区项目4603套房产被查封三年，紧接着就看到禹洲了，理解不了为什么这个项目会以这种方式暴雷</p></div></div>
+<div class="cmt is-author"><div class="cmt-head"><span class="cmt-name is-author">李绍虎\_Huge</span><span class="cmt-time">03-09 21:27</span><span class="cmt-like">赞 41</span></div><div class="cmt-text"><p>地产人现在依然是每天换着姿势躺，可惜攻受换了防。</p></div></div>
+<div class="cmt is-author"><div class="cmt-head"><span class="cmt-name is-author">Leslie Yin</span><span class="cmt-time">03-09 21:46</span><span class="cmt-like">赞 38</span></div><div class="cmt-text"><p>每次都会看完所有评论，因为感觉评论的内容和精彩程度不亚于文章！</p></div></div>
+<div class="cmt is-author"><div class="cmt-head"><span class="cmt-name is-author">勇敢的心</span><span class="cmt-time">03-09 21:31</span><span class="cmt-like">赞 30</span></div><div class="cmt-text"><p>未来前三的房企有没有可能做到整个行业销售额的26%？</p></div></div>
+<div class="cmt is-author"><div class="cmt-head"><span class="cmt-name is-author">天机奇谈</span><span class="cmt-time">03-09 21:33</span><span class="cmt-like">赞 38</span></div><div class="cmt-text"><p>最终可以的，时间问题。任何一个成熟的行业，到最后，基本上都是三足鼎立，多强并存的格局</p></div></div>
+<div class="cmt is-author"><div class="cmt-head"><span class="cmt-name is-author">易先生</span><span class="cmt-time">03-09 21:31</span><span class="cmt-like">赞 37</span></div><div class="cmt-text"><p>房企陆续爆雷之后，还要千万家庭也要爆雷。伤口还是不能藏起来，早发现还可能活命</p></div></div>
+<div class="cmt is-author"><div class="cmt-head"><span class="cmt-name is-author">🌞小仙女</span><span class="cmt-time">03-09 21:24</span><span class="cmt-like">赞 37</span></div><div class="cmt-text"><p>哈哈哈哈 总能在天机的文章里吃上行业内第一口热瓜[旺柴]</p></div></div>
+<div class="cmt is-author"><div class="cmt-head"><span class="cmt-name is-author">天机奇谈</span><span class="cmt-time">03-09 21:25</span><span class="cmt-like">赞 20</span></div><div class="cmt-text"><p>瓜是热的，那会不会容易变质啊[旺柴]</p></div></div>
+<div class="cmt is-author"><div class="cmt-head"><span class="cmt-name is-author">tim</span><span class="cmt-time">03-09 21:49</span><span class="cmt-like">赞 36</span></div><div class="cmt-text"><p>看到评论说这里黑死很多企业，我觉得很可笑。如果这些企业没问题，又怎么能黑死？反过来说很多大房企拥有数量庞大的水军，他们就能救活这些企业吗？</p></div></div>
+<div class="cmt is-author"><div class="cmt-head"><span class="cmt-name is-author">天机奇谈</span><span class="cmt-time">03-09 21:50</span><span class="cmt-like">赞 27</span></div><div class="cmt-text"><p>参考恒大</p></div></div>
+<div class="cmt is-author"><div class="cmt-head"><span class="cmt-name is-author">钟安群</span><span class="cmt-time">03-09 20:51</span><span class="cmt-like">赞 36</span></div><div class="cmt-text"><p>一二月市场销售额下滑同比超过40%？天机你预测一下全年能低于十万亿吗？</p></div></div>
+<div class="cmt is-author"><div class="cmt-head"><span class="cmt-name is-author">天机奇谈</span><span class="cmt-time">03-09 20:59</span><span class="cmt-like">赞 33</span></div><div class="cmt-text"><p>不会，2月份春节。今年全年在15-16左右。</p></div></div>
+<div class="cmt is-author"><div class="cmt-head"><span class="cmt-name is-author">孙生13631302385</span><span class="cmt-time">03-09 21:44</span><span class="cmt-like">赞 33</span></div><div class="cmt-text"><p>作者确实是实话实说，没必要针锋相对，我也是房地产从业者，刚刚经历恒大正荣，哈哈哈崩溃了</p></div></div>
+<div class="cmt is-author"><div class="cmt-head"><span class="cmt-name is-author">贾立彬</span><span class="cmt-time">03-09 21:18</span><span class="cmt-like">赞 33</span></div><div class="cmt-text"><p>癞蛤蟆装青蛙，长得丑，玩得花不说，还想吃天鹅肉。然后，再撒泡尿照照小天机。</p></div></div>
+<div class="cmt is-author"><div class="cmt-head"><span class="cmt-name is-author">天机奇谈</span><span class="cmt-time">03-09 21:19</span><span class="cmt-like">赞 32</span></div><div class="cmt-text"><p>居然想滋我一身，小心我拿个塞子给你堵上[旺柴]</p></div></div>
+<div class="cmt is-author"><div class="cmt-head"><span class="cmt-name is-author">Cambridgesp</span><span class="cmt-time">03-09 21:45</span><span class="cmt-like">赞 32</span></div><div class="cmt-text"><p>就是因为有评论第一那样的韭菜，也才会搭配出来那些老板吧</p></div></div>
+<div class="cmt is-author"><div class="cmt-head"><span class="cmt-name is-author">天机奇谈</span><span class="cmt-time">03-09 21:47</span><span class="cmt-like">赞 26</span></div><div class="cmt-text"><p>专为老板而生的韭菜</p></div></div>
+<div class="cmt is-author"><div class="cmt-head"><span class="cmt-name is-author">Chang Hanya</span><span class="cmt-time">03-09 21:31</span><span class="cmt-like">赞 30</span></div><div class="cmt-text"><p>“不要总是喊口号，实事求是、脚踏实地多好。奈何就是做不到，满嘴跑火车。一个真正有韧性的人，他的姿态一定是谦卑的。” 天机这就是你不对了，人是不可改变的，女娲才是造人的，你最多送他去女娲那[抠鼻]</p></div></div>
+<div class="cmt is-author"><div class="cmt-head"><span class="cmt-name is-author">天机奇谈</span><span class="cmt-time">03-09 21:32</span><span class="cmt-like">赞 20</span></div><div class="cmt-text"><p>只有他爹在他还是虚岁纪念日之前，可以送它去女娲那[旺柴]</p></div></div>
+<div class="cmt is-author"><div class="cmt-head"><span class="cmt-name is-author">春天花会开</span><span class="cmt-time">03-09 21:04</span><span class="cmt-like">赞 28</span></div><div class="cmt-text"><p>省略号之前的那段字，都是点睛之笔，大家细细品。是茅台或二锅头或什么，就看自己的造化了</p></div></div>
+<div class="cmt is-author"><div class="cmt-head"><span class="cmt-name is-author">天机奇谈</span><span class="cmt-time">03-09 21:14</span><span class="cmt-like">赞 19</span></div><div class="cmt-text"><p>很聪明的读者，哈哈</p></div></div>
+<div class="cmt is-author"><div class="cmt-head"><span class="cmt-name is-author">和和</span><span class="cmt-time">03-09 22:31</span><span class="cmt-like">赞 24</span></div><div class="cmt-text"><p>置顶的杜学朋，家乡话是：你这个人啊被强奸还说是床惹的祸，“不怪老虎，怪山”。</p></div></div>
+<div class="cmt is-author"><div class="cmt-head"><span class="cmt-name is-author">天机奇谈</span><span class="cmt-time">03-09 22:33</span><span class="cmt-like">赞 22</span></div><div class="cmt-text"><p>[捂脸]，以后尽量把这种抓出来，大家一起乐一乐。</p></div></div>
+<div class="cmt is-author"><div class="cmt-head"><span class="cmt-name is-author">张家辉13#</span><span class="cmt-time">03-09 21:29</span><span class="cmt-like">赞 24</span></div><div class="cmt-text"><p>机大，仁恒置地怎么样，和华发一起开发的貌似不少</p></div></div>
+<div class="cmt is-author"><div class="cmt-head"><span class="cmt-name is-author">天机奇谈</span><span class="cmt-time">03-09 21:29</span><span class="cmt-like">赞 23</span></div><div class="cmt-text"><p><img src="https://mmbiz.qpic.cn/sz_mmbiz_png/3UGyRicgAiaWSxtiaxLibkCuTx82MFHsX1Tqd9Ze0davLpBhWRrxbnTlpXc4nLOBXjoPfmrkt6ko6MzkkQPOfMkZbA/0" alt="" loading="lazy" referrerpolicy="no-referrer"></p></div></div>
+<div class="cmt is-author"><div class="cmt-head"><span class="cmt-name is-author">心相印</span><span class="cmt-time">03-09 22:42</span><span class="cmt-like">赞 22</span></div><div class="cmt-text"><p>置顶的杜先生是在这几个公司里搞公关的吧，唉，说假话多了，自己都信了。 RS的情况比大机机说的严重的多。公司总部食堂中午吃饭的人都少了一半。 我们买的RS自己的理财不能兑付了，要求我们签延期协议。大机机，你说我签不签？</p></div></div>
+<div class="cmt is-author"><div class="cmt-head"><span class="cmt-name is-author">天机奇谈</span><span class="cmt-time">03-09 22:43</span><span class="cmt-like">赞 23</span></div><div class="cmt-text"><p>能抵房的话，就选能网签的赶紧抵。延期的话，荣盛风险是比较大，我这段时间刚拆完荣盛的表外负债情况</p></div></div>
+<div class="cmt is-author"><div class="cmt-head"><span class="cmt-name is-author">锋王</span><span class="cmt-time">03-09 22:03</span><span class="cmt-like">赞 23</span></div><div class="cmt-text"><p>大机机文章风骚无比，留言无比风骚[偷笑]</p></div></div>
+<div class="cmt is-author"><div class="cmt-head"><span class="cmt-name is-author">明</span><span class="cmt-time">03-09 21:35</span><span class="cmt-like">赞 23</span></div><div class="cmt-text"><p>你走路像鸭子，叫声像鸭子，你就是只鸭子，妈的，刮腻子，刷涂料，老子就是天鹅</p></div></div>
+<div class="cmt is-author"><div class="cmt-head"><span class="cmt-name is-author">天机奇谈</span><span class="cmt-time">03-09 21:40</span><span class="cmt-like">赞 7</span></div><div class="cmt-text"><p>哈哈哈哈哈</p></div></div>
+<div class="cmt is-author"><div class="cmt-head"><span class="cmt-name is-author">王雄壮</span><span class="cmt-time">03-09 22:35</span><span class="cmt-like">赞 22</span></div><div class="cmt-text"><p>房企成片倒下，无人再拿地开发，一方面影响地方财政收入，一方面商品房库存越来越少，供求关系发生根本变化，随之而来的便是房价上涨。房企的困难只是现阶段的，但是，普通刚需民众的困难则是长远的。作为从业16年的地产人，第一次实实在在感受到了“住房不炒”。</p></div></div>
+<div class="cmt is-author"><div class="cmt-head"><span class="cmt-name is-author">掌柜</span><span class="cmt-time">03-09 23:53</span><span class="cmt-like">赞 7</span></div><div class="cmt-text"><p>天机老板还是牛，我不指名指出业内的某些落后的工艺，某些厂家天天追着我让删除文章，发律师函</p></div></div>
+<div class="cmt is-author"><div class="cmt-head"><span class="cmt-name is-author">天机奇谈</span><span class="cmt-time">03-10 00:03</span><span class="cmt-like">赞 21</span></div><div class="cmt-text"><p>律师函从没当回事，有需要直接法庭见就行了，我就这样，该说照样说。</p></div></div>
+<div class="cmt is-author"><div class="cmt-head"><span class="cmt-name is-author">半称心</span><span class="cmt-time">03-09 22:08</span><span class="cmt-like">赞 20</span></div><div class="cmt-text"><p>爆雷的房企都是十个瓶子三个盖，无限放大杠杆。18年以前十几年的地产暴利，使得这些赌徒相信树会长到天上亦或别人加十倍杠杆 我为什么不能加八倍！市场最后回归正常秩序，这些赌徒哪有不爆仓的道理！</p></div></div>
+<div class="cmt is-author"><div class="cmt-head"><span class="cmt-name is-author">核弹头</span><span class="cmt-time">03-09 23:11</span><span class="cmt-like">赞 12</span></div><div class="cmt-text"><p>看到说碧桂园的区域总这一段，突然想到前贵州区域总裁黄士冯，他现在怎么样了？</p></div></div>
+<div class="cmt is-author"><div class="cmt-head"><span class="cmt-name is-author">天机奇谈</span><span class="cmt-time">03-09 23:15</span><span class="cmt-like">赞 18</span></div><div class="cmt-text"><p>从目前的各种迹象来看，大概率是要钱吐出来，然后人没事了。</p></div></div>
+<div class="cmt is-author"><div class="cmt-head"><span class="cmt-name is-author">辣椒味甜筒🍦</span><span class="cmt-time">03-09 22:43</span><span class="cmt-like">赞 17</span></div><div class="cmt-text"><p>实事求是叫黑化，有的狗腿子精神股东真搞笑</p></div></div>
+<div class="cmt is-author"><div class="cmt-head"><span class="cmt-name is-author">邱继锐</span><span class="cmt-time">03-09 21:37</span><span class="cmt-like">赞 11</span></div><div class="cmt-text"><p>要是切了🐔🐔就能得到救赎，鸭子们可能真就切了就切了吧。可现实是，切了真是白切啊……更何况，没有了🐔🐔的鸭子，那真是没鸟用啊[阴险]</p></div></div>
+<div class="cmt is-author"><div class="cmt-head"><span class="cmt-name is-author">天机奇谈</span><span class="cmt-time">03-09 21:40</span><span class="cmt-like">赞 17</span></div><div class="cmt-text"><p>[捂脸]，有人长痔疮，结果把罪归结在手上，要是没手，就不会知道自己长痔疮了。</p></div></div>
+<div class="cmt is-author"><div class="cmt-head"><span class="cmt-name is-author">邱继锐</span><span class="cmt-time">03-09 21:41</span><span class="cmt-like">赞 8</span></div><div class="cmt-text"><p>所以咯，这样看来川渝把上厕所叫“解（gai）手”是有道理的咯[呲牙]</p></div></div>
+<div class="cmt is-author"><div class="cmt-head"><span class="cmt-name is-author">阳光</span><span class="cmt-time">03-09 23:09</span><span class="cmt-like">赞 15</span></div><div class="cmt-text"><p>这个世界的价值观出问题了吗？说实话就叫黑吗</p></div></div>
+<div class="cmt is-author"><div class="cmt-head"><span class="cmt-name is-author">隆恩中心 刘壮壮</span><span class="cmt-time">03-09 23:58</span><span class="cmt-like">赞 14</span></div><div class="cmt-text"><p>“掩盖错误，才是最大的错误” 天机这局想起了TJ学校盒饭的新闻 出来表率的家长就是这么说的： 我给你机会改，但你不能掩盖错误，掩盖错误才是最大的错误。</p></div></div>
+<div class="cmt is-author"><div class="cmt-head"><span class="cmt-name is-author">Flora</span><span class="cmt-time">03-09 23:08</span><span class="cmt-like">赞 14</span></div><div class="cmt-text"><p>因为机机我避开了恒大大雷[呲牙][呲牙][呲牙][呲牙][呲牙][呲牙][呲牙][呲牙][呲牙][呲牙]</p></div></div>
+<div class="cmt is-author"><div class="cmt-head"><span class="cmt-name is-author">吴法圭</span><span class="cmt-time">03-09 21:50</span><span class="cmt-like">赞 14</span></div><div class="cmt-text"><p>口号除了能自我感动，啥屁用没有， ——剩下的，可能是自慰</p></div></div>
+<div class="cmt is-author"><div class="cmt-head"><span class="cmt-name is-author">玉</span><span class="cmt-time">03-09 21:41</span><span class="cmt-like">赞 14</span></div><div class="cmt-text"><p>一个还没打通任督二脉的人，学了一招半式，就觉得能使出降龙十八掌了，人在天上飘，砸下来，砸的无数路人非死即伤！</p></div></div>
+<div class="cmt is-author"><div class="cmt-head"><span class="cmt-name is-author">李⺄厷</span><span class="cmt-time">03-09 23:25</span><span class="cmt-like">赞 12</span></div><div class="cmt-text"><p>曾几何时，闽系三甲（假），像抖音美女一样，开着十级美颜，被捧上天。如今滤镜一关，榜一大哥被吓得连夜扛着高铁跑了。 机机果然很有榜一大哥的经验。[呲牙]</p></div></div>
+<div class="cmt is-author"><div class="cmt-head"><span class="cmt-name is-author">天机奇谈</span><span class="cmt-time">03-09 23:28</span><span class="cmt-like">赞 10</span></div><div class="cmt-text"><p>那可不，现在都不相信任何直播中和短视频中所谓的美女了[旺柴]</p></div></div>
+<div class="cmt is-author"><div class="cmt-head"><span class="cmt-name is-author">➱➱阿洒^-^</span><span class="cmt-time">03-10 10:22</span><span class="cmt-like">赞 7</span></div><div class="cmt-text"><p>评论区的精彩往往都是超出想象，但是为毛就我看不到被置顶的那位，但是也猜出七七八八，但还是遗憾不能看到原著[抠鼻]</p></div></div>
+<div class="cmt is-author"><div class="cmt-head"><span class="cmt-name is-author">天机奇谈</span><span class="cmt-time">03-10 10:31</span><span class="cmt-like">赞 11</span></div><div class="cmt-text"><p>他自个删了，最讨厌这种留言后又删了的</p></div></div>
+<div class="cmt is-author"><div class="cmt-head"><span class="cmt-name is-author">violet</span><span class="cmt-time">03-10 00:32</span><span class="cmt-like">赞 11</span></div><div class="cmt-text"><p>真的不能信泰禾胡说八道，苏州某泰禾的楼盘，原本合同是精装房，直接宣布毛坯交付了，有何品质可言……关键，还找不到地儿说理</p></div></div>
+<div class="cmt is-author"><div class="cmt-head"><span class="cmt-name is-author">南方LZZ</span><span class="cmt-time">03-09 23:09</span><span class="cmt-like">赞 10</span></div><div class="cmt-text"><p>第一次回复，看到第一个置顶的朋友，原谅我，真的忍不住笑了[撇嘴]虽然我知道这么晚笑这么大声不礼貌[囧]</p></div></div>
+<div class="cmt is-author"><div class="cmt-head"><span class="cmt-name is-author">天机奇谈</span><span class="cmt-time">03-09 23:16</span><span class="cmt-like">赞 11</span></div><div class="cmt-text"><p>怎么大家的关注点都在这个，以后多抓几个让大家乐一乐。</p></div></div>
+<div class="cmt is-author"><div class="cmt-head"><span class="cmt-name is-author">郭职蓝</span><span class="cmt-time">03-09 23:13</span><span class="cmt-like">赞 10</span></div><div class="cmt-text"><p>输球赖解说、掉粪坑赖屎重、一辈子单身赖爹妈生错性别，房企乱借钱暴雷赖天机，榜一大哥可以的，天机就赖你，黑死皮带、爆料农民、砍伐森林、引发洪水</p></div></div>
+<div class="cmt is-author"><div class="cmt-head"><span class="cmt-name is-author">天机奇谈</span><span class="cmt-time">03-09 23:15</span><span class="cmt-like">赞 8</span></div><div class="cmt-text"><p>哈哈哈，有些人脑回路清奇，没办法</p></div></div>
+<div class="cmt is-author"><div class="cmt-head"><span class="cmt-name is-author">....</span><span class="cmt-time">03-09 22:50</span><span class="cmt-like">赞 10</span></div><div class="cmt-text"><p>突然有点儿不习惯近期大机机的更新速度，我们作为有独立思想的机粉更看中的是你的内容质量、开车速度，而不是更新速度，希望大机机能听我上我上面这一点点建议。下面说正事，目前距离这篇已经更新超过一个小时了，啥时候更新下一篇？生产队的驴都不敢这么歇[旺柴]</p></div></div>
+<div class="cmt is-author"><div class="cmt-head"><span class="cmt-name is-author">天机奇谈</span><span class="cmt-time">03-09 22:52</span><span class="cmt-like">赞 8</span></div><div class="cmt-text"><p>40米大刀举了一半，差点砍下去[吃瓜]</p></div></div>
+<div class="cmt is-author"><div class="cmt-head"><span class="cmt-name is-author">南极，北极</span><span class="cmt-time">03-09 22:30</span><span class="cmt-like">赞 10</span></div><div class="cmt-text"><p>支持机哥，用事实说话。 现在还在想替这些骗子掩饰的人，才是帮凶。</p></div></div>
+<div class="cmt is-author"><div class="cmt-head"><span class="cmt-name is-author">郭英才</span><span class="cmt-time">03-09 22:24</span><span class="cmt-like">赞 10</span></div><div class="cmt-text"><p>一个真正有韧性的人，他的姿态一定是谦卑的。[强]</p></div></div>
+<div class="cmt is-author"><div class="cmt-head"><span class="cmt-name is-author">道法自然</span><span class="cmt-time">03-09 23:40</span><span class="cmt-like">赞 9</span></div><div class="cmt-text"><p>上有政策下有对策，什么样的老板用什么样的人。</p></div></div>
+<div class="cmt is-author"><div class="cmt-head"><span class="cmt-name is-author">前方何处</span><span class="cmt-time">03-09 22:58</span><span class="cmt-like">赞 9</span></div><div class="cmt-text"><p>关注了机机快三年了，让我看清了不是名头越响的房企就越有保障，虽然还没买房，但已经对大部分房企有个粗略的底了，继续支持</p></div></div>
+<div class="cmt is-author"><div class="cmt-head"><span class="cmt-name is-author">米罗</span><span class="cmt-time">03-09 21:50</span><span class="cmt-like">赞 9</span></div><div class="cmt-text"><p>能不能把鸭子做成白切鸡，我不知道。我知道想把咸菜做成烧鹅的那位，过的不怎么好[吃瓜][吃瓜][吃瓜]</p></div></div>
+      </div>
+    </section>
+<nav class="pager-bar is-bottom"><a class="pg pg-prev" href="tianjiqitan-2022-03-07.html"><span class="pg-lbl">← 上一篇</span><span class="pg-title">端起夜壶，一饮而尽</span><span class="pg-date">2022-03-07</span></a><a class="pg pg-next" href="tianjiqitan-2022-03-10.html"><span class="pg-lbl">下一篇 →</span><span class="pg-title">富了方丈，跑了和尚</span><span class="pg-date">2022-03-10</span></a></nav>
+    <div class="post-foot"><a href="tianjiqitan.html">← 返回天机奇谈文章列表</a><span>238 / 324</span></div>
   </article>
 </div>
+  <button class="toc-fab" id="tocBtn" aria-label="打开目录"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="17" x2="14" y2="17"/></svg>目录</button>
+  <div class="toc-mask" id="tocMask"></div>
+  <aside class="toc-panel" id="tocPanel" aria-hidden="true">
+    <div class="toc-head"><h3>目录 <em>《天机奇谈》324 篇</em></h3><button class="toc-close" id="tocClose" aria-label="关闭">✕</button></div>
+    <div class="toc-search-wrap"><input class="toc-search" id="tocSearch" type="search" placeholder="搜索标题或日期，如：英伟达 / 10-22"></div>
+    <div class="toc-body" id="tocBody"></div>
+    <div class="toc-foot"><span>共 324 篇</span><a href="all.html">全部文章 ↗</a></div>
+  </aside>
+  <script id="tocData" type="text/plain" data-ch="tianjiqitan" data-cur="tianjiqitan-2022-03-09.html">2026
+09-18|价格回到十年前~|
+09-14|永远给自己留一手牌~|
+04-24|故人陆续凋零~|
+04-02|全球股市大涨大跌，上蹿下跳，猴市行情。|
+04-01|没有“东山再起”~|
+03-23|今天市场血流成河。说句可能会被打的话:我|
+03-19|穿过一个时代~|
+03-17|制服的诱惑~|
+02-27|赚多少钱是运气，守下多少钱是能力;打江山|
+02-02|金银等贵金属从暴涨到暴跌，黄金继续暴跌8|
+01-29|大宗商品真是涨疯了，金银狂飙，铜铝突飞猛|
+01-13|长梦已醒~|
+2025
+10-16|万科这段时间并不平静，黄力平上，辛杰下，|
+08-13|一个重要的时间窗口~|
+06-09|重新上路了~|
+05-09|平凡的胜利~|
+05-08|幸运的大多数~|
+02-18|万科没有得救~|
+01-25|温水煮牛蛙~|
+01-10|抽15万红包啦~|
+01-08|一帮努力的屁股~|
+01-06|穿过风暴~|
+2024
+11-28|不要脸！|
+11-26|万科的生死节点|
+11-14|标题想不出来~|
+11-08|给自己留了条后路~|
+11-06|没有悬念~|
+11-04|一个时代结束了|
+10-24|一如既往~|
+10-15|有个事注意一下~|
+09-29|房价即将上涨？|
+09-24|“爸爸，再爱我一次”|
+09-23|北上广深楼市止跌的推演结果|
+09-19|美联储降息，利好中国楼市？|
+09-02|先做个人吧~|
+08-25|经历本身就是答案~|
+08-22|站在窗前看烟花|
+08-20|一根香蕉的距离|
+06-28|千薪万苦~|
+06-12|指鹿为马~|
+06-06|时代悄悄变了|
+06-04|不是所有的鱼都生活在同一片海里|
+05-30|房地产进入“我是你爸爸”时代|
+05-23|“大郎，该吃药了”|
+05-20|故人风雨散~|
+05-17|“史诗级”救市|
+05-15|在人间|
+04-23|嘴壮怂人胆~|
+04-18|你喘气那么大声干嘛？|
+04-02|火烧屁股~|
+03-18|万万没想到~|
+03-14|大趋势~|
+02-28|“以德服人”|
+02-26|超级个体~|
+02-23|粪中淘金~|
+02-18|提前完成~|
+02-02|鸿运当头~|
+01-31|大象腾挪~|
+01-30|“卖艺不卖身”|
+01-29|最后的倔强|
+01-26|裸露在人群中~|
+01-24|草台班子~|
+01-22|神话破灭~|
+01-19|关闭账户~|
+01-18|敬酒不吃吃头孢~|
+01-17|都提前撤了？|
+01-16|崩了......|
+01-15|这是放裸贷？|
+01-12|信号~|
+01-10|葵花宝典~|
+01-08|当下最重要的事！|
+01-04|地产终局：拼爹时代|
+01-01|当时间来敲门|
+2023
+12-29|地产江湖2023|
+12-27|过去与未来|
+12-26|虚惊一场？|
+12-22|钱多得花不完|
+12-18|遍地英雄下夕阳|
+12-13|人生如戏~|
+12-12|江湖就是人情世故|
+12-06|“父愁者”联盟~|
+12-01|齿轮再次转动...|
+11-22|一群舔狗~|
+11-16|人善被驴踢|
+11-15|一切还是老样子|
+11-14|房地产行业是如何洗钱的？|
+11-08|龙凤成翔~|
+11-06|拿“首”好戏|
+11-01|万科的坎|
+10-31|大厕大悟|
+10-27|一定要扛下去|
+10-26|黄粱一梦|
+10-25|万亿终究一场空|
+10-24|一切都是最好的安排|
+10-23|媛来如此~|
+10-20|相由薪生~|
+10-19|齿轮转不动了…|
+10-18|一路向西|
+10-17|一个时代开门离去|
+10-16|堵屁眼~|
+10-13|碧桂园的暗示~|
+10-11|徙木立信|
+10-10|薪贫气和~|
+09-29|许家印的“中秋劫”，恒大的后遗症|
+09-21|一路狂飙|
+09-20|起风了...|
+09-19|一梦二十年|
+09-15|掀开比基尼~|
+09-13|回光返照~|
+09-05|痛不欲生|
+08-30|房企的钱去哪了？|
+08-25|甜甜的盐|
+08-16|搞暧昧~|
+08-11|绝代双“焦”~|
+07-30|房地产变天了？|
+07-27|刻舟求剑|
+07-25|苦尽甘来or丧事喜办？|
+07-18|负可敌国~|
+07-17|透心凉......|
+07-14|希望来啦~|
+07-11|负债前行~|
+07-07|新的风暴|
+06-19|暴雷房企的未来|
+06-14|偷鸡摸狗~|
+06-13|绝贷佳人~|
+06-12|房事好商量|
+06-08|万万没想到~|
+06-06|大势已去...|
+06-02|与民争利？|
+06-01|风向逆转了？|
+05-31|你刑不刑啊...|
+05-30|仙人跳？|
+05-29|白嫖？约炮卖房？|
+05-26|饮鸠止渴~|
+05-25|失业了...|
+05-24|借尸还魂|
+05-19|生得再平凡，也是限量版|
+05-18|哀莫大薪死|
+05-17|这里的黄昏静悄悄|
+05-16|烧不尽的野火|
+05-05|粪坑里出不了白莲花|
+04-26|满城尽是“阿Q”者|
+04-23|持久，才能说活好~|
+04-13|一声叹息~|
+03-29|摸着石头过河~|
+03-23|许家印画饼|
+03-17|大变脸~|
+03-16|被改变的人生|
+03-09|按律当诛~|
+03-06|坟地产~|
+03-03|碧桂园的困境|
+03-01|退隐|
+02-27|做梦~|
+02-26|事态开始严重了|
+02-21|孕气十足|
+02-16|传宗接贷|
+02-15|尿床~|
+01-10|操作太骚~|
+01-05|一地鸡毛|
+2022
+12-29|我阳了......|
+12-28|高山“阳”止|
+12-26|打嘴炮救不了房地产|
+12-23|希望|
+12-21|恶意讨钱|
+12-19|调查|
+12-16|“负”甲一方|
+12-13|行贿|
+12-09|老乡别走，有利好|
+12-07|惊喜|
+12-02|大梦一场|
+11-29|还阳术|
+11-28|结束与开始|
+11-24|救命与活命|
+11-22|变故|
+11-21|窟窿|
+11-17|远处的饼|
+11-14|很重要的一件事|
+11-13|救市|
+11-11|暴雷与放水|
+11-09|强硬~|
+11-07|抄底|
+11-04|偏爱|
+11-02|又结了一次婚|
+11-01|说几句心里话|
+10-29|临阵换帅|
+10-20|“爸”气外露|
+10-14|炸裂|
+10-12|迹象|
+09-29|“体制化”|
+09-26|新的开始|
+09-20|水深|
+09-18|戏精|
+09-08|渣男|
+09-06|信心|
+08-26|爽~|
+08-25|离谱~|
+08-23|危|
+08-22|灌水|
+08-20|遁~|
+08-08|落幕|
+08-05|向前走|
+08-04|提前还贷|
+07-30|它来了|
+07-28|守与变|
+07-27|撞南墙|
+07-23|恒大再度上演“让领导先走”： 子公司恒大|
+07-20|房企——人祸之乱|
+07-15|动态还贷|
+07-13|你是来找猹的吧？|
+07-11|停贷|
+07-07|被包养|
+07-06|搞钱|
+07-04|走错道|
+06-30|终点|
+06-28|下一程|
+06-23|未来三个月，挺关键|
+06-22|如果总是在流泪，如何看见满天星光|
+06-21|尘土人间多少事|
+06-20|远航归来|
+06-01|一切都将逝去|
+05-26|大浪淘沙|
+05-25|人到中年半出家|
+05-24|翻身当爹|
+05-23|错的爱情像尿床|
+05-20|妈妈，再爱我一次|
+05-19|永不生锈的爱|
+05-18|永不回头的春天|
+04-27|涨价去人口|
+04-26|我们走了一些弯路......|
+04-22|见过花开的人|
+04-21|钱去哪了？|
+04-20|大难不死，必有下回|
+04-19|来，大郎，把药喝了。|
+04-14|青蛙上马路|
+03-30|暗渡陈仓|
+03-28|至暗时刻|
+03-10|富了方丈，跑了和尚|
+03-09|癞蛤蟆装青蛙|
+03-07|端起夜壶，一饮而尽|
+03-03|出淤泥，尔不染？|
+03-02|等待戈多|
+03-01|满“汗”全席，满汉全席|
+02-28|江湖“显饿”|
+02-11|正荣地产和正荣服务大跌，几乎所有媒体清一|
+01-28|“红”运当头|
+01-26|条条大路通骡马|
+01-24|偷梁换柱，名利双收|
+01-20|呸！渣男|
+01-18|狂人“日”技|
+01-17|怎知风雨挂东楼|
+01-10|死鸭子嘴硬，兜比脸干净|
+01-06|最苦是白衣|
+01-05|全都是泡沫|
+2021
+12-27|只见皮相，未见骨相|
+12-23|此弟不宜久留|
+12-21|提虎灌顶|
+12-20|盛宴已开启|
+12-17|薪净自然凉|
+12-16|以舅换薪|
+12-14|破防了......|
+12-10|故事与事故。|
+12-09|海啸过，樱花开|
+12-08|如鲸向海，退无可退。|
+12-06|散场的开始|
+11-24|我们，一直都是普通人|
+11-17|许家印掏70亿救恒大？恒大该怎么做？|
+11-15|理财接连暴雷，房企自融平台何去何从？|
+11-11|“恒大后遗症”|
+10-27|让许家印掏钱救恒大？|
+09-28|房企的骚，扭了我的腰|
+09-27|碧桂园今天开了个高管会议，誓师责任状的内|
+09-14|恒大还在，财富没了。|
+09-10|恒大财富的事，一直在关注，没发文一是怕引|
+09-07|大房企裁员的事闹得有点大。被裁员时做好证|
+08-31|昨日，许家印在恒大内部开了个会，有些点值|
+08-26|裁员如潮涌，跳槽易跳坑|
+08-18|许家印卸任恒大地产董事长；富豪的风险切割术与财富保全术|
+08-12|恒大的未来|
+08-09|房企、阿里、价值观|
+07-26|融创的钱，究竟从哪来的？|
+07-20|针凡传：我的恒大，你忍一下|
+07-16|钱紧众生相：恒大牵宝能，泰禾映金科|
+07-07|蓝光，何以至此，将往何方？|
+06-15|恒大：方向不对，努力白费。|
+06-02|房地产行业是如何洗钱的？|
+04-23|从中梁反腐看索贿门道，碧桂园调整猎头供应商管理|
+04-19|在上海车展看了恒大汽车的“葫芦娃兄弟”和特斯拉维权事件|
+03-31|强势围观！中南置地涉巨额贪腐总裁接受庭审的4小时|
+03-27|皇帝的新装，恒大的水军|
+03-17|原碧桂园区域总裁、华鸿嘉信总裁被捕|
+03-04|千亿房企曝贪腐案：集团营销总经理等人被处理|
+02-24|35岁，地产人的职场荣枯线|
+02-17|越牛逼的房企，越爱发年终奖|
+02-07|房企裁员之“九式贱法”|
+01-28|金科无玉律，藏有铁疙瘩|
+01-27|地产公众号如何年入千万？|
+01-21|从桃色事件和贪腐问题，看房企的原则底线和用人门槛|
+01-18|碧桂园，你出来走两步给大家看看|
+01-13|房企——人祸之乱|
+01-10|2021年碧桂园集团工作会议，杨国强给莫斌题了8个字|
+2020
+11-30|骚不过融创：招了个被判刑的职业经理人做高管|
+11-25|四大悲“住”：租房遇蛋壳、带看遇贝壳，买房遇泰禾，交房碧桂园|
+11-23|地产公众号造假有多严重？|
+10-28|对潜规则勇敢说，不！为这位抗争的女孩子点赞！|
+10-26|2020年，地产圈的四大未解之谜|
+09-25|恒大辟谣，网传报告有且只能是“谣言”|
+09-24|废柴木炭，你胆敢把公司当成家？|
+08-11|瞧，又一个沙雕团建。|
+07-31|万科接盘泰禾？净喝酒，菜呢？|
+07-09|泰禾必须倒，房地产才能活|
+06-11|2020年，房企死于吹牛逼|
+06-02|瞧，又一家吹牛逼的房企|
+05-27|泰禾第一大股东股权被司法冻结，涉及诉讼金额29.31亿|
+05-25|房企，是如何弄虚作假的？|
+05-22|房企负面的典型代表|
+05-21|我们不裁员不减薪，但裁校招生、欠薪、拖欠钱款、爱装逼|
+05-20|绿地绿帽事件出初步处理结果，大佬的女人们如何保全自身权益|
+05-19|绿地绿帽事件的第四种可能及战术打法|
+05-18|绿地绿帽事件全盘分析及潜在的处理结果|
+05-14|昨日经理人，今日背锅侠：从派系争斗的牺牲品窥行业弊病|
+05-12|闽系房企泰禾集团、董事长黄其森再次被列为被执行人，金额18亿元|
+04-27|碧桂园接盘、融创被罚、泰禾影分身|
+03-18|又一个被房企视若珍宝的垃圾排行榜出炉了|
+02-17|恒大的“一箭三雕”、众房企的“东施效颦”|</script>
 </main>
 <footer class="site-footer">
   <div class="footer-inner">
@@ -104,7 +588,7 @@
       </div>
       <p class="disclaimer" style="margin-top:1rem">本站为个人阅读存档，收录金渐成 / 天机奇谈公开发表的公众号文章，便于按主题与时间线连续阅读。<br>内容仅供参考，<strong>不构成任何投资建议</strong>。投资有风险，决策需谨慎。</p>
     </div>
-    <div>共 781 篇文章 · 静态存档<br><span style="opacity:.7">生成于 2026-10-09</span></div>
+    <div>共 906 篇文章 · 静态存档<br><span style="opacity:.7">生成于 2026-10-24</span></div>
   </div>
 </footer>
 <script>
@@ -153,11 +637,6 @@
   var empty = document.getElementById('empty');
   if (q && list) {
     var rows = Array.prototype.slice.call(list.querySelectorAll('.row'));
-    var rowsByChannel = rows.map(function (r) {
-      var tag = r.querySelector('.tag');
-      var txt = tag ? tag.textContent.trim() : '';
-      return txt === '金渐成' ? 'jinjiancheng' : (txt === '天机奇谈' ? 'tianjiqitan' : '');
-    });
     var channel = 'all';
     var chips = Array.prototype.slice.call(document.querySelectorAll('.chip[data-ch]'));
 
@@ -165,10 +644,10 @@
       var kw = (q.value || '').trim().toLowerCase();
       var shown = 0;
       var yearHeads = Array.prototype.slice.call(list.querySelectorAll('.year-head'));
-      rows.forEach(function (r, i) {
+      rows.forEach(function (r) {
         var hay = r.textContent.toLowerCase();
         var okKw = !kw || hay.indexOf(kw) !== -1;
-        var okCh = channel === 'all' || rowsByChannel[i] === channel;
+        var okCh = channel === 'all' || r.getAttribute('data-ch') === channel;
         var ok = okKw && okCh;
         r.style.display = ok ? '' : 'none';
         if (ok) shown++;
@@ -187,6 +666,143 @@
         apply();
       });
     });
+  }
+
+  /* ---- 目录抽屉 ---- */
+  var tocData = document.getElementById('tocData');
+  var tocBtn = document.getElementById('tocBtn');
+  var tocPanel = document.getElementById('tocPanel');
+  var tocMask = document.getElementById('tocMask');
+  var tocClose = document.getElementById('tocClose');
+  var tocBody = document.getElementById('tocBody');
+  var tocSearch = document.getElementById('tocSearch');
+
+  if (tocData && tocBtn && tocPanel && tocBody) {
+    var channel = tocData.getAttribute('data-ch') || '';
+    var cur = tocData.getAttribute('data-cur') || '';
+    var raw = (tocData.textContent || '').trim();
+
+    // 解析紧凑数据：年份单独成行，其余为「MM-DD|标题|后缀」
+    var years = [];
+    var curYear = null;
+    raw.split('\n').forEach(function (line) {
+      line = line.replace(/\r$/, '');
+      if (!line) return;
+      if (/^\d{4}$/.test(line)) {
+        curYear = { year: line, items: [] };
+        years.push(curYear);
+        return;
+      }
+      var parts = line.split('|');
+      if (!curYear || parts.length < 2) return;
+      var md = parts[0];
+      var title = parts[1];
+      var suffix = parts[2] || '';
+      var file = channel + '-' + curYear.year + '-' + md + (suffix ? '-' + suffix : '') + '.html';
+      curYear.items.push({ date: md, title: title, url: file });
+    });
+
+    // 渲染
+    var frag = document.createDocumentFragment();
+    years.forEach(function (g) {
+      var wrap = document.createElement('div');
+      wrap.className = 'toc-year';
+      var btn = document.createElement('button');
+      btn.className = 'toc-y-btn';
+      btn.innerHTML = g.year + '<span>' + g.items.length + ' 篇</span>';
+      var box = document.createElement('div');
+      box.className = 'toc-items';
+
+      g.items.forEach(function (it) {
+        var a = document.createElement('a');
+        a.className = 'toc-item';
+        a.href = it.url;
+        a.setAttribute('data-hay', (it.date + ' ' + it.title).toLowerCase());
+        if (it.url === cur) a.classList.add('is-cur');
+        var d = document.createElement('span');
+        d.className = 'ti-date';
+        d.textContent = it.date;
+        var t = document.createElement('span');
+        t.className = 'ti-title';
+        t.textContent = it.title;
+        a.appendChild(d);
+        a.appendChild(t);
+        box.appendChild(a);
+      });
+
+      btn.addEventListener('click', function () { wrap.classList.toggle('open'); });
+      wrap.appendChild(btn);
+      wrap.appendChild(box);
+      frag.appendChild(wrap);
+    });
+
+    var none = document.createElement('div');
+    none.className = 'toc-none';
+    none.textContent = '没有找到匹配的文章';
+    none.style.display = 'none';
+    frag.appendChild(none);
+    tocBody.appendChild(frag);
+
+    // 定位当前文章：默认展开它所在的年份
+    var curItem = tocBody.querySelector('.toc-item.is-cur');
+    if (curItem) {
+      var y = curItem.closest('.toc-year');
+      if (y) y.classList.add('open');
+    } else if (years.length) {
+      tocBody.querySelector('.toc-year').classList.add('open');
+    }
+
+    function openToc() {
+      tocPanel.classList.add('on');
+      tocMask.classList.add('on');
+      tocPanel.setAttribute('aria-hidden', 'false');
+      document.body.classList.add('toc-open');
+      if (curItem) {
+        window.setTimeout(function () {
+          try { curItem.scrollIntoView({ block: 'center' }); } catch (e) { }
+        }, 260);
+      } else if (tocSearch) {
+        tocSearch.focus();
+      }
+    }
+    function closeToc() {
+      tocPanel.classList.remove('on');
+      tocMask.classList.remove('on');
+      tocPanel.setAttribute('aria-hidden', 'true');
+      document.body.classList.remove('toc-open');
+    }
+
+    tocBtn.addEventListener('click', openToc);
+    if (tocClose) tocClose.addEventListener('click', closeToc);
+    if (tocMask) tocMask.addEventListener('click', closeToc);
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && tocPanel.classList.contains('on')) closeToc();
+    });
+
+    // 搜索：命中即展开全部年份
+    if (tocSearch) {
+      tocSearch.addEventListener('input', function () {
+        var kw = tocSearch.value.trim().toLowerCase();
+        var shown = 0;
+        Array.prototype.forEach.call(tocBody.querySelectorAll('.toc-year'), function (g) {
+          var hit = 0;
+          Array.prototype.forEach.call(g.querySelectorAll('.toc-item'), function (a) {
+            var ok = !kw || (a.getAttribute('data-hay') || '').indexOf(kw) !== -1;
+            a.style.display = ok ? '' : 'none';
+            if (ok) hit++;
+          });
+          g.style.display = hit ? '' : 'none';
+          if (kw) { if (hit) g.classList.add('open'); }
+          else { g.classList.remove('open'); }
+          shown += hit;
+        });
+        none.style.display = shown ? 'none' : '';
+        if (!kw && curItem) {
+          var y2 = curItem.closest('.toc-year');
+          if (y2) y2.classList.add('open');
+        }
+      });
+    }
   }
 })();
 

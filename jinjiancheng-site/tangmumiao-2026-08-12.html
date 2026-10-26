@@ -1,0 +1,641 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>重仓宽基，没那么容易：一份能真正执行的宽指配置说明书 · 汤姆喵的奇妙旅行</title>
+<meta name="description" content="汤姆喵的奇妙旅行 2026-08-12 重仓宽基，没那么容易：一份能真正执行的宽指配置说明书">
+<link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2064%2064'%3E%3Crect%20width='64'%20height='64'%20rx='16'%20fill='%23b45309'/%3E%3Ctext%20x='32'%20y='45'%20font-size='38'%20font-family='sans-serif'%20font-weight='700'%20fill='%23fff'%20text-anchor='middle'%3E%E7%8E%91%3C/text%3E%3C/svg%3E">
+<style>
+:root {--bg: #faf9f6;--bg-2: #f2efe9;--surface: #ffffff;--surface-2: #f6f4ef;--fg: #171614;--fg-2: #3d3a35;--muted: #7a7570;--line: #e7e3da;--line-2: #f0ece4;--accent: #b45309;--accent-2: #d98218;--accent-soft: rgba(180, 83, 9, .09);--accent-line: rgba(180, 83, 9, .22);--on-accent: #ffffff;--shadow-xs: 0 1px 2px rgba(23, 22, 20, .05);--shadow-sm: 0 1px 3px rgba(23, 22, 20, .06), 0 1px 2px rgba(23, 22, 20, .04);--shadow-md: 0 8px 24px -6px rgba(23, 22, 20, .10), 0 2px 6px rgba(23, 22, 20, .05);--shadow-lg: 0 20px 48px -12px rgba(23, 22, 20, .16);--radius: 18px;--radius-sm: 12px;--container: 68rem;}@media (prefers-color-scheme: dark) {:root:not([data-theme="light"]) {--bg: #0f0f10;--bg-2: #16161a;--surface: #17171b;--surface-2: #1d1d22;--fg: #f2f0ec;--fg-2: #d4d1cb;--muted: #918d87;--line: #29292f;--line-2: #212127;--accent: #f0972a;--accent-2: #f5b400;--accent-soft: rgba(240, 151, 42, .12);--accent-line: rgba(240, 151, 42, .3);--on-accent: #17120a;--shadow-xs: 0 1px 2px rgba(0, 0, 0, .45);--shadow-sm: 0 1px 3px rgba(0, 0, 0, .5);--shadow-md: 0 8px 24px -6px rgba(0, 0, 0, .6);--shadow-lg: 0 20px 48px -12px rgba(0, 0, 0, .7);}}html[data-theme="dark"] {--bg: #0f0f10; --bg-2: #16161a; --surface: #17171b; --surface-2: #1d1d22;--fg: #f2f0ec; --fg-2: #d4d1cb; --muted: #918d87; --line: #29292f; --line-2: #212127;--accent: #f0972a; --accent-2: #f5b400;--accent-soft: rgba(240, 151, 42, .12); --accent-line: rgba(240, 151, 42, .3);--on-accent: #17120a;--shadow-xs: 0 1px 2px rgba(0, 0, 0, .45);--shadow-sm: 0 1px 3px rgba(0, 0, 0, .5);--shadow-md: 0 8px 24px -6px rgba(0, 0, 0, .6);--shadow-lg: 0 20px 48px -12px rgba(0, 0, 0, .7);}* { box-sizing: border-box; margin: 0; padding: 0; border: 0 solid var(--line); }html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }body {background: var(--bg);background-image:radial-gradient(60rem 32rem at 12% -8%, var(--accent-soft), transparent 62%),radial-gradient(48rem 28rem at 92% 2%, rgba(217, 130, 24, .06), transparent 60%);background-repeat: no-repeat;background-attachment: fixed;color: var(--fg);font-family: Inter, -apple-system, BlinkMacSystemFont, "PingFang SC", "Hiragino Sans GB","Microsoft YaHei", "Helvetica Neue", Helvetica, Arial, sans-serif;-webkit-font-smoothing: antialiased;-moz-osx-font-smoothing: grayscale;line-height: 1.6;min-height: 100vh;display: flex;flex-direction: column;}a { color: inherit; text-decoration: none; }img { max-width: 100%; height: auto; display: block; border-radius: 10px; }button { font: inherit; color: inherit; background: none; cursor: pointer; }::selection { background: var(--accent-soft); }.site-header {position: sticky; top: 0; z-index: 50;background: color-mix(in srgb, var(--bg) 82%, transparent);backdrop-filter: saturate(180%) blur(14px);-webkit-backdrop-filter: saturate(180%) blur(14px);border-bottom: 1px solid var(--line);}.header-inner {max-width: var(--container); margin: 0 auto;padding: .85rem 1.5rem;display: flex; align-items: center; justify-content: space-between; gap: 1rem;}.brand { display: flex; align-items: center; gap: .7rem; transition: opacity .2s; flex: 0 0 auto; }.brand:hover { opacity: .82; }.brand-mark {width: 2.3rem; height: 2.3rem; border-radius: 12px; flex: 0 0 auto;background: linear-gradient(140deg, var(--accent-2), var(--accent) 70%);color: #fff; font-weight: 800; font-size: 1.08rem;display: flex; align-items: center; justify-content: center;box-shadow: 0 4px 12px -2px var(--accent-line), inset 0 1px 0 rgba(255,255,255,.28);}.brand-text { display: flex; flex-direction: column; line-height: 1.2; }.brand-text b { font-size: 1rem; font-weight: 750; letter-spacing: -.015em; }.brand-text span { font-size: .68rem; color: var(--muted); letter-spacing: .1em; margin-top: .1rem; }.nav { display: flex; align-items: center; gap: .15rem; font-size: .9rem; font-weight: 550; }.nav a {padding: .48rem .78rem; border-radius: 9px; color: var(--muted);transition: color .18s, background .18s; white-space: nowrap;}.nav a:hover { color: var(--fg); background: var(--surface-2); }.nav a.active { color: var(--accent); background: var(--accent-soft); font-weight: 700; }.nav-tools { display: flex; align-items: center; gap: .3rem; padding-left: .5rem; margin-left: .35rem; border-left: 1px solid var(--line); }.icon-btn {width: 2.1rem; height: 2.1rem; border-radius: 9px; color: var(--muted);display: flex; align-items: center; justify-content: center;transition: .18s; font-size: 1rem;}.icon-btn:hover { color: var(--accent); background: var(--accent-soft); }.menu-btn { display: none; }main { flex: 1; }.container {max-width: var(--container); margin: 0 auto;padding: 3rem 1.5rem 5.5rem;display: flex; flex-direction: column; gap: 3.75rem;}.hero { margin-bottom: 0; }.crumb {display: flex; flex-wrap: wrap; align-items: center; gap: .45rem;font-size: .85rem; font-weight: 550; color: var(--muted); margin-bottom: 1.1rem;}.crumb a:hover { color: var(--accent); }.crumb .sep { opacity: .35; }.hero h1 {font-size: clamp(2.1rem, 5.6vw, 3.15rem);font-weight: 830; line-height: 1.08; letter-spacing: -.035em;background: linear-gradient(180deg, var(--fg) 62%, color-mix(in srgb, var(--fg) 62%, var(--accent)));-webkit-background-clip: text; background-clip: text;-webkit-text-fill-color: transparent;}.hero .lead {margin-top: 1.35rem; max-width: 44rem;font-size: 1.06rem; line-height: 1.85; color: var(--muted);}.hero .lead strong { color: var(--fg); font-weight: 750; }.hero-actions { margin-top: 1.9rem; display: flex; flex-wrap: wrap; gap: .7rem; }.btn {padding: .72rem 1.55rem; border-radius: 999px;font-weight: 600; font-size: .95rem;transition: transform .18s, box-shadow .18s, background .18s, border-color .18s, color .18s;display: inline-flex; align-items: center; gap: .45rem;}.btn-primary {background: linear-gradient(140deg, var(--accent-2), var(--accent));color: #fff;box-shadow: 0 6px 18px -6px var(--accent-line), inset 0 1px 0 rgba(255,255,255,.22);}.btn-primary:hover { transform: translateY(-2px); box-shadow: 0 12px 26px -8px var(--accent-line); }.btn-ghost { border: 1px solid var(--line); background: var(--surface); color: var(--fg-2); }.btn-ghost:hover { background: var(--surface-2); border-color: var(--accent-line); color: var(--accent); }.stats { margin-top: 1.9rem; display: flex; flex-wrap: wrap; gap: .6rem; }.stat {display: flex; align-items: baseline; gap: .4rem;background: var(--surface); border: 1px solid var(--line);border-radius: 999px; padding: .42rem 1rem;box-shadow: var(--shadow-xs);}.stat b { font-size: 1rem; font-weight: 780; letter-spacing: -.02em; color: var(--fg); font-variant-numeric: tabular-nums; }.stat span { font-size: .8rem; color: var(--muted); }.section { display: flex; flex-direction: column; }.section-head {display: flex; align-items: baseline; justify-content: space-between;gap: 1rem; margin-bottom: 1.5rem; padding-bottom: .85rem;border-bottom: 1px solid var(--line);}.section-head h2 {position: relative; padding-left: .85rem;font-size: .92rem; font-weight: 780; text-transform: uppercase;letter-spacing: .17em; color: var(--fg);}.section-head h2::before {content: ""; position: absolute; left: 0; top: 50%; transform: translateY(-50%);width: 3px; height: 1.05em; border-radius: 2px;background: linear-gradient(180deg, var(--accent-2), var(--accent));}.section-head .more { font-size: .88rem; font-weight: 600; color: var(--muted); white-space: nowrap; transition: .18s; }.section-head .more:hover { color: var(--accent); }.grid { display: grid; gap: 1.05rem; }.grid-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }.grid-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }.grid-4 { grid-template-columns: repeat(4, minmax(0, 1fr)); }.card {position: relative; overflow: hidden;background: var(--surface);border: 1px solid var(--line);border-radius: var(--radius);padding: 1.3rem 1.4rem;box-shadow: var(--shadow-xs);transition: transform .2s cubic-bezier(.2,.7,.3,1), box-shadow .2s, border-color .2s;display: block;}.card::after {content: ""; position: absolute; inset: 0 0 auto 0; height: 2px;background: linear-gradient(90deg, var(--accent-2), var(--accent) 55%, transparent);opacity: 0; transition: opacity .2s;}a.card:hover {transform: translateY(-3px);box-shadow: var(--shadow-md);border-color: var(--accent-line);}a.card:hover::after { opacity: 1; }.card .kicker {font-size: .7rem; font-weight: 780; letter-spacing: .12em;color: var(--accent); text-transform: uppercase;}.card h3 { margin-top: .55rem; font-size: 1.04rem; font-weight: 730; line-height: 1.4; letter-spacing: -.015em; }.card p { margin-top: .55rem; font-size: .875rem; line-height: 1.72; color: var(--muted); }.card .count { font-size: .78rem; font-weight: 600; color: var(--muted); }.rows {display: flex; flex-direction: column;background: var(--surface); border: 1px solid var(--line);border-radius: var(--radius); overflow: hidden;box-shadow: var(--shadow-xs);}.row {display: flex; align-items: baseline; gap: 1.1rem;padding: .82rem 1.15rem;transition: background .16s;border-bottom: 1px solid var(--line-2);position: relative;}.row:last-child { border-bottom: 0; }.row::before {content: ""; position: absolute; left: 0; top: 0; bottom: 0; width: 3px;background: var(--accent); transform: scaleY(0); transition: transform .18s;}.row:hover { background: var(--surface-2); }.row:hover::before { transform: scaleY(1); }.row .date {flex: 0 0 auto; width: 5.1rem; font-size: .82rem; font-weight: 600;font-variant-numeric: tabular-nums; color: var(--muted); letter-spacing: -.01em;}.row .title { flex: 1 1 auto; font-size: .97rem; font-weight: 550; line-height: 1.55; color: var(--fg-2); }.row:hover .title { color: var(--accent); font-weight: 620; }.row .tags { flex: 0 0 auto; display: flex; gap: .35rem; }.tag {font-size: .7rem; font-weight: 620; padding: .2rem .6rem; border-radius: 999px;background: var(--surface-2); border: 1px solid var(--line);color: var(--muted); white-space: nowrap;}.year-head { display: flex; align-items: center; gap: .9rem; margin: 1.9rem 0 .75rem; }.year-head:first-child { margin-top: 0; }.year-head .y { font-size: 1.3rem; font-weight: 830; letter-spacing: -.03em; }.year-head .n { font-size: .78rem; font-weight: 600; color: var(--muted); background: var(--surface-2); border: 1px solid var(--line); padding: .12rem .55rem; border-radius: 999px; }.year-head .line { flex: 1; height: 1px; background: linear-gradient(90deg, var(--line), transparent); }.post-wrap { max-width: 46rem; margin: 0 auto; width: 100%; }.post-head { margin-bottom: 2.25rem; padding-bottom: 1.6rem; border-bottom: 1px solid var(--line); }.post-head h1 { font-size: clamp(1.55rem, 4.4vw, 2.05rem); font-weight: 760; line-height: 1.32; letter-spacing: -.028em; }.post-meta { margin-top: 1rem; display: flex; flex-wrap: wrap; gap: .5rem 1rem; font-size: .84rem; color: var(--muted); align-items: center; font-weight: 550; }.post-meta .dot { opacity: .35; }.prose { color: var(--fg-2); font-size: 1.06rem; line-height: 1.9; letter-spacing: .008em; max-width: 68ch; }.prose p { margin: 1.5em 0; }.prose h1, .prose h2, .prose h3 { color: var(--fg); letter-spacing: -.018em; font-weight: 730; line-height: 1.4; }.prose h1 { font-size: 1.65rem; margin: 2.1em 0 .8em; }.prose h2 {font-size: 1.28rem; margin: 2.3em 0 .85em; padding-bottom: .5em;border-bottom: 1px solid var(--line);}.prose h3 {font-size: 1.03rem; margin: 2.2em 0 .7em;letter-spacing: .16em; color: var(--accent); font-weight: 780;}.prose strong { color: var(--fg); font-weight: 700; }.prose em { font-style: italic; }.prose a { color: var(--accent); text-decoration: underline; text-underline-offset: 3px; text-decoration-thickness: 1px; }.prose a:hover { opacity: .8; }.prose blockquote {border-left: 3px solid var(--accent);background: var(--accent-soft);color: var(--fg-2); border-radius: 0 10px 10px 0;margin: 1.9em 0; padding: 1.05em 1.35em; font-style: italic;}.prose blockquote p { margin: 0; }.prose ul { margin: 1.3em 0; list-style: none; }.prose ul > li { margin: .55em 0; padding-left: 1.35em; position: relative; }.prose ul > li::before { content: ""; position: absolute; left: .15em; top: .72em; width: 5px; height: 5px; border-radius: 50%; background: var(--accent); opacity: .6; }.prose ol { margin: 1.3em 0; padding-left: 1.5em; list-style: decimal; }.prose ol > li { margin: .55em 0; }.prose img { margin: 2em 0; box-shadow: var(--shadow-md); }.prose hr { margin: 2.6em 0; border-top: 1px solid var(--line); height: 0; }.post-foot {margin-top: 3.2rem; padding-top: 1.6rem; border-top: 1px solid var(--line);display: flex; align-items: center; justify-content: space-between;gap: 1rem; flex-wrap: wrap; font-size: .88rem; font-weight: 550; color: var(--muted);}.post-foot a:hover { color: var(--accent); }.pager-bar {display: flex; align-items: stretch; justify-content: space-between;gap: .9rem; margin: 0 0 1.6rem;}.post-back ~ .pager-bar { margin-top: 0; }.pg {display: flex; flex-direction: column; gap: .18rem;max-width: 47%; min-width: 0;background: var(--surface); border: 1px solid var(--line); border-radius: 13px;padding: .7rem 1rem; box-shadow: var(--shadow-xs);transition: border-color .18s, background .18s, transform .18s, box-shadow .18s;}.pg:hover {background: var(--surface-2); border-color: var(--accent-line);transform: translateY(-2px); box-shadow: var(--shadow-sm);}.pg-next { text-align: right; margin-left: auto; }.pg-lbl {font-size: .69rem; font-weight: 700; letter-spacing: .06em;color: var(--accent); white-space: nowrap;}.pg-title {font-size: .9rem; font-weight: 620; line-height: 1.4; color: var(--fg-2);overflow: hidden; text-overflow: ellipsis; display: -webkit-box;-webkit-line-clamp: 1; -webkit-box-orient: vertical;}.pg:hover .pg-title { color: var(--accent); }.pg-date { font-size: .72rem; color: var(--muted); font-variant-numeric: tabular-nums; }.pg-empty { flex: 1 1 0; max-width: 47%; }.pager-bar.is-bottom { margin: 2rem 0 0; padding-top: 1.5rem; border-top: 1px solid var(--line); }.toc-fab {position: fixed; right: 1.25rem; bottom: 1.5rem; z-index: 60;display: inline-flex; align-items: center; gap: .45rem;padding: .62rem 1.1rem; border-radius: 999px;background: linear-gradient(140deg, var(--accent-2), var(--accent));color: #fff; font-size: .88rem; font-weight: 650; letter-spacing: .02em;box-shadow: 0 10px 26px -8px var(--accent-line), 0 2px 8px rgba(0, 0, 0, .12);transition: transform .18s, box-shadow .18s;}.toc-fab:hover { transform: translateY(-2px); box-shadow: 0 14px 32px -8px var(--accent-line); }.toc-fab svg { width: 15px; height: 15px; }.toc-mask {position: fixed; inset: 0; z-index: 70;background: rgba(12, 10, 8, .38); backdrop-filter: blur(2px);opacity: 0; pointer-events: none; transition: opacity .22s;}.toc-mask.on { opacity: 1; pointer-events: auto; }.toc-panel {position: fixed; top: 0; right: 0; bottom: 0; z-index: 80;width: 22rem; max-width: 88vw;display: flex; flex-direction: column;background: var(--bg);border-left: 1px solid var(--line);box-shadow: -18px 0 48px -18px rgba(0, 0, 0, .28);transform: translateX(102%); transition: transform .26s cubic-bezier(.3, .8, .3, 1);}.toc-panel.on { transform: none; }.toc-head {display: flex; align-items: center; justify-content: space-between; gap: .75rem;padding: 1rem 1.1rem .85rem; border-bottom: 1px solid var(--line);}.toc-head h3 {font-size: .92rem; font-weight: 780; letter-spacing: .01em;display: flex; align-items: baseline; gap: .5rem;}.toc-head h3 em {font-style: normal; font-size: .72rem; font-weight: 600;color: var(--muted); letter-spacing: .04em;}.toc-close {width: 1.9rem; height: 1.9rem; border-radius: 8px; color: var(--muted);display: flex; align-items: center; justify-content: center; font-size: .95rem;transition: .15s; flex: 0 0 auto;}.toc-close:hover { color: var(--accent); background: var(--accent-soft); }.toc-search-wrap { padding: .75rem 1.1rem .55rem; }.toc-search {width: 100%; background: var(--surface); border: 1px solid var(--line);border-radius: 999px; padding: .5rem .95rem; font-size: .86rem;color: var(--fg); outline: none; transition: border-color .15s, box-shadow .15s;}.toc-search::placeholder { color: var(--muted); }.toc-search:focus { border-color: var(--accent); box-shadow: 0 0 0 3px var(--accent-soft); }.toc-body {flex: 1; overflow-y: auto; overscroll-behavior: contain;padding: .2rem .7rem 1rem;scrollbar-width: thin;}.toc-body::-webkit-scrollbar { width: 8px; }.toc-body::-webkit-scrollbar-thumb { background: var(--line); border-radius: 4px; }.toc-year { margin-bottom: .1rem; }.toc-y-btn {width: 100%; display: flex; align-items: center; gap: .55rem;padding: .5rem .5rem; border-radius: 8px;font-size: .84rem; font-weight: 750; color: var(--fg); text-align: left;transition: background .15s;}.toc-y-btn:hover { background: var(--surface-2); }.toc-y-btn::before {content: "▸"; font-size: .68rem; color: var(--muted); transition: transform .18s;display: inline-block; width: .8rem;}.toc-year.open .toc-y-btn::before { transform: rotate(90deg); }.toc-y-btn span {margin-left: auto; font-size: .7rem; font-weight: 600; color: var(--muted);background: var(--surface-2); border: 1px solid var(--line);padding: .05rem .42rem; border-radius: 999px;}.toc-items { display: none; padding: 0 0 .3rem .55rem; }.toc-year.open .toc-items { display: block; }.toc-item {display: flex; align-items: baseline; gap: .5rem;padding: .36rem .5rem; border-radius: 7px;font-size: .82rem; line-height: 1.45; color: var(--fg-2);border-left: 2px solid transparent; transition: background .14s, color .14s, border-color .14s;}.toc-item:hover { background: var(--surface-2); color: var(--accent); }.toc-item .ti-date {flex: 0 0 auto; font-size: .72rem; color: var(--muted);font-variant-numeric: tabular-nums; letter-spacing: -.01em;}.toc-item .ti-title { flex: 1 1 auto; min-width: 0; }.toc-item.is-cur {background: var(--accent-soft); color: var(--accent);font-weight: 700; border-left-color: var(--accent);}.toc-item.is-cur .ti-date { color: var(--accent); }.toc-none { padding: 1.5rem .8rem; text-align: center; font-size: .85rem; color: var(--muted); }.toc-foot {border-top: 1px solid var(--line); padding: .75rem 1.1rem;display: flex; align-items: center; justify-content: space-between; gap: .6rem;font-size: .8rem; color: var(--muted);}.toc-foot a { font-weight: 650; color: var(--accent); }.toc-foot a:hover { opacity: .8; }body.toc-open { overflow: hidden; }@media (max-width: 620px) {.pager-bar { gap: .55rem; }.pg { max-width: 48%; padding: .6rem .75rem; }.pg-title { font-size: .84rem; -webkit-line-clamp: 2; }.toc-panel { width: 90vw; }.toc-fab { right: .9rem; bottom: 1rem; padding: .55rem .95rem; font-size: .82rem; }}.comments {margin-top: 3rem; border-top: 1px solid var(--line); padding-top: 1.6rem;}.comments-head {display: flex; align-items: baseline; justify-content: space-between;gap: 1rem; flex-wrap: wrap; margin-bottom: 1.15rem;}.comments-head h2 {position: relative; padding-left: .8rem;font-size: .82rem; font-weight: 780; text-transform: uppercase;letter-spacing: .17em; color: var(--fg);}.comments-head h2::before {content: ""; position: absolute; left: 0; top: 50%; transform: translateY(-50%);width: 3px; height: 1.05em; border-radius: 2px;background: linear-gradient(180deg, var(--accent-2), var(--accent));}.comments-head span { font-size: .76rem; color: var(--muted); }.cmt-list { display: flex; flex-direction: column; gap: .55rem; }.cmt {background: var(--surface);border: 1px solid var(--line);border-radius: var(--radius-sm);padding: .85rem 1.05rem;transition: border-color .15s, background .15s;}.cmt:hover { border-color: var(--accent-line); }.cmt.is-author {background: color-mix(in srgb, var(--accent) 4%, var(--surface));border-color: var(--accent-line);}.cmt-head {display: flex; align-items: center; flex-wrap: wrap; gap: .5rem;font-size: .8rem; margin-bottom: .4rem;}.cmt-name { font-weight: 700; color: var(--fg-2); }.cmt-name.is-author { color: var(--accent); }.cmt-name.is-author::after {content: "作者"; margin-left: .35rem; font-size: .64rem; font-weight: 700;padding: .1rem .35rem; border-radius: 999px;background: var(--accent-soft); color: var(--accent);vertical-align: middle;}.cmt-region {font-size: .7rem; color: var(--muted);background: var(--surface-2); border: 1px solid var(--line);padding: .08rem .4rem; border-radius: 999px;}.cmt-time { font-size: .72rem; color: var(--muted); font-variant-numeric: tabular-nums; }.cmt-like { font-size: .72rem; color: var(--muted); margin-left: auto; }.cmt-badge {font-size: .64rem; font-weight: 700; padding: .1rem .4rem; border-radius: 999px;background: var(--surface-2); border: 1px solid var(--line); color: var(--muted);}.cmt-text {font-size: .93rem; line-height: 1.78; color: var(--fg-2);overflow-wrap: anywhere;}.cmt-text p { margin: .5em 0; }.cmt-text p:first-child { margin-top: 0; }.cmt-text p:last-child { margin-bottom: 0; }.cmt-text a { color: var(--accent); text-decoration: underline; text-underline-offset: 2px; }.cmt-text img { margin: .6em 0; border-radius: 8px; max-width: 16rem; }.cmt-blocked-wrap {margin-bottom: .9rem; border: 1px dashed var(--accent-line);border-radius: var(--radius-sm); padding: .8rem 1rem;background: color-mix(in srgb, var(--accent) 3%, transparent);}.cmt-blocked-wrap summary {cursor: pointer; font-size: .82rem; font-weight: 700; color: var(--accent);list-style: none; display: flex; align-items: center; gap: .6rem; flex-wrap: wrap;}.cmt-blocked-wrap summary::-webkit-details-marker { display: none; }.cmt-blocked-wrap summary::before { content: "▸"; font-size: .8rem; }.cmt-blocked-wrap[open] summary::before { content: "▾"; }.cmt-hint { font-weight: 400; font-size: .72rem; color: var(--muted); }.cmt-blocked-wrap .cmt { margin-top: .6rem; }.cmt-blocked { border-style: dashed; }.cmt-reply { margin-top: .5rem; margin-left: 1.2rem; }.tag-cmt {background: var(--accent-soft) !important;border-color: var(--accent-line) !important;color: var(--accent) !important;}.toolbar {display: flex; flex-wrap: wrap; gap: .6rem; align-items: center;margin-bottom: 1.35rem;}.search {flex: 1 1 17rem; min-width: 12rem;display: flex; align-items: center; gap: .55rem;background: var(--surface); border: 1px solid var(--line);border-radius: 999px; padding: .58rem 1.05rem;color: var(--muted); transition: border-color .18s, box-shadow .18s;box-shadow: var(--shadow-xs);}.search:focus-within { border-color: var(--accent); box-shadow: 0 0 0 3px var(--accent-soft); }.search input { flex: 1; background: none; border: none; outline: none; color: var(--fg); font-size: .93rem; }.chip {font-size: .84rem; font-weight: 600; padding: .5rem 1rem; border-radius: 999px;background: var(--surface); border: 1px solid var(--line);color: var(--muted); transition: .18s; box-shadow: var(--shadow-xs);}.chip:hover { border-color: var(--accent-line); color: var(--accent); }.chip.on {background: linear-gradient(140deg, var(--accent-2), var(--accent));color: #fff; border-color: transparent;box-shadow: 0 5px 14px -5px var(--accent-line);}.empty-note { padding: 3rem 0; text-align: center; color: var(--muted); font-size: .93rem; }.faq { display: flex; flex-direction: column; gap: .6rem; }.faq details {background: var(--surface); border: 1px solid var(--line);border-radius: var(--radius-sm); padding: 1.05rem 1.3rem;transition: border-color .18s, box-shadow .18s; box-shadow: var(--shadow-xs);}.faq details[open] { border-color: var(--accent-line); box-shadow: var(--shadow-sm); }.faq summary {cursor: pointer; font-weight: 650; font-size: .96rem; list-style: none;display: flex; justify-content: space-between; gap: 1rem; align-items: center;}.faq summary::-webkit-details-marker { display: none; }.faq summary::after {content: "+"; color: var(--accent); font-weight: 500; font-size: 1.1rem;width: 1.4rem; height: 1.4rem; border-radius: 50%;display: flex; align-items: center; justify-content: center;background: var(--accent-soft); flex: 0 0 auto;}.faq details[open] summary::after { content: "−"; }.faq .ans { margin-top: .85rem; font-size: .91rem; line-height: 1.82; color: var(--muted); }.site-footer { border-top: 1px solid var(--line); background: color-mix(in srgb, var(--bg-2) 60%, transparent); }.footer-inner {max-width: var(--container); margin: 0 auto; padding: 2.75rem 1.5rem;display: flex; flex-wrap: wrap; gap: 1.5rem 2.5rem; justify-content: space-between;font-size: .85rem; color: var(--muted);}.footer-inner a:hover { color: var(--accent); }.footer-links { display: flex; flex-wrap: wrap; gap: .55rem 1.15rem; font-weight: 600; }.footer-links a { color: var(--fg-2); }.disclaimer { font-size: .78rem; color: var(--muted); line-height: 1.75; max-width: 35rem; opacity: .9; }@media (max-width: 900px) {.grid-4, .grid-3 { grid-template-columns: repeat(2, minmax(0, 1fr)); }.nav { display: none; }.nav.open {display: flex; flex-direction: column; align-items: stretch;position: absolute; left: 1rem; right: 1rem; top: 4.35rem;background: var(--surface); border: 1px solid var(--line);border-radius: var(--radius); padding: .5rem; box-shadow: var(--shadow-lg); gap: .1rem;}.nav.open a { padding: .72rem .9rem; }.menu-btn { display: flex; }.nav-tools { border: none; padding: 0; margin: 0; padding-top: .35rem; }}@media (max-width: 620px) {.container { gap: 2.6rem; padding: 1.9rem 1.15rem 4rem; }.grid-4, .grid-3, .grid-2 { grid-template-columns: 1fr; }.rows { border-radius: var(--radius-sm); }.row { flex-wrap: wrap; gap: .3rem .8rem; padding: .8rem 1rem; }.row .date { width: auto; }.row .title { flex-basis: 100%; }.hero .lead { font-size: 1rem; }.header-inner { padding: .75rem 1.15rem; }}
+</style>
+</head>
+<body>
+<header class="site-header">
+  <div class="header-inner">
+    <a class="brand" href="index.html">
+      <span class="brand-mark">玑</span>
+      <span class="brand-text"><b>金渐成文章整理</b><span>美股 · 港股 · 加密 · 黄金 · 楼市</span></span>
+    </a>
+    <nav class="nav" id="nav"><a href="all.html" class="active">公众号文章</a><a href="topics.html">文章主题</a><a href="notes.html">学习笔记</a><a href="portfolio.html">账户持仓</a><a href="timeline.html">投资时间线</a><a href="tools.html">工具箱</a><a href="booklist.html">书单</a><a href="about.html">关于</a>
+      <span class="nav-tools"><button class="icon-btn" id="themeBtn" title="切换主题" aria-label="切换主题">◐</button></span>
+    </nav>
+    <button class="icon-btn menu-btn" id="menuBtn" aria-label="菜单">☰</button>
+  </div>
+</header>
+<main>
+<div class="container">
+  <article class="post-wrap">
+    <div class="post-head">
+      <div class="crumb"><a href="index.html">首页</a><span class="sep">/</span><a href="all.html">公众号文章</a><span class="sep">/</span><a href="tangmumiao.html">汤姆喵的奇妙旅行</a></div>
+      <h1>重仓宽基，没那么容易：一份能真正执行的宽指配置说明书</h1>
+      <div class="post-meta"><span>2026-08-12</span><span class="dot">·</span><span>汤姆喵的奇妙旅行</span><span class="dot">·</span><span>约 25 分钟读完</span><span class="dot">·</span><a href="http://mp.weixin.qq.com/s?__biz=MzkwNTczNTU3Ng==&amp;mid=2247484236&amp;idx=1&amp;sn=58e66eb1b73219ecfd8da839bc289d51&amp;chksm=c16c703cb8eee455025c254da9fc7c5f375fbe0a4134f6dd734fa950504c19dcce4344551e70&amp;scene=27#wechat_redirect" target="_blank" rel="noopener">原文链接 ↗</a></div>
+    </div>
+<nav class="pager-bar"><a class="pg pg-prev" href="tangmumiao-2026-08-03.html"><span class="pg-lbl">← 上一篇</span><span class="pg-title">改变一生的决定，为什么我不能重仓宽指</span><span class="pg-date">2026-08-03</span></a><a class="pg pg-next" href="tangmumiao-2026-08-16.html"><span class="pg-lbl">下一篇 →</span><span class="pg-title">父母之爱子则为之计深远：我给我家宝宝建了一个终身账户</span><span class="pg-date">2026-08-16</span></a></nav>
+    <div class="prose">
+<p>宽指投资完整指南</p>
+<p>2026.08</p>
+<p>重仓宽指很简单？</p>
+<p>一套真正能“执行”</p>
+<p>的宽指配置说明书</p>
+<p>标普 · 纳指 · 投资</p>
+<p>汤姆喵的奇妙旅行</p>
+<p>📦 7 Parts</p>
+<p>👉 滑动</p>
+<p>PART 01</p>
+<p>为什么宽基只选标普和纳指</p>
+<p>确定性 &amp; 持续性</p>
+<p>PART 02</p>
+<p>该按什么比例配置</p>
+<p>科技权重旋钮</p>
+<p>PART 03</p>
+<p>什么才是最优的建仓方式</p>
+<p>底仓 &amp; 聪明定投</p>
+<p>PART 04</p>
+<p>最优的投资渠道</p>
+<p>低溢价场内</p>
+<p>PART 05</p>
+<p>不同资金的具体建仓方案</p>
+<p>先上车，再调车</p>
+<p>PART 06</p>
+<p>宽指什么时候该卖</p>
+<p>不因为涨了而止盈</p>
+<p>PART 07</p>
+<p>从理解投资，到理解人生</p>
+<p>欲速则不达</p>
+<p>这篇文章前后写了一个多星期，三易其稿。</p>
+<p>最初，我只想写一篇介绍“如何投资宽基指数”的科普文章；写着写着，它变成了一篇需要用数据和严谨回测来验证的策略文章；写到最后，它讨论的已经不只是投资，还有我们在人生的路口，该用什么策略去做选择。</p>
+<p>上一篇文章里我说过：重仓宽基指数，可能是普通人足以改变一生的决定。我当时还说，投资宽指就像把大象放进冰箱一样简单。但你我都知道，买一点宽指简单，但是重仓宽指并没有那么容易。</p>
+<p>买什么？什么时候买？买多少？跌了怎么办？涨了怎么办？持有多久？有哪些风险？</p>
+<p>这些都是无法回避的问题，不回答好这些问题，就没法建立起一套真正属于自己的，并且能够长期执行的宽指投资体系。</p>
+<p>那让我们开始吧～</p>
+<p>01</p>
+<p>PART</p>
+<p>为什么宽基只选标普和纳指</p>
+<p>确定性 &amp; 持续性</p>
+<p>市面上有几千只 ETF，能被称为宽基的也有几十只，为什么我的宽指只选标普 500 和纳斯达克 100？</p>
+<p>这不只是我一个人的选择——巴菲特写进遗嘱留给家人的是标普 500，段永平在访谈中也说这两个指数是适合普通人的选择，机哥的底仓也落在它们上。</p>
+<p>对中国大陆投资者来说，通常会被拿来比较的产品有四类：</p>
+<p>A 股宽基：沪深 300、中证 500</p>
+<p>港股成长指数：恒生科技</p>
+<p>全球大型股指数：IOO</p>
+<p>美国行业／主题 ETF：VGT、DRAM</p>
+<p>选择这么多，为什么偏偏笃定这两个？判断标准只有两条：<strong>确定性和持续性</strong>。</p>
+<p>确定性，是指这篮子公司大概率持续是全球最能赚钱的公司；持续性，是指指数机制能自动劣汰增强，让你能坦然长持。</p>
+<p>用这两条标准把上面 4 类候选都盘一遍。</p>
+<p>先看A 股宽基。上一篇文章说过，买指数其实就相当于买了一篮子公司——从赌一家公司的涨跌，变成买一个地区的发展。按 FactSet 地理收入统计，标普 500 中约 41% 的营收来自于美国以外，而纳指 100 中更高。所以买它们，相当于买全世界的发展，只不过是通过了美国这台收割机。</p>
+<p>相比之下，沪深 300 和中证 500 甚至不能完整代表中国的发展。中国相当一部分最优质的资产并不在里面：腾讯、阿里、美团、拼多多，都在美股或港股。本质上，买沪深 300 或中证 500，买到的是一篮子境内非互联网公司。</p>
+<p>回测数据也印证了这一点。2010 年至今是中国高速发展的十几年，但即使算上股息，沪深 300 的年化收益也只有3.82%，中证 500 也不过4.39%。</p>
+<p>肯定有人会问：不是说沪深 300 成立至今年化有 10% 左右、和标普 500 差不多吗？因为那个口径把指数成立后为期一年半的一个超级牛市包了进来（年化约 60%），用一段异常行情抬高了整体年化。剔除这个异常样本，剩下的就是上面那组数字。</p>
+<p>同样的，恒生科技 ETF只代表在香港上市的一部分中国企业，连中国的发展都无法完整代表，更谈不上全球。</p>
+<p>再看全球 ETF。既然买的是全球的发展，为什么不直接买 IOO 这类全球大型股 ETF？既避开纯美国敞口，也可以顺便捕捉其他国家的潜力。</p>
+<p>首先，这种全球发展并没有想象中那么全球分散。以 2026 年 7 月的数据为例，IOO 里美国公司权重仍接近 80%，本质上还是美国大型股主导；其次，多出来的那一小部分非美公司，还会引入所在国的政策、汇率等一组额外变量。</p>
+<p>选宽指的核心，是追求尽可能优秀的公司，而不是追求形式上的全球化。在美国仍将长期是世界之极的今天，我认为没有必要为了看起来分散，再引入一组自己并不需要的变量。</p>
+<p>最后再看行业 ETF。为什么不买 VGT、DRAM？相信很多人已经猜到了，机哥前段时间赚了 100% 的 ETF 就是 DRAM。这些行业 ETF 看起来更纯粹，实际上代表了更集中的行业押注，说白了就是波动高。</p>
+<p>不是这种 ETF 不能买，而是它们扛不起我们人生投资中的底仓配置，不够有确定性和持续性。所以你看机哥赚了一票后也清仓了。</p>
+<p>投资标普和纳指，对中国投资者还有一个独有的福利。以我为例，因为我在中国工作生活、置业，天生受益于中国发展。而我投资标普、纳指，又天然享受到了全球经过美国加权的增长。相当于我天然做了<strong>资产的全方位分散配置</strong>。</p>
+<p>只要投资标普与纳指，就完成了中美两大增长极的天然对冲。不管是中国发展，还是美国发展，我都能享受到相应的红利，这种好处简直是为我们量身定做的。</p>
+<p>综上，标普与纳指，一头买下全球发展的确定性与持续性，一头与我们的国内资产形成天然的分散对冲。对普通人来说，这是最好的人生投资底仓，没有之一。</p>
+<p>02</p>
+<p>PART</p>
+<p>该按什么比例配置</p>
+<p>科技权重旋钮</p>
+<p>那标普 500 和纳指 100 的比例该定多少呢？先引入一个概念：重叠度。</p>
+<p>标普 500 和纳指 100 有88 只成分股是重叠的。这 88 只股票占纳指 100 约92.2%的权重，占标普 500 约54.5%的权重。</p>
+<p>而且从 2001 年以来，这个重叠度在逐年升高：2001 年只有 15%，2020 年到了 42%，今年已经是 54%。这一方面说明宽指在不断“劣汰增强”，另一方面也说明——标普正在纳指化。</p>
+<p>所以，标普 500 和纳指 100 并不是两种资产的分散配置。它们更像同一个东西：<strong>美国大盘股，外加一个科技权重旋钮</strong>。</p>
+<p>100% 纳指＝科技权重拉满；</p>
+<p>7：3、5：5、3：7＝不同档位的科技超配；</p>
+<p>100% 标普＝中性的美国大盘股。</p>
+<p>把旋钮拧到哪一档，取决于你自己。一般来说：现金流越充裕、年纪越轻、能承受的最大回撤越大，就可以把纳指的比例调得越高；反之则多配标普。</p>
+<p>其中最关键的变量是主业的现金流。如果主业收入能持续为投资账户补充弹药，就有底气多配纳指，去追求更高的长期收益。</p>
+<p>我自己的选择是<strong>5：5，各配一半</strong>。而给我女儿配的是 100% 纳指——她的持有期比我长得多，回撤对她来说只是过程，不是结果。</p>
+<p>03</p>
+<p>PART</p>
+<p>什么才是最优的建仓方式</p>
+<p>底仓 &amp; 聪明定投</p>
+<p>自媒体圈流传着一句话：散户想赚钱，最好的策略就是“存钱等大跌”。那这句话在宽指上是不是也是适用的呢？</p>
+<p>在标普 500 创新高、纳指 100 逼近新高的今天，讨论这个问题特别应景。</p>
+<p>我对过去 30 年做了回测，以滚动 3 年的高点为基准：标普 500 有 10% 的时间在创新高，纳指 100 有 10.7%；而有70.2%的日子，标普 500 在距前高 10% 的跌幅以内震荡，纳指 100 的这个比例是65%。</p>
+<p>要知道，这 30 年可是包含了 2000 年互联网泡沫、08 年次贷危机、20 年疫情和 22 年加息的 30 年。简单一句话：<strong>标普和纳指长期向上，大部分时间都在新高附近震荡</strong>。</p>
+<p>所以“存钱等大跌”往往会等来一个尴尬的局面：大跌真跌到底的位置，比你开始等的那天还高。纳指这种波动大的还好，以滚动 3 年高点为基准，平均 2 年就有一次 20% 以上的回调，等一等还有指望；标普这种不怎么回调的，19% 以上的回调动辄一等就是 4 年，黄花菜都凉了。</p>
+<p>于是另一派自媒体告诉大家：最好的方式是一次性买入，期望最高。这个观点没有错，数学期望上确实如此。但人不是绝对理性的：<strong>期望最高不等于你能拿到的收益最高</strong>。一旦买在山顶，就要承受多年浮亏，多数普通人扛不住，扛不住就会在最深处割肉，期望再高也归零。</p>
+<p>同样的，把手头这笔钱均分成12 个月定投，心理上最容易接受，但如果遇上股市一路长虹，大比例资金在初期空转，收益会大幅跑输一次性买入。</p>
+<p>于是我做了第三种回测：以 SGOV 当前约 3.58% 的收益率作为未投入现金的底仓收益，以历史上每个新高日作为建仓起点，对比一次性买入、12 个月均分定投、先投一笔＋聪明定投三种方案。结论是：先投一笔＋聪明定投，期望只比一次性买入低一点点（约 0.12% 年化），但在最坏情况下明显改善持仓体验。</p>
+<p>到这里结论就清晰了：<strong>先不择时地一次性投入 30%，剩下 70% 在 12 个月内投完；期间一旦出现下跌，就加速投入剩余资金</strong>——也就是机哥说的聪明定投：跌得多时多投点，跌得少时少投点。</p>
+<p>这块比较有意思，做个小结：</p>
+<p>一次性买入期望最高，但买在山顶的痛感也最大</p>
+<p>标普更适合直接投，纳指可以留一部分仓位等回调——但等是有期限的等，不是无限等</p>
+<p>一次性买入与“先投一笔＋聪明定投”，期望差距很小</p>
+<p>哪怕是最笨的12 个月均分定投，也远好于中断计划或空仓硬等</p>
+<p>最优方案不是数学最优，是你能舒服地执行到底的尽快投入的方案</p>
+<p>大跌是超额收益的来源；最大的风险来自计划中断，而不是大跌本身</p>
+<p>满仓后常态保留一个独立的 30% 现金垫（与建仓资金互不挪用），遇上 40% 的回撤你也睡得着</p>
+<p>04</p>
+<p>PART</p>
+<p>最优的投资渠道</p>
+<p>低溢价场内</p>
+<p>前 3 个部分我们在讨论“怎么投”，从这一部分开始，我们将开始切实地落实我们的建仓计划。作为中国大陆居民，能买到标普和纳指的渠道有四类：美国注册 ETF、爱尔兰注册 ETF、国内场内 QDII、国内场外 QDII。先看对比：</p>
+<h3>宽指购买渠道</h3>
+<p>渠道</p>
+<p>典型标的</p>
+<p>费率</p>
+<p>税负</p>
+<p>其他限制</p>
+<p>实测总损耗</p>
+<p>美国注册 ETF</p>
+<p>标普 SPY、VOO纳指 QQQ、QQQM</p>
+<p>0.03～0.20%</p>
+<p>股息税 20%（美国预扣 10%＋境内补征）资本利得税 20%遗产税最高 40%</p>
+<p>外汇限制</p>
+<p>0.15～0.45%</p>
+<p>爱尔兰注册 ETF</p>
+<p>标普 CSPX、SPYL、I500纳指 CNDX、ANAU、EQQS</p>
+<p>0.07～0.33%</p>
+<p>股息预提 15%（基金层面）资本利得税 20%无遗产税</p>
+<p>外汇限制</p>
+<p>0.2～0.4%</p>
+<p>场内 QDII</p>
+<p>博时标普 500 ETF（513500）国泰纳斯达克 100（513100）</p>
+<p>0.60～1%</p>
+<p>股息预提 10%暂免资本利得税无遗产税</p>
+<p>溢价率</p>
+<p>0.5～2.1%</p>
+<p>场外 QDII</p>
+<p>建信纳斯达克 100 指数 A</p>
+<p>0.60～1.30%</p>
+<p>股息预提 10%暂免资本利得税无遗产税</p>
+<p>限购</p>
+<p>2.1～2.9%</p>
+<p>先抛大家最关心的结论：</p>
+<p><strong>境内渠道其实是被低估的</strong>：在境外资本利得开征 20%、而境内暂免的当下，低溢价的优质场内 QDII是综合损耗最低的选择</p>
+<p>必须走境外的，<strong>爱尔兰注册ETF全面优于美国注册ETF</strong></p>
+<p><strong>场内溢价小于 2% 时，买跟踪好的场内 ETF；溢价超过 2%，转为定投场外 QDII</strong>，等溢价回落后再用“现金桥”（场内低溢价时买入、同步赎回场外，避免切换期间踏空）换回场内</p>
+<p>资金量大、定投消化不了的，先上车后换车，比硬等强</p>
+<p>先说美国注册 ETF。它费率最低，但税负最重：20% 股息税、20% 资本利得税，以及最高 40% 的遗产税。前两个后面再算账，单说遗产税——宽指是以人生为尺度的投资，复利和时间的魔法意味着这笔钱越到最后越大，40% 绝不是一个小数，绝不应该留这样的风险敞口。</p>
+<p>如果你和我一样持有 VOO 和 QQQM，可以在盈透直接卖出、换成爱尔兰注册的累积型 UCITS，遗产税瞬间清零。当然，卖出会把浮盈变成实盈、触发 20% 资本利得税。浮盈还小的，趁早换；浮盈已经很大的，需要自己权衡税负和遗产税。</p>
+<p>爱尔兰注册 ETF费率略高，但没有遗产税；且主流标的都是累积型（分红不派发、自动再投入），股息只在基金层面被美国预提 15%，综合损耗和美国注册基本打平。跟踪误差方面，美国和爱尔兰的 ETF 几乎没有差别。所以境外渠道爱尔兰 UCITS 往往是更省心的默认选择。</p>
+<p>国内场内 QDII 暂免资本利得税和股息税，只在基金层面被美国预扣 10% 股息——单看税负，它是四类里最轻的。它最大的问题是溢价。8 月 7 日，有 10 只场内纳指 ETF 溢价率超过 10%，市场热情可见一斑。</p>
+<p>这里算一笔很多人没算过的账：<strong>如果溢价为零，场内 QDII 其实比境外 ETF 更划算</strong>。像 513100 这种跟踪优秀的，每年实际落后境外 ETF 仅 0.8～1 个百分点；但境外 ETF 离场时要交 20% 的资本利得税。假设纳指年化 20%，境外渠道要靠每年那 1 个点的优势追回离场时的 20% 税负，需要持有约26 年不动，年化 10% 约 20 年。</p>
+<p>但如果溢价较高，情况就完全不同了。有些人说，我买的时候有溢价、卖的时候也有溢价，不是一样吗？这句话隐含了一个假设：溢价会一直存在。但请我们思考，我们为什么买宽指，本身不就是因为宽指有确定性吗？</p>
+<p>场内溢价率只取决于两样东西：国家开给 QDII 的外汇额度，和市场情绪。这两样恰恰都毫无确定性。把托付终身的确定性资产，挂接在不确定的因素上，违背了我们买宽指的初心。</p>
+<p>而<strong>高溢价必然回落，因为价格会波动、情绪会退潮，甚至外汇也可能会放开额度</strong>。</p>
+<p>✦ 补充信息</p>
+<p>在本文校准的8月12日，已经有几家场内基金的溢价率回落到10%以内了，充分证明我此言不虚。</p>
+<p>所以溢价高时，优先买国内场外 QDII 基金。场外的问题一是限购，二是基金要留 5～10% 现金应对赎回、这部分钱不产生指数收益，所以跟踪损耗是四类里最大的。但它免溢价、免资本利得税、免股息税，是优质的避风港。</p>
+<p>场外QDII 之间差距也很大：国泰这类常年跟踪优秀，也有一些渠道常年跟不上。在当下限购严重的时期，策略是先上车，后换车。先买能买到的，别为了等最优跟踪而空仓。</p>
+<p>不要让渠道问题反噬投资本身。为了省一点费率苦等空仓，是典型的捡了芝麻丢了西瓜：宽指最大的收益来源是20 年的坚持，而不是那零点几个点的费率。</p>
+<p>最终总结一下：<strong>投资宽指的第一原则是先上车</strong>，第二原则是按计划执行不动摇，渠道优化排第三。更好的费率当然要争取，但永远不值得为它违反前两条。另外时刻记得上一部分的话：一次性买入期望最高，但跌起来也最疼，给自己留好安全垫。</p>
+<p>在当前“境内暂免资本利得税”的窗口期，各渠道优先级如下：</p>
+<p>低溢价优质场内 QDII ＞ 爱尔兰 ETF ＞ 普通场外 QDII ＞ 高损耗场外 QDII ＞ 高溢价场内 QDII</p>
+<p>05</p>
+<p>PART</p>
+<p>不同资金的具体建仓方案</p>
+<p>先上车，再调车</p>
+<p>上一部分已经讲清了渠道的优劣，这一部分只回答一个问题：手里有不同尺度的资金，方案具体怎么落地。</p>
+<p>目前国内场外 QDII 的直销每日申购额度大致是（截至 8 月 12 日发文时，额度随时会变）：</p>
+<p>标普 500：博时 1 只，每日 100 元</p>
+<p>纳斯达克 100：华安 200、大成 200、广发 100、南方 200、招商 200、建信 20W零100 共 6 只，扣除建信每日合计 900 元</p>
+<p>两者相加，<strong>每天约 1000 元</strong>，按一年 250 个交易日算，每月平均能投入约20833 元。这个额度其实已经不算低——对大多数人来说，关键是根据自己的资金规模，选一套真正能长期执行的方案。下面分三种情况。</p>
+<p>只有每月结余，没有存量资金</p>
+<p>这种情况最简单，全部走场外定投，先把现有额度用满，持续积累仓位。等场内溢价回落到 2% 以内，再通过赎回再买入把部分仓位逐步切到场内。</p>
+<p>不要因为场内的收益高，就在高溢价时急着上场内。溢价超过 2%，我就不会考虑场内建仓。要知道，场外的长期损耗最高才比场内多 1～2 个点。不要为了多赚 2%，去冒亏掉 10% 的风险。</p>
+<p>除了月度结余，还有一笔存量资金</p>
+<p>常规定投额度消化不了的部分，可以先买入建信 C 过渡：它的优势是额度高，单日可申购 10 万元；缺点是跟踪效果一般。</p>
+<p>你可以把它当作摆渡车，等跟踪更好的产品有额度了、或后续定投资金不足时，再逐步卖出建信 C，把资金转进主力产品。</p>
+<p>考虑到建信 C 申购费为 0，赎回费持有 ≥30 天为 0，可能会有 0.3%～0.5% 踏空／滑点成本（可以用现金桥消除）。实际上真正影响是否需要建信 C 的，主要就是建仓速度。</p>
+<p>之前说过一次性买入期望最高，但并不等于收益最高，一旦下跌吃个大面。所以我还是建议起手一次性投 30%、下跌触发时加速投入、12 个月内收尾。</p>
+<p>那根据这个建仓计划，<strong>存量资金超过7 万，起手 30% 的那一笔就已经装不下了，就可以考虑建信 C</strong>；越多越可以考虑先放到建信 C 中避免踏空。记住，渠道服务节奏，节奏服从计划，别让顺序反过来。</p>
+<p><strong>已经持有外汇或美元资产的，直接买爱尔兰注册的 UCITS ETF</strong>。对非美国居民，这本就是教科书级别的标准答案，欧洲、新加坡、香港都是这么玩的。</p>
+<p>对中国大陆居民，虽然要缴 20% 资本利得税和 15% 的股息预提，它也稳定优于场外 QDII。未来即使溢价回落，长久来看也和低溢价的优质场内 QDII 互有胜负（时间越长跟踪越能跑赢税负）。一句话：本就有美元的，不必绕回国内渠道。</p>
+<p>最后再额外多说一句<strong>合成，这个国内提及的很少，但是其实是很成熟的方案</strong>。</p>
+<p>合成是指 ETF 不直接买入指数成分股，而是持有一篮子抵押资产，并与投行签订总收益互换合约，由投行支付指数的全部回报。根据美国税法 871(m) 的豁免条款，合成 ETF 可以完全避开 15% 的美股股息预提税。在欧洲，购买标普合成早已是标准操作——法国人的免税账户 PEA 甚至只能靠合成结构装入美股指数。</p>
+<p>I500 是贝莱德（iShares）于 2020 年 9 月推出的标普 500 合成 ETF，目前规模已达约 180 亿美元。贝莱德在已经坐拥 CSPX 的情况下仍然亲自下场发行合成版本，充分证明了这条路线的潜力；Invesco 的同类产品（SPXS／SPXP）规模更是接近400 亿美元，是全球最大的合成 ETF。</p>
+<p>合成尽管不直接持股，理论上存在互换对手方风险，但实际风险极低：UCITS 规则强制单一对手方未抵押敞口不得超过净值 10%，互换频繁重置结算，实际敞口通常不足 1%，且基金始终持有可随时变现的抵押篮子——2008 年雷曼倒闭时，欧洲合成基金也没有出现持有人本金损失。</p>
+<p><strong>通过使用合成，可将标普年化收益再推高约0.2 个百分点</strong>（1.3% 股息率 × 15% 税差），<strong>纳指约 0.1 个百分点</strong>（股息率仅约 0.8%），且这个优势会随持有年限永久复利。</p>
+<p>总之，我认为没有必要为 CSPX／CNDX 多出来的流动性和期权工具付费。如果选实物，建议</p>
+<p>实物ETF：标普 SPYL（0.03%）、纳指 ANAU（0.14%）</p>
+<p>如果选合成，建议</p>
+<p>标普 I500、SPXS（0.05%）、纳指 EQQS（0.20%）</p>
+<p>✦ 补充信息</p>
+<p>在盈透购买时注意选择伦敦证交所（LSE）挂牌、USD 计价的条目，避免多付一道换汇差。伦敦证交所连续交易时段：夏令时为北京时间 15:00–23:30，冬令时 16:00–00:30；开盘后头 15–30 分钟点差最宽，建议避开。</p>
+<p>无论资金多少，都要保留安全垫。标普 500 大约每 4 年就会出现一次接近或超过 20% 的回调，纳斯达克 100 更是每 2 年左右就来一次。也就是说，在持有周期里，大跌不仅会来，还有可能来好几次。</p>
+<p>所以建仓时要未虑胜、先虑败。人不是绝对理智的动物，安全垫是为了市场真正大跌时，你既不会错失机会，也不会被迫割肉。</p>
+<p>不同资金规模对应的具体渠道可以不同，但核心原则却一直不变：</p>
+<p><strong>先上车，再调车；不追高，不 FOMO</strong>。</p>
+<p>方向正确前提下的长期坚持，远比一开始就追求“完美方案”更重要。</p>
+<p>06</p>
+<p>PART</p>
+<p>宽指什么时候该卖</p>
+<p>不因为涨了而止盈</p>
+<p>买了宽指之后，很多人都会有一个共同的问题：我要持有一辈子吗？涨到什么时候应该止盈？</p>
+<p>我的答案是：不要因为涨了很多而止盈。</p>
+<p>止盈的背后逻辑是当前市场高估了，接下来很可能要跌。但很遗憾，我们并没有做出这个判断的能力，不然我们早该去做择时了。而且止盈是双重难题：不仅要在高点卖对一次，还得在低点买回来再对一次。两次都对才算赢，错一次就是踏空。</p>
+<p>Vanguard 曾经做过研究，市场涨幅最好的日子往往紧挨着最坏的日子。最剧烈的反弹，常常就发生在市场最令人恐惧的时候。止盈离场看似躲过了下跌，也可能同时错过随后的上涨。</p>
+<p>所以我不是不想止盈做大收益，而是我清楚地知道，我的能力不足以让我稳定做对两次判断。</p>
+<p>何况宽指代表人类经济的长期发展，理论上不存在涨到头的止盈时限。但不因为上涨止盈，并不代表不能卖。有三种情况需要卖出宽指。</p>
+<p>生活需要钱</p>
+<p>投资的目的不是让账户里的数字无限增长，而是让自己和家人拥有更自由的生活。买房、养老、子女教育都需要钱，这时卖出才是完成资产配置原有的任务。</p>
+<p>风险承受能力发生了变化</p>
+<p>年轻时收入稳定，没有大额负债，就可以承受更高的纳指比例。反之，被 fire 了、临近退休、生了大病，就要降低自己的风险敞口，调整股票和债券的比例。</p>
+<p>组合严重偏离了目标比例</p>
+<p>以我为例，我的标普和纳指是 5：5 配置，如果纳指大涨或者大跌，导致比例失衡了，例如 3：7，这时就应该在固定时刻做比例的再平衡。本质上是将组合承担的风险拉回到最初的设定。</p>
+<p>所以，宽指投资的原则不是永远不卖，而是不因为涨了很多而卖：</p>
+<p>生活需要时，按计划取用</p>
+<p>风险承受能力下降时，主动降低风险</p>
+<p>组合严重偏离目标时，按规则再平衡</p>
+<p>07</p>
+<p>PART</p>
+<p>从理解投资，到理解人生</p>
+<p>欲速则不达</p>
+<p>如果你不懂投资，那你应该去买标普；但你真的买了标普，说明你又懂了投资</p>
+<p>段永平说：如果你不懂投资，那你应该去买标普；但你真的买了标普，说明你又懂了投资。大道说话就是这么玄妙，越品越有味道。承认自己不懂，恰恰是懂的开始；放弃战胜市场，反而站在了大多数试图战胜市场的人前面。</p>
+<p>投资中不求满、不求快、不求全，重在应对——人生何尝不是？我过去常常用力过猛，不止在投资上，工作和写公众号也一样：熬个大夜，只为尽可能快地赶出来，以为快本身就是产出。</p>
+<p>但这一篇我写了差不多十天。</p>
+<p>十天里，在一遍遍回顾中，我对宽指的理解被反复推翻又反复重建：一开始只知道有爱尔兰注册的 ETF，后来发现还有费率更低的产品，再后来发现居然还有合成结构，连股息预扣税都可以不用交；一开始只知道场内溢价高得离谱，后来发现溢价低的时候其实很划算；一开始只知道场外有限额，后来发现那个额度其实足够大多数人定投一辈子。</p>
+<p>每一层都以为我懂了，但翻过去才知道还有下一层。<strong>快，是赶不出这些的</strong>。</p>
+<p>在今天早上，当我在验证不同 ETF 跟踪度的时候，看到纳指 ETF 过去三年的收益是99%，我又被触动了一次——什么都不做，躺着，三年翻倍。我心中一阵说不清的味道涌了上来。过去我研究过的技巧、盯过的个股，加起来跑得赢这个数字了吗？</p>
+<p>什么是快，什么是慢？我们到底在追求什么？我们嘲笑那头只盯着眼前胡萝卜的驴子——可低头看看自己每天固定在两点一线之间，我自己又何尝不是那头驴呢？</p>
+<p>武当山上，众门派兵临城下，张三丰当场教张无忌太极拳。教完问他：招式还记得多少？张无忌说：都忘了。张三丰说：忘了，就对了。</p>
+<p>无招胜有招啊。忘掉的是招式，留下的是至理。投资研究到最后，那些做 T、选股的招终会淡忘，留在手上的不过几条原则：</p>
+<p>承认不懂</p>
+<p>接受小满胜万全</p>
+<p>凡事留好应对</p>
+<p>这些原则看起来是在退让，实则是在给自己留余地。</p>
+<p>写到这里我才发现，这篇文章看似是在研究标普和纳指，其实是在回答另一个问题：<strong>人的这一生，我们究竟要把有限的时间和精力投向哪里？</strong></p>
+<p>我常说，不要关注很多杂七杂八的事，会变得不幸。</p>
+<p>其实指数投资最打动我的地方，是把企业经营交给优质公司，把优胜劣汰交给指数，把复利交给时间，把预测和决策要消耗的精力，还给生活。投资，本就是为了让自己和家人拥有更自由的生活；如果每天都被涨跌牵着走，那就是失去了本心。</p>
+<p><strong>也许所谓的懂</strong>，并不是真的找到了正确的答案，而<strong>是接受自己有限、恐惧与贪婪，放下欲望，只走大路；在自己能力范围之内，做长期正确的事情</strong>。</p>
+<p>投资如此，人生亦然。</p>
+<p>我是 <strong>汤姆喵｜玑哥的拥趸，喜欢用理性的视角拆解人生的真谛</strong>，欢迎关注～。</p>
+<p>既然看到这里了，如果觉得有用，随手点个赞、转发、推荐三连吧。</p>
+<p>点赞</p>
+<p>转发</p>
+<p>推荐</p>
+<p>THANKS FOR READING</p>
+    </div>
+    <section class="comments">
+      <div class="comments-head"><h2>读者留言</h2><span>共 49 条 · 累计 514 赞</span></div>
+            <div class="cmt-list">
+<div class="cmt"><div class="cmt-head"><span class="cmt-name">汤姆喵的奇妙旅行</span><span class="cmt-region">浙江</span><span class="cmt-time">08-12 08:48</span><span class="cmt-like">赞 36</span></div><div class="cmt-text"><p>老规矩，玑哥文章的网盘和分身都已经更新到最新了，后台私信回复“网盘”“分身”自取</p></div></div>
+<div class="cmt"><div class="cmt-head"><span class="cmt-name">逢云则吉</span><span class="cmt-region">北京</span><span class="cmt-time">08-12 08:33</span><span class="cmt-like">赞 16</span></div><div class="cmt-text"><p>这个界面阅读起来好舒服，耳目一新！</p></div></div>
+<div class="cmt is-author"><div class="cmt-head"><span class="cmt-name is-author">汤姆喵的奇妙旅行</span><span class="cmt-time">08-12 08:47</span><span class="cmt-like">赞 32</span></div><div class="cmt-text"><p>这篇文章 8500 个字，不用个样式我自己都看不下去了，太累了😂，只好搞个样式了</p></div></div>
+<div class="cmt"><div class="cmt-head"><span class="cmt-name">磊</span><span class="cmt-region">陕西</span><span class="cmt-time">08-12 09:47</span><span class="cmt-like">赞 7</span></div><div class="cmt-text"><p>第一次听说这个爱尔兰ETF</p></div></div>
+<div class="cmt is-author"><div class="cmt-head"><span class="cmt-name is-author">汤姆喵的奇妙旅行</span><span class="cmt-time">08-12 09:54</span><span class="cmt-like">赞 30</span></div><div class="cmt-text"><p>可以针对性的再研究一下，我更想给大家带来一个口子，大家就能更好的研究。这块国内资料比较少，注意要看英文资料。有一个网站叫做 Just ETF，可以着重看一下。</p></div></div>
+<div class="cmt"><div class="cmt-head"><span class="cmt-name">阳光</span><span class="cmt-region">广东</span><span class="cmt-time">08-12 09:18</span><span class="cmt-like">赞 7</span></div><div class="cmt-text"><p>啧啧啧！ 点开文章的第一眼就被这个界面给雷到了！ 不愧是课代表[强][强][强]  另外文章内容也很不错 能够引起深度思考。</p></div></div>
+<div class="cmt is-author"><div class="cmt-head"><span class="cmt-name is-author">汤姆喵的奇妙旅行</span><span class="cmt-time">08-12 09:27</span><span class="cmt-like">赞 27</span></div><div class="cmt-text"><p>我也是拿了“甲木未来派”开源的一个公众号排版的 skill，魔改的工具。这个工具我稍后也整理一下开源出来。AI 时代真是太好了，开源永生。这个就是机哥说的，大家一起努力，把一个 80 分的东西做到 95 分。</p></div></div>
+<div class="cmt"><div class="cmt-head"><span class="cmt-name">嗯哼</span><span class="cmt-region">江西</span><span class="cmt-time">08-12 09:03</span><span class="cmt-like">赞 5</span></div><div class="cmt-text"><p>博时好像买不了了[捂脸]</p></div></div>
+<div class="cmt is-author"><div class="cmt-head"><span class="cmt-name is-author">汤姆喵的奇妙旅行</span><span class="cmt-time">08-12 09:35</span><span class="cmt-like">赞 23</span></div><div class="cmt-text"><p>我刚看了，还可以买。注意：要通过博时基金 APP 买，只有直销渠道。不能在微众银行或者支付宝上买。</p></div></div>
+<div class="cmt is-author"><div class="cmt-head"><span class="cmt-name is-author">汤姆喵的奇妙旅行</span><span class="cmt-time">08-12 09:35</span><span class="cmt-like">赞 11</span></div><div class="cmt-text"><p>我刚才看了，还可以买。但是要下载博时基金 APP 买，直销渠道。不能在微众银行或者支付宝上买。</p></div></div>
+<div class="cmt"><div class="cmt-head"><span class="cmt-name">布布思语</span><span class="cmt-region">江苏</span><span class="cmt-time">08-12 09:42</span><span class="cmt-like">赞 6</span></div><div class="cmt-text"><p>喵哥，对于没有美元需求的人，就国内折腾折腾怎么样？ 另外我还想把计划再简化[捂脸]： 场外每月工资一定比例坚持定投， 场内用流动资金进行聪明定投， 省去来回切换。。不知道可行不？</p></div></div>
+<div class="cmt is-author"><div class="cmt-head"><span class="cmt-name is-author">汤姆喵的奇妙旅行</span><span class="cmt-time">08-12 09:47</span><span class="cmt-like">赞 20</span></div><div class="cmt-text"><p>国内折腾挺好的。我们家我老婆就是负责国内折腾，要不然钱都出去了，国内要是有个急事，不好办。场内你不如等溢价为 0 的时候多买，其他的时候等着，实在怕踏空，聪明定投也可以。</p></div></div>
+<div class="cmt"><div class="cmt-head"><span class="cmt-name">小勤</span><span class="cmt-region">广东</span><span class="cmt-time">08-12 09:01</span><span class="cmt-like">赞 19</span></div><div class="cmt-text"><p>我是去年11月份左右了解到纳指，偶然听了CLEC的理念“买纳指100，有钱就买，打死不卖”的理念电到了，开启了投资学习之旅。而后有幸看了机哥公号，认真研究过机哥理念，还在今年4月买了微软。但买了之后发现自己每天晚上九点半就心心念念想看盘，也不会卖，我在微软上没赚到什么钱。如果我那时买指数，什么都不做，我现在可能有20个点的收益了，遂果断认错，乖乖拿指数，也不再关心股价了，整个人神清气爽。考虑到明年会定居香港，我买的是港股上追踪QQQ的指数（3086或2834），有一个优势是鹅养大之后，可以质押给银行取现。</p></div></div>
+<div class="cmt is-author"><div class="cmt-head"><span class="cmt-name is-author">汤姆喵的奇妙旅行</span><span class="cmt-time">08-12 09:41</span><span class="cmt-like">赞 8</span></div><div class="cmt-text"><p>作者赞过</p></div></div>
+<div class="cmt"><div class="cmt-head"><span class="cmt-name">lkjg</span><span class="cmt-region">陕西</span><span class="cmt-time">08-12 09:06</span><span class="cmt-like">赞 4</span></div><div class="cmt-text"><p>有个担忧，无论境内还是境外买，内地持有是否会一直安全？毕竟打算长投。</p></div></div>
+<div class="cmt is-author"><div class="cmt-head"><span class="cmt-name is-author">汤姆喵的奇妙旅行</span><span class="cmt-time">08-12 09:21</span><span class="cmt-like">赞 15</span></div><div class="cmt-text"><p>这肯定不用担忧，发生概率太低，而且担忧了也没用。</p></div></div>
+<div class="cmt"><div class="cmt-head"><span class="cmt-name">清风</span><span class="cmt-region">甘肃</span><span class="cmt-time">08-12 09:05</span><span class="cmt-like">赞 5</span></div><div class="cmt-text"><p>没有盈透，爱尔兰和合成ETF就没办法了吧？</p></div></div>
+<div class="cmt is-author"><div class="cmt-head"><span class="cmt-name is-author">汤姆喵的奇妙旅行</span><span class="cmt-time">08-12 09:08</span><span class="cmt-like">赞 15</span></div><div class="cmt-text"><p>只要能开通全球交易的券商都可以。我的盈透也不是默认开通的，还得我申请开通一下。不过申请的极快就是了。</p></div></div>
+<div class="cmt"><div class="cmt-head"><span class="cmt-name">耕种小生</span><span class="cmt-region">河南</span><span class="cmt-time">08-12 09:20</span><span class="cmt-like">赞 7</span></div><div class="cmt-text"><p>同是机哥的粉丝，果然看你的文章很舒服，跟自己的思路一致，佩服[强]</p></div></div>
+<div class="cmt is-author"><div class="cmt-head"><span class="cmt-name is-author">汤姆喵的奇妙旅行</span><span class="cmt-time">08-12 09:32</span><span class="cmt-like">赞 14</span></div><div class="cmt-text"><p>典型的同频共振了[呲牙]</p></div></div>
+<div class="cmt is-author"><div class="cmt-head"><span class="cmt-name is-author">汤姆喵的奇妙旅行</span><span class="cmt-time">08-12 09:45</span><span class="cmt-like">赞 9</span></div><div class="cmt-text"><p>同源共振了属于是</p></div></div>
+<div class="cmt"><div class="cmt-head"><span class="cmt-name">Rough</span><span class="cmt-region">重庆</span><span class="cmt-time">08-12 09:07</span><span class="cmt-like">赞 3</span></div><div class="cmt-text"><p>请问你买机哥推荐的港险了没</p></div></div>
+<div class="cmt is-author"><div class="cmt-head"><span class="cmt-name is-author">汤姆喵的奇妙旅行</span><span class="cmt-time">08-12 09:20</span><span class="cmt-like">赞 14</span></div><div class="cmt-text"><p>回答过了，准备 11 月去。</p></div></div>
+<div class="cmt"><div class="cmt-head"><span class="cmt-name">刘相元</span><span class="cmt-region">上海</span><span class="cmt-time">08-12 09:04</span><span class="cmt-like">赞 14</span></div><div class="cmt-text"><p><img src="http://mmbiz.qpic.cn/sz_mmbiz_jpg/dx4Y70y9XcuChpsybZt98veQReBgRKGoSxXPC2lffarUppyh4brQyOFiaNhelPibkicptS3YFauL2GVMjjDGJVA1UsRVkFBVprKMjhE9mfNg3w/640" alt="" loading="lazy" referrerpolicy="no-referrer"></p></div></div>
+<div class="cmt is-author"><div class="cmt-head"><span class="cmt-name is-author">汤姆喵的奇妙旅行</span><span class="cmt-time">08-12 09:09</span><span class="cmt-like">赞 4</span></div><div class="cmt-text"><p>可以，真棒👍</p></div></div>
+<div class="cmt"><div class="cmt-head"><span class="cmt-name">鲁班3000h+</span><span class="cmt-region">江苏</span><span class="cmt-time">08-12 09:37</span><span class="cmt-like">赞 4</span></div><div class="cmt-text"><p>喵哥，场外的QD像支付宝微信这些每天只能买10块吧，而且大多停售了，您说的一两百的额度是要到对应的基金公司去买嘛</p></div></div>
+<div class="cmt is-author"><div class="cmt-head"><span class="cmt-name is-author">汤姆喵的奇妙旅行</span><span class="cmt-time">08-12 09:48</span><span class="cmt-like">赞 13</span></div><div class="cmt-text"><p>是的，要去直售 APP</p></div></div>
+<div class="cmt"><div class="cmt-head"><span class="cmt-name">哈哈哈</span><span class="cmt-region">江西</span><span class="cmt-time">08-12 08:53</span><span class="cmt-like">赞 8</span></div><div class="cmt-text"><p>纳指etf3年直接翻倍，还要啥自行车</p></div></div>
+<div class="cmt is-author"><div class="cmt-head"><span class="cmt-name is-author">汤姆喵的奇妙旅行</span><span class="cmt-time">08-12 08:57</span><span class="cmt-like">赞 13</span></div><div class="cmt-text"><p>确切的说，是从 23 年 8 月 10 日-今天的统计</p></div></div>
+<div class="cmt"><div class="cmt-head"><span class="cmt-name">布布思语</span><span class="cmt-region">江苏</span><span class="cmt-time">08-12 08:42</span><span class="cmt-like">赞 7</span></div><div class="cmt-text"><p>先评论，终于等到你，再看文章学习[偷笑]</p></div></div>
+<div class="cmt is-author"><div class="cmt-head"><span class="cmt-name is-author">汤姆喵的奇妙旅行</span><span class="cmt-time">08-12 08:55</span><span class="cmt-like">赞 12</span></div><div class="cmt-text"><p>接到了太多的催稿，希望能有帮助[憨笑]</p></div></div>
+<div class="cmt"><div class="cmt-head"><span class="cmt-name">D斌</span><span class="cmt-region">广东</span><span class="cmt-time">08-12 10:11</span><span class="cmt-like">赞 4</span></div><div class="cmt-text"><p>不懂的先问AI，一圈下来还是先老实买国内的QDII-A，其次是voo,qqq了。</p></div></div>
+<div class="cmt is-author"><div class="cmt-head"><span class="cmt-name is-author">汤姆喵的奇妙旅行</span><span class="cmt-time">08-12 10:54</span><span class="cmt-like">赞 11</span></div><div class="cmt-text"><p>你个假粉丝，用了个假 AI，文章根本不是这么说的</p></div></div>
+<div class="cmt"><div class="cmt-head"><span class="cmt-name">D斌</span><span class="cmt-region">广东</span><span class="cmt-time">08-12 12:32</span><span class="cmt-like">赞 6</span></div><div class="cmt-text"><p>回复 汤姆喵的奇妙旅行: 哈哈，表述没讲明白。资金主要在国内的人，优先QDII，操作最简单；其次美股VOO。没有IB账户、英文薄弱的话，爱尔兰ETF操作门槛太高</p></div></div>
+<div class="cmt is-author"><div class="cmt-head"><span class="cmt-name is-author">汤姆喵的奇妙旅行</span><span class="cmt-time">08-12 13:25</span><span class="cmt-like">赞 3</span></div><div class="cmt-text"><p>回复 D斌: 你说的也有道理</p></div></div>
+<div class="cmt"><div class="cmt-head"><span class="cmt-name">浩伟</span><span class="cmt-region">上海</span><span class="cmt-time">08-12 08:57</span><span class="cmt-like">赞 9</span></div><div class="cmt-text"><p>还有一个神奇的通道，南向通</p></div></div>
+<div class="cmt is-author"><div class="cmt-head"><span class="cmt-name is-author">汤姆喵的奇妙旅行</span><span class="cmt-time">08-12 09:06</span><span class="cmt-like">赞 4</span></div><div class="cmt-text"><p>这个能买纯纳指 ETF 吗？</p></div></div>
+<div class="cmt"><div class="cmt-head"><span class="cmt-name">浩伟</span><span class="cmt-region">上海</span><span class="cmt-time">08-12 09:14</span><span class="cmt-like">赞 11</span></div><div class="cmt-text"><p>回复 汤姆喵的奇妙旅行: 有 易方达(香港]纳斯达克100指数基金(非上市类别]A(累积)-美元</p></div></div>
+<div class="cmt is-author"><div class="cmt-head"><span class="cmt-name is-author">汤姆喵的奇妙旅行</span><span class="cmt-time">08-12 09:51</span><span class="cmt-like">赞 9</span></div><div class="cmt-text"><p>回复 浩伟: 大湾区还是太超前了。</p></div></div>
+<div class="cmt"><div class="cmt-head"><span class="cmt-name">happier&amp;healthier</span><span class="cmt-region">北京</span><span class="cmt-time">08-12 11:11</span><span class="cmt-like">赞 4</span></div><div class="cmt-text"><p>好像只有大湾区的人能买吧</p></div></div>
+<div class="cmt is-author"><div class="cmt-head"><span class="cmt-name is-author">汤姆喵的奇妙旅行</span><span class="cmt-time">08-12 11:13</span><span class="cmt-like">赞 3</span></div><div class="cmt-text"><p>回复 happier&amp;healthier: 是的</p></div></div>
+<div class="cmt"><div class="cmt-head"><span class="cmt-name">Stanley C</span><span class="cmt-region">重庆</span><span class="cmt-time">08-12 09:10</span><span class="cmt-like">赞 2</span></div><div class="cmt-text"><p>喵哥，请问盈透开通英国证交所，会直接CRS吗？</p></div></div>
+<div class="cmt is-author"><div class="cmt-head"><span class="cmt-name is-author">汤姆喵的奇妙旅行</span><span class="cmt-time">08-12 09:19</span><span class="cmt-like">赞 10</span></div><div class="cmt-text"><p>据我得到的消息，CRS 目前是去找券商端和银行端要数据的，所以盈透买英国证交所“应该”是不会触发 CRS 的。不过，监管在逐渐收紧，谁也说不好。而且，即使算上资本利得税，爱尔兰的 ETF 长期来看也是跑赢的</p></div></div>
+<div class="cmt"><div class="cmt-head"><span class="cmt-name">远山1203</span><span class="cmt-region">湖北</span><span class="cmt-time">08-12 12:00</span><span class="cmt-like">赞 1</span></div><div class="cmt-text"><p>纳100华安，招商等在天天上也限定10元？没有200，建信C也一样的</p></div></div>
+<div class="cmt is-author"><div class="cmt-head"><span class="cmt-name is-author">汤姆喵的奇妙旅行</span><span class="cmt-time">08-12 13:26</span><span class="cmt-like">赞 8</span></div><div class="cmt-text"><p>下载直销 APP，不要用支付宝和微众</p></div></div>
+<div class="cmt"><div class="cmt-head"><span class="cmt-name">小白真相大白</span><span class="cmt-region">广东</span><span class="cmt-time">08-12 09:36</span><span class="cmt-like">赞 4</span></div><div class="cmt-text"><p>没有盈透，请问还有什么渠道可以买爱尔兰注册的 UCITS ETF？[抱拳]</p></div></div>
+<div class="cmt is-author"><div class="cmt-head"><span class="cmt-name is-author">汤姆喵的奇妙旅行</span><span class="cmt-time">08-12 09:49</span><span class="cmt-like">赞 8</span></div><div class="cmt-text"><p>嘉信肯定也可以</p></div></div>
+<div class="cmt"><div class="cmt-head"><span class="cmt-name">AK47</span><span class="cmt-region">广东</span><span class="cmt-time">08-12 10:09</span><span class="cmt-like">赞 2</span></div><div class="cmt-text"><p>在港股买跟踪标普和纳指的 ETF 怎么样？没怎么看到去港股买纳斯达克和标普 ETF 的。</p></div></div>
+<div class="cmt is-author"><div class="cmt-head"><span class="cmt-name is-author">汤姆喵的奇妙旅行</span><span class="cmt-time">08-12 10:55</span><span class="cmt-like">赞 7</span></div><div class="cmt-text"><p>有香港券商的能力代表有外汇，有外汇选择爱尔兰注册的 ETF 是最好的选择。除非对于港元和港资配置有需求</p></div></div>
+      </div>
+    </section>
+<nav class="pager-bar is-bottom"><a class="pg pg-prev" href="tangmumiao-2026-08-03.html"><span class="pg-lbl">← 上一篇</span><span class="pg-title">改变一生的决定，为什么我不能重仓宽指</span><span class="pg-date">2026-08-03</span></a><a class="pg pg-next" href="tangmumiao-2026-08-16.html"><span class="pg-lbl">下一篇 →</span><span class="pg-title">父母之爱子则为之计深远：我给我家宝宝建了一个终身账户</span><span class="pg-date">2026-08-16</span></a></nav>
+    <div class="post-foot"><a href="tangmumiao.html">← 返回汤姆喵的奇妙旅行文章列表</a><span>9 / 63</span></div>
+  </article>
+</div>
+  <button class="toc-fab" id="tocBtn" aria-label="打开目录"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="17" x2="14" y2="17"/></svg>目录</button>
+  <div class="toc-mask" id="tocMask"></div>
+  <aside class="toc-panel" id="tocPanel" aria-hidden="true">
+    <div class="toc-head"><h3>目录 <em>《汤姆喵的奇妙旅行》63 篇</em></h3><button class="toc-close" id="tocClose" aria-label="关闭">✕</button></div>
+    <div class="toc-search-wrap"><input class="toc-search" id="tocSearch" type="search" placeholder="搜索标题或日期，如：英伟达 / 10-22"></div>
+    <div class="toc-body" id="tocBody"></div>
+    <div class="toc-foot"><span>共 63 篇</span><a href="all.html">全部文章 ↗</a></div>
+  </aside>
+  <script id="tocData" type="text/plain" data-ch="tangmumiao" data-cur="tangmumiao-2026-08-12.html">2026
+09-30|金渐成文章全集（实时版）正式上线|
+09-11|37岁，终于明白了亏欠才是人生的常态|
+09-10|我 2 岁的宝宝，正用她 16W 的压岁钱，“帮”中美化债|
+09-04|10 块就能购买顶级 .com 域名，续费还是 10 块|
+08-31|宽指购买补充：没有最好的方案，只有更适合的方案|
+08-27|明明已经不追求绩效了，为什么工作还是这么累？|
+08-22|惭愧，我就是玑哥文章里提到的当事人|
+08-16|父母之爱子则为之计深远：我给我家宝宝建了一个终身账户|
+08-12|重仓宽基，没那么容易：一份能真正执行的宽指配置说明书|
+08-03|改变一生的决定，为什么我不能重仓宽指|
+07-27|从融资满仓到30%仓位，我究竟想明白了什么|
+07-06|成为十年的朋友～|
+07-03|写在阿里全面禁用 Claude Code 之际，A / 终将反噬其身|
+06-26|如果挖金子赚不到钱，为什么还要买铲子？|
+04-26|投资体系构建：现金流，一切的起点，也是一切的终点|
+04-25|投资体系构建：从祈求自由，到走向自由|
+04-24|我只知道有消失的评论，我没想到有3条之多|
+04-23|嘘，机哥那些消失的评论被我搞到了～|
+04-14|史诗级更新！金渐成数字分身迎来终极完全体版本|
+04-06|读书笔记《富爸爸穷爸爸》里最重要的三个财富真相|
+04-02|不用翻墙了，机哥AI分身迎来人人能用的版本！|
+03-31|机哥怒了，可真正宝贵的从来不是加仓节点|
+03-29|给生产队的驴累吐了，金渐成AI分身终于成了！|
+03-26|简单高效，怎么看机哥被盾的文章|
+03-23|hi，我是汤姆喵，欢迎各位机友～|
+03-14|告别Token焦虑！这套“白嫖”Claude Code组合拳，让架构师重获代码掌控力|
+02-26|从巴菲特/金渐成看做T的时机选择|
+02-23|如果你会写React，其实已经掌握了70%的LangChain开发|
+02-11|术法势道：以金渐成为例，构建个人投资体系的四层结构|
+02-02|第一次破坏纪律&反思——附带理智人纪律执行手册|
+02-01|成为AI Agent全栈开发系列——开篇|
+01-21|学金渐成做仓位管理：真正的核心是管控现金流|
+01-20|第二次纪律操作和大跌预演|
+01-15|\[干货\] 宽指ETF定投 + 逢低加仓策略|
+01-13|第一次纪律操作|
+01-09|有些亏损，早在下单前就已经确定了——在决定出手之前，别忽略了一件更重要的事|
+01-08|港股打新真香：我靠它在2025年把投资亏损全部打回来了|
+2025
+12-31|2025年，这一年我给自己打3.75|
+12-28|我把这一年的AI聊天记录，让AI做人生总结，发现AI是最了解我的那个人|
+12-27|2025年我悟到的10个人生Tips|
+12-25|面对浮亏，我是怎么走过Q4下跌期的|
+12-07|35岁才明白：跟谁混，决定了你能赚多少钱|
+12-06|成为AI研发工程师之路|
+11-17|“贪婪”价值投资者的6个信条|
+11-08|阿里程序员眼中的AI世界|
+11-04|市场不言峰底，智者不判涨跌|
+10-30|投资是场奇妙修行|
+10-25|揭开世界的帷幕|
+08-13|亏也难受，赚也难受|
+08-04|突破纪律的首月|
+07-24|美股/港股/A股？该怎么选择交易市场|
+07-23|震荡周期下加仓的复盘|
+07-22|“干货”！怎么建仓/加仓/减仓|
+07-21|美国盈透证券免资本利得税？我建议你好好想想|
+07-19|公司认知+价值判断+操作策略：投资的黄金三角|
+07-18|仓位管理和情景预演才是情绪管理的最佳良药|
+07-16|克服投资中人性的弱点|
+07-10|投资的诀窍|
+07-07|投资美股/港股，税到底是怎么算的，如何合理避税|
+07-04|暴涨了19%之后，恒生低波红利还能买吗|
+07-02|什么样的投资配置才是好的配置|
+06-30|靠理财能实现阶级跃迁吗|
+06-29|从零开始理财&学习理财|</script>
+</main>
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div>
+      <div class="footer-links">
+        <a href="all.html">公众号文章</a>
+        <a href="topics.html">文章主题</a>
+        <a href="notes.html">学习笔记</a>
+        <a href="timeline.html">投资时间线</a>
+        <a href="about.html">关于</a>
+      </div>
+      <p class="disclaimer" style="margin-top:1rem">本站为个人阅读存档，收录金渐成 / 天机奇谈公开发表的公众号文章，便于按主题与时间线连续阅读。<br>内容仅供参考，<strong>不构成任何投资建议</strong>。投资有风险，决策需谨慎。</p>
+    </div>
+    <div>共 906 篇文章 · 静态存档<br><span style="opacity:.7">生成于 2026-10-24</span></div>
+  </div>
+</footer>
+<script>
+/* 金渐成文章整理 —— 交互脚本 */
+(function () {
+  'use strict';
+
+  /* ---- 主题切换 ---- */
+  var root = document.documentElement;
+  var saved = null;
+  try { saved = localStorage.getItem('jjc-theme'); } catch (e) {}
+  if (saved) root.setAttribute('data-theme', saved);
+
+  function currentIsDark() {
+    var t = root.getAttribute('data-theme');
+    if (t === 'dark') return true;
+    if (t === 'light') return false;
+    return window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+  }
+
+  var themeBtn = document.getElementById('themeBtn');
+  if (themeBtn) {
+    themeBtn.addEventListener('click', function () {
+      var next = currentIsDark() ? 'light' : 'dark';
+      root.setAttribute('data-theme', next);
+      try { localStorage.setItem('jjc-theme', next); } catch (e) {}
+    });
+  }
+
+  /* ---- 移动端菜单 ---- */
+  var menuBtn = document.getElementById('menuBtn');
+  var nav = document.getElementById('nav');
+  if (menuBtn && nav) {
+    menuBtn.addEventListener('click', function (e) {
+      e.stopPropagation();
+      nav.classList.toggle('open');
+    });
+    document.addEventListener('click', function (e) {
+      if (nav.classList.contains('open') && !nav.contains(e.target)) nav.classList.remove('open');
+    });
+  }
+
+  /* ---- 列表搜索 / 分栏筛选 ---- */
+  var q = document.getElementById('q');
+  var list = document.getElementById('list');
+  var empty = document.getElementById('empty');
+  if (q && list) {
+    var rows = Array.prototype.slice.call(list.querySelectorAll('.row'));
+    var channel = 'all';
+    var chips = Array.prototype.slice.call(document.querySelectorAll('.chip[data-ch]'));
+
+    function apply() {
+      var kw = (q.value || '').trim().toLowerCase();
+      var shown = 0;
+      var yearHeads = Array.prototype.slice.call(list.querySelectorAll('.year-head'));
+      rows.forEach(function (r) {
+        var hay = r.textContent.toLowerCase();
+        var okKw = !kw || hay.indexOf(kw) !== -1;
+        var okCh = channel === 'all' || r.getAttribute('data-ch') === channel;
+        var ok = okKw && okCh;
+        r.style.display = ok ? '' : 'none';
+        if (ok) shown++;
+      });
+      // 年份标题在筛选时整体隐藏，避免出现空年份
+      yearHeads.forEach(function (h) { h.style.display = (kw || channel !== 'all') ? 'none' : ''; });
+      if (empty) empty.style.display = shown === 0 ? '' : 'none';
+    }
+
+    q.addEventListener('input', apply);
+    chips.forEach(function (c) {
+      c.addEventListener('click', function () {
+        chips.forEach(function (x) { x.classList.remove('on'); });
+        c.classList.add('on');
+        channel = c.getAttribute('data-ch');
+        apply();
+      });
+    });
+  }
+
+  /* ---- 目录抽屉 ---- */
+  var tocData = document.getElementById('tocData');
+  var tocBtn = document.getElementById('tocBtn');
+  var tocPanel = document.getElementById('tocPanel');
+  var tocMask = document.getElementById('tocMask');
+  var tocClose = document.getElementById('tocClose');
+  var tocBody = document.getElementById('tocBody');
+  var tocSearch = document.getElementById('tocSearch');
+
+  if (tocData && tocBtn && tocPanel && tocBody) {
+    var channel = tocData.getAttribute('data-ch') || '';
+    var cur = tocData.getAttribute('data-cur') || '';
+    var raw = (tocData.textContent || '').trim();
+
+    // 解析紧凑数据：年份单独成行，其余为「MM-DD|标题|后缀」
+    var years = [];
+    var curYear = null;
+    raw.split('\n').forEach(function (line) {
+      line = line.replace(/\r$/, '');
+      if (!line) return;
+      if (/^\d{4}$/.test(line)) {
+        curYear = { year: line, items: [] };
+        years.push(curYear);
+        return;
+      }
+      var parts = line.split('|');
+      if (!curYear || parts.length < 2) return;
+      var md = parts[0];
+      var title = parts[1];
+      var suffix = parts[2] || '';
+      var file = channel + '-' + curYear.year + '-' + md + (suffix ? '-' + suffix : '') + '.html';
+      curYear.items.push({ date: md, title: title, url: file });
+    });
+
+    // 渲染
+    var frag = document.createDocumentFragment();
+    years.forEach(function (g) {
+      var wrap = document.createElement('div');
+      wrap.className = 'toc-year';
+      var btn = document.createElement('button');
+      btn.className = 'toc-y-btn';
+      btn.innerHTML = g.year + '<span>' + g.items.length + ' 篇</span>';
+      var box = document.createElement('div');
+      box.className = 'toc-items';
+
+      g.items.forEach(function (it) {
+        var a = document.createElement('a');
+        a.className = 'toc-item';
+        a.href = it.url;
+        a.setAttribute('data-hay', (it.date + ' ' + it.title).toLowerCase());
+        if (it.url === cur) a.classList.add('is-cur');
+        var d = document.createElement('span');
+        d.className = 'ti-date';
+        d.textContent = it.date;
+        var t = document.createElement('span');
+        t.className = 'ti-title';
+        t.textContent = it.title;
+        a.appendChild(d);
+        a.appendChild(t);
+        box.appendChild(a);
+      });
+
+      btn.addEventListener('click', function () { wrap.classList.toggle('open'); });
+      wrap.appendChild(btn);
+      wrap.appendChild(box);
+      frag.appendChild(wrap);
+    });
+
+    var none = document.createElement('div');
+    none.className = 'toc-none';
+    none.textContent = '没有找到匹配的文章';
+    none.style.display = 'none';
+    frag.appendChild(none);
+    tocBody.appendChild(frag);
+
+    // 定位当前文章：默认展开它所在的年份
+    var curItem = tocBody.querySelector('.toc-item.is-cur');
+    if (curItem) {
+      var y = curItem.closest('.toc-year');
+      if (y) y.classList.add('open');
+    } else if (years.length) {
+      tocBody.querySelector('.toc-year').classList.add('open');
+    }
+
+    function openToc() {
+      tocPanel.classList.add('on');
+      tocMask.classList.add('on');
+      tocPanel.setAttribute('aria-hidden', 'false');
+      document.body.classList.add('toc-open');
+      if (curItem) {
+        window.setTimeout(function () {
+          try { curItem.scrollIntoView({ block: 'center' }); } catch (e) { }
+        }, 260);
+      } else if (tocSearch) {
+        tocSearch.focus();
+      }
+    }
+    function closeToc() {
+      tocPanel.classList.remove('on');
+      tocMask.classList.remove('on');
+      tocPanel.setAttribute('aria-hidden', 'true');
+      document.body.classList.remove('toc-open');
+    }
+
+    tocBtn.addEventListener('click', openToc);
+    if (tocClose) tocClose.addEventListener('click', closeToc);
+    if (tocMask) tocMask.addEventListener('click', closeToc);
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && tocPanel.classList.contains('on')) closeToc();
+    });
+
+    // 搜索：命中即展开全部年份
+    if (tocSearch) {
+      tocSearch.addEventListener('input', function () {
+        var kw = tocSearch.value.trim().toLowerCase();
+        var shown = 0;
+        Array.prototype.forEach.call(tocBody.querySelectorAll('.toc-year'), function (g) {
+          var hit = 0;
+          Array.prototype.forEach.call(g.querySelectorAll('.toc-item'), function (a) {
+            var ok = !kw || (a.getAttribute('data-hay') || '').indexOf(kw) !== -1;
+            a.style.display = ok ? '' : 'none';
+            if (ok) hit++;
+          });
+          g.style.display = hit ? '' : 'none';
+          if (kw) { if (hit) g.classList.add('open'); }
+          else { g.classList.remove('open'); }
+          shown += hit;
+        });
+        none.style.display = shown ? 'none' : '';
+        if (!kw && curItem) {
+          var y2 = curItem.closest('.toc-year');
+          if (y2) y2.classList.add('open');
+        }
+      });
+    }
+  }
+})();
+
+</script>
+</body>
+</html>
