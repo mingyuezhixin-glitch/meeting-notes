@@ -507,12 +507,38 @@ body.toc-open { overflow: hidden; }
 
 .cmt-list { display: flex; flex-direction: column; gap: .55rem; }
 .cmt {
+  display: flex; align-items: flex-start; gap: .7rem;
   background: var(--surface);
   border: 1px solid var(--line);
   border-radius: var(--radius-sm);
   padding: .85rem 1.05rem;
   transition: border-color .15s, background .15s;
 }
+.cmt-main { flex: 1 1 auto; min-width: 0; }
+
+/* 头像：首字 + 按名字派生的稳定配色 */
+.cmt-av {
+  flex: 0 0 auto; width: 2.1rem; height: 2.1rem; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-size: .92rem; font-weight: 750; line-height: 1;
+  color: #fff; letter-spacing: 0;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, .28), 0 1px 3px rgba(0, 0, 0, .12);
+  user-select: none; margin-top: .1rem;
+}
+.cmt-av.is-author {
+  background: linear-gradient(140deg, var(--accent-2), var(--accent));
+  box-shadow: 0 3px 10px -3px var(--accent-line), inset 0 1px 0 rgba(255,255,255,.3);
+  font-size: 1rem;
+}
+.cmt-av.av-0 { background: linear-gradient(140deg, #7d8b9c, #5b6a7d); }
+.cmt-av.av-1 { background: linear-gradient(140deg, #b07a5a, #8d5c40); }
+.cmt-av.av-2 { background: linear-gradient(140deg, #6f8f7a, #4e6d59); }
+.cmt-av.av-3 { background: linear-gradient(140deg, #8a7a9e, #6a5b7e); }
+.cmt-av.av-4 { background: linear-gradient(140deg, #a3776a, #7d564c); }
+.cmt-av.av-5 { background: linear-gradient(140deg, #6d8ba3, #506b80); }
+.cmt-av.av-6 { background: linear-gradient(140deg, #9a8a62, #776a47); }
+.cmt-av.av-7 { background: linear-gradient(140deg, #7e7d8f, #5d5c6d); }
+
 .cmt:hover { border-color: var(--accent-line); }
 .cmt.is-author {
   background: color-mix(in srgb, var(--accent) 4%, var(--surface));
@@ -522,7 +548,7 @@ body.toc-open { overflow: hidden; }
   display: flex; align-items: center; flex-wrap: wrap; gap: .5rem;
   font-size: .8rem; margin-bottom: .4rem;
 }
-.cmt-name { font-weight: 700; color: var(--fg-2); }
+.cmt-name { font-weight: 750; color: var(--fg); font-size: .86rem; letter-spacing: -.005em; }
 .cmt-name.is-author { color: var(--accent); }
 .cmt-name.is-author::after {
   content: "作者"; margin-left: .35rem; font-size: .64rem; font-weight: 700;
